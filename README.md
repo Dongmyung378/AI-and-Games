@@ -107,21 +107,18 @@ python3 Hex.py \
 ├── docs/
 │   ├── architecture.md      System and algorithm design
 │   ├── experiments.md       Comparison method and result gallery
-│   ├── references.md        External research sources
-│   └── publication-checklist.md
-└── NOTICE.md                Ownership and reuse notice
+│   └── references.md        External research sources
+└── .github/workflows/       Automated test workflow
 ```
 
 ## Documentation
 
-- [Documentation index](docs/README.md)
 - [Architecture](docs/architecture.md) / [아키텍처](docs/architecture.ko.md)
 - [Experiments and evidence](docs/experiments.md) / [실험 및 근거](docs/experiments.ko.md)
 - [Research references](docs/references.md)
-- [Publication checklist](docs/publication-checklist.md)
 - [Python research environment](engine/README.md) / [한국어](engine/README.ko.md)
 - [Docker and final agent](deployment/README.md) / [한국어](deployment/README.ko.md)
 
 ## Scope and attribution
 
-The supplied Hex referee and team-owned framework are not presented as individual work. Third-party papers are cited by link instead of being redistributed. Portfolio claims are limited to what is supported by the code, tests, structured match metadata, and recorded screenshots. See [NOTICE](NOTICE.md) before reusing project material.
+The supplied Hex referee and team-owned framework are not presented as individual work. Third-party papers are cited by link instead of being redistributed. Portfolio claims are limited to what is supported by the code, tests, structured match metadata, and recorded screenshots.

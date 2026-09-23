@@ -1,6 +1,6 @@
 # Research References
 
-[Documentation](README.md) | [Portfolio home](../README.md)
+[Portfolio home](../README.md)
 
 Third-party papers are linked rather than redistributed in this repository.
 

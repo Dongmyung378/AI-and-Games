@@ -1,6 +1,6 @@
 # Architecture
 
-[한국어](architecture.ko.md) | **English** | [Documentation](README.md)
+[한국어](architecture.ko.md) | **English** | [Portfolio home](../README.md)
 
 ## Design goal
 

@@ -107,21 +107,18 @@ python3 Hex.py \
 ├── docs/
 │   ├── architecture.md      시스템 및 알고리즘 설계
 │   ├── experiments.md       비교 방식과 결과 갤러리
-│   ├── references.md        외부 연구 자료
-│   └── publication-checklist.md
-└── NOTICE.md                소유권 및 재사용 안내
+│   └── references.md        외부 연구 자료
+└── .github/workflows/       자동 테스트 워크플로
 ```
 
 ## 문서
 
-- [문서 인덱스](docs/README.ko.md)
 - [아키텍처](docs/architecture.ko.md) / [English](docs/architecture.md)
 - [실험 및 근거](docs/experiments.ko.md) / [English](docs/experiments.md)
 - [연구 참고문헌](docs/references.md)
-- [공개 전 체크리스트](docs/publication-checklist.md)
 - [Python 연구 환경](engine/README.ko.md) / [English](engine/README.md)
 - [Docker 및 최종 에이전트](deployment/README.ko.md) / [English](deployment/README.md)
 
 ## 범위와 출처
 
-제공된 Hex 심판과 팀 소유 프레임워크는 개인 창작물로 제시하지 않습니다. 제3자 논문은 저장소에 재배포하지 않고 링크로 인용합니다. 포트폴리오 설명은 코드, 테스트, 구조화된 경기 메타데이터, 기록 스크린샷이 뒷받침하는 범위로 한정했습니다. 재사용 전 [NOTICE](NOTICE.md)를 확인하세요.
+제공된 Hex 심판과 팀 소유 프레임워크는 개인 창작물로 제시하지 않습니다. 제3자 논문은 저장소에 재배포하지 않고 링크로 인용합니다. 포트폴리오 설명은 코드, 테스트, 구조화된 경기 메타데이터, 기록 스크린샷이 뒷받침하는 범위로 한정했습니다.

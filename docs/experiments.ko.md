@@ -1,6 +1,6 @@
 # 실험 및 근거
 
-**한국어** | [English](experiments.md) | [문서](README.ko.md)
+**한국어** | [English](experiments.md) | [포트폴리오 홈](../README.ko.md)
 
 ## 질문
 

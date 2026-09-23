@@ -1,6 +1,6 @@
 # 아키텍처
 
-**한국어** | [English](architecture.md) | [문서](README.ko.md)
+**한국어** | [English](architecture.md) | [포트폴리오 홈](../README.ko.md)
 
 ## 설계 목표
 
