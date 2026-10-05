@@ -1,4 +1,7 @@
-from subprocess import PIPE, Popen
+"""Python referee adapter for the fixed-size Linux C++ agent."""
+
+from pathlib import Path
+from subprocess import PIPE, Popen, TimeoutExpired
 
 from src.AgentBase import AgentBase
 from src.Board import Board
@@ -7,79 +10,65 @@ from src.Move import Move
 
 
 class RAVE_TS(AgentBase):
+    """Keep the native process's role synchronized with the referee's pie rule."""
+
+    fixed_board_size = 11
+
     def __deepcopy__(self, memo):
         return self
-    
-    """This class describes the default Hex agent. It will randomly send a
-    valid move at each turn, and it will choose to swap with a 50% chance.
-
-    The class inherits from AgentBase, which is an abstract class.
-    The AgentBase contains the colour property which you can use to get the agent's colour.
-    You must implement the make_move method to make the agent functional.
-    You CANNOT modify the AgentBase class, otherwise your agent might not function.
-    """
 
     def __init__(self, colour: Colour):
         super().__init__(colour)
-        # spawn a process that calls a compiled java NaiveAgent.class file and passes two arguments:
-        # - "R" or "B" to tell the agent which colour it is
-        # - 11, which is the size of the board
-        
-        executable_path = "agents/Group026/RAVE_TS"
-        
+        executable = Path(__file__).with_name("RAVE_TS")
         self.agent_process = Popen(
-            [executable_path, colour.get_char(), "11"],
+            [str(executable), colour.get_char(), str(self.fixed_board_size)],
             stdout=PIPE,
             stdin=PIPE,
             text=True,
         )
 
     def make_move(self, turn: int, board: Board, opp_move: Move | None) -> Move:
-        """The game engine will call this method to request a move from the agent.
-        If the agent is to make the first move, opp_move will be None.
-        If the opponent has made a move, opp_move will contain the opponent's move.
-        If the opponent has made a swap move, opp_move will contain a Move object with x=-1 and y=-1,
-        the game engine will also change your colour to the opponent colour.
-
-        Args:
-            turn (int): The current turn
-            board (Board): The current board state
-            opp_move (Move | None): The opponent's last move
-
-        Returns:
-            Move: The agent's move
-        """
-        # translate the python objects into string representations
-        rows = board.tiles
-        board_strings = []
-        for row in rows:
-            row_string = ""
-            for tile in row:
-                colour = tile.colour
-                if colour is None:
-                    t = "0"
-                else:
-                    t = colour.get_char()
-                row_string += t
-            board_strings.append(row_string)
-        board_string = ",".join(board_strings)
-
+        if board.size != self.fixed_board_size:
+            raise ValueError("The native RAVE-TS agent supports only 11x11 boards.")
+        rows = ",".join(
+            "".join("0" if tile.colour is None else tile.colour.get_char() for tile in row)
+            for row in board.tiles
+        )
         if opp_move is None:
-            # should be turn 1
-            command = f"START;;{board_string};{turn};"
-        # [--- FIX: is_swap() 대신 속성 값 직접 확인 ---]
-        elif opp_move.x == -1 and opp_move.y == -1: 
-            command = f"SWAP;;{board_string};{turn};"
-        # [--- END FIX ---]
+            command, opponent = "START", ""
+        elif opp_move.x == -1 and opp_move.y == -1:
+            command, opponent = "SWAP", ""
         else:
-            command = f"CHANGE;{opp_move.x},{opp_move.y};{board_string};{turn};"
+            command, opponent = "CHANGE", f"{opp_move.x},{opp_move.y}"
 
-        # send the command to the agent process and get response
-        self.agent_process.stdin.write(command + "\n")
-        self.agent_process.stdin.flush()
+        # Both participants change colour after a swap. The initiator next receives
+        # CHANGE, not SWAP, so every request must carry the current referee colour.
+        message = f"V2;{self.colour.get_char()};{board.size};{command};{opponent};{rows};{turn}\n"
+        try:
+            self.agent_process.stdin.write(message)
+            self.agent_process.stdin.flush()
+            response = self.agent_process.stdout.readline().strip()
+        except (BrokenPipeError, OSError) as exc:
+            raise RuntimeError("The native Hex process stopped; rebuild it for protocol V2.") from exc
+        try:
+            x, y = map(int, response.split(","))
+        except ValueError as exc:
+            raise RuntimeError("The native Hex process returned no valid move; check its error output.") from exc
+        if (x, y) != (-1, -1) and not (0 <= x < board.size and 0 <= y < board.size):
+            raise RuntimeError(f"The native Hex process returned an out-of-board move: {x},{y}.")
+        return Move(x, y)
 
-        response = self.agent_process.stdout.readline().rstrip()
-
-        # assuming the response takes the form "x,y" with -1,-1 if the agent wants to make a swap move
-        x, y = response.split(",")
-        return Move(int(x), int(y))
+    def close(self):
+        if self.agent_process.stdin and not self.agent_process.stdin.closed:
+            try:
+                self.agent_process.stdin.close()
+            except (BrokenPipeError, OSError):
+                pass
+        try:
+            self.agent_process.wait(timeout=1)
+        except TimeoutExpired:
+            self.agent_process.kill()
+            self.agent_process.wait(timeout=1)
+        finally:
+            if self.agent_process.stdout:
+                self.agent_process.stdout.close()

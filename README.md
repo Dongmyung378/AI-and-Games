@@ -79,29 +79,31 @@ cd engine
 python -m unittest discover -s test -v
 ```
 
-The optimized executable targets Linux. Build and run its reproducible environment from [`deployment/`](deployment/README.md):
+The optimized native agent supports **11 x 11 boards on Linux x86_64** (including x86_64 WSL). Its prebuilt executable needs Python 3.10+ and no Python packages. See [`deployment/`](deployment/README.md) for direct execution, rebuilding, and protocol regression tests. The Python research agents above support other board sizes.
+
+To use the preserved coursework container instead:
 
 ```bash
 cd deployment
-docker build --build-arg UID="$(id -u)" -t hex-ai .
-docker run --cpus=8 --memory=8g -v "$(pwd):/home/hex" --rm -it hex-ai /bin/bash
+docker build --platform linux/amd64 --build-arg UID="$(id -u)" -t hex-ai .
+docker run --platform linux/amd64 --cpus=8 --memory=8g -v "$(pwd):/home/hex" --rm -it hex-ai /bin/bash
 ```
 
 Inside the container:
 
 ```bash
 chmod +x agents/Group026/RAVE_TS
-python3 Hex.py \
-  -p1 "agents.Group026.RAVE_TS RAVE_TS" \
-  -p2 "agents.Group026.RAVE_TS RAVE_TS"
+python3 Hex.py -l game.log
 ```
+
+This runs a fresh native self-play match and saves its move history. Historical screenshots and internal tournament conclusions are documented separately; the original external opponents and aggregate tournament data are not bundled.
 
 ## Repository guide
 
 ```text
 .
 ├── engine/                  Python game engine and research agents
-├── deployment/              Reproducible Linux image and final C++ agent
+├── deployment/              Linux runtime and final C++ agent
 ├── assets/
 │   └── results/             Screenshots and structured match metadata
 ├── docs/

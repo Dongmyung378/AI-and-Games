@@ -16,7 +16,7 @@ sequenceDiagram
     participant Workers as 8 search workers
 
     Referee->>Adapter: turn, board, opponent move
-    Adapter->>Agent: START / CHANGE / SWAP message
+    Adapter->>Agent: V2 current colour, board, command, turn
     Agent->>Workers: copied root board + time budget
     Workers->>Workers: select, expand, simulate, backpropagate
     Workers-->>Agent: root child visits and wins
@@ -71,6 +71,16 @@ Eight independent root workers run with `std::async`. Each worker owns its tree 
 - an immediate tactical scan plays a winning move or blocks a one-move loss;
 - the second player applies a hex-distance rule to decide whether to use the pie rule;
 - early turns receive a fixed budget, while later moves use a capped fraction of remaining time.
+
+### Referee/native state contract
+
+The native engine is fixed at 11 x 11. The deployment CLI checks this capability before creating either process; other board sizes remain available through the Python research engine.
+
+Each adapter request is `V2;colour;11;command;opponent;board;turn`. It includes the **current referee colour** on every turn. A pie swap changes both participants' colours: the recipient sees `SWAP`, whereas the initiator next sees `CHANGE`. Updating colour only when the command is `SWAP` would therefore leave one participant searching for the wrong side.
+
+The production `parse_request` function validates the version, colour, dimensions, command, opponent coordinates, board cells, and turn. `apply_request` synchronizes `Agent::my_colour` and reconstructs the board before `get_best_move` enters its tactical checks or workers. Both role traces are exercised by the actual referee and adapter in [`test_native_adapter.py`](../deployment/test/test_native_adapter.py), with their serialized messages fed to the actual C++ parser through [`native_protocol.cpp`](../deployment/test/native_protocol.cpp). The Linux smoke check additionally runs the shipped executable through an opening swap and the next tactical move.
+
+This protocol correction changes state synchronization, not the selection policy or search-time budget. Native source, adapter, and compiled artifact use V2 together; old messages are rejected explicitly. See the [deployment instructions](../deployment/README.md) for the full format and rebuild command.
 
 ## Game and evaluation layer
 

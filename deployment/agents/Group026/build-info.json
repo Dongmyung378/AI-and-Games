@@ -1,0 +1,17 @@
+{
+  "protocol": "V2",
+  "compiler": "Zig 0.15.2 (zig c++)",
+  "target": "x86_64-linux-musl",
+  "executable_format": "ELF64 x86_64",
+  "linkage": "static",
+  "stripped": true,
+  "supported_board_size": 11,
+  "source": "RAVE_TS.cpp",
+  "source_sha256": "3bcf831944b86847b2384ab4d85e451bf12e7890b3a17492e8ed617266287244",
+  "source_hash_normalization": "UTF-8; CRLF and CR normalized to LF",
+  "artifact": "RAVE_TS",
+  "artifact_sha256": "9d5c8df9f7edef95b9ebda255064dc0e09cccb238fbc4db12b0d4f007630b092",
+  "artifact_bytes": 695632,
+  "build_working_directory": "deployment",
+  "build_command": "zig c++ -target x86_64-linux-musl -std=c++17 -O3 -pthread -static -s agents/Group026/RAVE_TS.cpp -o agents/Group026/RAVE_TS"
+}

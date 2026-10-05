@@ -79,29 +79,31 @@ cd engine
 python -m unittest discover -s test -v
 ```
 
-최적화 실행 파일은 Linux를 대상으로 합니다. [`deployment/`](deployment/README.ko.md)에서 재현 환경을 빌드할 수 있습니다.
+최적화된 네이티브 에이전트는 **Linux x86_64의 11 x 11 보드**를 지원합니다(x86_64 WSL 포함). 제공된 실행 파일은 Python 3.10 이상으로 실행하며 별도 Python 패키지가 필요하지 않습니다. 직접 실행, 재빌드, 프로토콜 회귀 테스트는 [`deployment/`](deployment/README.ko.md)에 정리했습니다. 위의 Python 연구 에이전트는 다른 보드 크기도 지원합니다.
+
+보존한 과제용 컨테이너를 사용하려면 다음과 같이 실행합니다.
 
 ```bash
 cd deployment
-docker build --build-arg UID="$(id -u)" -t hex-ai .
-docker run --cpus=8 --memory=8g -v "$(pwd):/home/hex" --rm -it hex-ai /bin/bash
+docker build --platform linux/amd64 --build-arg UID="$(id -u)" -t hex-ai .
+docker run --platform linux/amd64 --cpus=8 --memory=8g -v "$(pwd):/home/hex" --rm -it hex-ai /bin/bash
 ```
 
 컨테이너 내부:
 
 ```bash
 chmod +x agents/Group026/RAVE_TS
-python3 Hex.py \
-  -p1 "agents.Group026.RAVE_TS RAVE_TS" \
-  -p2 "agents.Group026.RAVE_TS RAVE_TS"
+python3 Hex.py -l game.log
 ```
+
+현재 코드로 새 네이티브 셀프플레이 경기를 실행하고 수 기록을 저장합니다. 과거 스크린샷과 내부 토너먼트 결론은 별도로 설명하며, 당시 외부 상대 에이전트와 전체 토너먼트 원본 데이터는 포함하지 않습니다.
 
 ## 저장소 구조
 
 ```text
 .
 ├── engine/                  Python 게임 엔진과 연구 에이전트
-├── deployment/              재현 가능한 Linux 이미지와 최종 C++ 에이전트
+├── deployment/              Linux 실행 환경과 최종 C++ 에이전트
 ├── assets/
 │   └── results/             경기 스크린샷과 구조화된 메타데이터
 ├── docs/

@@ -16,7 +16,7 @@ sequenceDiagram
     participant Workers as 8개 탐색 워커
 
     Referee->>Adapter: 턴, 보드, 상대의 수
-    Adapter->>Agent: START / CHANGE / SWAP 메시지
+    Adapter->>Agent: V2 현재 색, 보드, 명령, 턴
     Agent->>Workers: 복제한 루트 보드 + 시간 예산
     Workers->>Workers: 선택, 확장, 시뮬레이션, 역전파
     Workers-->>Agent: 루트 자식의 방문·승리 통계
@@ -71,6 +71,16 @@ sequenceDiagram
 - 즉시 이길 수를 두거나 한 수 뒤의 패배를 차단합니다.
 - 후공일 때 hex distance 규칙으로 파이 룰 사용 여부를 결정합니다.
 - 초반에는 고정 시간, 이후에는 남은 시간의 일정 비율을 상한과 함께 사용합니다.
+
+### 심판과 네이티브의 상태 계약
+
+네이티브 엔진은 11 x 11로 고정되어 있습니다. 배포 CLI는 두 프로세스를 생성하기 전에 이 조건을 검사하며, 다른 보드 크기는 Python 연구 엔진에서 실험할 수 있습니다.
+
+어댑터 요청은 `V2;colour;11;command;opponent;board;turn` 형식이며 매 턴 **심판이 지정한 현재 색**을 포함합니다. 파이 룰은 두 플레이어의 색을 모두 바꿉니다. 스왑을 받은 쪽은 `SWAP` 메시지를 받지만, 스왑을 한 쪽의 다음 입력은 `CHANGE`입니다. `SWAP` 명령에서만 색을 갱신하면 한 플레이어가 잘못된 편을 기준으로 탐색하게 됩니다.
+
+운영 코드의 `parse_request`는 버전, 색, 크기, 명령, 상대 좌표, 보드 셀, 턴을 검사합니다. `apply_request`는 `Agent::my_colour`를 동기화하고 보드를 재구성한 뒤 `get_best_move`의 전술 검사와 탐색 워커를 실행합니다. [`test_native_adapter.py`](../deployment/test/test_native_adapter.py)는 실제 심판과 어댑터로 양쪽 역할 변경을 추적하고, 직렬화한 메시지를 [`native_protocol.cpp`](../deployment/test/native_protocol.cpp)의 실제 C++ 파서에 전달해 확인합니다. Linux 스모크 검사에서는 제공된 실행 파일의 오프닝 스왑과 다음 전술 수까지 실행합니다.
+
+이 수정은 상태 동기화를 바로잡으며 선택 정책과 탐색 시간 예산은 유지합니다. 네이티브 소스, 어댑터, 빌드된 실행 파일은 V2를 함께 사용하고 과거 메시지는 명시적으로 거부합니다. 전체 형식과 재빌드 명령은 [배포 안내](../deployment/README.ko.md)에 있습니다.
 
 ## 게임 및 평가 계층
 

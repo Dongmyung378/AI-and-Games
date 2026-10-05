@@ -14,6 +14,7 @@
 #include <map>     
 #include <deque>
 #include <memory_resource>
+#include <stdexcept>
 
 // ==========================================
 // 1. Constants & Enums
@@ -599,51 +600,93 @@ public:
     }
 };
 
-int main(int argc, char* argv[]) {
-    init_centrality();
-    if (argc < 2) return 1;
-    char col_char = argv[1][0];
-    Colour my_col = (col_char == 'R') ? RED : BLUE;
-    
-    Agent agent(my_col);
+struct NativeRequest {
+    Colour colour;
+    std::string board;
+    Point opponent;
+    int turn;
+};
 
-    std::string line;
-    while (std::getline(std::cin, line)) {
-        std::stringstream ss(line);
-        std::string segment;
-        std::vector<std::string> parts;
-        while(std::getline(ss, segment, ';')) parts.push_back(segment);
+int protocol_integer(const std::string& value) {
+    if (value.empty() || value.find_first_not_of("0123456789") != std::string::npos)
+        throw std::invalid_argument("Protocol integers must contain decimal digits.");
+    return std::stoi(value);
+}
 
-        if (parts.empty()) continue;
-        
-        Point opp_move = {-1, -1};
-        std::string command = parts[0];
-        if (command == "CHANGE") {
-            size_t comma = parts[1].find(',');
-            if (comma != std::string::npos) {
-                opp_move.x = std::stoi(parts[1].substr(0, comma));
-                opp_move.y = std::stoi(parts[1].substr(comma + 1));
-            }
-        }
-
-        std::string board_str = parts[2];
-        int row = 0, col = 0;
-        agent.root_board.reset();
-        for (char c : board_str) {
-            if (c == ',') continue;
-            if (c == 'R') agent.root_board.make_move(row, col, RED);
-            else if (c == 'B') agent.root_board.make_move(row, col, BLUE);
-            col++;
-            if (col >= BOARD_SIZE) { col = 0; row++; }
-        }
-        
-        int turn_num = std::stoi(parts[3]);
-        Point move = agent.get_best_move(turn_num, opp_move);
-        
-        if (move.x == -1 && move.y == -1) std::cout << "-1,-1" << std::endl;
-        else std::cout << move.x << "," << move.y << std::endl;
+NativeRequest parse_request(const std::string& line) {
+    std::string normalized = line;
+    if (!normalized.empty() && normalized.back() == '\r') normalized.pop_back();
+    std::stringstream stream(normalized);
+    std::string field;
+    std::vector<std::string> parts;
+    while (std::getline(stream, field, ';')) parts.push_back(field);
+    if (parts.size() != 7 || parts[0] != "V2")
+        throw std::invalid_argument("Expected protocol V2; rebuild both the adapter and native engine.");
+    if (parts[1] != "R" && parts[1] != "B")
+        throw std::invalid_argument("Current colour must be R or B.");
+    if (protocol_integer(parts[2]) != BOARD_SIZE)
+        throw std::invalid_argument("Native RAVE-TS supports only 11x11 boards.");
+    if (parts[3] != "START" && parts[3] != "CHANGE" && parts[3] != "SWAP")
+        throw std::invalid_argument("Unknown native command.");
+    Point opponent = {-1, -1};
+    if (parts[3] == "CHANGE") {
+        size_t comma = parts[4].find(',');
+        if (comma == std::string::npos)
+            throw std::invalid_argument("CHANGE requires opponent x,y.");
+        opponent = {protocol_integer(parts[4].substr(0, comma)),
+                    protocol_integer(parts[4].substr(comma + 1))};
+        if (!opponent.isValid()) throw std::invalid_argument("Opponent coordinate is outside the board.");
+    } else if (!parts[4].empty()) {
+        throw std::invalid_argument("START and SWAP require an empty opponent field.");
     }
-    return 0;
+    std::stringstream rows(parts[5]);
+    std::string row;
+    int count = 0;
+    while (std::getline(rows, row, ',')) {
+        if (row.size() != BOARD_SIZE || row.find_first_not_of("0RB") != std::string::npos)
+            throw std::invalid_argument("Each board row must contain eleven 0/R/B cells.");
+        ++count;
+    }
+    if (count != BOARD_SIZE || parts[5].back() == ',')
+        throw std::invalid_argument("Expected eleven board rows.");
+    int turn = protocol_integer(parts[6]);
+    if (turn < 1) throw std::invalid_argument("Turn must be positive.");
+    return {parts[1] == "R" ? RED : BLUE, parts[5], opponent, turn};
+}
+
+void apply_request(Agent& agent, const NativeRequest& request) {
+    // The swap initiator next receives CHANGE. Always apply explicit role state.
+    agent.my_colour = request.colour;
+    agent.root_board.reset();
+    int cell = 0;
+    for (char value : request.board) {
+        if (value == ',') continue;
+        if (value == 'R' || value == 'B')
+            agent.root_board.make_move(cell / BOARD_SIZE, cell % BOARD_SIZE, value == 'R' ? RED : BLUE);
+        ++cell;
+    }
+}
+
+int main(int argc, char* argv[]) {
+    try {
+        if (argc != 3 || (std::string(argv[1]) != "R" && std::string(argv[1]) != "B")
+            || protocol_integer(argv[2]) != BOARD_SIZE)
+            throw std::invalid_argument("Usage: RAVE_TS R|B 11 (native boards are fixed at 11x11).");
+        init_centrality();
+        Agent agent(std::string(argv[1]) == "R" ? RED : BLUE);
+        std::string line;
+        while (std::getline(std::cin, line)) {
+            if (line.empty()) continue;
+            NativeRequest request = parse_request(line);
+            apply_request(agent, request);
+            Point move = agent.get_best_move(request.turn, request.opponent);
+            std::cout << move.x << "," << move.y << std::endl;
+        }
+        return 0;
+    } catch (const std::exception& error) {
+        std::cerr << "Native Hex input error: " << error.what() << std::endl;
+        return 2;
+    }
 }
 
 

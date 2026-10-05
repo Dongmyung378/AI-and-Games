@@ -71,6 +71,12 @@ These changes target throughput and search quality simultaneously, so the curren
 - First-player and second-player results should not be compared without controlling the opening and the pie rule.
 - Historical notes describe larger self-play and internal tournament work, but the raw datasets are not included here.
 
+## Run new experiments with the maintained code
+
+The current adapter/native protocol carries the referee's current colour after a pie swap. Its regression checks cover both participants and the next native move; they establish state synchronization and execution behavior. They do not reproduce the historical matches or retrospectively change the screenshots' recorded results.
+
+For a new Python variant comparison, use the runnable matchup in the [research README](../engine/README.md). For a fresh 11 x 11 native self-play run, use `python3 Hex.py -l game.log` from `deployment/` after following the [Linux setup](../deployment/README.md). The log records move history and the final outcome. Preserve this log with the code revision, hardware, agent settings, and side assignments when reporting a new result. External Davis/HexHex executables and the original aggregate tournament CSV are not included, so those historical matchups cannot be reconstructed from this checkout alone.
+
 ## Recommended next evaluation
 
 For a portfolio-grade follow-up, run at least 100 paired games per matchup with alternating colours and fixed seed lists. Record agent commit, hardware, wall-clock time, simulations, move count, colour, swap decision, and outcome as CSV. Compare RAVE-TS against each baseline and publish Wilson confidence intervals together with simulations per second. Ablate parallelism, bridge saving, move ordering, and the swap heuristic one at a time.
