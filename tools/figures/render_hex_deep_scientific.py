@@ -204,7 +204,7 @@ def tactical_figure(inputs, section, language):
            tr(language, f"Equal {budget['iterations']:,} total iterations per move, {budget['workers']} workers, separate final seeds",
               f"한 수마다 전체 {budget['iterations']:,}회 탐색, 워커 {budget['workers']}개, 별도의 최종 평가 시드"), language)
     fig.text(.055, .89, tr(language, "The plotted score belongs to the unchanged selected agent, facing each ablation.",
-                           "기능을 제외한 정책을 상대로 기존 선정 정책이 기록한 승률입니다."), fontsize=13, color=PALETTE["muted"])
+                           "기능을 제외한 정책을 상대로 앞서 선정한 정책이 기록한 승률입니다."), fontsize=13, color=PALETTE["muted"])
     pair_plot(fig.add_axes([.30, .51, .40, .32]), rows, language)
     fig.text(.055, .413, tr(language, "Actual completed-game activations and measured response medians", "완료 경기에서 확인한 작동 횟수와 응답 중앙값"), fontsize=14, weight="bold", color=PALETTE["navy"])
     if values:

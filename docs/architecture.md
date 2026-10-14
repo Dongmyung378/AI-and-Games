@@ -52,7 +52,7 @@ MC wins for the parent = child.visits - child.wins
 MC action value       = 1 - child.wins / child.visits
 ```
 
-This convention applies at every depth. It fixes the original Python behavior that rewarded the root player at opponent nodes and still maximized that reward. The original C++ agent already used a different player-relative reward convention; the Python defect should not be attributed to all historical code.
+This convention applies at every depth. It fixes the initial Python behavior that rewarded the root player at opponent nodes and still maximized that reward. The initial C++ agent already used a different player-relative reward convention; the Python defect should not be attributed to all historical code.
 
 ## AMAF and RAVE
 
@@ -132,7 +132,7 @@ iteration semantics remain unchanged. Tactical responses may use zero
 simulations while still consuming measured response time. Referee replay also
 reconstructs each allocation from the saved per-agent response history.
 
-## Controlled historical-algorithm adapter
+## Controlled initial-algorithm adapter
 
 `scripts/build_legacy_benchmark.py` checks the preserved source's canonical
 SHA-256, applies exact guarded replacements to a separate generated source, and

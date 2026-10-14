@@ -33,7 +33,7 @@ python -m hexai doctor --compiler clang++
 python -m hexai build --compiler clang++
 ```
 
-빌드는 `-std=c++17 -O3 -pthread`를 사용하고 네이티브 자체 검사를 수행합니다. 실행 파일과 빌드 기록은 `.local/bin/`에 저장하며 `engine/`, `deployment/`나 기존 실행 파일을 덮어쓰는 출력 위치를 거부합니다. 기록에는 컴파일러 버전, 빌드 명령과 소스, 컴파일러, 실행 파일의 해시가 포함됩니다.
+빌드는 `-std=c++17 -O3 -pthread`를 사용하고 네이티브 자체 검사를 수행합니다. 실행 파일과 빌드 기록은 `.local/bin/`에 저장하며 `engine/`, `deployment/`나 초기 실행 파일을 덮어쓰는 출력 위치를 거부합니다. 기록에는 컴파일러 버전, 빌드 명령과 소스, 컴파일러, 실행 파일의 해시가 포함됩니다.
 
 대국 실행기와 별개로 짧은 탐색을 확인하려면 다음 명령을 사용합니다.
 
@@ -58,7 +58,7 @@ python -m unittest discover -s tests -v
 어댑터의 출력 경로를 명시하면 고정 목록의 이식 가능한 상대 경로와 일치합니다.
 Windows에서도 빌더가 요청한 파일 이름과 해당 실행 기록을 맞춥니다.
 특정 장비의 절대 경로를 넣기 위해 고정 목록을 바꾸지 않습니다. 대상
-운영체제에 맞게 빌드하며, 동일 조건 어댑터를 별도로 생성해 보존한 기존
+운영체제에 맞게 빌드하며, 동일 조건 어댑터를 별도로 생성해 보존한 초기
 소스와 원래 실행 파일을 교체하지 않습니다.
 
 전체 비교는 서로 다른 새 출력 폴더에 실행합니다.
@@ -99,12 +99,12 @@ python scripts/package_kaggle_cpu.py --owner YOUR_ACCOUNT --slug hex-deep-cpu-re
 올리거나 작업을 제출하고 학습을 시작하지 않습니다. 준비되면 본인 계정에서
 생성한 비공개 CPU 스크립트를 제출합니다. 검토한 소스와 고정 설정을
 내장하고 Linux에서 두 엔진을 빌드하며, 최상위 결과 ZIP과 완료 JSON을
-저장합니다. 기존 실행 파일을 소스 빌드 대신 사용하지 않습니다. 선택한
-sanitizer 검사는 개선 구현과 동일 조건의 기존 구현에 ASan 및 UBSan을
+저장합니다. 초기 실행 파일을 소스 빌드 대신 사용하지 않습니다. 선택한
+sanitizer 검사는 개선 구현과 동일 조건의 초기 구현에 ASan 및 UBSan을
 적용합니다.
 
 공개 도구의 짧은 전체 실행 확인은 긴 경기 시간 평가와 구분합니다.
-`doctor`로 세션의 CPU 수와 할당량을 다시 확인하며 기존에 측정한 자원이
+`doctor`로 세션의 CPU 수와 할당량을 다시 확인하며 앞서 측정한 자원이
 모든 새 Kaggle 세션에서 보장된다고 설명하지 않습니다. 내려받은 결과에는
 목록, 메타데이터, 생성 소스와 변경 및 빌드 기록을 유지합니다.
 
@@ -185,7 +185,7 @@ python tools/analysis/analyze_tactical_traces.py --summary reports/deep/aggregat
 
 ## 실제 소스 빌드와 저장 기록 검증
 
-[소스 검증 요약](../reports/deep/verification/source-validation-summary.json)에 환경별 실제 결과를 공개합니다. 새 Windows 환경은 pip와 시스템 패키지를 사용하지 않고 개선 구현 64개, 기존 심판 18개, 기존 어댑터 23개 검사를 통과했습니다. 기존 Linux 실행 파일에 의존하는 검사 2개는 건너뛰었으며, Windows에서 원본 소스를 새로 빌드한 V2 계약 검사 2개를 별도로 통과했습니다. Kaggle Linux 실행은 Python 검사 107개를 건너뛰지 않고 통과했고 C++ 자체 검증 15개, 연결성 상태 19,683개 및 sanitizer 프로토콜 검사 6개를 확인했습니다.
+[소스 검증 요약](../reports/deep/verification/source-validation-summary.json)에 환경별 실제 결과를 공개합니다. 새 Windows 환경은 pip와 시스템 패키지를 사용하지 않고 개선 구현 64개, 초기 심판 18개, 초기 어댑터 23개 검사를 통과했습니다. 초기 Linux 실행 파일에 의존하는 검사 2개는 건너뛰었으며, Windows에서 원본 소스를 새로 빌드한 V2 계약 검사 2개를 별도로 통과했습니다. Kaggle Linux 실행은 Python 검사 107개를 건너뛰지 않고 통과했고 C++ 자체 검증 15개, 연결성 상태 19,683개 및 sanitizer 프로토콜 검사 6개를 확인했습니다.
 
 같은 새 Windows 환경에서 9개 평가 목록의 저장 경기 1,336개와 53,199수를 재생 검증했습니다. 짧은 통합 경기 4개는 이 기록 검증에 포함되며, 0경기 체크포인트 확인은 대국 수에 포함하지 않습니다. 이 근거는 별도 실행 환경에서 수행한 프로젝트 내부 검증이며 외부 검토자의 독립 재현과 구분합니다. 완성한 소스 ZIP의 무결성 검사는 문서와 그림을 반영한 뒤 별도로 수행합니다.
 
@@ -202,7 +202,7 @@ python tools/analysis/analyze_tactical_traces.py --summary reports/deep/aggregat
 
 두 목록 모두 수당 전체 탐색 4,000회와 워커 두 개를 사용합니다. [실험 계획](../reports/study-plan.json)에는 결과를 확인하기 전에 정한 채택 기준이 있습니다. 정책은 선후공을 균형 있게 배치한 완료 경기 점수와 명시한 동률 규칙으로 선택합니다. 선택 가능한 설정 변경은 점수가 50%보다 최소 5%포인트 높고, 쌍 단위 부트스트랩 구간의 하한도 50%보다 높아야 합니다. 기준을 통과하지 못한 후보는 결과를 남기고 중단합니다. 정확성 수정은 승률에 따라 선택하는 실험 항목이 아닙니다.
 
-최종 설정은 새로운 시드를 평가하기 전에 [`reports/selection.json`](../reports/selection.json)에 고정합니다. [`configs/final-policy.json`](../configs/final-policy.json)은 선택하지 않은 세 정책과 `legacy_ts`를 상대로 256경기, 선후공 교대 128쌍을 배정합니다. 선택한 정책은 자신의 상대 목록에서 제외합니다. [최종 계획의 보충 기록](../reports/final-plan-addendum.json)에 이 범위를 남기며 기존 계획을 다시 쓰지 않습니다.
+최종 설정은 새로운 시드를 평가하기 전에 [`reports/selection.json`](../reports/selection.json)에 고정합니다. [`configs/final-policy.json`](../configs/final-policy.json)은 선택하지 않은 세 정책과 `legacy_ts`를 상대로 256경기, 선후공 교대 128쌍을 배정합니다. 선택한 정책은 자신의 상대 목록에서 제외합니다. [최종 계획의 보충 기록](../reports/final-plan-addendum.json)에 이 범위를 남기며 앞서 정한 계획을 다시 쓰지 않습니다.
 
 최종 탐색 시드와 시작 조건 시드는 개발 목록과 겹치지 않습니다. 다만 새로운 시작 시드가 다른 보드 좌표나 처음 보는 시작 위치를 보장하지는 않습니다. 최종 결과를 본 뒤 다른 정책을 다시 선택하지 않습니다.
 
@@ -231,7 +231,7 @@ python -m hexai evaluate --config configs/development-policy.json --output .loca
 
 첫 명령은 새로운 출력 디렉터리를 사용합니다. 두 번째 명령은 고정 평가 목록, 장비 메타데이터, 실행기 해시, 실행 파일 해시와 작업 분배 설정을 확인한 뒤 이어 실행합니다. 하나라도 달라지면 호환되지 않는 결과를 합치지 않고 별도 출력 디렉터리를 사용합니다.
 
-경기가 끝날 때마다 JSON 결과, JSONL 수 기록과 진단 정보, CSV와 갱신된 요약을 저장합니다. 기존 경기 파일은 재생 검증 후 건너뜁니다. 결과 파일이 저장되기 전에 중단된 경기는 다시 실행합니다. 기록된 실패 경기를 더 좋은 결과로 자동 교체하지 않으며 기존 실패도 결과로 유지합니다.
+경기가 끝날 때마다 JSON 결과, JSONL 수 기록과 진단 정보, CSV와 갱신된 요약을 저장합니다. 저장된 경기 파일은 재생 검증 후 건너뜁니다. 결과 파일이 저장되기 전에 중단된 경기는 다시 실행합니다. 기록된 실패 경기를 더 좋은 결과로 자동 교체하지 않으며 기록된 실패도 결과로 유지합니다.
 
 ```text
 .local/development-policy/
@@ -296,9 +296,9 @@ python -m hexai benchmark --workers 1 2 4 8 --iterations 10000 --repeats 3 --boa
 
 고정 횟수는 탐색 작업량을 맞추는 비교이며, 시간 예산은 해당 장비의 처리 속도에서 실용적인 결정을 비교하는 방식입니다. 두 모드 모두 네이티브 경기 제한과 외부 응답 제한을 적용합니다. 전술이나 시작 수 규칙으로 탐색 0회에 수를 선택할 수도 있습니다. 시간 모드에서 매번 같은 탐색 횟수나 승리 경로가 나온다고 보장하지 않습니다.
 
-## 기존 실행 파일의 시간 기준 비교
+## 초기 실행 파일의 시간 기준 비교
 
-[`configs/final-time-reference.json`](../configs/final-time-reference.json)은 Kaggle/Linux에서 기존 소스를 별도 실행 파일로 다시 빌드해 수행하는 4경기 기준 비교입니다. 두 참가자 모두 워커 여덟 개와 플레이어당 경기 제한 300초를 사용합니다. 현재 참가자는 수당 추가 제한 5초를 적용하고, 기존 참가자는 원래의 적응형 시간 배분을 유지합니다. 따라서 수당 예산을 동일하게 맞춘 정책 비교나 기존 제출본보다 강하다는 통계적 근거로 해석하지 않습니다.
+[`configs/final-time-reference.json`](../configs/final-time-reference.json)은 Kaggle/Linux에서 초기 소스를 별도 실행 파일로 다시 빌드해 수행하는 4경기 기준 비교입니다. 두 참가자 모두 워커 여덟 개와 플레이어당 경기 제한 300초를 사용합니다. 현재 참가자는 수당 추가 제한 5초를 적용하고, 초기 참가자는 원래의 적응형 시간 배분을 유지합니다. 따라서 수당 예산을 동일하게 맞춘 정책 비교나 초기 제출본보다 강하다는 통계적 근거로 해석하지 않습니다.
 
 Linux에서 현재 실행 파일을 먼저 빌드한 뒤 다음과 같이 실행합니다.
 
@@ -307,7 +307,7 @@ python -m hexai build --legacy
 python -m hexai evaluate --config configs/final-time-reference.json --output .local/final-time-reference
 ```
 
-`--legacy`는 `deployment/agents/Group026/RAVE_TS.cpp`를 `.local/bin/` 아래에 빌드하고 기존 배포 실행 파일은 보존합니다. 실제 기존 소스와 비교하는 이 항목은 최종 고정 횟수 평가에서 사용하는 현재 엔진의 `legacy_ts` 제어 조건과 다릅니다. 기존의 11×11 지원 범위만 사용하며 Davis나 HexHex 상대를 다른 에이전트로 대신하지 않습니다.
+`--legacy`는 `deployment/agents/Group026/RAVE_TS.cpp`를 `.local/bin/` 아래에 빌드하고 초기 배포 실행 파일은 보존합니다. 실제 초기 소스와 비교하는 이 항목은 최종 고정 횟수 평가에서 사용하는 현재 엔진의 `legacy_ts` 제어 조건과 다릅니다. 초기의 11×11 지원 범위만 사용하며 Davis나 HexHex 상대를 다른 에이전트로 대신하지 않습니다.
 
 원래 배포한 Linux 실행 파일의 해시와 실행 호환성은 별도로 확인합니다. 이 확인을 새 대국 결과에 합치거나 다시 빌드한 원본과의 네 경기 결과로 바꾸지 않습니다.
 
@@ -327,4 +327,4 @@ python scripts/verify_release.py --manifest reports/release-manifest-v2.json --o
 
 과거 Davis와 HexHex 이미지는 새로운 내부 평가와 구분합니다. 외부 상대의 실행 파일과 당시 전체 조건은 제공되지 않습니다. `legacy_ts`는 현재 엔진을 공유하는 제어 조건이며 과거 경기의 정확한 재현이 아닙니다.
 
-[기존 소스 목록](../reports/baseline/original-source-inventory.json)은 프레임워크, 배포 자료와 경기 근거의 보존 상태를 확인하는 자료입니다. 공개 결과에는 재현 명령과 해시를 상대 경로와 함께 제공하며, 인증 파일과 개인 활동 기록은 소스 ZIP이나 공개 결과에 포함하지 않습니다.
+[초기 소스 목록](../reports/baseline/original-source-inventory.json)은 프레임워크, 배포 자료와 경기 근거의 보존 상태를 확인하는 자료입니다. 공개 결과에는 재현 명령과 해시를 상대 경로와 함께 제공하며, 인증 파일과 개인 활동 기록은 소스 ZIP이나 공개 결과에 포함하지 않습니다.

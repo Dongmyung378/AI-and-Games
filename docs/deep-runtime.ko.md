@@ -2,7 +2,7 @@
 
 **한국어** | [English](deep-runtime.md) | [프로젝트 개요](../README.ko.md)
 
-개선한 Hex 에이전트와 기존 알고리즘의 비교용 어댑터는 Windows, Linux 또는 WSL에서 소스로 빌드할 수 있습니다. 두 구현 모두 CPU로 탐색하며 Python 3.10 이상과 C++17 컴파일러가 필요합니다. Python 실행부는 표준 라이브러리를 사용하므로 GPU나 Docker, 학습된 체크포인트가 필요하지 않습니다.
+개선한 Hex 에이전트와 초기 알고리즘의 비교용 어댑터는 Windows, Linux 또는 WSL에서 소스로 빌드할 수 있습니다. 두 구현 모두 CPU로 탐색하며 Python 3.10 이상과 C++17 컴파일러가 필요합니다. Python 실행부는 표준 라이브러리를 사용하므로 GPU나 Docker, 학습된 체크포인트가 필요하지 않습니다.
 
 ## 두 엔진 빌드
 
@@ -22,9 +22,9 @@ python -m hexai build --compiler clang++
 python scripts/build_legacy_benchmark.py --compiler clang++
 ~~~
 
-개선 엔진의 실행 파일은 Windows에서 .local/bin/hex_search.exe, Linux에서 .local/bin/hex_search에 저장됩니다. 기존 알고리즘 어댑터는 모든 환경에서 평가 설정에 명시된 .local/bin/legacy_benchmark를 사용합니다. Windows에서는 확장자가 없어도 PE 실행 파일입니다. 빌더가 임시 .exe 경로에 컴파일한 뒤 정확히 요청한 이름으로 설치하며, Windows CreateProcess로 실제 실행되는지 검증했습니다. 사용자가 .exe 경로를 직접 지정하는 방식도 지원합니다.
+개선 엔진의 실행 파일은 Windows에서 .local/bin/hex_search.exe, Linux에서 .local/bin/hex_search에 저장됩니다. 초기 알고리즘 어댑터는 모든 환경에서 평가 설정에 명시된 .local/bin/legacy_benchmark를 사용합니다. Windows에서는 확장자가 없어도 PE 실행 파일입니다. 빌더가 임시 .exe 경로에 컴파일한 뒤 정확히 요청한 이름으로 설치하며, Windows CreateProcess로 실제 실행되는지 검증했습니다. 사용자가 .exe 경로를 직접 지정하는 방식도 지원합니다.
 
-두 빌더는 소스, 컴파일러와 실행 파일의 해시를 기록합니다. 비교용 어댑터에는 생성된 C++ 소스와 변경 내역도 함께 저장됩니다. 파일명 처리를 고친 부분은 빌드 계층에 한정되며, 기존 알고리즘의 생성 소스 해시는 f42ab37e1893ba2bf0ac1eb212381803c95132b68d7e2a18a085d46ab240291e로 유지됩니다. 수정 전 빌더도 reports/deep/source/build_legacy_benchmark.frozen.py에 보존했습니다.
+두 빌더는 소스, 컴파일러와 실행 파일의 해시를 기록합니다. 비교용 어댑터에는 생성된 C++ 소스와 변경 내역도 함께 저장됩니다. 파일명 처리를 고친 부분은 빌드 계층에 한정되며, 초기 알고리즘의 생성 소스 해시는 f42ab37e1893ba2bf0ac1eb212381803c95132b68d7e2a18a085d46ab240291e로 유지됩니다. 수정 전 빌더도 reports/deep/source/build_legacy_benchmark.frozen.py에 보존했습니다.
 
 ## 빠른 통합 실행 확인
 
@@ -33,7 +33,7 @@ python -m hexai evaluate --config configs/deep/public-runtime-smoke.json --outpu
 python -m hexai aggregate --inputs .local/public-runtime-smoke --output .local/public-runtime-summary.json --require-complete
 ~~~
 
-이 설정은 각 참가자에게 워커 1개와 외부에서 측정하는 판단 시간 5초를 부여하고, 선후공을 교대한 4경기를 실행합니다. 기존 알고리즘 어댑터와 대국하면서 V3 시간 예산 전달과 실행 경로를 확인하는 용도입니다. 4경기가 모두 완료되고 실패와 누락이 없는지 확인합니다. 이 결과는 통합 실행의 근거이며, 대국 4개만으로 경쟁력을 추정하지 않습니다.
+이 설정은 각 참가자에게 워커 1개와 외부에서 측정하는 판단 시간 5초를 부여하고, 선후공을 교대한 4경기를 실행합니다. 초기 알고리즘 어댑터와 대국하면서 V3 시간 예산 전달과 실행 경로를 확인하는 용도입니다. 4경기가 모두 완료되고 실패와 누락이 없는지 확인합니다. 이 결과는 통합 실행의 근거이며, 대국 4개만으로 경쟁력을 추정하지 않습니다.
 
 ## Kaggle CPU 패키지
 
@@ -41,7 +41,7 @@ python -m hexai aggregate --inputs .local/public-runtime-smoke --output .local/p
 python scripts/package_kaggle_cpu.py --owner YOUR_KAGGLE_USER --slug hex-public-runtime --config configs/deep/public-runtime-smoke.json --output .local/kaggle-public-runtime --sanitizers
 ~~~
 
-이 명령은 패키지를 준비하며 노트북을 제출하지 않습니다. kernel.py, kernel-metadata.json, source-inventory.json과 package-receipt.json을 생성합니다. 실행 설정은 비공개 CPU 스크립트이며 GPU, TPU와 인터넷을 끕니다. 검토한 소스, 테스트와 고정 평가 설정 하나만 포함하고, 인증정보나 모델 가중치, 기존 실행 파일은 넣지 않습니다. 출력 폴더에 파일이 있으면 덮어쓰지 않고 중단합니다.
+이 명령은 패키지를 준비하며 노트북을 제출하지 않습니다. kernel.py, kernel-metadata.json, source-inventory.json과 package-receipt.json을 생성합니다. 실행 설정은 비공개 CPU 스크립트이며 GPU, TPU와 인터넷을 끕니다. 검토한 소스, 테스트와 고정 평가 설정 하나만 포함하고, 인증정보나 모델 가중치, 초기 실행 파일은 넣지 않습니다. 출력 폴더에 파일이 있으면 덮어쓰지 않고 중단합니다.
 
 생성된 스크립트를 본인의 Kaggle 계정으로 실행합니다. 스크립트는 압축 파일과 개별 소스의 SHA-256을 확인한 뒤 두 엔진을 컴파일하고, 유지 관리 테스트와 보존한 심판 및 어댑터 테스트를 실행합니다. 이후 고정 설정의 대국을 진행합니다. --sanitizers를 지정하면 두 엔진의 AddressSanitizer와 UndefinedBehaviorSanitizer 검증도 수행합니다.
 
@@ -64,7 +64,7 @@ python scripts/package_kaggle_cpu.py --owner YOUR_KAGGLE_USER --slug hex-shared-
 
 실행 시간 제한을 추가한 패키징은 로컬 검증과 별도의 실제 Kaggle 체크포인트 실행으로 확인했습니다. 로컬에서는 최상위 ZIP 저장, 배정 범위와 전체 범위의 완료 판정, 400경기의 10개 묶음 배분을 검증했습니다. Kaggle 체크포인트 작업은 소스 빌드와 테스트를 마친 뒤 평가 대국의 참가자 프로세스를 시작하기 전에 멈췄으며, 결과 ZIP도 저장했습니다. 기록된 대국이 0개인 이 작업은 체크포인트 동작의 근거이며 경기력 집계에서 제외합니다. 400경기를 완료한 결과로 표현하지 않습니다.
 
-결과 ZIP의 build-evidence/legacy_benchmark.cpp와 빌드 및 변경 기록은 실제 비교에 사용한 어댑터 소스를 확인하는 근거입니다. 원본 어댑터 테스트용 실행 파일도 별도의 임시 환경에서 원본 소스로 빌드하고 과거 소스 해시와 대조합니다. 이를 기존에 배포한 원본 실행 파일 자체를 검증한 것으로 표현하지 않습니다.
+결과 ZIP의 build-evidence/legacy_benchmark.cpp와 빌드 및 변경 기록은 실제 비교에 사용한 어댑터 소스를 확인하는 근거입니다. 원본 어댑터 테스트용 실행 파일도 별도의 임시 환경에서 원본 소스로 빌드하고 과거 소스 해시와 대조합니다. 이를 초기에 배포한 원본 실행 파일 자체를 검증한 것으로 표현하지 않습니다.
 
 ## 실제 검증 범위
 
@@ -77,7 +77,7 @@ python scripts/package_kaggle_cpu.py --owner YOUR_KAGGLE_USER --slug hex-shared-
 
 통합 확인 작업은 기본 실행 시간 33,000초와 중단 여유 120초를 사용했습니다. 빌드와 테스트에 쓴 시간을 뺀 뒤 평가에는 32,931.367초가 전달됐습니다. 체크포인트 작업은 의도적으로 실행 시간 1초와 여유 0초를 지정했습니다. 소스 빌드와 테스트를 마친 뒤 평가에는 최소값인 0.001초가 전달됐고, 평가기가 첫 경기의 예상 최대 시간 600초를 확보할 수 없어 결과 ZIP을 저장하고 멈췄습니다. 전체 작업이 1초 안에 끝나는지 확인한 실험은 아닙니다. 단위 및 프로토콜 테스트에서는 네이티브 프로세스를 실행했지만 평가 대국의 참가자 프로세스는 시작하지 않았습니다. 기록된 경기가 0개인 체크포인트 결과를 완료된 경기 실험으로 표시하거나 경기력 집계에 더하지 않습니다.
 
-최신 두 작업은 Linux x86_64, Python 3.13.15와 g++ 13.3.0을 사용했습니다. 보이는 CPU와 프로세스에 허용된 CPU가 각각 4개였고 cpu.max=400000 100000으로 CPU 4개 분량의 시간 할당을 확인했습니다. 포함한 소스 목록과 생성된 기존 알고리즘 소스, 빌드 기록과 결과 ZIP은 고정 해시로 대조했습니다. Windows 파일명 수정은 실제 빌드와 프로세스 실행 테스트 5개로 별도 검증했으며 생성된 알고리즘 소스 해시를 유지했습니다.
+최신 두 작업은 Linux x86_64, Python 3.13.15와 g++ 13.3.0을 사용했습니다. 보이는 CPU와 프로세스에 허용된 CPU가 각각 4개였고 cpu.max=400000 100000으로 CPU 4개 분량의 시간 할당을 확인했습니다. 포함한 소스 목록과 생성된 초기 알고리즘 소스, 빌드 기록과 결과 ZIP은 고정 해시로 대조했습니다. Windows 파일명 수정은 실제 빌드와 프로세스 실행 테스트 5개로 별도 검증했으며 생성된 알고리즘 소스 해시를 유지했습니다.
 
 과거 검증 기록도 구분해 보존합니다. 최초 공개 도구 v1은 Python 테스트 96개와 4경기 98수, v2b는 Python 테스트 103개와 4경기 92수를 검증했습니다. 해당 결과를 최신 v3 소스의 검증으로 바꾸거나 최신 통합 경기 4개에 더해 집계하지 않습니다.
 
@@ -102,4 +102,4 @@ python -m hexai evaluate --config configs/deep/tactical-ablation.json --output .
 python scripts/verify_release.py --output .local/release-verification.json
 ~~~
 
-reports/release-manifest-v2.json이 있으면 해당 목록을 사용합니다. 파일 해시와 원본 64개 파일, 등록된 평가 설정과 경기 기록, 집계 결과의 일치 여부를 확인합니다. 기존 6개 실험은 그대로 유지하고, 당시 엔진과 실행부 소스를 담은 reports/historical/release-v1-source.zip으로 검증합니다. 저장된 수의 재생은 규칙과 기록된 승자를 확인하는 절차이며, 탐색을 다시 수행하거나 일반적인 Hex 경쟁력을 입증하는 절차는 아닙니다.
+reports/release-manifest-v2.json이 있으면 해당 목록을 사용합니다. 파일 해시와 원본 64개 파일, 등록된 평가 설정과 경기 기록, 집계 결과의 일치 여부를 확인합니다. 이전 6개 실험은 그대로 유지하고, 당시 엔진과 실행부 소스를 담은 reports/historical/release-v1-source.zip으로 검증합니다. 저장된 수의 재생은 규칙과 기록된 승자를 확인하는 절차이며, 탐색을 다시 수행하거나 일반적인 Hex 경쟁력을 입증하는 절차는 아닙니다.

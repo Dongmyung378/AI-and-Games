@@ -6,6 +6,8 @@
 
 A CPU-based Hex agent built with Monte Carlo Tree Search (MCTS), Rapid Action Value Estimation (RAVE), Thompson sampling and root-parallel C++ search. The maintained release combines corrected search statistics, frozen paired evaluation, matching external game budgets and source-build verification while preserving the original project and match evidence.
 
+Here, **initial agent** refers to the first submitted Python and C++ implementations; **current agent** refers to the maintained public implementation with corrected search statistics and execution tools.
+
 ## Project overview
 
 | Area | Implemented capability |
@@ -22,7 +24,7 @@ The maintained agent searches at runtime. It does not require a GPU, a learned p
 
 The extended release tests the existing selected configuration more thoroughly.
 It adds a real external **300-second per-agent game allowance**, a controlled
-comparison with the historical algorithm, individual tactical ablations and
+comparison with the initial algorithm, individual tactical ablations and
 six-position worker measurements. RAVE-TS with bridge defence, move ordering
 and `rave_k=1000` remains selected. These additional final results do not select
 a replacement policy. Results and their validation scope remain separate.
@@ -47,7 +49,7 @@ All 400 scheduled shared-time games were recorded and completed, with zero failu
 
 | Opponent | RAVE-TS wins / completed games | Completed-game win rate | Complete pairs | Pair-bootstrap 95% interval | Failures / scheduled games |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Controlled historical algorithm (`benchmark_legacy`) | 81 / 100 | 81.0% | 50 | 73.0–88.0% | 0 / 100 |
+| Controlled initial algorithm (`benchmark_legacy`) | 81 / 100 | 81.0% | 50 | 73.0–88.0% | 0 / 100 |
 | RAVE-UCB | 84 / 100 | 84.0% | 50 | 77.0–90.0% | 0 / 100 |
 | Thompson sampling (TS) | 73 / 100 | 73.0% | 50 | 65.0–81.0% | 0 / 100 |
 | UCB | 70 / 100 | 70.0% | 50 | 61.0–79.0% | 0 / 100 |
@@ -176,8 +178,8 @@ newer and remain separate from the Python 3.10-or-newer runtime.
 | Control | Meaning |
 | --- | --- |
 | `legacy_ts` | A diagnostic policy inside the maintained engine, not the original source |
-| Preserved original source rebuilt with `--legacy` | Original algorithm and original eight-worker time manager; its old four-game comparison is preserved separately |
-| `benchmark_legacy` | Original algorithm with guarded runtime-only changes for seeded workers, matching external budgets, deadline polling and telemetry |
+| Preserved original source rebuilt with `--legacy` | Initial algorithm and original eight-worker time manager; its old four-game comparison is preserved separately |
+| `benchmark_legacy` | Initial algorithm with guarded runtime-only changes for seeded workers, matching external budgets, deadline polling and telemetry |
 
 The controlled adapter retains the historical selection, expansion, rollout,
 rewards, swap and tactical logic, including inactive AMAF statistics. Its patch
@@ -228,11 +230,11 @@ The measurements distinguish playing strength, execution reliability and simulat
 
 ## Problem and approach
 
-The original Python agents stored wins from the root player's perspective and maximized that value at opponent nodes too. The corrected implementation stores wins for the player to move at each node and inverts a child's value when its parent selects an action.
+The initial Python agents stored wins from the root player's perspective and maximized that value at opponent nodes too. The corrected implementation stores wins for the player to move at each node and inverts a child's value when its parent selects an action.
 
-The original RAVE update also looked for an already played tree action in a later rollout's move list. That action cannot occur again on a placement-only Hex board. The maintained implementation instead records every ancestor's legal future actions played by that ancestor's player, including both tree actions and rollout actions. These AMAF statistics are indexed by node and action, then blended with direct Monte Carlo evidence during selection.
+The initial RAVE update also looked for an already played tree action in a later rollout's move list. That action cannot occur again on a placement-only Hex board. The maintained implementation instead records every ancestor's legal future actions played by that ancestor's player, including both tree actions and rollout actions. These AMAF statistics are indexed by node and action, then blended with direct Monte Carlo evidence during selection.
 
-Both repairs are covered by focused tests. The original C++ implementation used a different player-reward convention, so the Python opponent-turn defect is not attributed to every historical implementation. The compact [Python reference](hexai/reference.py) uses the preserved referee's rules for inspection; the [native engine](native/hex_search.cpp) performs the larger CPU experiments.
+Both repairs are covered by focused tests. The initial C++ implementation used a different player-reward convention, so the Python opponent-turn defect is not attributed to every historical implementation. The compact [Python reference](hexai/reference.py) uses the preserved referee's rules for inspection; the [native engine](native/hex_search.cpp) performs the larger CPU experiments.
 
 The frozen 61-position 11×11 scenario set passed all 488 responses, all 244 V2/V3 move-and-reason comparisons and four invalid-input or terminal-state rejection checks. [The scenario receipt](reports/deep/correctness/scenarios/receipt.json) records correctness separately from playing strength.
 
@@ -313,7 +315,7 @@ configs/                    Frozen development and final game manifests
 reports/                    Study plan, measured results and release evidence
 tests/                      Maintained correctness and evaluation checks
 docs/                       English documentation with Korean counterparts
-engine/                     Preserved coursework referee and original Python agents
+engine/                     Preserved coursework referee and initial Python agents
 deployment/                 Preserved original native source, binary and runtime
 assets/results/             Preserved screenshots and historical match metadata
 ```

@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
 <title id="title">탐색 통계와 연결성의 정확성 검사</title>
-<desc id="desc">같은 3×3 보드와 시드로 1,000회 탐색한 Python 참조 구현에서 기존 RAVE 갱신은 0회, 수정 AMAF 갱신은 13,772회입니다. C++ 연결성 판정은 19,683개 3×3 색상 배치를 독립 BFS와 비교했습니다. 승률이나 속도 비교가 아닙니다.</desc>
+<desc id="desc">같은 3×3 보드와 시드로 1,000회 탐색한 Python 참조 구현에서 초기 RAVE 갱신은 0회, 수정 AMAF 갱신은 13,772회입니다. C++ 연결성 판정은 19,683개 3×3 색상 배치를 독립 BFS와 비교했습니다. 승률이나 속도 비교가 아닙니다.</desc>
 <style>text{font-family:'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;font-variant-numeric:tabular-nums}</style>
 <rect x="0" y="0" width="1200" height="850" fill="#F7F3EA" rx="0" stroke-width="1"/>
 <text x="48" y="64" fill="#17304A" font-size="36" font-weight="750" text-anchor="start">탐색 통계의 갱신을 독립적으로 확인</text>
 <text x="48" y="106" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">빈 3×3 보드, RED 차례, RAVE-UCB, 1,000회 탐색, 시드 378, 전술 비활성</text>
 <rect x="48" y="166" width="522" height="285" fill="#FFFCF6" rx="20" stroke="#D9D3C9" stroke-width="1"/>
-<text x="76" y="219" fill="#8F9AA4" font-size="30" font-weight="750" text-anchor="start">기존 Python 참조</text>
+<text x="76" y="219" fill="#8F9AA4" font-size="30" font-weight="750" text-anchor="start">초기 Python 참조</text>
 <text x="76" y="306" fill="#8F9AA4" font-size="65" font-weight="750" text-anchor="start">0회</text>
 <text x="76" y="375" fill="#66717A" font-size="24" font-weight="400" text-anchor="start">롤아웃에서 이미 둔 수를 찾음</text>
 <text x="76" y="410" fill="#66717A" font-size="24" font-weight="400" text-anchor="start">해당 칸은 다시 둘 수 없어 미갱신</text>

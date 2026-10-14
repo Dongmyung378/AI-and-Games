@@ -6,7 +6,7 @@
 
 Which selection policy is strongest in a common CPU search engine? Do bridge defence, move ordering or a different RAVE weight improve the declared development matchups? How do root-worker counts affect response time and memory under an equal total iteration budget?
 
-This work covers CPU search, correctness repairs, recorded games, parallel measurements and reproducibility tools. It does not retrain a neural model. The original Python research agents, original C++ submission and historical external-opponent images remain preserved as distinct evidence.
+This work covers CPU search, correctness repairs, recorded games, parallel measurements and reproducibility tools. It does not retrain a neural model. The initial Python research agents, initial C++ submission and historical external-opponent images remain preserved as distinct evidence.
 
 ## Extended final diagnostics
 
@@ -17,7 +17,7 @@ independent confirmations. No new result is used to reselect the base policy.
 
 | Manifest | Question | Games / same-host side pairs | Budget |
 | --- | --- | --- | --- |
-| `configs/deep/shared-time.json` | Same-allowance strength against UCB, TS, RAVE-UCB and the controlled historical algorithm | 400 / 200, 100 games per opponent | 300-second external per-agent game allowance, two workers |
+| `configs/deep/shared-time.json` | Same-allowance strength against UCB, TS, RAVE-UCB and the controlled initial algorithm | 400 / 200, 100 games per opponent | 300-second external per-agent game allowance, two workers |
 | `configs/deep/tactical-ablation.json` | Swap, immediate win, immediate block and combined tactical checks | 400 / 200, 100 games per removal | 16,000 total iterations per move, two workers |
 
 The existing 160 development games, 256 fixed-iteration final games, four
@@ -35,7 +35,7 @@ The frozen shared-time evaluation recorded all 400 scheduled games across ten sh
 
 | Opponent | Verified selected wins / completed games | Completed-game win rate | Paired bootstrap 95% interval | Failures / scheduled games |
 | --- | ---: | ---: | ---: | ---: |
-| Controlled historical algorithm | 81 / 100 | 81.0% | 73.0–88.0% | 0 / 100 |
+| Controlled initial algorithm | 81 / 100 | 81.0% | 73.0–88.0% | 0 / 100 |
 | RAVE-UCB | 84 / 100 | 84.0% | 77.0–90.0% | 0 / 100 |
 | Thompson sampling (TS) | 73 / 100 | 73.0% | 65.0–81.0% | 0 / 100 |
 | UCB | 70 / 100 | 70.0% | 61.0–79.0% | 0 / 100 |
@@ -46,9 +46,9 @@ The historical comparison uses the preserved search algorithm with its documente
 
 | Opponent | Recorded hardware | Selected verified wins / completed games |
 | --- | --- | ---: |
-| Controlled historical algorithm | Windows, Intel64 Family 6 Model 141 Stepping 1, GenuineIntel | 17 / 20 |
-| Controlled historical algorithm | Linux, Intel(R) Xeon(R) CPU @ 2.20GHz | 50 / 60 |
-| Controlled historical algorithm | Linux, AMD EPYC 7B12 | 14 / 20 |
+| Controlled initial algorithm | Windows, Intel64 Family 6 Model 141 Stepping 1, GenuineIntel | 17 / 20 |
+| Controlled initial algorithm | Linux, Intel(R) Xeon(R) CPU @ 2.20GHz | 50 / 60 |
+| Controlled initial algorithm | Linux, AMD EPYC 7B12 | 14 / 20 |
 | RAVE-UCB | Windows, Intel64 Family 6 Model 141 Stepping 1, GenuineIntel | 15 / 20 |
 | RAVE-UCB | Linux, Intel(R) Xeon(R) CPU @ 2.20GHz | 50 / 60 |
 | RAVE-UCB | Linux, AMD EPYC 7B12 | 19 / 20 |
@@ -63,7 +63,7 @@ Each comparison contains five recorded host/adapter pair strata. Hardware labels
 
 | Opponent | Selected wins when initially first / games | Selected wins when initially second / games |
 | --- | ---: | ---: |
-| Controlled historical algorithm | 40 / 50 | 41 / 50 |
+| Controlled initial algorithm | 40 / 50 | 41 / 50 |
 | RAVE-UCB | 41 / 50 | 43 / 50 |
 | Thompson sampling (TS) | 35 / 50 | 38 / 50 |
 | UCB | 34 / 50 | 36 / 50 |
@@ -72,8 +72,8 @@ These side counts use the initial participant assignment. The pie rule can excha
 
 | Opponent | Participant | Sampled process RSS median / p95 (MiB) | Search-response iterations median | Worker node-cap hits / observations |
 | --- | --- | ---: | ---: | ---: |
-| Controlled historical algorithm | historical_algorithm | 694.9 / 1680.0 | 240,691 | Not instrumented |
-| Controlled historical algorithm | Selected RAVE-TS | 125.4 / 128.3 | 174,026.5 | 3,934 / 4,436 |
+| Controlled initial algorithm | historical_algorithm | 694.9 / 1680.0 | 240,691 | Not instrumented |
+| Controlled initial algorithm | Selected RAVE-TS | 125.4 / 128.3 | 174,026.5 | 3,934 / 4,436 |
 | RAVE-UCB | rave_ucb | 125.5 / 127.9 | 641,657.5 | 3,991 / 4,052 |
 | RAVE-UCB | Selected RAVE-TS | 125.4 / 128.6 | 170,866 | 3,860 / 4,258 |
 | Thompson sampling (TS) | Selected RAVE-TS | 125.4 / 128.3 | 169,701 | 4,114 / 4,696 |
@@ -81,7 +81,7 @@ These side counts use the initial participant assignment. The pie rule can excha
 | UCB | Selected RAVE-TS | 125.4 / 128.8 | 172,074 | 3,711 / 4,150 |
 | UCB | ucb | 107.0 / 108.6 | 642,997 | 3,804 / 3,940 |
 
-All 800 participant-game RSS measurements were available. RSS is sampled process memory, not a hard OS memory cap. The maintained engine uses a finite tree node allowance derived from its 128 MiB tree budget and continues rollouts after expansion reaches that allowance. The historical algorithm retains its original allocation design; time and worker allowances match, but memory designs do not. Node-cap observations describe bounded expansion, not failed searches. The controlled historical adapter reported 2003 search responses with its original iteration-cap flag and zero hits; it does not instrument per-worker node-cap or elapsed-time fields.
+All 800 participant-game RSS measurements were available. RSS is sampled process memory, not a hard OS memory cap. The maintained engine uses a finite tree node allowance derived from its 128 MiB tree budget and continues rollouts after expansion reaches that allowance. The initial algorithm retains its original allocation design; time and worker allowances match, but memory designs do not. Node-cap observations describe bounded expansion, not failed searches. The controlled initial-algorithm adapter reported 2003 search responses with its original iteration-cap flag and zero hits; it does not instrument per-worker node-cap or elapsed-time fields.
 
 Search throughput uses summed native iterations divided by summed outer native response elapsed seconds. Parallel worker elapsed values overlap and are not CPU usage time or the throughput denominator. Aggregate timing and memory across different machines are descriptive; they are not a direct same-hardware speed or memory reduction claim.
 
@@ -325,7 +325,7 @@ These new-seed outcomes were not used for selection. They apply to the declared 
 
 `legacy_ts` is a diagnostic inside the maintained engine with AMAF disabled and the historical direct-count attenuation. It is neither the original executable nor an exact replay of its games. Conclusions remain conditional on the declared internal opponents, openings, budgets and implementation.
 
-## Original-source time reference
+## Initial-source time reference
 
 <!-- ORIGINAL_REFERENCE_BEGIN -->
 The rebuilt-original time reference records 4 games: 4 completed and 0 failed. Selected RAVE-TS won 4/4 completed games. Both agents use eight workers and a 300-second per-player ceiling; only the maintained engine has a five-second per-move cap. This is an execution check over two pairs with different time managers. [Time-reference aggregate](../reports/aggregates/final-time-reference.json)

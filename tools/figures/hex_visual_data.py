@@ -14,7 +14,7 @@ NAMES = {
     "selected": ("Selected RAVE-TS", "선정한 RAVE-TS"),
     "ucb": ("UCB", "UCB"), "ts": ("Thompson Sampling", "톰슨 샘플링"),
     "rave_ucb": ("RAVE-UCB", "RAVE-UCB"),
-    "historical_algorithm": ("Controlled historical C++", "기존 C++ 알고리즘"),
+    "historical_algorithm": ("Controlled initial C++", "초기 C++ 알고리즘"),
     "no_swap": ("Swap heuristic removed", "스왑 판단 제외"),
     "no_win_check": ("Immediate-win check removed", "즉시 승리 검사 제외"),
     "no_block_check": ("Immediate block removed", "즉시 방어 검사 제외"),

@@ -296,7 +296,7 @@ Host-specific measurements and trial diagnostics are in [the Windows benchmark](
 
 Iteration budgets compare a controlled amount of search work, while time budgets compare practical decisions under a host's measured speed. Native game and response limits remain active in both modes. Tactical or opening shortcuts may correctly choose a move with zero search iterations. Time mode is not expected to reproduce the exact simulation count or winning trajectory between runs.
 
-## Original-executable time reference
+## Initial-executable time reference
 
 [`configs/final-time-reference.json`](../configs/final-time-reference.json) is a separate four-game Kaggle/Linux reference using the actual preserved original source rebuilt into a separate executable. Both participants use eight workers and a 300-second per-player game ceiling. The maintained participant has an additional five-second per-move cap; the original participant retains its original adaptive time manager. This is not an equal-per-move-budget policy experiment or a statistically strong claim against the original submission.
 

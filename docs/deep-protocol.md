@@ -1,4 +1,4 @@
-# Shared external budgets and historical-algorithm controls
+# Shared external budgets and initial-algorithm controls
 
 [한국어](deep-protocol.ko.md) | **English** | [Source builds](deep-runtime.md)
 
@@ -44,7 +44,7 @@ A 300-second ceiling does not mean every game consumes that time. Opening, swap,
 | --- | --- | --- |
 | Maintained legacy_ts | Inactive AMAF and historical direct-count attenuation inside the common maintained engine | An exact original-submission comparison |
 | Source-exact legacy | The preserved original C++ source rebuilt separately | A fair shared-clock comparison without adapting its internal time manager |
-| benchmark_legacy | Original algorithm regions with auditable runtime adaptations | Byte-identical behavior to the original shipped executable |
+| benchmark_legacy | Initial algorithm regions with auditable runtime adaptations | Byte-identical behavior to the original shipped executable |
 
 The controlled adapter adds the V3 interface, seeded worker streams, configurable worker counts, external deadline polling and diagnostic output. Its builder checks the original source hash before generation and records every guarded replacement. Board and expansion logic, selection and rollout behavior, reward rules, swap and tactical algorithms remain unchanged. The original inactive RAVE behavior and its 1,500,001-iteration per-worker cap remain visible. Generated C++ and patch receipts are published alongside results.
 

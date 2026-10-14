@@ -94,7 +94,7 @@ def draw(inputs, language):
                   color=PALETTE["paper"], ha="center", va="center")
     plot.set_ylim(0, 100)
     plot.set_xlim(-.6, 3.6)
-    plot.set_xticks(range(4), ["UCB", "TS", "RAVE-UCB", tr(language, "Prior C++", "기존 C++")], fontsize=18)
+    plot.set_xticks(range(4), ["UCB", "TS", "RAVE-UCB", tr(language, "Initial C++", "초기 C++")], fontsize=18)
     plot.set_yticks([0, 50, 100], ["0", "50", "100"], fontsize=11)
     plot.tick_params(length=0, labelcolor=PALETTE["navy"], pad=7)
     plot.grid(axis="y", color=PALETTE["line"], linewidth=.8, zorder=0)

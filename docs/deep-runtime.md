@@ -2,7 +2,7 @@
 
 [한국어](deep-runtime.ko.md) | **English** | [Project overview](../README.md)
 
-The maintained Hex agent and the controlled historical-algorithm adapter can be built from source on Windows, Linux or WSL. Both use CPU search and require Python 3.10 or newer and a C++17 compiler. The Python runtime uses the standard library; a GPU, Docker and a trained checkpoint are not required.
+The maintained Hex agent and the controlled initial-algorithm adapter can be built from source on Windows, Linux or WSL. Both use CPU search and require Python 3.10 or newer and a C++17 compiler. The Python runtime uses the standard library; a GPU, Docker and a trained checkpoint are not required.
 
 ## Build the two engines
 
@@ -24,7 +24,7 @@ python scripts/build_legacy_benchmark.py --compiler clang++
 
 The maintained executable is .local/bin/hex_search.exe on Windows and .local/bin/hex_search on Linux. The controlled adapter always uses the extensionless .local/bin/legacy_benchmark path named in the portable manifests. On Windows it remains a PE executable: the builder compiles to an explicit temporary .exe name and installs the result at the exact requested extensionless pathname. Actual Windows CreateProcess tests verify that this path launches. An explicitly requested .exe output is also supported.
 
-Both builders retain source, compiler and executable fingerprints. The controlled adapter additionally writes generated C++ source and a patch receipt beside the executable. The platform filename fix changes the build layer; it leaves the generated historical algorithm source unchanged at SHA-256 f42ab37e1893ba2bf0ac1eb212381803c95132b68d7e2a18a085d46ab240291e. The earlier builder is preserved separately in reports/deep/source/build_legacy_benchmark.frozen.py.
+Both builders retain source, compiler and executable fingerprints. The controlled adapter additionally writes generated C++ source and a patch receipt beside the executable. The platform filename fix changes the build layer; it leaves the generated initial algorithm source unchanged at SHA-256 f42ab37e1893ba2bf0ac1eb212381803c95132b68d7e2a18a085d46ab240291e. The earlier builder is preserved separately in reports/deep/source/build_legacy_benchmark.frozen.py.
 
 ## Quick integration check
 
@@ -33,7 +33,7 @@ python -m hexai evaluate --config configs/deep/public-runtime-smoke.json --outpu
 python -m hexai aggregate --inputs .local/public-runtime-smoke --output .local/public-runtime-summary.json --require-complete
 ~~~
 
-This manifest contains four side-balanced games, one worker per participant and five seconds of external decision time per participant. It exercises the V3 budget protocol against the controlled historical adapter. Check that all four games completed and that the failure and missing-game counts are zero. Four games establish integration, not a reliable playing-strength estimate.
+This manifest contains four side-balanced games, one worker per participant and five seconds of external decision time per participant. It exercises the V3 budget protocol against the controlled initial-algorithm adapter. Check that all four games completed and that the failure and missing-game counts are zero. Four games establish integration, not a reliable playing-strength estimate.
 
 ## Kaggle CPU package
 
