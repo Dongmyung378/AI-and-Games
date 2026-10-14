@@ -2,6 +2,8 @@
 
 [한국어](README.ko.md) | **English**
 
+[Portfolio case study](https://park-dongmyung.com/projects/project-06/) | [Download source and evaluation records](https://park-dongmyung.com/downloads/ai-and-games-source/)
+
 A CPU-based Hex agent built with Monte Carlo Tree Search (MCTS), Rapid Action Value Estimation (RAVE), Thompson sampling and root-parallel C++ search. The maintained release combines corrected search statistics, frozen paired evaluation, matching external game budgets and source-build verification while preserving the original project and match evidence.
 
 ## Project overview

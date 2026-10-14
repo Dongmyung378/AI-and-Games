@@ -2,6 +2,8 @@
 
 **한국어** | [English](README.md)
 
+[포트폴리오 설명](https://park-dongmyung.com/projects/project-06/) | [소스와 평가 기록 다운로드](https://park-dongmyung.com/downloads/ai-and-games-source/)
+
 몬테카를로 트리 탐색(MCTS), RAVE, 톰슨 샘플링과 C++ 루트 병렬 탐색으로 Hex를 플레이하는 CPU 기반 게임 AI 프로젝트입니다. 기존 프로젝트와 경기 기록을 보존하면서 탐색 통계의 오류를 수정하고, 고정 대국 목록의 비교 평가, 동일한 외부 경기 예산과 소스 빌드 검증을 추가했습니다.
 
 ## 프로젝트 개요
