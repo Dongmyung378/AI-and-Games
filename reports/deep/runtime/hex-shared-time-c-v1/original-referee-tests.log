@@ -1,0 +1,154 @@
+test_board_equality (test_Board.TestBoard.test_board_equality) ... ok
+test_board_initialization (test_Board.TestBoard.test_board_initialization) ... ok
+test_from_string (test_Board.TestBoard.test_from_string) ... ok
+test_has_ended_blue_win (test_Board.TestBoard.test_has_ended_blue_win) ... ok
+test_has_ended_red_win (test_Board.TestBoard.test_has_ended_red_win) ... ok
+test_set_tile_colour (test_Board.TestBoard.test_set_tile_colour) ... ok
+test_end_game_bad_move (test_Game.TestGame.test_end_game_bad_move) ... [INFO]-2026-10-14 03:33:50,503 - Game over
+[INFO]-2026-10-14 03:33:50,505 - Final Board:
+0 0 0 0 0 0 0 0 0 0 0 
+ 0 0 0 0 0 0 0 0 0 0 0 
+  0 0 0 0 0 0 0 0 0 0 0 
+   0 0 0 0 0 0 0 0 0 0 0 
+    0 0 0 0 0 0 0 0 0 0 0 
+     0 0 0 0 0 0 0 0 0 0 0 
+      0 0 0 0 0 0 0 0 0 0 0 
+       0 0 0 0 0 0 0 0 0 0 0 
+        0 0 0 0 0 0 0 0 0 0 0 
+         0 0 0 0 0 0 0 0 0 0 0 
+          0 0 0 0 0 0 0 0 0 0 0 
+
+[INFO]-2026-10-14 03:33:50,506 - Total time: 0.0s
+[INFO]-2026-10-14 03:33:50,506 - Player Player2 made an illegal move
+[INFO]-2026-10-14 03:33:50,506 - Player Player1 has won
+Player1,0
+Player2,0
+winner,Player1,BAD_MOVE
+[INFO]-2026-10-14 03:33:50,506 - Total Game Time: 0.0s
+ok
+test_end_game_timeout (test_Game.TestGame.test_end_game_timeout) ... [INFO]-2026-10-14 03:33:50,506 - Game over
+[INFO]-2026-10-14 03:33:50,506 - Final Board:
+0 0 0 0 0 0 0 0 0 0 0 
+ 0 0 0 0 0 0 0 0 0 0 0 
+  0 0 0 0 0 0 0 0 0 0 0 
+   0 0 0 0 0 0 0 0 0 0 0 
+    0 0 0 0 0 0 0 0 0 0 0 
+     0 0 0 0 0 0 0 0 0 0 0 
+      0 0 0 0 0 0 0 0 0 0 0 
+       0 0 0 0 0 0 0 0 0 0 0 
+        0 0 0 0 0 0 0 0 0 0 0 
+         0 0 0 0 0 0 0 0 0 0 0 
+          0 0 0 0 0 0 0 0 0 0 0 
+
+[INFO]-2026-10-14 03:33:50,506 - Total time: 0.0s
+[INFO]-2026-10-14 03:33:50,506 - Player Player2 has timed out
+[INFO]-2026-10-14 03:33:50,506 - Player Player1 has won
+Player1,0
+Player2,0
+winner,Player1,TIMEOUT
+[INFO]-2026-10-14 03:33:50,506 - Total Game Time: 0.0s
+ok
+test_end_game_win (test_Game.TestGame.test_end_game_win) ... [INFO]-2026-10-14 03:33:50,507 - Game over
+[INFO]-2026-10-14 03:33:50,507 - Final Board:
+0 0 0 0 0 0 0 0 0 0 0 
+ 0 0 0 0 0 0 0 0 0 0 0 
+  0 0 0 0 0 0 0 0 0 0 0 
+   0 0 0 0 0 0 0 0 0 0 0 
+    0 0 0 0 0 0 0 0 0 0 0 
+     0 0 0 0 0 0 0 0 0 0 0 
+      0 0 0 0 0 0 0 0 0 0 0 
+       0 0 0 0 0 0 0 0 0 0 0 
+        0 0 0 0 0 0 0 0 0 0 0 
+         0 0 0 0 0 0 0 0 0 0 0 
+          0 0 0 0 0 0 0 0 0 0 0 
+
+[INFO]-2026-10-14 03:33:50,507 - Total time: 0.0s
+[INFO]-2026-10-14 03:33:50,507 - Player Player1 has won
+Player1,0
+Player2,0
+winner,Player1,WIN
+[INFO]-2026-10-14 03:33:50,507 - Total Game Time: 0.0s
+ok
+test_init (test_Game.TestGame.test_init) ... ok
+test_is_valid_move (test_Game.TestGame.test_is_valid_move) ... 0,Player1,RED(x=1, y=1),0
+ok
+test_make_move (test_Game.TestGame.test_make_move) ... 0,Player1,RED(x=0, y=0),0
+ok
+test_make_swap_move (test_Game.TestGame.test_make_swap_move) ... 0,Player1,BLUESWAP(),0
+ok
+test_ns_to_s (test_Game.TestGame.test_ns_to_s) ... ok
+test_play_timeout (test_Game.TestGame.test_play_timeout) ... [INFO]-2026-10-14 03:33:50,508 - Turn 1: player Player1
+[INFO]-2026-10-14 03:33:50,509 - Starting Board:
+0 0 0 0 0 0 0 0 0 0 0 
+ 0 0 0 0 0 0 0 0 0 0 0 
+  0 0 0 0 0 0 0 0 0 0 0 
+   0 0 0 0 0 0 0 0 0 0 0 
+    0 0 0 0 0 0 0 0 0 0 0 
+     0 0 0 0 0 0 0 0 0 0 0 
+      0 0 0 0 0 0 0 0 0 0 0 
+       0 0 0 0 0 0 0 0 0 0 0 
+        0 0 0 0 0 0 0 0 0 0 0 
+         0 0 0 0 0 0 0 0 0 0 0 
+          0 0 0 0 0 0 0 0 0 0 0 
+
+[INFO]-2026-10-14 03:33:50,511 - Player Player1; Move: Colour.RED(x=1, y=1)
+1,Player1,RED(x=1, y=1),9000000000.0
+[INFO]-2026-10-14 03:33:50,511 - Turn Ending Board:
+0 0 0 0 0 0 0 0 0 0 0 
+ 0 R 0 0 0 0 0 0 0 0 0 
+  0 0 0 0 0 0 0 0 0 0 0 
+   0 0 0 0 0 0 0 0 0 0 0 
+    0 0 0 0 0 0 0 0 0 0 0 
+     0 0 0 0 0 0 0 0 0 0 0 
+      0 0 0 0 0 0 0 0 0 0 0 
+       0 0 0 0 0 0 0 0 0 0 0 
+        0 0 0 0 0 0 0 0 0 0 0 
+         0 0 0 0 0 0 0 0 0 0 0 
+          0 0 0 0 0 0 0 0 0 0 0 
+
+[INFO]-2026-10-14 03:33:50,511 - Turn 2: player Player2
+[INFO]-2026-10-14 03:33:50,511 - Starting Board:
+0 0 0 0 0 0 0 0 0 0 0 
+ 0 R 0 0 0 0 0 0 0 0 0 
+  0 0 0 0 0 0 0 0 0 0 0 
+   0 0 0 0 0 0 0 0 0 0 0 
+    0 0 0 0 0 0 0 0 0 0 0 
+     0 0 0 0 0 0 0 0 0 0 0 
+      0 0 0 0 0 0 0 0 0 0 0 
+       0 0 0 0 0 0 0 0 0 0 0 
+        0 0 0 0 0 0 0 0 0 0 0 
+         0 0 0 0 0 0 0 0 0 0 0 
+          0 0 0 0 0 0 0 0 0 0 0 
+
+[INFO]-2026-10-14 03:33:50,513 - Player Player2; Move: Colour.BLUE(x=2, y=2)
+[INFO]-2026-10-14 03:33:50,513 - Player Player2 timed out
+[INFO]-2026-10-14 03:33:50,513 - Game over
+[INFO]-2026-10-14 03:33:50,513 - Final Board:
+0 0 0 0 0 0 0 0 0 0 0 
+ 0 R 0 0 0 0 0 0 0 0 0 
+  0 0 0 0 0 0 0 0 0 0 0 
+   0 0 0 0 0 0 0 0 0 0 0 
+    0 0 0 0 0 0 0 0 0 0 0 
+     0 0 0 0 0 0 0 0 0 0 0 
+      0 0 0 0 0 0 0 0 0 0 0 
+       0 0 0 0 0 0 0 0 0 0 0 
+        0 0 0 0 0 0 0 0 0 0 0 
+         0 0 0 0 0 0 0 0 0 0 0 
+          0 0 0 0 0 0 0 0 0 0 0 
+
+[INFO]-2026-10-14 03:33:50,513 - Total time: 500.0s
+[INFO]-2026-10-14 03:33:50,513 - Player Player2 has timed out
+[INFO]-2026-10-14 03:33:50,513 - Player Player1 has won
+Player1,9000000000.0
+Player2,380000000000.0
+winner,Player1,TIMEOUT
+[INFO]-2026-10-14 03:33:50,513 - Total Game Time: 500.0s
+ok
+test_move_properties (test_Move.TestMove.test_move_properties) ... ok
+test_move_string_representation (test_Move.TestMove.test_move_string_representation) ... ok
+test_swap_move_string_representation (test_Move.TestMove.test_swap_move_string_representation) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.011s
+
+OK

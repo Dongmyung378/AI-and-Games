@@ -1,0 +1,58 @@
+[
+  {
+    "id": "terminal",
+    "protocol": "V2",
+    "status": "process_error",
+    "returncode": 2,
+    "passed": true,
+    "telemetry": [
+      {
+        "kind": "hex_search_error",
+        "error": "Terminal board: no move is legal after the game ends."
+      }
+    ],
+    "message": "V2;B;11;CHANGE;10,0;R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000;22"
+  },
+  {
+    "id": "invalid_last_coordinate",
+    "protocol": "V2",
+    "status": "process_error",
+    "returncode": 2,
+    "passed": true,
+    "telemetry": [
+      {
+        "kind": "hex_search_error",
+        "error": "Integer is outside its allowed range."
+      }
+    ],
+    "message": "V2;B;11;CHANGE;11,0;00000000000,00000000000,00000000000,00000000000,00000000000,0000000000R,00000000000,00000000000,00000000000,00000000000,00000000000;2"
+  },
+  {
+    "id": "terminal",
+    "protocol": "V3",
+    "status": "process_error",
+    "returncode": 2,
+    "passed": true,
+    "telemetry": [
+      {
+        "kind": "hex_search_error",
+        "error": "Terminal board: no move is legal after the game ends."
+      }
+    ],
+    "message": "V3;B;11;CHANGE;10,0;R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000,R0000000000;22;.5;300"
+  },
+  {
+    "id": "invalid_last_coordinate",
+    "protocol": "V3",
+    "status": "process_error",
+    "returncode": 2,
+    "passed": true,
+    "telemetry": [
+      {
+        "kind": "hex_search_error",
+        "error": "Integer is outside its allowed range."
+      }
+    ],
+    "message": "V3;B;11;CHANGE;11,0;00000000000,00000000000,00000000000,00000000000,00000000000,0000000000R,00000000000,00000000000,00000000000,00000000000,00000000000;2;.5;300"
+  }
+]

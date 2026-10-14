@@ -16,3 +16,5 @@
 *.jpg -text
 *.zip -text
 deployment/agents/Group026/RAVE_TS -text
+# Retain measured output bytes so raw receipt hashes survive Git/ZIP transfer.
+reports/deep/** -text -eol

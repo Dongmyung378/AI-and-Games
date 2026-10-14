@@ -43,6 +43,152 @@ python -m hexai predict --board "R00,000,000" --colour B --turn 2 --policy rave_
 
 The board uses comma-separated rows with `R`, `B` and `0`. Coordinates are zero-based. `predict` is a snapshot inspection command; the complete evaluation runner manages pie swaps, participant identities and cumulative game budgets.
 
+## Reproduce the deeper release
+
+The maintained runtime remains standard-library Python plus a C++17 compiler.
+Build both comparison engines from the repository root:
+
+```bash
+python -m hexai doctor
+python -m hexai build
+python scripts/build_legacy_benchmark.py --output .local/bin/legacy_benchmark
+python -m unittest discover -s tests -v
+```
+
+The explicit adapter output matches the portable relative path in the frozen
+shared-time manifest. On Windows the builder preserves the requested destination
+name and its matching receipt; do not edit a frozen manifest to insert a host's
+absolute path. Build for the target OS. The controlled adapter is separately
+generated and never replaces the preserved historical source or shipped binary.
+
+Run the complete declared comparisons in separate fresh output directories:
+
+```bash
+python -m hexai evaluate --config configs/deep/shared-time.json --output .local/deep-shared-time --max-wall-seconds 33000 --checkpoint-margin-seconds 120
+python -m hexai evaluate --config configs/deep/tactical-ablation.json --output .local/deep-tactical-ablation --max-wall-seconds 33000 --checkpoint-margin-seconds 120
+```
+
+The shared-time manifest schedules 400 games; the tactical manifest separately
+schedules another 400. These commands can require substantial CPU time. The
+wall guard stops between games with an explicit checkpoint and missing-game
+coverage, allowing a compatible resumed run rather than declaring an incomplete
+suite complete. Resume by adding `--resume` to the same command. A saved failure
+stays a failure; it is not silently replayed until a win is obtained.
+
+For local/Kaggle division, add `--shard-index INDEX --shard-count 10` to the
+shared-time command. Its pair grouping assigns 40 games to each of the ten
+shards. Do not divide the two legs of a pair between hosts. Every result carries
+the same full-manifest fingerprint and its actual hardware/source signature.
+
+```bash
+python -m hexai aggregate --inputs .local/deep-shard0 .local/deep-shard1 --output .local/deep-partial.json
+```
+
+Supply all ten nonoverlapping shared-time shards and add `--require-complete`
+for the final 400-game aggregate. Two shard directories alone are not a complete
+study. Coverage means a result exists for every planned game, not that every
+game succeeded. Keep per-environment outcomes and measured time consumed.
+
+### Generate the public Kaggle CPU package
+
+```bash
+python scripts/package_kaggle_cpu.py --owner YOUR_ACCOUNT --slug hex-deep-cpu-reproduction --config configs/deep/shared-time.json --output .local/kaggle-deep-package --shard-index 0 --shard-count 10 --sanitizers
+```
+
+This command only prepares `kernel.py`, Kaggle metadata and integrity receipts.
+It never uploads credentials, submits a job or starts training. Submit the
+generated private CPU script under your own account when ready. It embeds the
+reviewed source and frozen config, builds both engines on Linux and saves a
+top-level result archive and completion JSON. No existing native executable is
+used as a substitute for a source build. The optional sanitizer check verifies
+the maintained and controlled historical paths under ASan and UBSan.
+
+The public tool's short end-to-end run is distinct from the long shared-time
+study. Session CPU count and quota must be measured again with `doctor`; the
+study's allocation does not guarantee future Kaggle resources. Retain manifests,
+metadata, generated source and patch/build receipts when downloading results.
+
+The latest actual public-tool Kaggle run passed 107 Python test executions, 15 native self-test checks and six ASan/UBSan protocol tests. All four short V3 games completed and all 100 saved moves replayed. A separate checkpoint run recorded zero evaluation games; it does not claim completion of the 400-game manifest. [Public execution evidence](deep-runtime.md) retains the actual source-version scope.
+
+For a short V3 integration run, use:
+
+```bash
+python -m hexai evaluate --config configs/deep/public-runtime-smoke.json --output .local/public-runtime-smoke
+python -m hexai aggregate --inputs .local/public-runtime-smoke --output .local/public-runtime-summary.json --require-complete
+```
+
+### Repeat the six-position worker benchmark
+
+```bash
+python -m hexai benchmark --fixtures reports/deep/benchmarks/fixtures.json --workers 1 2 4 8 --iterations 16000 --repeats 7 --policy rave_ts --output .local/deep-workers.json
+```
+
+Use the frozen fixture file and explicitly record the actual repetition count.
+Repeat separately on Windows and Kaggle; their standard libraries and CPU
+allocations differ. Preserve all raw trials, p50/p95 responses and nullable RSS.
+The benchmark disables instant tactical decisions and checks that each request
+completed the stated total iteration count. It does not establish playing
+strength or make cross-platform bitwise search equality a requirement.
+
+### Saved-source verification and optional graphics
+
+The extended manifest is `reports/release-manifest-v2.json`. Its old suites use
+the archived first-release source and original hashes; new suites retain their
+actual generated-adapter source and source/build receipts. Do not rewrite old
+metadata to match new runtime files.
+
+```bash
+python scripts/verify_release.py --manifest reports/release-manifest-v2.json --output .local/deep-release-verification.json
+```
+
+Verification checks saved hashes, coverage, legality, colour changes, allocation
+accounting and recorded winners. A fresh match rerun is a separate action. A
+changed host, source, binary or shard assignment must use a separate compatible
+run allocation instead of bypassing the resume fingerprint check.
+
+The numerical SVGs use optional Matplotlib tooling, not a runtime dependency.
+The [figure tools](../tools/figures/) require Python 3.11 or newer for the pinned
+Matplotlib 3.11.2, whose installed metadata declares `Requires-Python >=3.11`.
+This does not change the standard-library runtime's Python 3.10 minimum.
+With a Python 3.11-or-newer interpreter, create a separate environment:
+
+```bash
+python -m venv .local/figure-env
+.local/figure-env/bin/python -m pip install -r tools/figures/requirements.txt
+.local/figure-env/bin/python tools/figures/render_hex_deep_scientific.py --data assets/figures/deep-visual-input.json --output .local/figures --language both
+```
+
+On Windows use `.local/figure-env/Scripts/python.exe` instead. A Korean font is
+required for Korean figures; `--korean-font PATH_TO_FONT` can select it explicitly.
+Keep the actual input reports and figure-generation receipt with the figures;
+the receipt binds the plotting version, data, code and Korean font hashes.
+Exported Korean SVG glyph paths display without requiring the viewer to install
+that font. Graphs must use actual recorded results and retain failed and missing
+denominators instead of portraying them as lost or won games.
+
+### Reanalyze the recorded tactical games
+
+The optional standard-library [analysis tools](../tools/analysis/) read saved
+games without building an agent or playing new matches. These commands use the
+two actual published tactical run directories:
+
+```bash
+python tools/analysis/analyze_deep_evidence.py --summary reports/deep/aggregates/tactical-ablation.json --runs reports/deep/evaluation/tactical-ablation/hex-tactical-ablation-v1/evaluation-shard00 reports/deep/evaluation/tactical-ablation/hex-tactical-ablation-v1/evaluation-shard01 --expected-games 400 --output .local/tactical-costs.json
+python tools/analysis/analyze_tactical_traces.py --summary reports/deep/aggregates/tactical-ablation.json --runs reports/deep/evaluation/tactical-ablation/hex-tactical-ablation-v1/evaluation-shard00 reports/deep/evaluation/tactical-ablation/hex-tactical-ablation-v1/evaluation-shard01 --output .local/tactical-trace-analysis
+```
+
+The first describes per-actor cost and reasons. The second reconstructs physical
+trace equality, mirrored recorded seeds, matched-position latency and the plain
+opponent-keyed `tactical-metrics.json` consumed by figure and Site tooling. These
+analyses remain descriptive and never reselect the frozen policy. They do not
+require Matplotlib and do not change the Python 3.10-or-newer runtime requirement.
+
+## Actual source-build and saved-record validation
+
+The [source-validation summary](../reports/deep/verification/source-validation-summary.json) publishes actual environment-specific evidence. A fresh Windows environment with pip and system packages disabled passed 64 maintained tests, 18 preserved referee tests and 23 adapter tests. Two preserved Linux-binary tests were skipped; two corresponding V2 contracts separately passed against freshly Windows-built original source. Kaggle Linux passed 107 Python test executions with no skips, 15 native self-test checks including 19,683 connectivity states, and six sanitizer protocol tests.
+
+The fresh Windows environment also replayed 1,336 saved games and 53,199 moves across nine evaluation suites. These records include the four short integration games; the zero-game checkpoint contributes no games. This is project-internal verification in a separate execution environment, rather than an external human replication. Final source-ZIP integrity is checked separately after documentation and figures are finalized.
+
 ## Frozen manifests and evaluation splits
 
 Each manifest fixes participant settings, board size, budget, game IDs, seed, forced opening and side-reversal pair ID. The canonical manifest hash is recorded with every game and output directory. A pair has exactly two games with the same seed and opening and reversed starting participant assignments.
@@ -142,7 +288,7 @@ Replay checks turn order, participant identity, current colour, accepted moves, 
 python -m hexai benchmark --workers 1 2 4 8 --iterations 10000 --repeats 3 --board-size 11 --policy rave_ts --output .local/worker-benchmark.json
 ```
 
-This uses a common nonterminal board snapshot and equal total iteration counts. It records externally measured response time, iterations per second, per-worker diagnostics and process peak RSS. It is not a win-rate experiment. RSS excludes the Python driver; a missing memory value is not proof of zero memory use.
+The preserved first-release measurements used one common nonterminal snapshot. The current command supports named fixture lists and equal total iteration counts; the deeper study uses the explicit six-position fixture file above. It records externally measured response time, iterations per second, per-worker diagnostics and process peak RSS. It is not a win-rate experiment. RSS excludes the Python driver; a missing memory value is not proof of zero memory use.
 
 Repeat the benchmark separately on each host. Eight workers can run on a four-CPU allocation but share that allocation. Choose worker settings from measured throughput and reliability, not from the number of launched threads.
 
@@ -167,10 +313,10 @@ The original shipped Linux executable's hash and runtime portability are checked
 
 ## Verify the saved result bundle
 
-The public release's `reports/release-manifest.json` pins search source, manifests, aggregates and saved-game records. This command checks saved artifacts without building or playing new matches:
+The public release's `reports/release-manifest-v2.json` pins search source, manifests, aggregates and saved-game records. This command checks saved artifacts without building or playing new matches:
 
 ```bash
-python scripts/verify_release.py --manifest reports/release-manifest.json --output .local/release-verification.json
+python scripts/verify_release.py --manifest reports/release-manifest-v2.json --output .local/release-verification.json
 ```
 
 The verifier checks original-inventory hashes, per-run manifests and runner/source hashes, missing or duplicate game IDs, referee replay of every saved move and agreement with stored aggregates. It verifies saved artifacts; it does not play new games or assess external-opponent strength.

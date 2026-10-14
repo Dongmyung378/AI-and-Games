@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "status": "rendered_from_actual_game_and_identifier_bound_results",
+  "matplotlib_version": "3.11.2",
+  "fonts": {
+    "en": {
+      "family": "DejaVu Sans",
+      "font_filename": "DejaVuSans.ttf",
+      "font_sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    "ko": {
+      "family": "Malgun Gothic",
+      "font_filename": "malgun.ttf",
+      "font_sha256": "7a183cf1c6c56b9609fcc16eda8b5229fbc11758a21e669ec00343239b02192f"
+    }
+  },
+  "palette": {
+    "ivory": "#F7F3EA",
+    "paper": "#FFFCF6",
+    "navy": "#17304A",
+    "red": "#A74445",
+    "muted": "#66717A",
+    "line": "#D9D3C9",
+    "sand": "#C8AE82",
+    "steel": "#45768D"
+  },
+  "input_data_sha256": "b08184a4462f449334fc0fad758685ae49edd4dfff46194d423cde7321b51f17",
+  "inputs": [
+    {
+      "filename": "deep-visual-input.json",
+      "sha256": "b08184a4462f449334fc0fad758685ae49edd4dfff46194d423cde7321b51f17",
+      "bytes": 2658
+    },
+    {
+      "filename": "shared-time.json",
+      "sha256": "23f363f0c3c145dc8d4f38531b9bd40268d4cb40161805aaf17994a55fbeb29d",
+      "bytes": 410595,
+      "repository_path": "reports/deep/aggregates/shared-time.json"
+    },
+    {
+      "filename": "deep-shared-time-selected-vs-historical_algorithm-000-0.json",
+      "sha256": "a7472d334c05688b4751075165acdc9fc87e3e0c5bc94d9998dfb8beb4897173",
+      "bytes": 131039,
+      "repository_path": "reports/deep/evaluation/shared-time/windows/evaluation-shard00/games/deep-shared-time-selected-vs-historical_algorithm-000-0.json"
+    },
+    {
+      "filename": "shared-time.json",
+      "sha256": "23f363f0c3c145dc8d4f38531b9bd40268d4cb40161805aaf17994a55fbeb29d",
+      "bytes": 410595,
+      "repository_path": "reports/deep/aggregates/shared-time.json"
+    },
+    {
+      "filename": "deep-shared-time-selected-vs-historical_algorithm-000-0.json",
+      "sha256": "a7472d334c05688b4751075165acdc9fc87e3e0c5bc94d9998dfb8beb4897173",
+      "bytes": 131039,
+      "repository_path": "reports/deep/evaluation/shared-time/windows/evaluation-shard00/games/deep-shared-time-selected-vs-historical_algorithm-000-0.json"
+    }
+  ],
+  "files": [
+    {
+      "path": "en/hex-deep-thumbnail.svg",
+      "sha256": "2b6e12bb999ab19a104ddb780c4e6e27fa06d9eb23004dc1bdd75516c24a5737",
+      "bytes": 94859
+    },
+    {
+      "path": "ko/hex-deep-thumbnail.svg",
+      "sha256": "1fbfc1988390e8837bdc21cda67cf34c1234af99dd41fdb1a55bc9d7ce432b97",
+      "bytes": 100552
+    }
+  ],
+  "generator_sha256": "77304d18bcf4e9ae98bf6e2aeec9bc8fac74ae6c4c0182d3064679ec8bfea3a6",
+  "data_parser_sha256": "08897c5824e6be49c2658500d87b3d6d6f9d387b67394ae2475dab18cee56a29",
+  "actual_data": {
+    "actual_game_id": "deep-shared-time-selected-vs-historical_algorithm-000-0",
+    "actual_winning_colour": "R",
+    "actual_final_board": "00000BRBBBB,00000RBRRRR,000RBRR0BBR,000BBBBBRBR,0B0RBRRR0BR,000RRBBR0BR,00B0BRBR0BR,000B00BR0BR,0RRR00R00BR,0B0000BRRR0,000000RBBB0",
+    "connecting_path": [
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        10,
+        6
+      ]
+    ],
+    "results_by_opponent": {
+      "ucb": {
+        "opponent": "ucb",
+        "scheduled": 100,
+        "recorded": 100,
+        "completed": 100,
+        "wins": 70,
+        "failed": 0,
+        "missing": 0,
+        "pairs": 50,
+        "mean": 0.7,
+        "ci95": [
+          0.61,
+          0.79
+        ]
+      },
+      "ts": {
+        "opponent": "ts",
+        "scheduled": 100,
+        "recorded": 100,
+        "completed": 100,
+        "wins": 73,
+        "failed": 0,
+        "missing": 0,
+        "pairs": 50,
+        "mean": 0.73,
+        "ci95": [
+          0.65,
+          0.81
+        ]
+      },
+      "rave_ucb": {
+        "opponent": "rave_ucb",
+        "scheduled": 100,
+        "recorded": 100,
+        "completed": 100,
+        "wins": 84,
+        "failed": 0,
+        "missing": 0,
+        "pairs": 50,
+        "mean": 0.84,
+        "ci95": [
+          0.77,
+          0.9
+        ]
+      },
+      "historical_algorithm": {
+        "opponent": "historical_algorithm",
+        "scheduled": 100,
+        "recorded": 100,
+        "completed": 100,
+        "wins": 81,
+        "failed": 0,
+        "missing": 0,
+        "pairs": 50,
+        "mean": 0.81,
+        "ci95": [
+          0.73,
+          0.88
+        ]
+      }
+    }
+  },
+  "layout": {
+    "en": {
+      "canvas_pixels": [
+        1280,
+        720
+      ],
+      "text_outside_figure": []
+    },
+    "ko": {
+      "canvas_pixels": [
+        1280,
+        720
+      ],
+      "text_outside_figure": []
+    }
+  },
+  "illustrative_board_or_scores": false
+}

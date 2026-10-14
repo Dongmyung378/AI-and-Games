@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "frozen_utc": "2026-10-14T03:27:25.697638+00:00",
+  "scope": "Hex improvement steps1-5; neural extension step6 remains deferred",
+  "previous_release_commit": "4198d3ca3dd787f6b5c7741ce91cb7ed25e754cc",
+  "selection": "The previous development-selected RAVE-TS configuration is unchanged. Follow-up final data is not used to retune it.",
+  "source_sha256": {
+    "native/hex_search.cpp": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+    "hexai/native.py": "362e41cc2106e8a797be6b6b6704702727e95d96872aad200186424a704bc7b2",
+    "hexai/referee.py": "993c948a58dda397145fc77cc0e353b5b1632d6ae4a8b577a72e41180edadd5e",
+    "hexai/evaluation.py": "66d582b0718e96766394f65533bc9f8a7bdc4c54e3973290fa57ad90c9f106ed",
+    "hexai/cli.py": "6bccdb9c60d2650d1dcdad57cbbdbafad42ed0336586f6497685b01f007ed4d0",
+    "scripts/build_legacy_benchmark.py": "6abb637f405de39b9e025378928eef0490c531344fa86d66a5d2d90950c6803a"
+  },
+  "suites": [
+    {
+      "manifest": "configs/deep/shared-time.json",
+      "manifest_sha256": "4f56942c290da3afc22d6740e96be74d58029ab3a727ba5b432490b66c64efdf",
+      "games": 400,
+      "pairs": 200,
+      "pairs_per_opponent": 50,
+      "primary_question": "Playing strength under the same 300-second external player clock, seeded streams and two root workers",
+      "opponents": [
+        "UCB",
+        "Thompson sampling",
+        "RAVE-UCB",
+        "controlled historical C++ algorithm"
+      ],
+      "shard_count": 10,
+      "planned_windows_shards": [
+        0,
+        1
+      ],
+      "planned_kaggle_shards": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "manifest": "configs/deep/tactical-ablation.json",
+      "manifest_sha256": "8fc9b4efecf579d5077e7958e163a51deec3090ed943aaefde2ed0953d62e23c",
+      "games": 400,
+      "pairs": 200,
+      "pairs_per_opponent": 50,
+      "primary_question": "Descriptive effects of removing pie choice, immediate win, immediate block, or all tactics at a fixed 16,000 total iterations"
+    }
+  ],
+  "clock_allocator": {
+    "game_seconds": 300,
+    "workers_per_participant": 2,
+    "expected_actor_requests": 24,
+    "minimum_future_actor_requests": 8,
+    "io_reserve_seconds": 0.05,
+    "response_margin_seconds": 2,
+    "formula": "(external_remaining_seconds - 0.05) / max(8, 24 - completed_actor_requests)",
+    "interpretation": "Search allowances are ceilings, not forced consumption. Full response wall time debits the actor clock, including tactics, swaps, and failed responses."
+  },
+  "opening_and_pairs": "Each seed defines one uniform forced first red stone. Both side-reversed games use the same seed, forced opening, host, executable and runner. Seeds are disjoint from previous suites; coordinates may repeat.",
+  "statistics": {
+    "primary_interval": "95% bootstrap on complete side-reversal pairs, stratified by actual hardware/build signature",
+    "resamples": 2000,
+    "all_scheduled_denominator": true,
+    "reports": [
+      "completed wins",
+      "completed denominator",
+      "failed games",
+      "missing games",
+      "pair interval",
+      "per-environment results",
+      "actual clock spent"
+    ],
+    "multiple_comparisons": "Four opponent comparisons are reported descriptively; no family-wide significance claim or policy adoption is made."
+  },
+  "stop_rule": "No win-driven optional stopping of these frozen validation suites. Previously rejected bridge/order/rave_k candidate tuning remains stopped. Correctness or infrastructure failures pause jobs for diagnosis, are retained, and are never counted as playing wins.",
+  "worker_cost_plan": {
+    "fixtures": "Three frozen nonterminal 11x11 positions at turns2/41/81, both colours",
+    "workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "iterations": 16000,
+    "repeats": 7,
+    "measures": [
+      "p50/p95 external response",
+      "native iterations/second",
+      "sampled process peak RSS",
+      "exact total iterations"
+    ],
+    "interpretation": "Within-host benchmarks; eight workers on a four-CPU Kaggle quota do not mean eight physical cores.",
+    "fixture_manifest": "configs/deep/worker-fixtures.json",
+    "fixture_sha256": "06e0147e39340d510691f21fdbdefa1cead249dfceeb215186f037f5e65c427a",
+    "fixture_count": 6,
+    "fixture_history_labels": "3 legal Red-first positions +3 explicitly static transpose-and-colour-exchange counterparts"
+  },
+  "provenance_limitations": [
+    "Controlled old adapter changes runtime controls and telemetry, not the original algorithm. It is not the untouched shipped executable.",
+    "Original worker iteration cap and unbounded tree growth remain; common worker count and clock do not imply matched memory.",
+    "No bundled Davis/HexHex executable, no external ranking claim, no independent human replication claim."
+  ],
+  "publication": "Preserve original source and all six old suites unchanged; add new reports, English-default/Korean docs and matching GitHub/site/source ZIP.",
+  "pre_execution_correction": "Bootstrap resample count corrected to the frozen runner default of2000 before any scored follow-up game starts."
+}

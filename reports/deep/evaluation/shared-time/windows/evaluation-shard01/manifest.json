@@ -1,0 +1,5654 @@
+{
+  "schema_version": 1,
+  "suite_id": "deep-shared-time",
+  "split": "final",
+  "board_size": 11,
+  "budget": {
+    "mode": "game_time",
+    "game_seconds": 300,
+    "workers": 2,
+    "expected_actor_moves": 24,
+    "minimum_future_actor_moves": 8,
+    "io_reserve_seconds": 0.05,
+    "response_margin_seconds": 2,
+    "node_cap": 100000,
+    "memory_mb": 128,
+    "response_timeout": 60
+  },
+  "participants": {
+    "selected": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "ucb": {
+      "kind": "native",
+      "policy": "ucb",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "ts": {
+      "kind": "native",
+      "policy": "ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "rave_ucb": {
+      "kind": "native",
+      "policy": "rave_ucb",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "historical_algorithm": {
+      "kind": "benchmark_legacy",
+      "legacy_executable": ".local/bin/legacy_benchmark"
+    }
+  },
+  "games": [
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-000-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-000",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000000,
+      "opening_seed": 5000000,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-000-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-000",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000000,
+      "opening_seed": 5000000,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-001-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-001",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000001,
+      "opening_seed": 5000001,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-001-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-001",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000001,
+      "opening_seed": 5000001,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-002-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-002",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000002,
+      "opening_seed": 5000002,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-002-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-002",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000002,
+      "opening_seed": 5000002,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-003-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-003",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000003,
+      "opening_seed": 5000003,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-003-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-003",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000003,
+      "opening_seed": 5000003,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-004-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-004",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000004,
+      "opening_seed": 5000004,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-004-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-004",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000004,
+      "opening_seed": 5000004,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-005-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-005",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000005,
+      "opening_seed": 5000005,
+      "opening_moves": [
+        [
+          9,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-005-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-005",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000005,
+      "opening_seed": 5000005,
+      "opening_moves": [
+        [
+          9,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-006-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-006",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000006,
+      "opening_seed": 5000006,
+      "opening_moves": [
+        [
+          9,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-006-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-006",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000006,
+      "opening_seed": 5000006,
+      "opening_moves": [
+        [
+          9,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-007-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-007",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000007,
+      "opening_seed": 5000007,
+      "opening_moves": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-007-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-007",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000007,
+      "opening_seed": 5000007,
+      "opening_moves": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-008-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-008",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000008,
+      "opening_seed": 5000008,
+      "opening_moves": [
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-008-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-008",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000008,
+      "opening_seed": 5000008,
+      "opening_moves": [
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-009-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-009",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000009,
+      "opening_seed": 5000009,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-009-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-009",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000009,
+      "opening_seed": 5000009,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-010-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-010",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000010,
+      "opening_seed": 5000010,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-010-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-010",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000010,
+      "opening_seed": 5000010,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-011-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-011",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000011,
+      "opening_seed": 5000011,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-011-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-011",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000011,
+      "opening_seed": 5000011,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-012-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-012",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000012,
+      "opening_seed": 5000012,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-012-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-012",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000012,
+      "opening_seed": 5000012,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-013-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-013",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000013,
+      "opening_seed": 5000013,
+      "opening_moves": [
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-013-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-013",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000013,
+      "opening_seed": 5000013,
+      "opening_moves": [
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-014-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-014",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000014,
+      "opening_seed": 5000014,
+      "opening_moves": [
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-014-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-014",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000014,
+      "opening_seed": 5000014,
+      "opening_moves": [
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-015-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-015",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000015,
+      "opening_seed": 5000015,
+      "opening_moves": [
+        [
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-015-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-015",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000015,
+      "opening_seed": 5000015,
+      "opening_moves": [
+        [
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-016-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-016",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000016,
+      "opening_seed": 5000016,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-016-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-016",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000016,
+      "opening_seed": 5000016,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-017-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-017",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000017,
+      "opening_seed": 5000017,
+      "opening_moves": [
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-017-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-017",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000017,
+      "opening_seed": 5000017,
+      "opening_moves": [
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-018-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-018",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000018,
+      "opening_seed": 5000018,
+      "opening_moves": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-018-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-018",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000018,
+      "opening_seed": 5000018,
+      "opening_moves": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-019-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-019",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000019,
+      "opening_seed": 5000019,
+      "opening_moves": [
+        [
+          10,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-019-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-019",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000019,
+      "opening_seed": 5000019,
+      "opening_moves": [
+        [
+          10,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-020-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-020",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000020,
+      "opening_seed": 5000020,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-020-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-020",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000020,
+      "opening_seed": 5000020,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-021-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-021",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000021,
+      "opening_seed": 5000021,
+      "opening_moves": [
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-021-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-021",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000021,
+      "opening_seed": 5000021,
+      "opening_moves": [
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-022-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-022",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000022,
+      "opening_seed": 5000022,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-022-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-022",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000022,
+      "opening_seed": 5000022,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-023-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-023",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000023,
+      "opening_seed": 5000023,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-023-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-023",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000023,
+      "opening_seed": 5000023,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-024-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-024",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000024,
+      "opening_seed": 5000024,
+      "opening_moves": [
+        [
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-024-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-024",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000024,
+      "opening_seed": 5000024,
+      "opening_moves": [
+        [
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-025-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-025",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000025,
+      "opening_seed": 5000025,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-025-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-025",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000025,
+      "opening_seed": 5000025,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-026-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-026",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000026,
+      "opening_seed": 5000026,
+      "opening_moves": [
+        [
+          5,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-026-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-026",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000026,
+      "opening_seed": 5000026,
+      "opening_moves": [
+        [
+          5,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-027-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-027",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000027,
+      "opening_seed": 5000027,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-027-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-027",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000027,
+      "opening_seed": 5000027,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-028-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-028",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000028,
+      "opening_seed": 5000028,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-028-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-028",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000028,
+      "opening_seed": 5000028,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-029-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-029",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000029,
+      "opening_seed": 5000029,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-029-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-029",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000029,
+      "opening_seed": 5000029,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-030-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-030",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000030,
+      "opening_seed": 5000030,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-030-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-030",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000030,
+      "opening_seed": 5000030,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-031-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-031",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000031,
+      "opening_seed": 5000031,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-031-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-031",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000031,
+      "opening_seed": 5000031,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-032-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-032",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000032,
+      "opening_seed": 5000032,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-032-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-032",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000032,
+      "opening_seed": 5000032,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-033-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-033",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000033,
+      "opening_seed": 5000033,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-033-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-033",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000033,
+      "opening_seed": 5000033,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-034-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-034",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000034,
+      "opening_seed": 5000034,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-034-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-034",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000034,
+      "opening_seed": 5000034,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-035-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-035",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000035,
+      "opening_seed": 5000035,
+      "opening_moves": [
+        [
+          4,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-035-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-035",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000035,
+      "opening_seed": 5000035,
+      "opening_moves": [
+        [
+          4,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-036-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-036",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000036,
+      "opening_seed": 5000036,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-036-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-036",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000036,
+      "opening_seed": 5000036,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-037-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-037",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000037,
+      "opening_seed": 5000037,
+      "opening_moves": [
+        [
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-037-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-037",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000037,
+      "opening_seed": 5000037,
+      "opening_moves": [
+        [
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-038-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-038",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000038,
+      "opening_seed": 5000038,
+      "opening_moves": [
+        [
+          5,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-038-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-038",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000038,
+      "opening_seed": 5000038,
+      "opening_moves": [
+        [
+          5,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-039-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-039",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000039,
+      "opening_seed": 5000039,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-039-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-039",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000039,
+      "opening_seed": 5000039,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-040-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-040",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000040,
+      "opening_seed": 5000040,
+      "opening_moves": [
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-040-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-040",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000040,
+      "opening_seed": 5000040,
+      "opening_moves": [
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-041-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-041",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000041,
+      "opening_seed": 5000041,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-041-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-041",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000041,
+      "opening_seed": 5000041,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-042-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-042",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000042,
+      "opening_seed": 5000042,
+      "opening_moves": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-042-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-042",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000042,
+      "opening_seed": 5000042,
+      "opening_moves": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-043-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-043",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000043,
+      "opening_seed": 5000043,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-043-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-043",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000043,
+      "opening_seed": 5000043,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-044-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-044",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000044,
+      "opening_seed": 5000044,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-044-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-044",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000044,
+      "opening_seed": 5000044,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-045-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-045",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000045,
+      "opening_seed": 5000045,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-045-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-045",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000045,
+      "opening_seed": 5000045,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-046-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-046",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000046,
+      "opening_seed": 5000046,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-046-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-046",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000046,
+      "opening_seed": 5000046,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-047-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-047",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000047,
+      "opening_seed": 5000047,
+      "opening_moves": [
+        [
+          8,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-047-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-047",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000047,
+      "opening_seed": 5000047,
+      "opening_moves": [
+        [
+          8,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-048-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-048",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000048,
+      "opening_seed": 5000048,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-048-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-048",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000048,
+      "opening_seed": 5000048,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-049-0",
+      "pair_id": "deep-shared-time-selected-vs-ucb-049",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 5000049,
+      "opening_seed": 5000049,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ucb-049-1",
+      "pair_id": "deep-shared-time-selected-vs-ucb-049",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 5000049,
+      "opening_seed": 5000049,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-000-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-000",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010000,
+      "opening_seed": 5010000,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-000-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-000",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010000,
+      "opening_seed": 5010000,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-001-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-001",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010001,
+      "opening_seed": 5010001,
+      "opening_moves": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-001-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-001",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010001,
+      "opening_seed": 5010001,
+      "opening_moves": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-002-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-002",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010002,
+      "opening_seed": 5010002,
+      "opening_moves": [
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-002-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-002",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010002,
+      "opening_seed": 5010002,
+      "opening_moves": [
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-003-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-003",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010003,
+      "opening_seed": 5010003,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-003-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-003",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010003,
+      "opening_seed": 5010003,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-004-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-004",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010004,
+      "opening_seed": 5010004,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-004-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-004",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010004,
+      "opening_seed": 5010004,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-005-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-005",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010005,
+      "opening_seed": 5010005,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-005-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-005",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010005,
+      "opening_seed": 5010005,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-006-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-006",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010006,
+      "opening_seed": 5010006,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-006-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-006",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010006,
+      "opening_seed": 5010006,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-007-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-007",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010007,
+      "opening_seed": 5010007,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-007-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-007",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010007,
+      "opening_seed": 5010007,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-008-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-008",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010008,
+      "opening_seed": 5010008,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-008-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-008",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010008,
+      "opening_seed": 5010008,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-009-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-009",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010009,
+      "opening_seed": 5010009,
+      "opening_moves": [
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-009-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-009",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010009,
+      "opening_seed": 5010009,
+      "opening_moves": [
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-010-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-010",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010010,
+      "opening_seed": 5010010,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-010-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-010",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010010,
+      "opening_seed": 5010010,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-011-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-011",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010011,
+      "opening_seed": 5010011,
+      "opening_moves": [
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-011-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-011",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010011,
+      "opening_seed": 5010011,
+      "opening_moves": [
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-012-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-012",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010012,
+      "opening_seed": 5010012,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-012-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-012",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010012,
+      "opening_seed": 5010012,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-013-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-013",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010013,
+      "opening_seed": 5010013,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-013-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-013",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010013,
+      "opening_seed": 5010013,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-014-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-014",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010014,
+      "opening_seed": 5010014,
+      "opening_moves": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-014-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-014",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010014,
+      "opening_seed": 5010014,
+      "opening_moves": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-015-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-015",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010015,
+      "opening_seed": 5010015,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-015-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-015",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010015,
+      "opening_seed": 5010015,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-016-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-016",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010016,
+      "opening_seed": 5010016,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-016-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-016",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010016,
+      "opening_seed": 5010016,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-017-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-017",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010017,
+      "opening_seed": 5010017,
+      "opening_moves": [
+        [
+          9,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-017-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-017",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010017,
+      "opening_seed": 5010017,
+      "opening_moves": [
+        [
+          9,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-018-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-018",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010018,
+      "opening_seed": 5010018,
+      "opening_moves": [
+        [
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-018-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-018",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010018,
+      "opening_seed": 5010018,
+      "opening_moves": [
+        [
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-019-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-019",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010019,
+      "opening_seed": 5010019,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-019-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-019",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010019,
+      "opening_seed": 5010019,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-020-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-020",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010020,
+      "opening_seed": 5010020,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-020-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-020",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010020,
+      "opening_seed": 5010020,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-021-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-021",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010021,
+      "opening_seed": 5010021,
+      "opening_moves": [
+        [
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-021-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-021",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010021,
+      "opening_seed": 5010021,
+      "opening_moves": [
+        [
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-022-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-022",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010022,
+      "opening_seed": 5010022,
+      "opening_moves": [
+        [
+          9,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-022-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-022",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010022,
+      "opening_seed": 5010022,
+      "opening_moves": [
+        [
+          9,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-023-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-023",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010023,
+      "opening_seed": 5010023,
+      "opening_moves": [
+        [
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-023-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-023",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010023,
+      "opening_seed": 5010023,
+      "opening_moves": [
+        [
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-024-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-024",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010024,
+      "opening_seed": 5010024,
+      "opening_moves": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-024-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-024",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010024,
+      "opening_seed": 5010024,
+      "opening_moves": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-025-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-025",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010025,
+      "opening_seed": 5010025,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-025-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-025",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010025,
+      "opening_seed": 5010025,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-026-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-026",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010026,
+      "opening_seed": 5010026,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-026-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-026",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010026,
+      "opening_seed": 5010026,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-027-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-027",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010027,
+      "opening_seed": 5010027,
+      "opening_moves": [
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-027-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-027",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010027,
+      "opening_seed": 5010027,
+      "opening_moves": [
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-028-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-028",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010028,
+      "opening_seed": 5010028,
+      "opening_moves": [
+        [
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-028-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-028",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010028,
+      "opening_seed": 5010028,
+      "opening_moves": [
+        [
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-029-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-029",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010029,
+      "opening_seed": 5010029,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-029-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-029",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010029,
+      "opening_seed": 5010029,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-030-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-030",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010030,
+      "opening_seed": 5010030,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-030-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-030",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010030,
+      "opening_seed": 5010030,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-031-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-031",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010031,
+      "opening_seed": 5010031,
+      "opening_moves": [
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-031-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-031",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010031,
+      "opening_seed": 5010031,
+      "opening_moves": [
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-032-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-032",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010032,
+      "opening_seed": 5010032,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-032-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-032",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010032,
+      "opening_seed": 5010032,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-033-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-033",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010033,
+      "opening_seed": 5010033,
+      "opening_moves": [
+        [
+          2,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-033-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-033",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010033,
+      "opening_seed": 5010033,
+      "opening_moves": [
+        [
+          2,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-034-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-034",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010034,
+      "opening_seed": 5010034,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-034-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-034",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010034,
+      "opening_seed": 5010034,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-035-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-035",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010035,
+      "opening_seed": 5010035,
+      "opening_moves": [
+        [
+          4,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-035-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-035",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010035,
+      "opening_seed": 5010035,
+      "opening_moves": [
+        [
+          4,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-036-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-036",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010036,
+      "opening_seed": 5010036,
+      "opening_moves": [
+        [
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-036-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-036",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010036,
+      "opening_seed": 5010036,
+      "opening_moves": [
+        [
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-037-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-037",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010037,
+      "opening_seed": 5010037,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-037-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-037",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010037,
+      "opening_seed": 5010037,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-038-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-038",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010038,
+      "opening_seed": 5010038,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-038-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-038",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010038,
+      "opening_seed": 5010038,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-039-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-039",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010039,
+      "opening_seed": 5010039,
+      "opening_moves": [
+        [
+          4,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-039-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-039",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010039,
+      "opening_seed": 5010039,
+      "opening_moves": [
+        [
+          4,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-040-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-040",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010040,
+      "opening_seed": 5010040,
+      "opening_moves": [
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-040-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-040",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010040,
+      "opening_seed": 5010040,
+      "opening_moves": [
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-041-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-041",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010041,
+      "opening_seed": 5010041,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-041-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-041",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010041,
+      "opening_seed": 5010041,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-042-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-042",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010042,
+      "opening_seed": 5010042,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-042-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-042",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010042,
+      "opening_seed": 5010042,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-043-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-043",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010043,
+      "opening_seed": 5010043,
+      "opening_moves": [
+        [
+          4,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-043-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-043",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010043,
+      "opening_seed": 5010043,
+      "opening_moves": [
+        [
+          4,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-044-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-044",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010044,
+      "opening_seed": 5010044,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-044-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-044",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010044,
+      "opening_seed": 5010044,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-045-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-045",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010045,
+      "opening_seed": 5010045,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-045-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-045",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010045,
+      "opening_seed": 5010045,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-046-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-046",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010046,
+      "opening_seed": 5010046,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-046-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-046",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010046,
+      "opening_seed": 5010046,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-047-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-047",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010047,
+      "opening_seed": 5010047,
+      "opening_moves": [
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-047-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-047",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010047,
+      "opening_seed": 5010047,
+      "opening_moves": [
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-048-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-048",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010048,
+      "opening_seed": 5010048,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-048-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-048",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010048,
+      "opening_seed": 5010048,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-049-0",
+      "pair_id": "deep-shared-time-selected-vs-ts-049",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 5010049,
+      "opening_seed": 5010049,
+      "opening_moves": [
+        [
+          9,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-ts-049-1",
+      "pair_id": "deep-shared-time-selected-vs-ts-049",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 5010049,
+      "opening_seed": 5010049,
+      "opening_moves": [
+        [
+          9,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-000-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-000",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020000,
+      "opening_seed": 5020000,
+      "opening_moves": [
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-000-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-000",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020000,
+      "opening_seed": 5020000,
+      "opening_moves": [
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-001-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-001",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020001,
+      "opening_seed": 5020001,
+      "opening_moves": [
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-001-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-001",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020001,
+      "opening_seed": 5020001,
+      "opening_moves": [
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-002-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-002",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020002,
+      "opening_seed": 5020002,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-002-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-002",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020002,
+      "opening_seed": 5020002,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-003-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-003",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020003,
+      "opening_seed": 5020003,
+      "opening_moves": [
+        [
+          8,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-003-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-003",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020003,
+      "opening_seed": 5020003,
+      "opening_moves": [
+        [
+          8,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-004-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-004",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020004,
+      "opening_seed": 5020004,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-004-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-004",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020004,
+      "opening_seed": 5020004,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-005-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-005",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020005,
+      "opening_seed": 5020005,
+      "opening_moves": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-005-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-005",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020005,
+      "opening_seed": 5020005,
+      "opening_moves": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-006-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-006",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020006,
+      "opening_seed": 5020006,
+      "opening_moves": [
+        [
+          9,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-006-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-006",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020006,
+      "opening_seed": 5020006,
+      "opening_moves": [
+        [
+          9,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-007-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-007",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020007,
+      "opening_seed": 5020007,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-007-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-007",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020007,
+      "opening_seed": 5020007,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-008-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-008",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020008,
+      "opening_seed": 5020008,
+      "opening_moves": [
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-008-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-008",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020008,
+      "opening_seed": 5020008,
+      "opening_moves": [
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-009-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-009",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020009,
+      "opening_seed": 5020009,
+      "opening_moves": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-009-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-009",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020009,
+      "opening_seed": 5020009,
+      "opening_moves": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-010-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-010",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020010,
+      "opening_seed": 5020010,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-010-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-010",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020010,
+      "opening_seed": 5020010,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-011-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-011",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020011,
+      "opening_seed": 5020011,
+      "opening_moves": [
+        [
+          4,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-011-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-011",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020011,
+      "opening_seed": 5020011,
+      "opening_moves": [
+        [
+          4,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-012-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-012",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020012,
+      "opening_seed": 5020012,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-012-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-012",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020012,
+      "opening_seed": 5020012,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-013-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-013",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020013,
+      "opening_seed": 5020013,
+      "opening_moves": [
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-013-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-013",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020013,
+      "opening_seed": 5020013,
+      "opening_moves": [
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-014-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-014",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020014,
+      "opening_seed": 5020014,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-014-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-014",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020014,
+      "opening_seed": 5020014,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-015-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-015",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020015,
+      "opening_seed": 5020015,
+      "opening_moves": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-015-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-015",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020015,
+      "opening_seed": 5020015,
+      "opening_moves": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-016-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-016",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020016,
+      "opening_seed": 5020016,
+      "opening_moves": [
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-016-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-016",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020016,
+      "opening_seed": 5020016,
+      "opening_moves": [
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-017-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-017",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020017,
+      "opening_seed": 5020017,
+      "opening_moves": [
+        [
+          2,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-017-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-017",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020017,
+      "opening_seed": 5020017,
+      "opening_moves": [
+        [
+          2,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-018-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-018",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020018,
+      "opening_seed": 5020018,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-018-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-018",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020018,
+      "opening_seed": 5020018,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-019-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-019",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020019,
+      "opening_seed": 5020019,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-019-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-019",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020019,
+      "opening_seed": 5020019,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-020-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-020",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020020,
+      "opening_seed": 5020020,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-020-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-020",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020020,
+      "opening_seed": 5020020,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-021-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-021",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020021,
+      "opening_seed": 5020021,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-021-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-021",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020021,
+      "opening_seed": 5020021,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-022-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-022",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020022,
+      "opening_seed": 5020022,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-022-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-022",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020022,
+      "opening_seed": 5020022,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-023-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-023",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020023,
+      "opening_seed": 5020023,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-023-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-023",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020023,
+      "opening_seed": 5020023,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-024-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-024",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020024,
+      "opening_seed": 5020024,
+      "opening_moves": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-024-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-024",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020024,
+      "opening_seed": 5020024,
+      "opening_moves": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-025-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-025",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020025,
+      "opening_seed": 5020025,
+      "opening_moves": [
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-025-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-025",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020025,
+      "opening_seed": 5020025,
+      "opening_moves": [
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-026-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-026",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020026,
+      "opening_seed": 5020026,
+      "opening_moves": [
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-026-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-026",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020026,
+      "opening_seed": 5020026,
+      "opening_moves": [
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-027-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-027",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020027,
+      "opening_seed": 5020027,
+      "opening_moves": [
+        [
+          10,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-027-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-027",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020027,
+      "opening_seed": 5020027,
+      "opening_moves": [
+        [
+          10,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-028-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-028",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020028,
+      "opening_seed": 5020028,
+      "opening_moves": [
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-028-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-028",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020028,
+      "opening_seed": 5020028,
+      "opening_moves": [
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-029-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-029",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020029,
+      "opening_seed": 5020029,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-029-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-029",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020029,
+      "opening_seed": 5020029,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-030-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-030",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020030,
+      "opening_seed": 5020030,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-030-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-030",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020030,
+      "opening_seed": 5020030,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-031-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-031",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020031,
+      "opening_seed": 5020031,
+      "opening_moves": [
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-031-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-031",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020031,
+      "opening_seed": 5020031,
+      "opening_moves": [
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-032-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-032",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020032,
+      "opening_seed": 5020032,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-032-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-032",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020032,
+      "opening_seed": 5020032,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-033-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-033",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020033,
+      "opening_seed": 5020033,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-033-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-033",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020033,
+      "opening_seed": 5020033,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-034-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-034",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020034,
+      "opening_seed": 5020034,
+      "opening_moves": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-034-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-034",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020034,
+      "opening_seed": 5020034,
+      "opening_moves": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-035-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-035",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020035,
+      "opening_seed": 5020035,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-035-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-035",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020035,
+      "opening_seed": 5020035,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-036-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-036",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020036,
+      "opening_seed": 5020036,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-036-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-036",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020036,
+      "opening_seed": 5020036,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-037-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-037",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020037,
+      "opening_seed": 5020037,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-037-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-037",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020037,
+      "opening_seed": 5020037,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-038-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-038",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020038,
+      "opening_seed": 5020038,
+      "opening_moves": [
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-038-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-038",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020038,
+      "opening_seed": 5020038,
+      "opening_moves": [
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-039-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-039",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020039,
+      "opening_seed": 5020039,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-039-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-039",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020039,
+      "opening_seed": 5020039,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-040-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-040",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020040,
+      "opening_seed": 5020040,
+      "opening_moves": [
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-040-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-040",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020040,
+      "opening_seed": 5020040,
+      "opening_moves": [
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-041-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-041",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020041,
+      "opening_seed": 5020041,
+      "opening_moves": [
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-041-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-041",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020041,
+      "opening_seed": 5020041,
+      "opening_moves": [
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-042-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-042",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020042,
+      "opening_seed": 5020042,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-042-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-042",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020042,
+      "opening_seed": 5020042,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-043-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-043",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020043,
+      "opening_seed": 5020043,
+      "opening_moves": [
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-043-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-043",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020043,
+      "opening_seed": 5020043,
+      "opening_moves": [
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-044-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-044",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020044,
+      "opening_seed": 5020044,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-044-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-044",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020044,
+      "opening_seed": 5020044,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-045-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-045",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020045,
+      "opening_seed": 5020045,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-045-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-045",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020045,
+      "opening_seed": 5020045,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-046-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-046",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020046,
+      "opening_seed": 5020046,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-046-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-046",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020046,
+      "opening_seed": 5020046,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-047-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-047",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020047,
+      "opening_seed": 5020047,
+      "opening_moves": [
+        [
+          9,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-047-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-047",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020047,
+      "opening_seed": 5020047,
+      "opening_moves": [
+        [
+          9,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-048-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-048",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020048,
+      "opening_seed": 5020048,
+      "opening_moves": [
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-048-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-048",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020048,
+      "opening_seed": 5020048,
+      "opening_moves": [
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-049-0",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-049",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 5020049,
+      "opening_seed": 5020049,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-rave_ucb-049-1",
+      "pair_id": "deep-shared-time-selected-vs-rave_ucb-049",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 5020049,
+      "opening_seed": 5020049,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-000-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-000",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030000,
+      "opening_seed": 5030000,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-000-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-000",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030000,
+      "opening_seed": 5030000,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-001-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-001",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030001,
+      "opening_seed": 5030001,
+      "opening_moves": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-001-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-001",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030001,
+      "opening_seed": 5030001,
+      "opening_moves": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-002-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-002",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030002,
+      "opening_seed": 5030002,
+      "opening_moves": [
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-002-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-002",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030002,
+      "opening_seed": 5030002,
+      "opening_moves": [
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-003-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-003",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030003,
+      "opening_seed": 5030003,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-003-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-003",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030003,
+      "opening_seed": 5030003,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-004-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-004",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030004,
+      "opening_seed": 5030004,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-004-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-004",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030004,
+      "opening_seed": 5030004,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-005-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-005",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030005,
+      "opening_seed": 5030005,
+      "opening_moves": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-005-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-005",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030005,
+      "opening_seed": 5030005,
+      "opening_moves": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-006-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-006",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030006,
+      "opening_seed": 5030006,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-006-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-006",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030006,
+      "opening_seed": 5030006,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-007-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-007",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030007,
+      "opening_seed": 5030007,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-007-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-007",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030007,
+      "opening_seed": 5030007,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-008-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-008",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030008,
+      "opening_seed": 5030008,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-008-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-008",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030008,
+      "opening_seed": 5030008,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-009-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-009",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030009,
+      "opening_seed": 5030009,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-009-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-009",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030009,
+      "opening_seed": 5030009,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-010-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-010",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030010,
+      "opening_seed": 5030010,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-010-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-010",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030010,
+      "opening_seed": 5030010,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-011-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-011",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030011,
+      "opening_seed": 5030011,
+      "opening_moves": [
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-011-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-011",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030011,
+      "opening_seed": 5030011,
+      "opening_moves": [
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-012-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-012",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030012,
+      "opening_seed": 5030012,
+      "opening_moves": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-012-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-012",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030012,
+      "opening_seed": 5030012,
+      "opening_moves": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-013-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-013",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030013,
+      "opening_seed": 5030013,
+      "opening_moves": [
+        [
+          9,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-013-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-013",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030013,
+      "opening_seed": 5030013,
+      "opening_moves": [
+        [
+          9,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-014-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-014",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030014,
+      "opening_seed": 5030014,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-014-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-014",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030014,
+      "opening_seed": 5030014,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-015-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-015",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030015,
+      "opening_seed": 5030015,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-015-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-015",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030015,
+      "opening_seed": 5030015,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-016-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-016",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030016,
+      "opening_seed": 5030016,
+      "opening_moves": [
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-016-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-016",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030016,
+      "opening_seed": 5030016,
+      "opening_moves": [
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-017-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-017",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030017,
+      "opening_seed": 5030017,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-017-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-017",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030017,
+      "opening_seed": 5030017,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-018-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-018",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030018,
+      "opening_seed": 5030018,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-018-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-018",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030018,
+      "opening_seed": 5030018,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-019-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-019",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030019,
+      "opening_seed": 5030019,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-019-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-019",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030019,
+      "opening_seed": 5030019,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-020-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-020",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030020,
+      "opening_seed": 5030020,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-020-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-020",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030020,
+      "opening_seed": 5030020,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-021-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-021",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030021,
+      "opening_seed": 5030021,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-021-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-021",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030021,
+      "opening_seed": 5030021,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-022-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-022",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030022,
+      "opening_seed": 5030022,
+      "opening_moves": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-022-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-022",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030022,
+      "opening_seed": 5030022,
+      "opening_moves": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-023-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-023",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030023,
+      "opening_seed": 5030023,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-023-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-023",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030023,
+      "opening_seed": 5030023,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-024-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-024",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030024,
+      "opening_seed": 5030024,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-024-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-024",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030024,
+      "opening_seed": 5030024,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-025-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-025",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030025,
+      "opening_seed": 5030025,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-025-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-025",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030025,
+      "opening_seed": 5030025,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-026-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-026",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030026,
+      "opening_seed": 5030026,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-026-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-026",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030026,
+      "opening_seed": 5030026,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-027-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-027",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030027,
+      "opening_seed": 5030027,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-027-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-027",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030027,
+      "opening_seed": 5030027,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-028-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-028",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030028,
+      "opening_seed": 5030028,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-028-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-028",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030028,
+      "opening_seed": 5030028,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-029-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-029",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030029,
+      "opening_seed": 5030029,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-029-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-029",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030029,
+      "opening_seed": 5030029,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-030-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-030",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030030,
+      "opening_seed": 5030030,
+      "opening_moves": [
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-030-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-030",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030030,
+      "opening_seed": 5030030,
+      "opening_moves": [
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-031-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-031",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030031,
+      "opening_seed": 5030031,
+      "opening_moves": [
+        [
+          5,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-031-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-031",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030031,
+      "opening_seed": 5030031,
+      "opening_moves": [
+        [
+          5,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-032-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-032",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030032,
+      "opening_seed": 5030032,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-032-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-032",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030032,
+      "opening_seed": 5030032,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-033-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-033",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030033,
+      "opening_seed": 5030033,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-033-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-033",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030033,
+      "opening_seed": 5030033,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-034-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-034",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030034,
+      "opening_seed": 5030034,
+      "opening_moves": [
+        [
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-034-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-034",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030034,
+      "opening_seed": 5030034,
+      "opening_moves": [
+        [
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-035-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-035",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030035,
+      "opening_seed": 5030035,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-035-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-035",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030035,
+      "opening_seed": 5030035,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-036-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-036",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030036,
+      "opening_seed": 5030036,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-036-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-036",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030036,
+      "opening_seed": 5030036,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-037-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-037",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030037,
+      "opening_seed": 5030037,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-037-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-037",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030037,
+      "opening_seed": 5030037,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-038-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-038",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030038,
+      "opening_seed": 5030038,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-038-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-038",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030038,
+      "opening_seed": 5030038,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-039-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-039",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030039,
+      "opening_seed": 5030039,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-039-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-039",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030039,
+      "opening_seed": 5030039,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-040-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-040",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030040,
+      "opening_seed": 5030040,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-040-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-040",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030040,
+      "opening_seed": 5030040,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-041-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-041",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030041,
+      "opening_seed": 5030041,
+      "opening_moves": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-041-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-041",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030041,
+      "opening_seed": 5030041,
+      "opening_moves": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-042-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-042",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030042,
+      "opening_seed": 5030042,
+      "opening_moves": [
+        [
+          5,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-042-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-042",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030042,
+      "opening_seed": 5030042,
+      "opening_moves": [
+        [
+          5,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-043-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-043",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030043,
+      "opening_seed": 5030043,
+      "opening_moves": [
+        [
+          10,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-043-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-043",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030043,
+      "opening_seed": 5030043,
+      "opening_moves": [
+        [
+          10,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-044-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-044",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030044,
+      "opening_seed": 5030044,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-044-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-044",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030044,
+      "opening_seed": 5030044,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-045-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-045",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030045,
+      "opening_seed": 5030045,
+      "opening_moves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-045-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-045",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030045,
+      "opening_seed": 5030045,
+      "opening_moves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-046-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-046",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030046,
+      "opening_seed": 5030046,
+      "opening_moves": [
+        [
+          10,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-046-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-046",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030046,
+      "opening_seed": 5030046,
+      "opening_moves": [
+        [
+          10,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-047-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-047",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030047,
+      "opening_seed": 5030047,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-047-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-047",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030047,
+      "opening_seed": 5030047,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-048-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-048",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030048,
+      "opening_seed": 5030048,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-048-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-048",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030048,
+      "opening_seed": 5030048,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-049-0",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-049",
+      "red": "selected",
+      "blue": "historical_algorithm",
+      "seed": 5030049,
+      "opening_seed": 5030049,
+      "opening_moves": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "deep-shared-time-selected-vs-historical_algorithm-049-1",
+      "pair_id": "deep-shared-time-selected-vs-historical_algorithm-049",
+      "red": "historical_algorithm",
+      "blue": "selected",
+      "seed": 5030049,
+      "opening_seed": 5030049,
+      "opening_moves": [
+        [
+          1,
+          2
+        ]
+      ]
+    }
+  ]
+}

@@ -5,75 +5,121 @@
   "assets": [
     {
       "name": "hex-thumbnail.svg",
-      "sha256": "83dd173e89cc6d97cd1a6db8124090bf1023016e9a235dade49f2c1b621a9613",
+      "sha256": "fa3c14eadca6569518ed51b6994ae310f33357c75a77fc8df6ab22970fb8307e",
       "site_path": "/images/projects/hex-thumbnail.svg"
     },
     {
       "name": "hex-pipeline.svg",
-      "sha256": "e36cb5a4f00b0bac5d4846ff1aa7fac501f383eb7f4489b82aac870eedfa38ce",
+      "sha256": "98bd78f759628c0cfe13702cf016fab1a287613a87c303952d8dde048c6a8a43",
       "site_path": "/images/projects/hex-pipeline.svg"
     },
     {
       "name": "hex-correctness.svg",
-      "sha256": "3f8b2bb900d500e7e148b0f9036edb142843eda834ca60992132a31bba2c132c",
+      "sha256": "4a242bd8e0f0f7a702f6cf63d9663703edcf911cd7517467e263668694bc68ac",
       "site_path": "/images/projects/hex-correctness.svg"
     },
     {
       "name": "hex-policy.svg",
-      "sha256": "91d9e1b196e3a721ed69814c1fe1ab4a28d8b88be779497baa99a9412b4db0bc",
+      "sha256": "7a6010e2cb761acc710b331c899d24c4201598c8b3069fb699ca88a9ab32b89b",
       "site_path": "/images/projects/hex-policy.svg"
     },
     {
       "name": "hex-features.svg",
-      "sha256": "4cec11948f092b5e74a6b9364775e2599c0f7f009eed61973cc400c1f917c6cf",
+      "sha256": "59f0b14748c375a2aae6cf815ce9ff941b2f9989d32448a22e2f48cc0d95bf89",
       "site_path": "/images/projects/hex-features.svg"
     },
     {
       "name": "hex-costs.svg",
-      "sha256": "f7b6b49e2f6a7ea892a2dc403a9f260948b23d9a4587cd41fd72752be64b7c70",
+      "sha256": "16e90942fca90e2ef797d5318e931100d9ad1aec955920a915f1be482c5fc04a",
       "site_path": "/images/projects/hex-costs.svg"
     },
     {
       "name": "hex-final.svg",
-      "sha256": "b5ef9d589cdd394a681002a9dd18f93afeb6c099a65d39fb6064e8b8b329149e",
+      "sha256": "5217ac8b162aec4eeeff0542edfa070d9e829d309c4f9eef74f13cef6c60c846",
       "site_path": "/images/projects/hex-final.svg"
     }
   ],
   "inputs": {
     "development-features": {
       "name": "development-features.json",
-      "sha256": "0a229ddd8500ac85a9276aa405ef61efe90fe3a62c81c21d196050740c7a6cdd"
+      "sha256": "f120cecd3360f0fc33c570acf7c2a5d6c93b2f41f15b7996432dab54195668f6",
+      "repository_path": "reports/aggregates/development-features.json",
+      "hash_mode": "canonical_lf"
     },
     "development-policy": {
       "name": "development-policy.json",
-      "sha256": "b99f8d3ac2844f368ab3657f7c164af231106682d245716ab0c259ce4bf41e33"
+      "sha256": "edcf2355f7123c9b3e2f375c19fddf5b1e268027721535e6ceed8ee663ab3294",
+      "repository_path": "reports/aggregates/development-policy.json",
+      "hash_mode": "canonical_lf"
     },
     "kaggle-worker-cost": {
       "name": "worker-benchmark.json",
-      "sha256": "ac253b633afe756913cf4db4a45dde70584bc804e84f64cbdc064a2c06b55328"
+      "sha256": "ac253b633afe756913cf4db4a45dde70584bc804e84f64cbdc064a2c06b55328",
+      "repository_path": "reports/benchmarks/kaggle.json",
+      "hash_mode": "canonical_lf"
     },
     "local-worker-cost": {
       "name": "local-worker-benchmark-isolated.json",
-      "sha256": "586e553da2b43a04bf6a9cf6552e7ce75c00678ab1a7d69bcf377dad121c42c6"
+      "sha256": "414c3f5e82bd8eb0cac477ea58155ab6d7e41587fe0ae3cc6ca4693900c20d99",
+      "repository_path": "reports/benchmarks/windows.json",
+      "hash_mode": "canonical_lf"
     },
     "native-correctness": {
       "name": "native-independent-correctness-audit.json",
-      "sha256": "ae32dc0c6af02a833fc1d13c4e2ef35c507990be1e362398cef194e6a5197b39"
+      "sha256": "ae32dc0c6af02a833fc1d13c4e2ef35c507990be1e362398cef194e6a5197b39",
+      "repository_path": "reports/correctness/native-independent-audit.json",
+      "hash_mode": "canonical_lf"
     },
     "python-correctness": {
       "name": "python-correctness-probe.json",
-      "sha256": "6d63372793ce39124f24dac14a63fd0aa43b9df72427b641eedbea232581bdf7"
+      "sha256": "6d63372793ce39124f24dac14a63fd0aa43b9df72427b641eedbea232581bdf7",
+      "repository_path": "reports/correctness/python-reference.json",
+      "hash_mode": "canonical_lf"
     },
     "selection": {
       "name": "selection.json",
-      "sha256": "ac983192bb77aa3f33eb69b86ca69234f82011a369333f20d36b993275764fea"
+      "sha256": "ac983192bb77aa3f33eb69b86ca69234f82011a369333f20d36b993275764fea",
+      "repository_path": "reports/selection.json",
+      "hash_mode": "canonical_lf"
     },
     "final-policy": {
       "name": "final-policy.json",
-      "sha256": "94092da964cd0680fcf7b6441d72f45dff554c195d30b943a05ad470c215fd34"
+      "sha256": "d791c2dea05ceb54d14f6ad386f579814fc6060b959840d6a3c7bc7237a55b57",
+      "repository_path": "reports/aggregates/final-policy.json",
+      "hash_mode": "canonical_lf"
     }
   },
   "final_generated": true,
   "font_stack": "'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif",
-  "renderer_sha256": "e77457007a00b51eeda8fda26a7ead6d7ff912aa845114bb43677bd7ba412457"
+  "renderer_sha256": "e77457007a00b51eeda8fda26a7ead6d7ff912aa845114bb43677bd7ba412457",
+  "style_transform": {
+    "theme": "Hex red, navy and ivory",
+    "palette_replacements": {
+      "#173B35": "#17304A",
+      "#26766B": "#A74445",
+      "#3A6689": "#45768D",
+      "#3F729B": "#17304A",
+      "#B85151": "#A74445",
+      "#64696B": "#66717A",
+      "#97AAA2": "#8F9AA4",
+      "#D6E1DC": "#D9D3C9",
+      "#E1EFE7": "#EDE6D9",
+      "#E1F1E9": "#F1E1DC",
+      "#E5EEE8": "#E9E3D8",
+      "#F1F7F3": "#F7F3EA",
+      "#FFFFFF": "#FFFCF6"
+    },
+    "numeric_text_tokens_and_geometry_unchanged": true,
+    "previous_asset_hashes": {
+      "hex-correctness.svg": "3f8b2bb900d500e7e148b0f9036edb142843eda834ca60992132a31bba2c132c",
+      "hex-costs.svg": "f7b6b49e2f6a7ea892a2dc403a9f260948b23d9a4587cd41fd72752be64b7c70",
+      "hex-features.svg": "4cec11948f092b5e74a6b9364775e2599c0f7f009eed61973cc400c1f917c6cf",
+      "hex-final.svg": "b5ef9d589cdd394a681002a9dd18f93afeb6c099a65d39fb6064e8b8b329149e",
+      "hex-pipeline.svg": "e36cb5a4f00b0bac5d4846ff1aa7fac501f383eb7f4489b82aac870eedfa38ce",
+      "hex-policy.svg": "91d9e1b196e3a721ed69814c1fe1ab4a28d8b88be779497baa99a9412b4db0bc",
+      "hex-thumbnail.svg": "83dd173e89cc6d97cd1a6db8124090bf1023016e9a235dade49f2c1b621a9613"
+    },
+    "line_endings_normalized_to_lf": true,
+    "previous_asset_hash_scope": "Exact pre-edit Windows checkout bytes; previous public Git blobs use canonical LF."
+  }
 }

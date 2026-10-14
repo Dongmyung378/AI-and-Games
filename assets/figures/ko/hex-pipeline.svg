@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840" role="img" aria-labelledby="title desc">
+<title id="title">Hex의 탐색과 평가 파이프라인</title>
+<desc id="desc">보드 상태와 합법 수를 전달해 독립 워커가 탐색하고 루트 통계를 합칩니다. 좌표를 검증한 경기 기록은 재생한 뒤 선후공 교대 쌍으로 집계합니다.</desc>
+<style>text{font-family:'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect x="0" y="0" width="1200" height="840" fill="#F7F3EA" rx="0" stroke-width="1"/>
+<text x="48" y="64" fill="#17304A" font-size="36" font-weight="750" text-anchor="start">탐색 결과를 검증 가능한 경기 기록으로</text>
+<text x="48" y="106" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">좌표 반환과 탐색 진단을 분리하고, 승리 연결 경로를 확인한 뒤 집계합니다.</text>
+<rect x="48" y="167" width="318" height="132" fill="#FFFCF6" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="70" y="211" fill="#A74445" font-size="29" font-weight="750" text-anchor="start">조건과 상태</text>
+<text x="70" y="252" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">보드, 색상, 합법 수</text>
+<text x="70" y="283" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">시드, 전체 탐색 예산</text>
+<rect x="444" y="167" width="318" height="132" fill="#FFFCF6" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="466" y="211" fill="#A74445" font-size="29" font-weight="750" text-anchor="start">독립 루트 워커</text>
+<text x="466" y="252" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">보드, 트리, 난수 독립</text>
+<text x="466" y="283" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">MCTS + 행동 AMAF</text>
+<rect x="834" y="167" width="318" height="132" fill="#FFFCF6" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="856" y="211" fill="#A74445" font-size="29" font-weight="750" text-anchor="start">루트 통계 집계</text>
+<text x="856" y="252" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">수별 방문과 승리 합산</text>
+<text x="856" y="283" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">가장 많이 방문한 합법 수</text>
+<rect x="48" y="416" width="318" height="132" fill="#FFFCF6" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="70" y="460" fill="#A74445" font-size="29" font-weight="750" text-anchor="start">심판에 수 전달</text>
+<text x="70" y="501" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">표준 출력: 좌표</text>
+<text x="70" y="532" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">표준 오류: JSON 진단</text>
+<rect x="444" y="416" width="318" height="132" fill="#FFFCF6" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="466" y="460" fill="#A74445" font-size="29" font-weight="750" text-anchor="start">경기 기록 재생</text>
+<text x="466" y="501" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">불법 수와 실패 분리</text>
+<text x="466" y="532" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">신원, 보드, 승리 경로</text>
+<rect x="834" y="416" width="318" height="132" fill="#FFFCF6" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="856" y="460" fill="#A74445" font-size="29" font-weight="750" text-anchor="start">교대 쌍으로 집계</text>
+<text x="856" y="501" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">선후공 두 경기를 한 쌍으로</text>
+<text x="856" y="532" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">쌍 단위 부트스트랩 구간</text>
+<line x1="377" y1="234" x2="433" y2="234" stroke="#A74445" stroke-width="4"/>
+<path d="M419.493,240.524 L433.000,234.000 L419.493,227.476" fill="none" stroke="#A74445" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="773" y1="234" x2="823" y2="234" stroke="#A74445" stroke-width="4"/>
+<path d="M809.493,240.524 L823.000,234.000 L809.493,227.476" fill="none" stroke="#A74445" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="377" y1="483" x2="433" y2="483" stroke="#A74445" stroke-width="4"/>
+<path d="M419.493,489.524 L433.000,483.000 L419.493,476.476" fill="none" stroke="#A74445" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="773" y1="483" x2="823" y2="483" stroke="#A74445" stroke-width="4"/>
+<path d="M809.493,489.524 L823.000,483.000 L809.493,476.476" fill="none" stroke="#A74445" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1127.000,311.000 L1127.000,348.000 L75.000,348.000 L75.000,405.000" fill="none" stroke="#A74445" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="75" y1="385" x2="75" y2="405" stroke="#A74445" stroke-width="4"/>
+<path d="M68.476,391.493 L75.000,405.000 L81.524,391.493" fill="none" stroke="#A74445" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="48" y="605" width="1104" height="139" fill="#EDE6D9" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="73" y="649" fill="#17304A" font-size="29" font-weight="750" text-anchor="start">CPU 예산과 실패를 함께 관리</text>
+<text x="73" y="689" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">전체 탐색 횟수는 워커 전체의 합계입니다. 노드와 트리 예산과 실제 프로세스 RSS를 구분합니다.</text>
+<text x="73" y="720" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">스왑 이후에도 매 요청의 현재 색상을 전달하고, 시간 초과와 실행 오류를 승리로 계산하지 않습니다.</text>
+<text x="48" y="810" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">구조 설명입니다. 특정 정책의 승률이나 외부 상대에 대한 우위를 뜻하지 않습니다.</text>
+<metadata>{"project_id": "project-06", "visual_data_sha256": "b9e32752dc8376315d04f52e8cf1ffc5c73c3c85af08700f4b32f6d6a73ddfa8", "generated_from_verified_measurements": true}</metadata>
+</svg>

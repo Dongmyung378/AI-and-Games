@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "suite_id": "hex-public-v3-runtime-smoke",
+  "split": "development",
+  "manifest_sha256": "e38b14205857a9c5656025f613a136b92753d35af750b8552ae0e0bba9422efc",
+  "budget": {
+    "mode": "game_time",
+    "game_seconds": 5,
+    "workers": 1,
+    "node_cap": 30000,
+    "memory_mb": 64,
+    "response_timeout": 30,
+    "expected_actor_moves": 24,
+    "minimum_future_actor_moves": 8,
+    "io_reserve_seconds": 0.02,
+    "response_margin_seconds": 1
+  },
+  "scheduled_games": 4,
+  "recorded_games": 4,
+  "completed_games": 4,
+  "missing_game_ids": [],
+  "comparisons": [
+    {
+      "left": "controlled_legacy",
+      "right": "maintained",
+      "scheduled_games": 4,
+      "recorded_games": 4,
+      "completed_games": 4,
+      "left_wins": 0,
+      "right_wins": 4,
+      "left_win_rate_completed_games": 0.0,
+      "left_verified_wins_per_scheduled_game": 0.0,
+      "missing_games": 0,
+      "failure_rate_scheduled": 0.0,
+      "wilson_95_game_interval": [
+        0.0,
+        0.4898908364545973
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 2,
+      "paired_mean_win_rate": 0.0,
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "pair_strata": [
+        {
+          "signature": {
+            "hardware": {
+              "hardware": {
+                "affinity_cpus": 4,
+                "cgroup_cpu_max": "400000 100000",
+                "cgroup_memory_max": "32212254720",
+                "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+                "logical_cpus": 4,
+                "machine": "x86_64",
+                "release": "6.18.48+",
+                "system": "Linux"
+              },
+              "hardware_sha256": "0c6d76ab463a56ba6a059417c0b28674cd972fff07e94dd45696d15f13478fab",
+              "host_sha256": "1ccb51a131323f02c828dbdd1236a050c7ce9c015e7df6d50013a67db1ab0bae",
+              "scope": "Allocation fingerprint, not a benchmark score or independent external review."
+            },
+            "participants": {
+              "controlled_legacy": {
+                "executable_sha256": "40aa5e38b8291c0f1a0de69c83138bf891d77928460b62a82b3db9aeb61f39a2",
+                "kind": "benchmark_legacy",
+                "original_source_sha256": "3bcf831944b86847b2384ab4d85e451bf12e7890b3a17492e8ed617266287244",
+                "source_sha256": "f42ab37e1893ba2bf0ac1eb212381803c95132b68d7e2a18a085d46ab240291e",
+                "workers": 1
+              },
+              "maintained": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 1
+              }
+            }
+          },
+          "complete_side_pairs": 2,
+          "mean_win_rate": 0.0
+        }
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 0,
+      "left_second_wins": 0
+    }
+  ],
+  "interpretation": "Wins require verified connecting paths. Failures are never playing-strength wins. Completed-game rates, verified wins per scheduled game, missing games and failures all retain explicit denominators. Pair bootstrap resamples complete side-reversal pairs within hardware and adapter strata. Hardware environments must also be reported separately."
+}

@@ -33,6 +33,21 @@ The existing version-two request format is unchanged:
 V2;R|B;board_size;START|CHANGE|SWAP;opponent_x,y-or-empty;comma-separated-rows;turn
 ```
 
+Version three adds an independent referee's current move allowance and remaining
+agent game time. Both values must be finite nonnegative seconds:
+
+```text
+V3;R|B;board_size;START|CHANGE|SWAP;opponent_x,y-or-empty;comma-separated-rows;turn;allocated_search_seconds;external_remaining_seconds
+```
+
+The engine clamps search to the smaller allowance and remaining game time, also
+respecting any explicit `--seconds` cap and configured game ceiling. Referee
+timing includes request/response pipe latency that native cumulative timing
+cannot measure. V3 without explicit `--iterations` uses deadline search; V2's
+default 10,000-iteration behavior remains unchanged. Zero time yields a legal,
+labelled fallback. Terminal boards still reject requests. The referee remains
+responsible for the final external timeout and complete game accounting.
+
 Rows contain `0`, `R`, or `B`. RED connects the first coordinate's opposite
 edges; BLUE connects the second coordinate's opposite edges. Coordinates are
 zero-based. The maintained engine accepts sizes 3 through 19; final project
@@ -64,6 +79,8 @@ emit `hex_search_error` and exit with status 2; they never return an illegal mov
 | `--ordering` | Expansion move ordering, 0 or 1; default 1 |
 | `--swap` | Preserved central-opening pie-rule heuristic, 0 or 1; default 1 |
 | `--tactics` | Root immediate-win/block checks, 0 or 1; default 1 |
+| `--win-check` | Individual immediate-win check switch; default 1; requires `--tactics 1` |
+| `--block-check` | Individual opponent immediate-win block switch; default 1; requires `--tactics 1` |
 
 With `--seconds` and no explicit `--iterations`, the deadline controls search.
 With both options, whichever limit is reached first stops the search. Worker
@@ -109,6 +126,36 @@ AMAF disabled and multiplies Monte Carlo successes and failures by
 `child_visits / (1000 + child_visits)` before Thompson sampling, reflecting the
 historical zero-AMAF blend's effect. It is not the old executable: board handling,
 deadlines, allocation, seeding, and other engine details remain maintained code.
+
+## Controlled historical-algorithm comparison
+
+For an equal-worker, equal-budget comparison against the historical algorithm:
+
+```bash
+python scripts/build_legacy_benchmark.py --output .local/bin/legacy_benchmark
+```
+
+Use `.exe` on Windows. The script reads the historical source in its preserved
+directory and generates a separate copy under `.local`. Its expected canonical
+source SHA-256 and exact replacement guards fail closed on changed input. The
+generated source, machine-readable replacement receipt and build receipt stay
+beside the new executable. The script never overwrites the original source or
+binary. A Linux compiler can optionally build with `--sanitizer` for AddressSanitizer
+and UndefinedBehaviorSanitizer checks.
+
+This adapter changes runtime interfaces, seeded worker streams, worker count,
+external time allocation, deadline polling and telemetry. Historical board
+handling, tree selection, expansion, rollouts, rewards, swap choices and tactical
+checks remain unchanged, including the original zero-AMAF failure. Complete
+algorithmic regions are hash-checked during generation. The historical per-worker
+limit of 1,500,001 completed iterations remains and is reported if reached.
+
+The adapter accepts the same V2 and V3 requests, with `--seed`, `--workers`,
+`--iterations`, `--seconds` and `--game-seconds`. It is a **controlled historical
+algorithm**, not the source-exact historical executable. Keep its results
+separate from existing `--legacy` stock-source and same-engine `legacy_ts`
+diagnostic comparisons. Deadline results can vary with operating-system
+scheduling even under fixed seeds.
 
 ## Reproducibility limits
 

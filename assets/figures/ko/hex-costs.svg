@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1090" viewBox="0 0 1200 1090" role="img" aria-labelledby="title desc">
+<title id="title">CPU 워커 수에 따른 실행 비용</title>
+<desc id="desc">같은 11×11 비종료 보드에서 수당 총 16,000회 탐색을 수행했습니다. 로컬 Windows 16 논리 CPU는 워커별 7회, Kaggle Linux 4 vCPU는 5회 반복했습니다. 응답 지연의 중앙값과 95백분위, 외부 측정 처리량과 최대 프로세스 RSS입니다. 단일 보드 측정이며 승률이 아닙니다.</desc>
+<style>text{font-family:'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect x="0" y="0" width="1200" height="1090" fill="#F7F3EA" rx="0" stroke-width="1"/>
+<text x="48" y="64" fill="#17304A" font-size="36" font-weight="750" text-anchor="start">워커별 실행 비용은 장비 안에서 비교</text>
+<text x="48" y="106" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">같은 11×11 비종료 보드, 수당 전체 16,000회, RAVE-TS, 모든 요청이 선언한 횟수를 완료</text>
+<rect x="48" y="161" width="544" height="682" fill="#FFFCF6" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="72" y="210" fill="#A74445" font-size="29" font-weight="750" text-anchor="start">로컬 Windows</text>
+<text x="72" y="249" fill="#66717A" font-size="21" font-weight="400" text-anchor="start">Intel Family 6 Model 141, 16 논리 CPU</text>
+<text x="72" y="285" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">워커별 7회 반복, 중앙값 / p95</text>
+<line x1="121" y1="551" x2="499" y2="551" stroke="#D9D3C9" stroke-width="2"/>
+<text x="109" y="559" fill="#66717A" font-size="18" font-weight="400" text-anchor="end">0.00</text>
+<line x1="121" y1="443.0" x2="499" y2="443.0" stroke="#D9D3C9" stroke-width="2"/>
+<text x="109" y="451.0" fill="#66717A" font-size="18" font-weight="400" text-anchor="end">0.49</text>
+<line x1="121" y1="335" x2="499" y2="335" stroke="#D9D3C9" stroke-width="2"/>
+<text x="109" y="343" fill="#66717A" font-size="18" font-weight="400" text-anchor="end">0.97</text>
+<text x="499" y="318" fill="#66717A" font-size="21" font-weight="400" text-anchor="end">응답 시간 (초)</text>
+<rect x="137" y="383.3185031905914" width="44" height="167.68149680940863" fill="#A74445" rx="5" stroke-width="1"/>
+<line x1="159" y1="371.0" x2="159" y2="383.3185031905914" stroke="#A74445" stroke-width="3"/>
+<line x1="149" y1="371.0" x2="169" y2="371.0" stroke="#A74445" stroke-width="3"/>
+<text x="159" y="580" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">1</text>
+<rect x="231" y="462.98758363629423" width="44" height="88.01241636370575" fill="#A74445" rx="5" stroke-width="1"/>
+<line x1="253" y1="460.3181763944092" x2="253" y2="462.98758363629423" stroke="#A74445" stroke-width="3"/>
+<line x1="243" y1="460.3181763944092" x2="263" y2="460.3181763944092" stroke="#A74445" stroke-width="3"/>
+<text x="253" y="580" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">2</text>
+<rect x="325" y="499.72663272839856" width="44" height="51.273367271601465" fill="#A74445" rx="5" stroke-width="1"/>
+<line x1="347" y1="498.9242543717179" x2="347" y2="499.72663272839856" stroke="#A74445" stroke-width="3"/>
+<line x1="337" y1="498.9242543717179" x2="357" y2="498.9242543717179" stroke="#A74445" stroke-width="3"/>
+<text x="347" y="580" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">4</text>
+<rect x="419" y="521.9529976804614" width="44" height="29.047002319538628" fill="#A74445" rx="5" stroke-width="1"/>
+<line x1="441" y1="521.0593783660569" x2="441" y2="521.9529976804614" stroke="#A74445" stroke-width="3"/>
+<line x1="431" y1="521.0593783660569" x2="451" y2="521.0593783660569" stroke="#A74445" stroke-width="3"/>
+<text x="441" y="580" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">8</text>
+<text x="515" y="590" fill="#66717A" font-size="21" font-weight="400" text-anchor="end">워커 수</text>
+<text x="73" y="634" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">워커</text>
+<text x="165" y="634" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">응답 초</text>
+<text x="283" y="634" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">천 회/초</text>
+<text x="470" y="634" fill="#66717A" font-size="20" font-weight="400" text-anchor="end">RSS MiB</text>
+<text x="91" y="674" fill="#A74445" font-size="22" font-weight="700" text-anchor="middle">1</text>
+<text x="165" y="674" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">0.754</text>
+<text x="293" y="674" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">21.2</text>
+<text x="468" y="674" fill="#17304A" font-size="22" font-weight="400" text-anchor="end">36.7</text>
+<text x="91" y="709" fill="#A74445" font-size="22" font-weight="700" text-anchor="middle">2</text>
+<text x="165" y="709" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">0.396</text>
+<text x="293" y="709" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">40.4</text>
+<text x="468" y="709" fill="#17304A" font-size="22" font-weight="400" text-anchor="end">37.0</text>
+<text x="91" y="744" fill="#A74445" font-size="22" font-weight="700" text-anchor="middle">4</text>
+<text x="165" y="744" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">0.231</text>
+<text x="293" y="744" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">69.4</text>
+<text x="468" y="744" fill="#17304A" font-size="22" font-weight="400" text-anchor="end">37.3</text>
+<text x="91" y="779" fill="#A74445" font-size="22" font-weight="700" text-anchor="middle">8</text>
+<text x="165" y="779" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">0.131</text>
+<text x="293" y="779" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">122.5</text>
+<text x="468" y="779" fill="#17304A" font-size="22" font-weight="400" text-anchor="end">38.1</text>
+<text x="72" y="820" fill="#A74445" font-size="22" font-weight="700" text-anchor="start">1 → 8워커 응답 중앙값: 5.77배 단축</text>
+<rect x="608" y="161" width="544" height="682" fill="#FFFCF6" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="632" y="210" fill="#45768D" font-size="29" font-weight="750" text-anchor="start">Kaggle Linux</text>
+<text x="632" y="249" fill="#66717A" font-size="21" font-weight="400" text-anchor="start">Intel Xeon 2.20 GHz, 4 vCPU 할당</text>
+<text x="632" y="285" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">워커별 5회 반복, 중앙값 / p95</text>
+<line x1="681" y1="551" x2="1059" y2="551" stroke="#D9D3C9" stroke-width="2"/>
+<text x="669" y="559" fill="#66717A" font-size="18" font-weight="400" text-anchor="end">0.00</text>
+<line x1="681" y1="443.0" x2="1059" y2="443.0" stroke="#D9D3C9" stroke-width="2"/>
+<text x="669" y="451.0" fill="#66717A" font-size="18" font-weight="400" text-anchor="end">1.16</text>
+<line x1="681" y1="335" x2="1059" y2="335" stroke="#D9D3C9" stroke-width="2"/>
+<text x="669" y="343" fill="#66717A" font-size="18" font-weight="400" text-anchor="end">2.32</text>
+<text x="1059" y="318" fill="#66717A" font-size="21" font-weight="400" text-anchor="end">응답 시간 (초)</text>
+<rect x="697" y="374.1064159408416" width="44" height="176.8935840591584" fill="#45768D" rx="5" stroke-width="1"/>
+<line x1="719" y1="371.0" x2="719" y2="374.1064159408416" stroke="#45768D" stroke-width="3"/>
+<line x1="709" y1="371.0" x2="729" y2="371.0" stroke="#45768D" stroke-width="3"/>
+<text x="719" y="580" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">1</text>
+<rect x="791" y="459.5701451138247" width="44" height="91.42985488617528" fill="#45768D" rx="5" stroke-width="1"/>
+<line x1="813" y1="457.56686200775533" x2="813" y2="459.5701451138247" stroke="#45768D" stroke-width="3"/>
+<line x1="803" y1="457.56686200775533" x2="823" y2="457.56686200775533" stroke="#45768D" stroke-width="3"/>
+<text x="813" y="580" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">2</text>
+<rect x="885" y="484.41838267954586" width="44" height="66.58161732045411" fill="#45768D" rx="5" stroke-width="1"/>
+<line x1="907" y1="480.51056373273195" x2="907" y2="484.41838267954586" stroke="#45768D" stroke-width="3"/>
+<line x1="897" y1="480.51056373273195" x2="917" y2="480.51056373273195" stroke="#45768D" stroke-width="3"/>
+<text x="907" y="580" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">4</text>
+<rect x="979" y="487.2615672637993" width="44" height="63.73843273620071" fill="#45768D" rx="5" stroke-width="1"/>
+<line x1="1001" y1="483.0226819335732" x2="1001" y2="487.2615672637993" stroke="#45768D" stroke-width="3"/>
+<line x1="991" y1="483.0226819335732" x2="1011" y2="483.0226819335732" stroke="#45768D" stroke-width="3"/>
+<text x="1001" y="580" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">8</text>
+<text x="1075" y="590" fill="#66717A" font-size="21" font-weight="400" text-anchor="end">워커 수</text>
+<text x="633" y="634" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">워커</text>
+<text x="725" y="634" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">응답 초</text>
+<text x="843" y="634" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">천 회/초</text>
+<text x="1030" y="634" fill="#66717A" font-size="20" font-weight="400" text-anchor="end">RSS MiB</text>
+<text x="651" y="674" fill="#45768D" font-size="22" font-weight="700" text-anchor="middle">1</text>
+<text x="725" y="674" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">1.897</text>
+<text x="853" y="674" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">8.4</text>
+<text x="1028" y="674" fill="#17304A" font-size="22" font-weight="400" text-anchor="end">35.6</text>
+<text x="651" y="709" fill="#45768D" font-size="22" font-weight="700" text-anchor="middle">2</text>
+<text x="725" y="709" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">0.980</text>
+<text x="853" y="709" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">16.3</text>
+<text x="1028" y="709" fill="#17304A" font-size="22" font-weight="400" text-anchor="end">35.3</text>
+<text x="651" y="744" fill="#45768D" font-size="22" font-weight="700" text-anchor="middle">4</text>
+<text x="725" y="744" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">0.714</text>
+<text x="853" y="744" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">22.4</text>
+<text x="1028" y="744" fill="#17304A" font-size="22" font-weight="400" text-anchor="end">35.1</text>
+<text x="651" y="779" fill="#45768D" font-size="22" font-weight="700" text-anchor="middle">8</text>
+<text x="725" y="779" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">0.683</text>
+<text x="853" y="779" fill="#17304A" font-size="22" font-weight="400" text-anchor="start">23.4</text>
+<text x="1028" y="779" fill="#17304A" font-size="22" font-weight="400" text-anchor="end">32.7</text>
+<text x="632" y="820" fill="#45768D" font-size="22" font-weight="700" text-anchor="start">1 → 8워커 응답 중앙값: 2.78배 단축</text>
+<rect x="48" y="848" width="1104" height="138" fill="#EDE6D9" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="74" y="891" fill="#17304A" font-size="29" font-weight="750" text-anchor="start">같은 워커 수가 같은 하드웨어 자원을 뜻하지는 않습니다.</text>
+<text x="74" y="930" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">Kaggle의 CPU 할당은 4 vCPU입니다. 8워커로 실행해도 CPU 할당이 8개로 늘어나지 않습니다.</text>
+<text x="74" y="962" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">처리량은 응답 시간 기준입니다. RSS는 네이티브 전체 워커를 포함하며 Python 실행기는 제외합니다.</text>
+<text x="48" y="1031" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">서로 다른 장비의 시간으로 개선율을 계산하지 않습니다. 단일 보드의 비용 측정이며 대국 성능과 구분합니다.</text>
+<text x="48" y="1060" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">각 패널의 시간 축 범위가 다릅니다. 막대는 중앙값, 위쪽 표시는 p95이며 작은 반복 표본의 관측치입니다.</text>
+<metadata>{"project_id": "project-06", "visual_data_sha256": "b9e32752dc8376315d04f52e8cf1ffc5c73c3c85af08700f4b32f6d6a73ddfa8", "generated_from_verified_measurements": true}</metadata>
+</svg>

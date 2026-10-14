@@ -43,6 +43,152 @@ python -m hexai predict --board "R00,000,000" --colour B --turn 2 --policy rave_
 
 보드는 `R`, `B`, `0`으로 표현한 행을 쉼표로 구분하고, 좌표는 0부터 시작합니다. `predict`는 특정 보드의 탐색을 확인하는 명령입니다. 전체 평가에서는 대국 실행기가 스왑, 플레이어 신원과 누적 경기 시간을 관리합니다.
 
+## 추가 릴리스 재현
+
+에이전트 실행에는 표준 라이브러리를 사용하는 Python과 C++17 컴파일러가
+필요합니다. 저장소 루트에서 두 비교 엔진을 소스로 빌드합니다.
+
+```bash
+python -m hexai doctor
+python -m hexai build
+python scripts/build_legacy_benchmark.py --output .local/bin/legacy_benchmark
+python -m unittest discover -s tests -v
+```
+
+어댑터의 출력 경로를 명시하면 고정 목록의 이식 가능한 상대 경로와 일치합니다.
+Windows에서도 빌더가 요청한 파일 이름과 해당 실행 기록을 맞춥니다.
+특정 장비의 절대 경로를 넣기 위해 고정 목록을 바꾸지 않습니다. 대상
+운영체제에 맞게 빌드하며, 동일 조건 어댑터를 별도로 생성해 보존한 기존
+소스와 원래 실행 파일을 교체하지 않습니다.
+
+전체 비교는 서로 다른 새 출력 폴더에 실행합니다.
+
+```bash
+python -m hexai evaluate --config configs/deep/shared-time.json --output .local/deep-shared-time --max-wall-seconds 33000 --checkpoint-margin-seconds 120
+python -m hexai evaluate --config configs/deep/tactical-ablation.json --output .local/deep-tactical-ablation --max-wall-seconds 33000 --checkpoint-margin-seconds 120
+```
+
+경기 시간 목록은 400경기이며 전술 목록도 별도로 400경기입니다. 전체 수행에는
+충분한 CPU 시간이 필요합니다. 실행 상한에 가까워지면 경기 사이에서
+중단하고 미기록 범위와 재개 필요를 명시하므로 미완료 목록을 완료로
+설명하지 않습니다. 같은 명령에 `--resume`을 추가하면 호환되는 기록부터
+이어 실행합니다. 이미 기록된 실패는 실패로 보존하며 승리할 때까지 몰래
+다시 수행하지 않습니다.
+
+로컬과 Kaggle에 나누려면 경기 시간 명령에 `--shard-index INDEX
+--shard-count 10`을 추가합니다. 같은 교대 쌍을 묶어 열 개 작업마다
+40경기를 배정합니다. 같은 쌍의 두 경기를 다른 장비에 나누지 않습니다.
+모든 기록에는 동일한 전체 목록 해시와 실제 장비 및 소스의 정보가 있습니다.
+
+```bash
+python -m hexai aggregate --inputs .local/deep-shard0 .local/deep-shard1 --output .local/deep-partial.json
+```
+
+최종 400경기 집계에는 중복 없는 열 개 작업의 전체 경로를 넣고
+`--require-complete`를 추가합니다. 두 작업의 기록만으로 전체가 완료됐다고
+판단하지 않습니다. 모든 예정 경기에 결과가 있다는 것과 모든 경기가
+성공했다는 것은 다릅니다. 장비별 결과와 실제 사용 시간도 유지합니다.
+
+### 공개 Kaggle CPU 패키지 생성
+
+```bash
+python scripts/package_kaggle_cpu.py --owner YOUR_ACCOUNT --slug hex-deep-cpu-reproduction --config configs/deep/shared-time.json --output .local/kaggle-deep-package --shard-index 0 --shard-count 10 --sanitizers
+```
+
+이 명령은 `kernel.py`, Kaggle 설정과 무결성 기록만 만듭니다. 인증정보를
+올리거나 작업을 제출하고 학습을 시작하지 않습니다. 준비되면 본인 계정에서
+생성한 비공개 CPU 스크립트를 제출합니다. 검토한 소스와 고정 설정을
+내장하고 Linux에서 두 엔진을 빌드하며, 최상위 결과 ZIP과 완료 JSON을
+저장합니다. 기존 실행 파일을 소스 빌드 대신 사용하지 않습니다. 선택한
+sanitizer 검사는 개선 구현과 동일 조건의 기존 구현에 ASan 및 UBSan을
+적용합니다.
+
+공개 도구의 짧은 전체 실행 확인은 긴 경기 시간 평가와 구분합니다.
+`doctor`로 세션의 CPU 수와 할당량을 다시 확인하며 기존에 측정한 자원이
+모든 새 Kaggle 세션에서 보장된다고 설명하지 않습니다. 내려받은 결과에는
+목록, 메타데이터, 생성 소스와 변경 및 빌드 기록을 유지합니다.
+
+최신 공개 도구의 실제 Kaggle 실행에서 Python 테스트 107개, C++ 자체 검증 15개 및 ASan/UBSan 프로토콜 검사 6개를 통과했습니다. 짧은 V3 대국 4경기를 완료하고 100수를 재생 검증했습니다. 별도의 체크포인트 작업은 첫 평가 경기 전에 멈춰 0경기를 기록했으며, 이 결과로 400경기 전체 수행을 주장하지 않습니다. [공개 실행 기록](deep-runtime.ko.md)에 실제 소스 버전별 범위를 보존합니다.
+
+먼저 짧은 V3 통합 경기를 재현하려면 다음 명령을 사용합니다.
+
+```bash
+python -m hexai evaluate --config configs/deep/public-runtime-smoke.json --output .local/public-runtime-smoke
+python -m hexai aggregate --inputs .local/public-runtime-smoke --output .local/public-runtime-summary.json --require-complete
+```
+
+### 여섯 상태의 워커 벤치마크 재현
+
+```bash
+python -m hexai benchmark --fixtures reports/deep/benchmarks/fixtures.json --workers 1 2 4 8 --iterations 16000 --repeats 7 --policy rave_ts --output .local/deep-workers.json
+```
+
+고정한 보드 파일을 사용하고 실제 반복 수를 명시합니다. 표준 라이브러리와
+CPU 할당이 다른 Windows와 Kaggle에서 각각 수행합니다. 원시 측정, 응답
+p50 및 p95와 null을 허용하는 RSS를 보존합니다. 즉시 전술로 탐색을 생략하지
+않도록 하고 각 요청이 명시한 전체 횟수를 완료했는지 검사합니다. 처리 비용의
+측정이며 대국 성능이나 운영체제 사이의 탐색 경로 완전 일치를 뜻하지 않습니다.
+
+### 당시 소스 검증과 선택 설치하는 그래프 도구
+
+추가 목록은 `reports/release-manifest-v2.json`입니다. 과거 평가는 첫 릴리스의
+보관 소스와 원래 해시를 사용하고, 새 평가는 실제 생성한 어댑터의 소스 및
+소스와 빌드 기록을 유지합니다. 과거 메타데이터를 현재 코드에 맞춰 고치지
+않습니다.
+
+```bash
+python scripts/verify_release.py --manifest reports/release-manifest-v2.json --output .local/deep-release-verification.json
+```
+
+저장한 해시, 예정 경기의 기록 여부, 합법 수, 색상 변화, 시간 배정과 기록된
+승자를 확인합니다. 새 대국 실행은 별도 작업입니다. 장비, 소스, 실행 파일이나
+배정 작업이 달라지면 재개 확인을 우회하지 않고 별도로 호환되는 실행
+범위를 정합니다.
+
+수치 SVG는 선택 설치하는 Matplotlib 도구로 만들며 에이전트의 필수
+의존성으로 추가하지 않습니다. [그래프 도구](../tools/figures/)에 고정한
+Matplotlib 3.11.2의 설치 메타데이터는 Python 3.11 이상을 요구하므로 그래프
+생성에만 Python 3.11 이상의 별도 환경을 사용합니다. 표준 라이브러리
+에이전트의 Python 3.10 이상 조건은 바꾸지 않습니다.
+
+```bash
+python -m venv .local/figure-env
+.local/figure-env/bin/python -m pip install -r tools/figures/requirements.txt
+.local/figure-env/bin/python tools/figures/render_hex_deep_scientific.py --data assets/figures/deep-visual-input.json --output .local/figures --language both
+```
+
+앞의 `python`은 Python 3.11 이상이어야 합니다. Windows에서는
+`.local/figure-env/Scripts/python.exe`를 사용합니다. 한국어 그래프에는 한국어
+글꼴이 필요하며 `--korean-font PATH_TO_FONT`로 지정할 수 있습니다.
+실제 입력 자료와 그래프 생성 기록을 함께
+보존하며, 기록에는 도구 버전, 데이터, 코드와 한국어 글꼴의 해시가 있습니다.
+한국어 SVG에 글자의 윤곽을 넣어 보는 사람의 글꼴 설치에 의존하지 않습니다.
+그래프에는 실제 기록을 사용하고 실패와 미기록의 분모를 승패로 바꾸지
+않습니다.
+
+### 저장한 전술 기록의 재분석
+
+[선택 실행하는 분석 도구](../tools/analysis/)는 표준 라이브러리로 저장된
+경기를 읽으며 에이전트 빌드나 새 대국을 수행하지 않습니다. 다음 명령은
+실제 공개 전술 기록 두 폴더를 사용합니다.
+
+```bash
+python tools/analysis/analyze_deep_evidence.py --summary reports/deep/aggregates/tactical-ablation.json --runs reports/deep/evaluation/tactical-ablation/hex-tactical-ablation-v1/evaluation-shard00 reports/deep/evaluation/tactical-ablation/hex-tactical-ablation-v1/evaluation-shard01 --expected-games 400 --output .local/tactical-costs.json
+python tools/analysis/analyze_tactical_traces.py --summary reports/deep/aggregates/tactical-ablation.json --runs reports/deep/evaluation/tactical-ablation/hex-tactical-ablation-v1/evaluation-shard00 reports/deep/evaluation/tactical-ablation/hex-tactical-ablation-v1/evaluation-shard01 --output .local/tactical-trace-analysis
+```
+
+첫 명령은 참가자별 비용과 작동 이유를 설명합니다. 두 번째는 실제 수순의
+일치, 교대 기록의 시드, 공통 상태의 응답 및 그래프와 사이트가 사용하는
+상대별 `tactical-metrics.json`을 계산합니다. 진단 분석으로 정책을 다시
+고르지 않습니다. Matplotlib가 필요하지 않으며 Python 3.10 이상인 실행
+조건을 바꾸지 않습니다.
+
+## 실제 소스 빌드와 저장 기록 검증
+
+[소스 검증 요약](../reports/deep/verification/source-validation-summary.json)에 환경별 실제 결과를 공개합니다. 새 Windows 환경은 pip와 시스템 패키지를 사용하지 않고 개선 구현 64개, 기존 심판 18개, 기존 어댑터 23개 검사를 통과했습니다. 기존 Linux 실행 파일에 의존하는 검사 2개는 건너뛰었으며, Windows에서 원본 소스를 새로 빌드한 V2 계약 검사 2개를 별도로 통과했습니다. Kaggle Linux 실행은 Python 검사 107개를 건너뛰지 않고 통과했고 C++ 자체 검증 15개, 연결성 상태 19,683개 및 sanitizer 프로토콜 검사 6개를 확인했습니다.
+
+같은 새 Windows 환경에서 9개 평가 목록의 저장 경기 1,336개와 53,199수를 재생 검증했습니다. 짧은 통합 경기 4개는 이 기록 검증에 포함되며, 0경기 체크포인트 확인은 대국 수에 포함하지 않습니다. 이 근거는 별도 실행 환경에서 수행한 프로젝트 내부 검증이며 외부 검토자의 독립 재현과 구분합니다. 완성한 소스 ZIP의 무결성 검사는 문서와 그림을 반영한 뒤 별도로 수행합니다.
+
 ## 고정 대국 목록과 평가 분리
 
 평가 목록에는 참가자 설정, 보드 크기, 예산, 경기 ID, 시드, 강제 시작 수와 선후공 교대 쌍 ID를 고정합니다. 정규화한 목록의 해시를 경기와 출력 디렉터리에 저장합니다. 각 쌍은 같은 시드와 시작 조건으로 참가자의 시작 순서만 바꾼 두 경기입니다.
@@ -69,7 +215,7 @@ python -m hexai evaluate --config configs/final-policy.json --output .local/fina
 
 ## 한 장비에서 실행하고 이어 실행하기
 
-추가 시간 기준 목록은 [추가 계획](../reports/supplemental-plan.json)에 별도로 고정했습니다. 같은 엔진의 정책은 워커 두 개, 수당 0.25초로 비교하고, 워커 수별 목록은 RAVE-TS의 1·2·4·8워커를 고정된 UCB 두 워커와 비교합니다. 기본 최종 평가가 시작된 뒤 선언한 탐색적인 측정으로 구분하며 정책을 다시 선택하지 않습니다.
+추가 시간 기준 목록은 [추가 계획](../reports/supplemental-plan.json)에 별도로 고정했습니다. 같은 엔진의 정책은 워커 두 개, 수당 0.25초로 비교하고, 워커 수별 목록은 RAVE-TS의 1 / 2 / 4 / 8워커를 고정된 UCB 두 워커와 비교합니다. 기본 최종 평가가 시작된 뒤 선언한 탐색적인 측정으로 구분하며 정책을 다시 선택하지 않습니다.
 
 ```bash
 python -m hexai evaluate --config configs/supplemental-time-policy.json --output .local/supplemental-time-policy
@@ -167,13 +313,13 @@ python -m hexai evaluate --config configs/final-time-reference.json --output .lo
 
 ## 결과 묶음의 무결성 검증
 
-공개 릴리스의 `reports/release-manifest.json`은 소스, 평가 목록, 집계와 저장 경기의 연결을 고정합니다. 다음 명령은 빌드나 새 대국 없이 저장 자료를 확인합니다.
+공개 릴리스의 `reports/release-manifest-v2.json`은 소스, 평가 목록, 집계와 저장 경기의 연결을 고정합니다. 다음 명령은 빌드나 새 대국 없이 저장 자료를 확인합니다.
 
 ```bash
-python scripts/verify_release.py --manifest reports/release-manifest.json --output .local/release-verification.json
+python scripts/verify_release.py --manifest reports/release-manifest-v2.json --output .local/release-verification.json
 ```
 
-검증기는 원본 보존 목록의 해시, 실행 환경별 목록과 실행기·소스 해시, 중복 또는 누락 경기, 모든 수 기록의 심판 재생과 집계의 일치를 확인합니다. 이는 저장 자료의 무결성 검증이며 새 대국이나 외부 상대의 성능 평가를 수행하지 않습니다.
+검증기는 원본 보존 목록의 해시, 실행 환경별 목록과 실행기 / 소스 해시, 중복 또는 누락 경기, 모든 수 기록의 심판 재생과 집계의 일치를 확인합니다. 이는 저장 자료의 무결성 검증이며 새 대국이나 외부 상대의 성능 평가를 수행하지 않습니다.
 
 ## 통계 해석과 자료 출처
 

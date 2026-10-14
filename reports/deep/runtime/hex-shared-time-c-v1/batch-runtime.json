@@ -1,0 +1,18 @@
+{
+  "source_archive_sha256": "728b5bec2a6857dd52b56968a086171f3a40e941a295bdb40ce647e8db7be3b3",
+  "manifest_sha256": "4f56942c290da3afc22d6740e96be74d58029ab3a727ba5b432490b66c64efdf",
+  "shard_indexes": [
+    6,
+    7
+  ],
+  "shard_count": 10,
+  "expected_shard_games": {
+    "6": 40,
+    "7": 40
+  },
+  "concurrent_sequential_game_drivers": 2,
+  "maximum_active_native_search_workers": 4,
+  "max_wall_seconds_per_driver": 33000.0,
+  "checkpoint_margin_seconds": 120.0,
+  "scope": "Each driver executes complete colour-reversal pairs on one host. Different games share CPU capacity; both opponents in every game have identical declared worker and time budgets. Startup/testing does not overlap these game drivers."
+}

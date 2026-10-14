@@ -1,0 +1,1505 @@
+{
+  "schema_version": 1,
+  "suite_id": "deep-tactical-ablation",
+  "manifest_sha256": "8fc9b4efecf579d5077e7958e163a51deec3090ed943aaefde2ed0953d62e23c",
+  "aggregate_sha256": "41f9c0c81c17bf0fcd98efcaf6641ecfe24df39fbef32e15dfa03adf55c5166f",
+  "recorded_games": 400,
+  "completed_games": 400,
+  "failed_games": 0,
+  "clock_violations_in_completed_games": [],
+  "comparisons": [
+    {
+      "left": "no_block_check",
+      "right": "selected",
+      "completed_games": 100,
+      "game_wall_seconds": {
+        "count": 100,
+        "p50": 43.414913528500165,
+        "p95": 69.94952569384954,
+        "min": 25.531966119000572,
+        "max": 75.94041023199952
+      },
+      "turns": {
+        "count": 100,
+        "p50": 39.0,
+        "p95": 66.0,
+        "min": 23,
+        "max": 76
+      },
+      "actors": {
+        "no_block_check": {
+          "completed_games": 100,
+          "external_response_seconds_per_game": {
+            "count": 100,
+            "p50": 21.972180339000715,
+            "p95": 36.150808645300366,
+            "min": 13.073946769999566,
+            "max": 38.08571525700336
+          },
+          "engine_requests_per_game": {
+            "count": 100,
+            "p50": 19.0,
+            "p95": 33.0,
+            "min": 11,
+            "max": 38
+          },
+          "sampled_process_peak_rss_bytes": {
+            "count": 100,
+            "p50": 38281216.0,
+            "p95": 41971916.8,
+            "min": 36614144,
+            "max": 42258432
+          },
+          "games_without_rss_measurement": 0,
+          "native_search_response_seconds": {
+            "count": 2038,
+            "p50": 1.2132712405000001,
+            "p95": 1.372014798,
+            "min": 0.453406603,
+            "max": 1.468673735
+          },
+          "native_search_iterations_per_response": {
+            "count": 2038,
+            "p50": 16000.0,
+            "p95": 16000.0,
+            "min": 16000,
+            "max": 16000
+          },
+          "native_nodes_per_search_response": {
+            "count": 2038,
+            "p50": 16002.0,
+            "p95": 16002.0,
+            "min": 8970,
+            "max": 16002
+          },
+          "native_total_search_iterations": 32608000,
+          "native_total_search_response_seconds": 2378.015399139,
+          "native_search_iterations_per_response_second": 13712.27453438959,
+          "telemetry_reasons": {
+            "pie_rule_swap": 15,
+            "search": 2038,
+            "tactical_win": 50
+          },
+          "external_response_seconds_by_native_reason": {
+            "pie_rule_swap": {
+              "count": 15,
+              "p50": 0.0002510760004952317,
+              "p95": 0.0009368855001412156,
+              "min": 0.00020554500042635482,
+              "max": 0.0010538870001255418
+            },
+            "search": {
+              "count": 2038,
+              "p50": 1.2136523694998687,
+              "p95": 1.3724427946001014,
+              "min": 0.4536529699998937,
+              "max": 1.4688971559999118
+            },
+            "tactical_win": {
+              "count": 50,
+              "p50": 0.00021723300005760393,
+              "p95": 0.0003708824498062312,
+              "min": 0.00012171200069133192,
+              "max": 0.0006751040000381181
+            }
+          },
+          "worker_search_requests": 4076,
+          "worker_requests_with_node_cap_telemetry": 4076,
+          "worker_requests_reaching_node_cap": 0,
+          "worker_node_cap_fraction": 0.0,
+          "historical_search_requests_with_iteration_cap_telemetry": 0,
+          "historical_search_requests_reaching_original_iteration_cap": 0
+        },
+        "selected": {
+          "completed_games": 100,
+          "external_response_seconds_per_game": {
+            "count": 100,
+            "p50": 21.76279547750073,
+            "p95": 35.80470664689578,
+            "min": 12.343787931999032,
+            "max": 37.944840644006035
+          },
+          "engine_requests_per_game": {
+            "count": 100,
+            "p50": 19.0,
+            "p95": 33.0,
+            "min": 11,
+            "max": 38
+          },
+          "sampled_process_peak_rss_bytes": {
+            "count": 100,
+            "p50": 38387712.0,
+            "p95": 42029465.6,
+            "min": 36585472,
+            "max": 42229760
+          },
+          "games_without_rss_measurement": 0,
+          "native_search_response_seconds": {
+            "count": 1970,
+            "p50": 1.2194770025,
+            "p95": 1.3696068802999999,
+            "min": 0.562818966,
+            "max": 1.486849789
+          },
+          "native_search_iterations_per_response": {
+            "count": 1970,
+            "p50": 16000.0,
+            "p95": 16000.0,
+            "min": 16000,
+            "max": 16000
+          },
+          "native_nodes_per_search_response": {
+            "count": 1970,
+            "p50": 16002.0,
+            "p95": 16002.0,
+            "min": 10069,
+            "max": 16002
+          },
+          "native_total_search_iterations": 31520000,
+          "native_total_search_response_seconds": 2331.756182077,
+          "native_search_iterations_per_response_second": 13517.708344585031,
+          "telemetry_reasons": {
+            "pie_rule_swap": 15,
+            "search": 1970,
+            "tactical_block": 68,
+            "tactical_win": 50
+          },
+          "external_response_seconds_by_native_reason": {
+            "pie_rule_swap": {
+              "count": 15,
+              "p50": 0.0002743089999057702,
+              "p95": 0.0016262920998087787,
+              "min": 0.00018821199955709744,
+              "max": 0.002023078000092937
+            },
+            "search": {
+              "count": 1970,
+              "p50": 1.2196803860001637,
+              "p95": 1.36996560044995,
+              "min": 0.5631588890000785,
+              "max": 1.4873338870002044
+            },
+            "tactical_block": {
+              "count": 68,
+              "p50": 0.00025615250024202396,
+              "p95": 0.0004883235500074079,
+              "min": 0.00015575500037812162,
+              "max": 0.0011574319996725535
+            },
+            "tactical_win": {
+              "count": 50,
+              "p50": 0.00023362949923466658,
+              "p95": 0.0004688132501087238,
+              "min": 0.00015077700027177343,
+              "max": 0.0005644760003633564
+            }
+          },
+          "worker_search_requests": 3940,
+          "worker_requests_with_node_cap_telemetry": 3940,
+          "worker_requests_reaching_node_cap": 0,
+          "worker_node_cap_fraction": 0.0,
+          "historical_search_requests_with_iteration_cap_telemetry": 0,
+          "historical_search_requests_reaching_original_iteration_cap": 0
+        }
+      },
+      "hardware_classes": {
+        "0c6d76ab463a56ba6a059417c0b28674cd972fff07e94dd45696d15f13478fab": {
+          "completed_games": 100,
+          "system": "Linux",
+          "actors": {
+            "no_block_check": {
+              "completed_games": 100,
+              "external_response_seconds_per_game": {
+                "count": 100,
+                "p50": 21.972180339000715,
+                "p95": 36.150808645300366,
+                "min": 13.073946769999566,
+                "max": 38.08571525700336
+              },
+              "engine_requests_per_game": {
+                "count": 100,
+                "p50": 19.0,
+                "p95": 33.0,
+                "min": 11,
+                "max": 38
+              },
+              "sampled_process_peak_rss_bytes": {
+                "count": 100,
+                "p50": 38281216.0,
+                "p95": 41971916.8,
+                "min": 36614144,
+                "max": 42258432
+              },
+              "games_without_rss_measurement": 0,
+              "native_search_response_seconds": {
+                "count": 2038,
+                "p50": 1.2132712405000001,
+                "p95": 1.372014798,
+                "min": 0.453406603,
+                "max": 1.468673735
+              },
+              "native_search_iterations_per_response": {
+                "count": 2038,
+                "p50": 16000.0,
+                "p95": 16000.0,
+                "min": 16000,
+                "max": 16000
+              },
+              "native_nodes_per_search_response": {
+                "count": 2038,
+                "p50": 16002.0,
+                "p95": 16002.0,
+                "min": 8970,
+                "max": 16002
+              },
+              "native_total_search_iterations": 32608000,
+              "native_total_search_response_seconds": 2378.015399139,
+              "native_search_iterations_per_response_second": 13712.27453438959,
+              "telemetry_reasons": {
+                "pie_rule_swap": 15,
+                "search": 2038,
+                "tactical_win": 50
+              },
+              "external_response_seconds_by_native_reason": {
+                "pie_rule_swap": {
+                  "count": 15,
+                  "p50": 0.0002510760004952317,
+                  "p95": 0.0009368855001412156,
+                  "min": 0.00020554500042635482,
+                  "max": 0.0010538870001255418
+                },
+                "search": {
+                  "count": 2038,
+                  "p50": 1.2136523694998687,
+                  "p95": 1.3724427946001014,
+                  "min": 0.4536529699998937,
+                  "max": 1.4688971559999118
+                },
+                "tactical_win": {
+                  "count": 50,
+                  "p50": 0.00021723300005760393,
+                  "p95": 0.0003708824498062312,
+                  "min": 0.00012171200069133192,
+                  "max": 0.0006751040000381181
+                }
+              },
+              "worker_search_requests": 4076,
+              "worker_requests_with_node_cap_telemetry": 4076,
+              "worker_requests_reaching_node_cap": 0,
+              "worker_node_cap_fraction": 0.0,
+              "historical_search_requests_with_iteration_cap_telemetry": 0,
+              "historical_search_requests_reaching_original_iteration_cap": 0
+            },
+            "selected": {
+              "completed_games": 100,
+              "external_response_seconds_per_game": {
+                "count": 100,
+                "p50": 21.76279547750073,
+                "p95": 35.80470664689578,
+                "min": 12.343787931999032,
+                "max": 37.944840644006035
+              },
+              "engine_requests_per_game": {
+                "count": 100,
+                "p50": 19.0,
+                "p95": 33.0,
+                "min": 11,
+                "max": 38
+              },
+              "sampled_process_peak_rss_bytes": {
+                "count": 100,
+                "p50": 38387712.0,
+                "p95": 42029465.6,
+                "min": 36585472,
+                "max": 42229760
+              },
+              "games_without_rss_measurement": 0,
+              "native_search_response_seconds": {
+                "count": 1970,
+                "p50": 1.2194770025,
+                "p95": 1.3696068802999999,
+                "min": 0.562818966,
+                "max": 1.486849789
+              },
+              "native_search_iterations_per_response": {
+                "count": 1970,
+                "p50": 16000.0,
+                "p95": 16000.0,
+                "min": 16000,
+                "max": 16000
+              },
+              "native_nodes_per_search_response": {
+                "count": 1970,
+                "p50": 16002.0,
+                "p95": 16002.0,
+                "min": 10069,
+                "max": 16002
+              },
+              "native_total_search_iterations": 31520000,
+              "native_total_search_response_seconds": 2331.756182077,
+              "native_search_iterations_per_response_second": 13517.708344585031,
+              "telemetry_reasons": {
+                "pie_rule_swap": 15,
+                "search": 1970,
+                "tactical_block": 68,
+                "tactical_win": 50
+              },
+              "external_response_seconds_by_native_reason": {
+                "pie_rule_swap": {
+                  "count": 15,
+                  "p50": 0.0002743089999057702,
+                  "p95": 0.0016262920998087787,
+                  "min": 0.00018821199955709744,
+                  "max": 0.002023078000092937
+                },
+                "search": {
+                  "count": 1970,
+                  "p50": 1.2196803860001637,
+                  "p95": 1.36996560044995,
+                  "min": 0.5631588890000785,
+                  "max": 1.4873338870002044
+                },
+                "tactical_block": {
+                  "count": 68,
+                  "p50": 0.00025615250024202396,
+                  "p95": 0.0004883235500074079,
+                  "min": 0.00015575500037812162,
+                  "max": 0.0011574319996725535
+                },
+                "tactical_win": {
+                  "count": 50,
+                  "p50": 0.00023362949923466658,
+                  "p95": 0.0004688132501087238,
+                  "min": 0.00015077700027177343,
+                  "max": 0.0005644760003633564
+                }
+              },
+              "worker_search_requests": 3940,
+              "worker_requests_with_node_cap_telemetry": 3940,
+              "worker_requests_reaching_node_cap": 0,
+              "worker_node_cap_fraction": 0.0,
+              "historical_search_requests_with_iteration_cap_telemetry": 0,
+              "historical_search_requests_reaching_original_iteration_cap": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "left": "no_swap",
+      "right": "selected",
+      "completed_games": 100,
+      "game_wall_seconds": {
+        "count": 100,
+        "p50": 39.40532399299997,
+        "p95": 79.20702347984982,
+        "min": 24.52948175000006,
+        "max": 89.51809514000024
+      },
+      "turns": {
+        "count": 100,
+        "p50": 34.0,
+        "p95": 78.24999999999999,
+        "min": 22,
+        "max": 96
+      },
+      "actors": {
+        "no_swap": {
+          "completed_games": 100,
+          "external_response_seconds_per_game": {
+            "count": 100,
+            "p50": 20.061022398999796,
+            "p95": 39.77479414195081,
+            "min": 11.243709600999864,
+            "max": 46.18199101299933
+          },
+          "engine_requests_per_game": {
+            "count": 100,
+            "p50": 17.0,
+            "p95": 39.099999999999994,
+            "min": 10,
+            "max": 48
+          },
+          "sampled_process_peak_rss_bytes": {
+            "count": 100,
+            "p50": 37167104.0,
+            "p95": 41947136.0,
+            "min": 36573184,
+            "max": 42225664
+          },
+          "games_without_rss_measurement": 0,
+          "native_search_response_seconds": {
+            "count": 1976,
+            "p50": 1.2338695395000001,
+            "p95": 1.3859757,
+            "min": 0.301064047,
+            "max": 1.554643032
+          },
+          "native_search_iterations_per_response": {
+            "count": 1976,
+            "p50": 16000.0,
+            "p95": 16000.0,
+            "min": 16000,
+            "max": 16000
+          },
+          "native_nodes_per_search_response": {
+            "count": 1976,
+            "p50": 16002.0,
+            "p95": 16002.0,
+            "min": 7900,
+            "max": 16002
+          },
+          "native_total_search_iterations": 31616000,
+          "native_total_search_response_seconds": 2325.003654658,
+          "native_search_iterations_per_response_second": 13598.25819484598,
+          "telemetry_reasons": {
+            "search": 1976,
+            "tactical_block": 61,
+            "tactical_win": 49
+          },
+          "external_response_seconds_by_native_reason": {
+            "search": {
+              "count": 1976,
+              "p50": 1.2341594505001012,
+              "p95": 1.386304745000018,
+              "min": 0.30129762399974425,
+              "max": 1.5548565049998615
+            },
+            "tactical_block": {
+              "count": 61,
+              "p50": 0.0002768649997051398,
+              "p95": 0.0005730640000365383,
+              "min": 0.00015931699999782722,
+              "max": 0.001541744000064682
+            },
+            "tactical_win": {
+              "count": 49,
+              "p50": 0.00020060999997895124,
+              "p95": 0.0003481159999864757,
+              "min": 0.00012014100002488703,
+              "max": 0.0004817699999648539
+            }
+          },
+          "worker_search_requests": 3952,
+          "worker_requests_with_node_cap_telemetry": 3952,
+          "worker_requests_reaching_node_cap": 0,
+          "worker_node_cap_fraction": 0.0,
+          "historical_search_requests_with_iteration_cap_telemetry": 0,
+          "historical_search_requests_reaching_original_iteration_cap": 0
+        },
+        "selected": {
+          "completed_games": 100,
+          "external_response_seconds_per_game": {
+            "count": 100,
+            "p50": 19.619045369500157,
+            "p95": 40.0109457928501,
+            "min": 11.13747741299926,
+            "max": 45.88380517399946
+          },
+          "engine_requests_per_game": {
+            "count": 100,
+            "p50": 17.0,
+            "p95": 39.099999999999994,
+            "min": 10,
+            "max": 48
+          },
+          "sampled_process_peak_rss_bytes": {
+            "count": 100,
+            "p50": 39886848.0,
+            "p95": 42040115.2,
+            "min": 36573184,
+            "max": 42242048
+          },
+          "games_without_rss_measurement": 0,
+          "native_search_response_seconds": {
+            "count": 1956,
+            "p50": 1.2281009615,
+            "p95": 1.383286631,
+            "min": 0.303453283,
+            "max": 1.502498488
+          },
+          "native_search_iterations_per_response": {
+            "count": 1956,
+            "p50": 16000.0,
+            "p95": 16000.0,
+            "min": 16000,
+            "max": 16000
+          },
+          "native_nodes_per_search_response": {
+            "count": 1956,
+            "p50": 16002.0,
+            "p95": 16002.0,
+            "min": 7900,
+            "max": 16002
+          },
+          "native_total_search_iterations": 31296000,
+          "native_total_search_response_seconds": 2296.728809174,
+          "native_search_iterations_per_response_second": 13626.336672833111,
+          "telemetry_reasons": {
+            "pie_rule_swap": 14,
+            "search": 1956,
+            "tactical_block": 66,
+            "tactical_win": 51
+          },
+          "external_response_seconds_by_native_reason": {
+            "pie_rule_swap": {
+              "count": 14,
+              "p50": 0.00029335050004419827,
+              "p95": 0.0008321262999686496,
+              "min": 0.00018203700005869905,
+              "max": 0.0008608810001078382
+            },
+            "search": {
+              "count": 1956,
+              "p50": 1.228531182500035,
+              "p95": 1.3836989292499595,
+              "min": 0.30370245499989323,
+              "max": 1.5027590939999982
+            },
+            "tactical_block": {
+              "count": 66,
+              "p50": 0.00025726550029503414,
+              "p95": 0.0005089357499059588,
+              "min": 0.00016448300038973684,
+              "max": 0.0007200200000170298
+            },
+            "tactical_win": {
+              "count": 51,
+              "p50": 0.00023981799995453912,
+              "p95": 0.0004921634999845992,
+              "min": 0.00011384199979147525,
+              "max": 0.0013973560003250896
+            }
+          },
+          "worker_search_requests": 3912,
+          "worker_requests_with_node_cap_telemetry": 3912,
+          "worker_requests_reaching_node_cap": 0,
+          "worker_node_cap_fraction": 0.0,
+          "historical_search_requests_with_iteration_cap_telemetry": 0,
+          "historical_search_requests_reaching_original_iteration_cap": 0
+        }
+      },
+      "hardware_classes": {
+        "0c6d76ab463a56ba6a059417c0b28674cd972fff07e94dd45696d15f13478fab": {
+          "completed_games": 100,
+          "system": "Linux",
+          "actors": {
+            "no_swap": {
+              "completed_games": 100,
+              "external_response_seconds_per_game": {
+                "count": 100,
+                "p50": 20.061022398999796,
+                "p95": 39.77479414195081,
+                "min": 11.243709600999864,
+                "max": 46.18199101299933
+              },
+              "engine_requests_per_game": {
+                "count": 100,
+                "p50": 17.0,
+                "p95": 39.099999999999994,
+                "min": 10,
+                "max": 48
+              },
+              "sampled_process_peak_rss_bytes": {
+                "count": 100,
+                "p50": 37167104.0,
+                "p95": 41947136.0,
+                "min": 36573184,
+                "max": 42225664
+              },
+              "games_without_rss_measurement": 0,
+              "native_search_response_seconds": {
+                "count": 1976,
+                "p50": 1.2338695395000001,
+                "p95": 1.3859757,
+                "min": 0.301064047,
+                "max": 1.554643032
+              },
+              "native_search_iterations_per_response": {
+                "count": 1976,
+                "p50": 16000.0,
+                "p95": 16000.0,
+                "min": 16000,
+                "max": 16000
+              },
+              "native_nodes_per_search_response": {
+                "count": 1976,
+                "p50": 16002.0,
+                "p95": 16002.0,
+                "min": 7900,
+                "max": 16002
+              },
+              "native_total_search_iterations": 31616000,
+              "native_total_search_response_seconds": 2325.003654658,
+              "native_search_iterations_per_response_second": 13598.25819484598,
+              "telemetry_reasons": {
+                "search": 1976,
+                "tactical_block": 61,
+                "tactical_win": 49
+              },
+              "external_response_seconds_by_native_reason": {
+                "search": {
+                  "count": 1976,
+                  "p50": 1.2341594505001012,
+                  "p95": 1.386304745000018,
+                  "min": 0.30129762399974425,
+                  "max": 1.5548565049998615
+                },
+                "tactical_block": {
+                  "count": 61,
+                  "p50": 0.0002768649997051398,
+                  "p95": 0.0005730640000365383,
+                  "min": 0.00015931699999782722,
+                  "max": 0.001541744000064682
+                },
+                "tactical_win": {
+                  "count": 49,
+                  "p50": 0.00020060999997895124,
+                  "p95": 0.0003481159999864757,
+                  "min": 0.00012014100002488703,
+                  "max": 0.0004817699999648539
+                }
+              },
+              "worker_search_requests": 3952,
+              "worker_requests_with_node_cap_telemetry": 3952,
+              "worker_requests_reaching_node_cap": 0,
+              "worker_node_cap_fraction": 0.0,
+              "historical_search_requests_with_iteration_cap_telemetry": 0,
+              "historical_search_requests_reaching_original_iteration_cap": 0
+            },
+            "selected": {
+              "completed_games": 100,
+              "external_response_seconds_per_game": {
+                "count": 100,
+                "p50": 19.619045369500157,
+                "p95": 40.0109457928501,
+                "min": 11.13747741299926,
+                "max": 45.88380517399946
+              },
+              "engine_requests_per_game": {
+                "count": 100,
+                "p50": 17.0,
+                "p95": 39.099999999999994,
+                "min": 10,
+                "max": 48
+              },
+              "sampled_process_peak_rss_bytes": {
+                "count": 100,
+                "p50": 39886848.0,
+                "p95": 42040115.2,
+                "min": 36573184,
+                "max": 42242048
+              },
+              "games_without_rss_measurement": 0,
+              "native_search_response_seconds": {
+                "count": 1956,
+                "p50": 1.2281009615,
+                "p95": 1.383286631,
+                "min": 0.303453283,
+                "max": 1.502498488
+              },
+              "native_search_iterations_per_response": {
+                "count": 1956,
+                "p50": 16000.0,
+                "p95": 16000.0,
+                "min": 16000,
+                "max": 16000
+              },
+              "native_nodes_per_search_response": {
+                "count": 1956,
+                "p50": 16002.0,
+                "p95": 16002.0,
+                "min": 7900,
+                "max": 16002
+              },
+              "native_total_search_iterations": 31296000,
+              "native_total_search_response_seconds": 2296.728809174,
+              "native_search_iterations_per_response_second": 13626.336672833111,
+              "telemetry_reasons": {
+                "pie_rule_swap": 14,
+                "search": 1956,
+                "tactical_block": 66,
+                "tactical_win": 51
+              },
+              "external_response_seconds_by_native_reason": {
+                "pie_rule_swap": {
+                  "count": 14,
+                  "p50": 0.00029335050004419827,
+                  "p95": 0.0008321262999686496,
+                  "min": 0.00018203700005869905,
+                  "max": 0.0008608810001078382
+                },
+                "search": {
+                  "count": 1956,
+                  "p50": 1.228531182500035,
+                  "p95": 1.3836989292499595,
+                  "min": 0.30370245499989323,
+                  "max": 1.5027590939999982
+                },
+                "tactical_block": {
+                  "count": 66,
+                  "p50": 0.00025726550029503414,
+                  "p95": 0.0005089357499059588,
+                  "min": 0.00016448300038973684,
+                  "max": 0.0007200200000170298
+                },
+                "tactical_win": {
+                  "count": 51,
+                  "p50": 0.00023981799995453912,
+                  "p95": 0.0004921634999845992,
+                  "min": 0.00011384199979147525,
+                  "max": 0.0013973560003250896
+                }
+              },
+              "worker_search_requests": 3912,
+              "worker_requests_with_node_cap_telemetry": 3912,
+              "worker_requests_reaching_node_cap": 0,
+              "worker_node_cap_fraction": 0.0,
+              "historical_search_requests_with_iteration_cap_telemetry": 0,
+              "historical_search_requests_reaching_original_iteration_cap": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "left": "no_tactics",
+      "right": "selected",
+      "completed_games": 100,
+      "game_wall_seconds": {
+        "count": 100,
+        "p50": 37.37219996550084,
+        "p95": 74.6171455766993,
+        "min": 19.309386062001067,
+        "max": 85.85441347800042
+      },
+      "turns": {
+        "count": 100,
+        "p50": 33.0,
+        "p95": 76.0,
+        "min": 21,
+        "max": 94
+      },
+      "actors": {
+        "no_tactics": {
+          "completed_games": 100,
+          "external_response_seconds_per_game": {
+            "count": 100,
+            "p50": 18.641422852498636,
+            "p95": 37.465935257598176,
+            "min": 9.887146663997555,
+            "max": 43.49821689398959
+          },
+          "engine_requests_per_game": {
+            "count": 100,
+            "p50": 16.0,
+            "p95": 37.05,
+            "min": 10,
+            "max": 47
+          },
+          "sampled_process_peak_rss_bytes": {
+            "count": 100,
+            "p50": 38397952.0,
+            "p95": 41962700.8,
+            "min": 36683776,
+            "max": 42459136
+          },
+          "games_without_rss_measurement": 0,
+          "native_search_response_seconds": {
+            "count": 1990,
+            "p50": 1.16407934,
+            "p95": 1.35819019755,
+            "min": 0.075368628,
+            "max": 1.489865847
+          },
+          "native_search_iterations_per_response": {
+            "count": 1990,
+            "p50": 16000.0,
+            "p95": 16000.0,
+            "min": 16000,
+            "max": 16000
+          },
+          "native_nodes_per_search_response": {
+            "count": 1990,
+            "p50": 16002.0,
+            "p95": 16002.0,
+            "min": 67,
+            "max": 16002
+          },
+          "native_total_search_iterations": 31840000,
+          "native_total_search_response_seconds": 2162.294713793,
+          "native_search_iterations_per_response_second": 14725.097276008091,
+          "telemetry_reasons": {
+            "pie_rule_swap": 21,
+            "search": 1990
+          },
+          "external_response_seconds_by_native_reason": {
+            "pie_rule_swap": {
+              "count": 21,
+              "p50": 0.00025268399986089207,
+              "p95": 0.0011580909995245747,
+              "min": 0.0001699740005278727,
+              "max": 0.0018995339996763505
+            },
+            "search": {
+              "count": 1990,
+              "p50": 1.1643550304997916,
+              "p95": 1.358430552250411,
+              "min": 0.07557376899967494,
+              "max": 1.4900992530001531
+            }
+          },
+          "worker_search_requests": 3980,
+          "worker_requests_with_node_cap_telemetry": 3980,
+          "worker_requests_reaching_node_cap": 0,
+          "worker_node_cap_fraction": 0.0,
+          "historical_search_requests_with_iteration_cap_telemetry": 0,
+          "historical_search_requests_reaching_original_iteration_cap": 0
+        },
+        "selected": {
+          "completed_games": 100,
+          "external_response_seconds_per_game": {
+            "count": 100,
+            "p50": 17.850277695997647,
+            "p95": 37.01816255950161,
+            "min": 9.350182471998778,
+            "max": 42.99451671200222
+          },
+          "engine_requests_per_game": {
+            "count": 100,
+            "p50": 16.0,
+            "p95": 37.05,
+            "min": 10,
+            "max": 47
+          },
+          "sampled_process_peak_rss_bytes": {
+            "count": 100,
+            "p50": 38418432.0,
+            "p95": 41934233.6,
+            "min": 36392960,
+            "max": 42303488
+          },
+          "games_without_rss_measurement": 0,
+          "native_search_response_seconds": {
+            "count": 1884,
+            "p50": 1.1779039715,
+            "p95": 1.36013603035,
+            "min": 0.250857212,
+            "max": 1.508558128
+          },
+          "native_search_iterations_per_response": {
+            "count": 1884,
+            "p50": 16000.0,
+            "p95": 16000.0,
+            "min": 16000,
+            "max": 16000
+          },
+          "native_nodes_per_search_response": {
+            "count": 1884,
+            "p50": 16002.0,
+            "p95": 16002.0,
+            "min": 3287,
+            "max": 16002
+          },
+          "native_total_search_iterations": 30144000,
+          "native_total_search_response_seconds": 2113.642607036,
+          "native_search_iterations_per_response_second": 14261.635292388191,
+          "telemetry_reasons": {
+            "pie_rule_swap": 21,
+            "search": 1884,
+            "tactical_block": 56,
+            "tactical_win": 50
+          },
+          "external_response_seconds_by_native_reason": {
+            "pie_rule_swap": {
+              "count": 21,
+              "p50": 0.0003238019999116659,
+              "p95": 0.0011266100000284496,
+              "min": 0.00019545999930414837,
+              "max": 0.0019448379989626119
+            },
+            "search": {
+              "count": 1884,
+              "p50": 1.178350341499936,
+              "p95": 1.3605646869998054,
+              "min": 0.25135567800134595,
+              "max": 1.5095693160001247
+            },
+            "tactical_block": {
+              "count": 56,
+              "p50": 0.0002961714994853537,
+              "p95": 0.000483291000364261,
+              "min": 0.00015819300006114645,
+              "max": 0.0007805250006640563
+            },
+            "tactical_win": {
+              "count": 50,
+              "p50": 0.00025769000058062375,
+              "p95": 0.00042632995027815925,
+              "min": 0.00016498299919476267,
+              "max": 0.0006134320001365268
+            }
+          },
+          "worker_search_requests": 3768,
+          "worker_requests_with_node_cap_telemetry": 3768,
+          "worker_requests_reaching_node_cap": 0,
+          "worker_node_cap_fraction": 0.0,
+          "historical_search_requests_with_iteration_cap_telemetry": 0,
+          "historical_search_requests_reaching_original_iteration_cap": 0
+        }
+      },
+      "hardware_classes": {
+        "0c6d76ab463a56ba6a059417c0b28674cd972fff07e94dd45696d15f13478fab": {
+          "completed_games": 100,
+          "system": "Linux",
+          "actors": {
+            "no_tactics": {
+              "completed_games": 100,
+              "external_response_seconds_per_game": {
+                "count": 100,
+                "p50": 18.641422852498636,
+                "p95": 37.465935257598176,
+                "min": 9.887146663997555,
+                "max": 43.49821689398959
+              },
+              "engine_requests_per_game": {
+                "count": 100,
+                "p50": 16.0,
+                "p95": 37.05,
+                "min": 10,
+                "max": 47
+              },
+              "sampled_process_peak_rss_bytes": {
+                "count": 100,
+                "p50": 38397952.0,
+                "p95": 41962700.8,
+                "min": 36683776,
+                "max": 42459136
+              },
+              "games_without_rss_measurement": 0,
+              "native_search_response_seconds": {
+                "count": 1990,
+                "p50": 1.16407934,
+                "p95": 1.35819019755,
+                "min": 0.075368628,
+                "max": 1.489865847
+              },
+              "native_search_iterations_per_response": {
+                "count": 1990,
+                "p50": 16000.0,
+                "p95": 16000.0,
+                "min": 16000,
+                "max": 16000
+              },
+              "native_nodes_per_search_response": {
+                "count": 1990,
+                "p50": 16002.0,
+                "p95": 16002.0,
+                "min": 67,
+                "max": 16002
+              },
+              "native_total_search_iterations": 31840000,
+              "native_total_search_response_seconds": 2162.294713793,
+              "native_search_iterations_per_response_second": 14725.097276008091,
+              "telemetry_reasons": {
+                "pie_rule_swap": 21,
+                "search": 1990
+              },
+              "external_response_seconds_by_native_reason": {
+                "pie_rule_swap": {
+                  "count": 21,
+                  "p50": 0.00025268399986089207,
+                  "p95": 0.0011580909995245747,
+                  "min": 0.0001699740005278727,
+                  "max": 0.0018995339996763505
+                },
+                "search": {
+                  "count": 1990,
+                  "p50": 1.1643550304997916,
+                  "p95": 1.358430552250411,
+                  "min": 0.07557376899967494,
+                  "max": 1.4900992530001531
+                }
+              },
+              "worker_search_requests": 3980,
+              "worker_requests_with_node_cap_telemetry": 3980,
+              "worker_requests_reaching_node_cap": 0,
+              "worker_node_cap_fraction": 0.0,
+              "historical_search_requests_with_iteration_cap_telemetry": 0,
+              "historical_search_requests_reaching_original_iteration_cap": 0
+            },
+            "selected": {
+              "completed_games": 100,
+              "external_response_seconds_per_game": {
+                "count": 100,
+                "p50": 17.850277695997647,
+                "p95": 37.01816255950161,
+                "min": 9.350182471998778,
+                "max": 42.99451671200222
+              },
+              "engine_requests_per_game": {
+                "count": 100,
+                "p50": 16.0,
+                "p95": 37.05,
+                "min": 10,
+                "max": 47
+              },
+              "sampled_process_peak_rss_bytes": {
+                "count": 100,
+                "p50": 38418432.0,
+                "p95": 41934233.6,
+                "min": 36392960,
+                "max": 42303488
+              },
+              "games_without_rss_measurement": 0,
+              "native_search_response_seconds": {
+                "count": 1884,
+                "p50": 1.1779039715,
+                "p95": 1.36013603035,
+                "min": 0.250857212,
+                "max": 1.508558128
+              },
+              "native_search_iterations_per_response": {
+                "count": 1884,
+                "p50": 16000.0,
+                "p95": 16000.0,
+                "min": 16000,
+                "max": 16000
+              },
+              "native_nodes_per_search_response": {
+                "count": 1884,
+                "p50": 16002.0,
+                "p95": 16002.0,
+                "min": 3287,
+                "max": 16002
+              },
+              "native_total_search_iterations": 30144000,
+              "native_total_search_response_seconds": 2113.642607036,
+              "native_search_iterations_per_response_second": 14261.635292388191,
+              "telemetry_reasons": {
+                "pie_rule_swap": 21,
+                "search": 1884,
+                "tactical_block": 56,
+                "tactical_win": 50
+              },
+              "external_response_seconds_by_native_reason": {
+                "pie_rule_swap": {
+                  "count": 21,
+                  "p50": 0.0003238019999116659,
+                  "p95": 0.0011266100000284496,
+                  "min": 0.00019545999930414837,
+                  "max": 0.0019448379989626119
+                },
+                "search": {
+                  "count": 1884,
+                  "p50": 1.178350341499936,
+                  "p95": 1.3605646869998054,
+                  "min": 0.25135567800134595,
+                  "max": 1.5095693160001247
+                },
+                "tactical_block": {
+                  "count": 56,
+                  "p50": 0.0002961714994853537,
+                  "p95": 0.000483291000364261,
+                  "min": 0.00015819300006114645,
+                  "max": 0.0007805250006640563
+                },
+                "tactical_win": {
+                  "count": 50,
+                  "p50": 0.00025769000058062375,
+                  "p95": 0.00042632995027815925,
+                  "min": 0.00016498299919476267,
+                  "max": 0.0006134320001365268
+                }
+              },
+              "worker_search_requests": 3768,
+              "worker_requests_with_node_cap_telemetry": 3768,
+              "worker_requests_reaching_node_cap": 0,
+              "worker_node_cap_fraction": 0.0,
+              "historical_search_requests_with_iteration_cap_telemetry": 0,
+              "historical_search_requests_reaching_original_iteration_cap": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "left": "no_win_check",
+      "right": "selected",
+      "completed_games": 100,
+      "game_wall_seconds": {
+        "count": 100,
+        "p50": 40.597657029499715,
+        "p95": 81.48363856504966,
+        "min": 23.381219869999768,
+        "max": 86.46539064300032
+      },
+      "turns": {
+        "count": 100,
+        "p50": 35.5,
+        "p95": 85.0,
+        "min": 22,
+        "max": 92
+      },
+      "actors": {
+        "no_win_check": {
+          "completed_games": 100,
+          "external_response_seconds_per_game": {
+            "count": 100,
+            "p50": 19.80831384749763,
+            "p95": 39.99444679125176,
+            "min": 11.09117006300039,
+            "max": 43.931794723002895
+          },
+          "engine_requests_per_game": {
+            "count": 100,
+            "p50": 17.0,
+            "p95": 42.0,
+            "min": 10,
+            "max": 46
+          },
+          "sampled_process_peak_rss_bytes": {
+            "count": 100,
+            "p50": 38193152.0,
+            "p95": 41592422.4,
+            "min": 36642816,
+            "max": 42303488
+          },
+          "games_without_rss_measurement": 0,
+          "native_search_response_seconds": {
+            "count": 2199,
+            "p50": 1.198257367,
+            "p95": 1.3691021766,
+            "min": 0.081124953,
+            "max": 1.493928681
+          },
+          "native_search_iterations_per_response": {
+            "count": 2199,
+            "p50": 16000.0,
+            "p95": 16000.0,
+            "min": 16000,
+            "max": 16000
+          },
+          "native_nodes_per_search_response": {
+            "count": 2199,
+            "p50": 16002.0,
+            "p95": 16002.0,
+            "min": 73,
+            "max": 16002
+          },
+          "native_total_search_iterations": 35184000,
+          "native_total_search_response_seconds": 2478.815704398,
+          "native_search_iterations_per_response_second": 14193.874896619114,
+          "telemetry_reasons": {
+            "pie_rule_swap": 22,
+            "search": 2199,
+            "tactical_block": 87
+          },
+          "external_response_seconds_by_native_reason": {
+            "pie_rule_swap": {
+              "count": 22,
+              "p50": 0.0002921254997545475,
+              "p95": 0.001126265149946448,
+              "min": 0.00017358999957650667,
+              "max": 0.0012924160000693519
+            },
+            "search": {
+              "count": 2199,
+              "p50": 1.1985568350000904,
+              "p95": 1.3693553953000446,
+              "min": 0.08132670499981032,
+              "max": 1.4942369549999057
+            },
+            "tactical_block": {
+              "count": 87,
+              "p50": 0.0002651090007930179,
+              "p95": 0.0005074936000255549,
+              "min": 0.000134093000269786,
+              "max": 0.0008710229994903784
+            }
+          },
+          "worker_search_requests": 4398,
+          "worker_requests_with_node_cap_telemetry": 4398,
+          "worker_requests_reaching_node_cap": 0,
+          "worker_node_cap_fraction": 0.0,
+          "historical_search_requests_with_iteration_cap_telemetry": 0,
+          "historical_search_requests_reaching_original_iteration_cap": 0
+        },
+        "selected": {
+          "completed_games": 100,
+          "external_response_seconds_per_game": {
+            "count": 100,
+            "p50": 19.712075553500654,
+            "p95": 40.15483018489872,
+            "min": 11.233752937000645,
+            "max": 44.12468514899683
+          },
+          "engine_requests_per_game": {
+            "count": 100,
+            "p50": 17.0,
+            "p95": 42.0,
+            "min": 10,
+            "max": 46
+          },
+          "sampled_process_peak_rss_bytes": {
+            "count": 100,
+            "p50": 38230016.0,
+            "p95": 41677824.0,
+            "min": 36651008,
+            "max": 42319872
+          },
+          "games_without_rss_measurement": 0,
+          "native_search_response_seconds": {
+            "count": 2149,
+            "p50": 1.203449294,
+            "p95": 1.3727725696,
+            "min": 0.365266215,
+            "max": 1.492198408
+          },
+          "native_search_iterations_per_response": {
+            "count": 2149,
+            "p50": 16000.0,
+            "p95": 16000.0,
+            "min": 16000,
+            "max": 16000
+          },
+          "native_nodes_per_search_response": {
+            "count": 2149,
+            "p50": 16002.0,
+            "p95": 16002.0,
+            "min": 8019,
+            "max": 16002
+          },
+          "native_total_search_iterations": 34384000,
+          "native_total_search_response_seconds": 2467.89423364,
+          "native_search_iterations_per_response_second": 13932.525766829807,
+          "telemetry_reasons": {
+            "pie_rule_swap": 22,
+            "search": 2149,
+            "tactical_block": 87,
+            "tactical_win": 50
+          },
+          "external_response_seconds_by_native_reason": {
+            "pie_rule_swap": {
+              "count": 22,
+              "p50": 0.000289104500097892,
+              "p95": 0.0012325529000918318,
+              "min": 0.0002020780002567335,
+              "max": 0.001583893999850261
+            },
+            "search": {
+              "count": 2149,
+              "p50": 1.20387692300028,
+              "p95": 1.373060238400285,
+              "min": 0.3655256459996963,
+              "max": 1.492475266999918
+            },
+            "tactical_block": {
+              "count": 87,
+              "p50": 0.00025902699962898623,
+              "p95": 0.00041391720001229267,
+              "min": 0.0001527780004835222,
+              "max": 0.00046808299975964474
+            },
+            "tactical_win": {
+              "count": 50,
+              "p50": 0.00019110549987999548,
+              "p95": 0.0003095607002478573,
+              "min": 0.00011146199994982453,
+              "max": 0.00033833199995569885
+            }
+          },
+          "worker_search_requests": 4298,
+          "worker_requests_with_node_cap_telemetry": 4298,
+          "worker_requests_reaching_node_cap": 0,
+          "worker_node_cap_fraction": 0.0,
+          "historical_search_requests_with_iteration_cap_telemetry": 0,
+          "historical_search_requests_reaching_original_iteration_cap": 0
+        }
+      },
+      "hardware_classes": {
+        "0c6d76ab463a56ba6a059417c0b28674cd972fff07e94dd45696d15f13478fab": {
+          "completed_games": 100,
+          "system": "Linux",
+          "actors": {
+            "no_win_check": {
+              "completed_games": 100,
+              "external_response_seconds_per_game": {
+                "count": 100,
+                "p50": 19.80831384749763,
+                "p95": 39.99444679125176,
+                "min": 11.09117006300039,
+                "max": 43.931794723002895
+              },
+              "engine_requests_per_game": {
+                "count": 100,
+                "p50": 17.0,
+                "p95": 42.0,
+                "min": 10,
+                "max": 46
+              },
+              "sampled_process_peak_rss_bytes": {
+                "count": 100,
+                "p50": 38193152.0,
+                "p95": 41592422.4,
+                "min": 36642816,
+                "max": 42303488
+              },
+              "games_without_rss_measurement": 0,
+              "native_search_response_seconds": {
+                "count": 2199,
+                "p50": 1.198257367,
+                "p95": 1.3691021766,
+                "min": 0.081124953,
+                "max": 1.493928681
+              },
+              "native_search_iterations_per_response": {
+                "count": 2199,
+                "p50": 16000.0,
+                "p95": 16000.0,
+                "min": 16000,
+                "max": 16000
+              },
+              "native_nodes_per_search_response": {
+                "count": 2199,
+                "p50": 16002.0,
+                "p95": 16002.0,
+                "min": 73,
+                "max": 16002
+              },
+              "native_total_search_iterations": 35184000,
+              "native_total_search_response_seconds": 2478.815704398,
+              "native_search_iterations_per_response_second": 14193.874896619114,
+              "telemetry_reasons": {
+                "pie_rule_swap": 22,
+                "search": 2199,
+                "tactical_block": 87
+              },
+              "external_response_seconds_by_native_reason": {
+                "pie_rule_swap": {
+                  "count": 22,
+                  "p50": 0.0002921254997545475,
+                  "p95": 0.001126265149946448,
+                  "min": 0.00017358999957650667,
+                  "max": 0.0012924160000693519
+                },
+                "search": {
+                  "count": 2199,
+                  "p50": 1.1985568350000904,
+                  "p95": 1.3693553953000446,
+                  "min": 0.08132670499981032,
+                  "max": 1.4942369549999057
+                },
+                "tactical_block": {
+                  "count": 87,
+                  "p50": 0.0002651090007930179,
+                  "p95": 0.0005074936000255549,
+                  "min": 0.000134093000269786,
+                  "max": 0.0008710229994903784
+                }
+              },
+              "worker_search_requests": 4398,
+              "worker_requests_with_node_cap_telemetry": 4398,
+              "worker_requests_reaching_node_cap": 0,
+              "worker_node_cap_fraction": 0.0,
+              "historical_search_requests_with_iteration_cap_telemetry": 0,
+              "historical_search_requests_reaching_original_iteration_cap": 0
+            },
+            "selected": {
+              "completed_games": 100,
+              "external_response_seconds_per_game": {
+                "count": 100,
+                "p50": 19.712075553500654,
+                "p95": 40.15483018489872,
+                "min": 11.233752937000645,
+                "max": 44.12468514899683
+              },
+              "engine_requests_per_game": {
+                "count": 100,
+                "p50": 17.0,
+                "p95": 42.0,
+                "min": 10,
+                "max": 46
+              },
+              "sampled_process_peak_rss_bytes": {
+                "count": 100,
+                "p50": 38230016.0,
+                "p95": 41677824.0,
+                "min": 36651008,
+                "max": 42319872
+              },
+              "games_without_rss_measurement": 0,
+              "native_search_response_seconds": {
+                "count": 2149,
+                "p50": 1.203449294,
+                "p95": 1.3727725696,
+                "min": 0.365266215,
+                "max": 1.492198408
+              },
+              "native_search_iterations_per_response": {
+                "count": 2149,
+                "p50": 16000.0,
+                "p95": 16000.0,
+                "min": 16000,
+                "max": 16000
+              },
+              "native_nodes_per_search_response": {
+                "count": 2149,
+                "p50": 16002.0,
+                "p95": 16002.0,
+                "min": 8019,
+                "max": 16002
+              },
+              "native_total_search_iterations": 34384000,
+              "native_total_search_response_seconds": 2467.89423364,
+              "native_search_iterations_per_response_second": 13932.525766829807,
+              "telemetry_reasons": {
+                "pie_rule_swap": 22,
+                "search": 2149,
+                "tactical_block": 87,
+                "tactical_win": 50
+              },
+              "external_response_seconds_by_native_reason": {
+                "pie_rule_swap": {
+                  "count": 22,
+                  "p50": 0.000289104500097892,
+                  "p95": 0.0012325529000918318,
+                  "min": 0.0002020780002567335,
+                  "max": 0.001583893999850261
+                },
+                "search": {
+                  "count": 2149,
+                  "p50": 1.20387692300028,
+                  "p95": 1.373060238400285,
+                  "min": 0.3655256459996963,
+                  "max": 1.492475266999918
+                },
+                "tactical_block": {
+                  "count": 87,
+                  "p50": 0.00025902699962898623,
+                  "p95": 0.00041391720001229267,
+                  "min": 0.0001527780004835222,
+                  "max": 0.00046808299975964474
+                },
+                "tactical_win": {
+                  "count": 50,
+                  "p50": 0.00019110549987999548,
+                  "p95": 0.0003095607002478573,
+                  "min": 0.00011146199994982453,
+                  "max": 0.00033833199995569885
+                }
+              },
+              "worker_search_requests": 4298,
+              "worker_requests_with_node_cap_telemetry": 4298,
+              "worker_requests_reaching_node_cap": 0,
+              "worker_node_cap_fraction": 0.0,
+              "historical_search_requests_with_iteration_cap_telemetry": 0,
+              "historical_search_requests_reaching_original_iteration_cap": 0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "scope": "Descriptive saved telemetry from completed games. Costs are not causal explanations of wins. RSS is sampled, not an OS memory limit. The ratio uses summed native search response elapsed time, not summed per-worker elapsed wall time. Worker elapsed telemetry is not CPU usage time. No policy selection or new games."
+}

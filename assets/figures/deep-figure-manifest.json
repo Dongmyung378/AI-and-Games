@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "status": "actual_complete_inputs_rendered_and_browser_inspected",
+  "project_id": "project-06",
+  "default_language": "en",
+  "site_language": "ko",
+  "plotting_library": "Matplotlib",
+  "matplotlib_version": "3.11.2",
+  "optional_plotting_python": ">=3.11",
+  "agent_runtime_python": ">=3.10",
+  "palette": {
+    "ivory": "#F7F3EA",
+    "paper": "#FFFCF6",
+    "navy": "#17304A",
+    "red": "#A74445",
+    "muted": "#66717A",
+    "line": "#D9D3C9",
+    "sand": "#C8AE82",
+    "steel": "#45768D"
+  },
+  "fonts": {
+    "en": {
+      "family": "DejaVu Sans",
+      "font_filename": "DejaVuSans.ttf",
+      "font_sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    "ko": {
+      "family": "Malgun Gothic",
+      "font_filename": "malgun.ttf",
+      "font_sha256": "7a183cf1c6c56b9609fcc16eda8b5229fbc11758a21e669ec00343239b02192f"
+    }
+  },
+  "assets": [
+    {
+      "repository_path": "assets/figures/hex-shared-time.svg",
+      "sha256": "f2c93e69f6ccbefbe6e8c7996b0a23ce1901f273a56aeb32343a0a2f6f3362b0",
+      "bytes": 165168,
+      "language": "en",
+      "svg_fonttype": "path",
+      "recommended_site_path": null
+    },
+    {
+      "repository_path": "assets/figures/hex-tactical-ablation.svg",
+      "sha256": "18bcf9231a13e17e9f97adb9d8aa41360c7be50f8b69f94dcc0f0c5440da01b9",
+      "bytes": 174932,
+      "language": "en",
+      "svg_fonttype": "path",
+      "recommended_site_path": null
+    },
+    {
+      "repository_path": "assets/figures/hex-worker-positions.svg",
+      "sha256": "00473ea84f75ce6e66f70661e975b7862ac571c01badeda1a6d7dfaf14192a09",
+      "bytes": 270212,
+      "language": "en",
+      "svg_fonttype": "path",
+      "recommended_site_path": null
+    },
+    {
+      "repository_path": "assets/figures/ko/hex-shared-time.svg",
+      "sha256": "4e5f68bed5a59c0a31bf4e0372b9f8f33e756f9e76b0770cd5fb23a0ca5a6fb7",
+      "bytes": 181303,
+      "language": "ko",
+      "svg_fonttype": "path",
+      "recommended_site_path": "/images/projects/hex-shared-time.svg"
+    },
+    {
+      "repository_path": "assets/figures/ko/hex-tactical-ablation.svg",
+      "sha256": "128d8e76f02c4fd9ca54ae4a962ca810bc59d92247193595bcb2d7015fbe12e9",
+      "bytes": 190553,
+      "language": "ko",
+      "svg_fonttype": "path",
+      "recommended_site_path": "/images/projects/hex-tactical-ablation.svg"
+    },
+    {
+      "repository_path": "assets/figures/ko/hex-worker-positions.svg",
+      "sha256": "901b1b492398f8f93a6ce1e0e3a922c18d46b4177d56785d1ccb2be7778d842f",
+      "bytes": 294712,
+      "language": "ko",
+      "svg_fonttype": "path",
+      "recommended_site_path": "/images/projects/hex-worker-positions.svg"
+    },
+    {
+      "repository_path": "assets/figures/hex-deep-thumbnail.svg",
+      "sha256": "2b6e12bb999ab19a104ddb780c4e6e27fa06d9eb23004dc1bdd75516c24a5737",
+      "bytes": 94859,
+      "language": "en",
+      "svg_fonttype": "path",
+      "recommended_site_path": null
+    },
+    {
+      "repository_path": "assets/figures/ko/hex-deep-thumbnail.svg",
+      "sha256": "1fbfc1988390e8837bdc21cda67cf34c1234af99dd41fdb1a55bc9d7ce432b97",
+      "bytes": 100552,
+      "language": "ko",
+      "svg_fonttype": "path",
+      "recommended_site_path": "/images/projects/hex-deep-thumbnail.svg"
+    }
+  ],
+  "legacy_korean_display_assets": [
+    {
+      "repository_path": "assets/figures/ko/hex-thumbnail.svg",
+      "sha256": "fa3c14eadca6569518ed51b6994ae310f33357c75a77fc8df6ab22970fb8307e",
+      "bytes": 7266,
+      "source_repository_path": "assets/figures/hex-thumbnail.svg",
+      "language": "ko",
+      "role": "preserved earlier display figure"
+    },
+    {
+      "repository_path": "assets/figures/ko/hex-pipeline.svg",
+      "sha256": "98bd78f759628c0cfe13702cf016fab1a287613a87c303952d8dde048c6a8a43",
+      "bytes": 6268,
+      "source_repository_path": "assets/figures/hex-pipeline.svg",
+      "language": "ko",
+      "role": "preserved earlier display figure"
+    },
+    {
+      "repository_path": "assets/figures/ko/hex-correctness.svg",
+      "sha256": "4a242bd8e0f0f7a702f6cf63d9663703edcf911cd7517467e263668694bc68ac",
+      "bytes": 4612,
+      "source_repository_path": "assets/figures/hex-correctness.svg",
+      "language": "ko",
+      "role": "preserved earlier display figure"
+    },
+    {
+      "repository_path": "assets/figures/ko/hex-policy.svg",
+      "sha256": "7a6010e2cb761acc710b331c899d24c4201598c8b3069fb699ca88a9ab32b89b",
+      "bytes": 4911,
+      "source_repository_path": "assets/figures/hex-policy.svg",
+      "language": "ko",
+      "role": "preserved earlier display figure"
+    },
+    {
+      "repository_path": "assets/figures/ko/hex-features.svg",
+      "sha256": "59f0b14748c375a2aae6cf815ce9ff941b2f9989d32448a22e2f48cc0d95bf89",
+      "bytes": 6321,
+      "source_repository_path": "assets/figures/hex-features.svg",
+      "language": "ko",
+      "role": "preserved earlier display figure"
+    },
+    {
+      "repository_path": "assets/figures/ko/hex-costs.svg",
+      "sha256": "16e90942fca90e2ef797d5318e931100d9ad1aec955920a915f1be482c5fc04a",
+      "bytes": 12760,
+      "source_repository_path": "assets/figures/hex-costs.svg",
+      "language": "ko",
+      "role": "preserved earlier display figure"
+    },
+    {
+      "repository_path": "assets/figures/ko/hex-final.svg",
+      "sha256": "5217ac8b162aec4eeeff0542edfa070d9e829d309c4f9eef74f13cef6c60c846",
+      "bytes": 7725,
+      "source_repository_path": "assets/figures/hex-final.svg",
+      "language": "ko",
+      "role": "preserved earlier display figure"
+    }
+  ],
+  "preserved_previous_figures": [
+    {
+      "repository_path": "assets/figures/hex-thumbnail.svg",
+      "sha256": "fa3c14eadca6569518ed51b6994ae310f33357c75a77fc8df6ab22970fb8307e",
+      "numeric_text_and_geometry_unchanged": true
+    },
+    {
+      "repository_path": "assets/figures/hex-pipeline.svg",
+      "sha256": "98bd78f759628c0cfe13702cf016fab1a287613a87c303952d8dde048c6a8a43",
+      "numeric_text_and_geometry_unchanged": true
+    },
+    {
+      "repository_path": "assets/figures/hex-correctness.svg",
+      "sha256": "4a242bd8e0f0f7a702f6cf63d9663703edcf911cd7517467e263668694bc68ac",
+      "numeric_text_and_geometry_unchanged": true
+    },
+    {
+      "repository_path": "assets/figures/hex-policy.svg",
+      "sha256": "7a6010e2cb761acc710b331c899d24c4201598c8b3069fb699ca88a9ab32b89b",
+      "numeric_text_and_geometry_unchanged": true
+    },
+    {
+      "repository_path": "assets/figures/hex-features.svg",
+      "sha256": "59f0b14748c375a2aae6cf815ce9ff941b2f9989d32448a22e2f48cc0d95bf89",
+      "numeric_text_and_geometry_unchanged": true
+    },
+    {
+      "repository_path": "assets/figures/hex-costs.svg",
+      "sha256": "16e90942fca90e2ef797d5318e931100d9ad1aec955920a915f1be482c5fc04a",
+      "numeric_text_and_geometry_unchanged": true
+    },
+    {
+      "repository_path": "assets/figures/hex-final.svg",
+      "sha256": "5217ac8b162aec4eeeff0542edfa070d9e829d309c4f9eef74f13cef6c60c846",
+      "numeric_text_and_geometry_unchanged": true
+    }
+  ],
+  "bindings": {
+    "repository_path": "assets/figures/deep-visual-input.json",
+    "sha256": "b08184a4462f449334fc0fad758685ae49edd4dfff46194d423cde7321b51f17",
+    "bytes": 2658
+  },
+  "metric_provenance": {
+    "repository_path": "assets/figures/deep-metric-provenance.json",
+    "sha256": "f44bebd0d010e7d9ec7ea78d6f10f2e6e102ba3addb106fd8c86051b6e9d8af3",
+    "bytes": 138903
+  },
+  "generators": [
+    {
+      "repository_path": "tools/figures/render_hex_deep_scientific.py",
+      "sha256": "d1350d3ad0bc7f76155ae26c6a5389fca51ef78b65ed0e5a5b3f6cfdeac89a46",
+      "bytes": 25506
+    },
+    {
+      "repository_path": "tools/figures/render_hex_thumbnail.py",
+      "sha256": "77304d18bcf4e9ae98bf6e2aeec9bc8fac74ae6c4c0182d3064679ec8bfea3a6",
+      "bytes": 9486
+    },
+    {
+      "repository_path": "tools/figures/hex_visual_data.py",
+      "sha256": "08897c5824e6be49c2658500d87b3d6d6f9d387b67394ae2475dab18cee56a29",
+      "bytes": 9453
+    },
+    {
+      "repository_path": "tools/figures/prepare_hex_visual_inputs.py",
+      "sha256": "f3a02c2228bb35dde2883a945633cae61728ee8fcf47e6a8e86ba7fe68ad1a69",
+      "bytes": 5988
+    },
+    {
+      "repository_path": "tools/figures/requirements.txt",
+      "sha256": "c8dfb93b328a093259d29d652c0c6dc10a516305d9b02e5d7d6bedee23984a4f",
+      "bytes": 259
+    },
+    {
+      "repository_path": "tools/figures/README.md",
+      "sha256": "a8f14df28c06d25d932af57b8ed57302104e40651f3cdde2ce8430c962a2426e",
+      "bytes": 3643
+    },
+    {
+      "repository_path": "tools/figures/README.ko.md",
+      "sha256": "7765b710bfea12a75a1735e6a02dba546e144d40c0f3669503b84f5227246de8",
+      "bytes": 4401
+    }
+  ],
+  "render_receipts": [
+    {
+      "repository_path": "assets/figures/deep-scientific-render-receipt.json",
+      "sha256": "0489e230493ee35b00ae6a3a29120bd49de191d942cf9d8276108f6954b35d84",
+      "bytes": 4654
+    },
+    {
+      "repository_path": "assets/figures/deep-thumbnail-render-receipt.json",
+      "sha256": "600d294106aafec8e84efd01a19a07b8f7c22519d66a85dd85902c7e7e209a44",
+      "bytes": 5260
+    }
+  ],
+  "shared_results_by_opponent": {
+    "historical_algorithm": {
+      "wins": 81,
+      "completed_games": 100,
+      "failed_games": 0,
+      "missing_games": 0,
+      "complete_side_pairs": 50,
+      "paired_ci95": [
+        0.73,
+        0.88
+      ]
+    },
+    "rave_ucb": {
+      "wins": 84,
+      "completed_games": 100,
+      "failed_games": 0,
+      "missing_games": 0,
+      "complete_side_pairs": 50,
+      "paired_ci95": [
+        0.77,
+        0.9
+      ]
+    },
+    "ts": {
+      "wins": 73,
+      "completed_games": 100,
+      "failed_games": 0,
+      "missing_games": 0,
+      "complete_side_pairs": 50,
+      "paired_ci95": [
+        0.65,
+        0.81
+      ]
+    },
+    "ucb": {
+      "wins": 70,
+      "completed_games": 100,
+      "failed_games": 0,
+      "missing_games": 0,
+      "complete_side_pairs": 50,
+      "paired_ci95": [
+        0.61,
+        0.79
+      ]
+    }
+  },
+  "tactical_results_by_opponent": {
+    "no_block_check": {
+      "wins": 50,
+      "completed_games": 100,
+      "failed_games": 0,
+      "missing_games": 0,
+      "complete_side_pairs": 50,
+      "paired_ci95": [
+        0.5,
+        0.5
+      ]
+    },
+    "no_swap": {
+      "wins": 51,
+      "completed_games": 100,
+      "failed_games": 0,
+      "missing_games": 0,
+      "complete_side_pairs": 50,
+      "paired_ci95": [
+        0.45999999999999996,
+        0.56
+      ]
+    },
+    "no_tactics": {
+      "wins": 50,
+      "completed_games": 100,
+      "failed_games": 0,
+      "missing_games": 0,
+      "complete_side_pairs": 50,
+      "paired_ci95": [
+        0.5,
+        0.5
+      ]
+    },
+    "no_win_check": {
+      "wins": 50,
+      "completed_games": 100,
+      "failed_games": 0,
+      "missing_games": 0,
+      "complete_side_pairs": 50,
+      "paired_ci95": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "shared_manifest_sha256": "4f56942c290da3afc22d6740e96be74d58029ab3a727ba5b432490b66c64efdf",
+  "tactical_manifest_sha256": "8fc9b4efecf579d5077e7958e163a51deec3090ed943aaefde2ed0953d62e23c",
+  "thumbnail_actual_game_id": "deep-shared-time-selected-vs-historical_algorithm-000-0",
+  "thumbnail_actual_winning_colour": "R",
+  "visual_qa": {
+    "browser": "Desktop Chrome headless",
+    "decoded_svg_variants": 8,
+    "actual_captures": 10,
+    "chart_desktop_width": 1400,
+    "thumbnail_desktop_size": [
+      1280,
+      720
+    ],
+    "thumbnail_card_size": [
+      360,
+      203
+    ],
+    "canvas_text_clipping": false,
+    "labels_compared_with_identifier_bound_actual_results": true,
+    "korean_glyphs_and_thumbnail_numbers_visually_checked": true,
+    "screenshots_and_browser_profiles_distributed": false
+  },
+  "scope": "Actual-data figure derivations from frozen evaluation evidence. Engine source, evaluation manifests, selected policy and raw records remain unchanged. Results retain their recorded protocols and hardware scope."
+}

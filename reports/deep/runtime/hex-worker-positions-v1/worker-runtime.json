@@ -1,0 +1,47 @@
+{
+  "environment": {
+    "system": "Linux",
+    "release": "6.18.48+",
+    "machine": "x86_64",
+    "python": "3.13.15",
+    "cpu_model": "AMD EPYC 7B12",
+    "logical_cpus": 4,
+    "affinity_cpus": 4,
+    "cgroup_cpu_max": "400000 100000",
+    "cgroup_memory_max": "32212254720"
+  },
+  "hardware_signature": {
+    "hardware_sha256": "4eba2d23f54cfddd3c0d04b08b4510de979b223b4fd91d096636d254515caf92",
+    "host_sha256": "e282eab571e0635142a51b08a7376cabd69a835661f485707e63560ae9cea276",
+    "hardware": {
+      "system": "Linux",
+      "release": "6.18.48+",
+      "machine": "x86_64",
+      "cpu_model": "AMD EPYC 7B12",
+      "logical_cpus": 4,
+      "affinity_cpus": 4,
+      "cgroup_cpu_max": "400000 100000",
+      "cgroup_memory_max": "32212254720"
+    },
+    "scope": "Allocation fingerprint, not a benchmark score or independent external review."
+  },
+  "observed_effective_cpu_allocation": 4.0,
+  "observed_cgroup_cpu_quota": 4.0,
+  "source_archive_sha256": "3ec3bef81805575254e33ff8fc670997013ce334c1f194216523f7cbc2c36e7c",
+  "native_source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+  "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+  "fixture_sha256": "1c5212b760f5ad7d31cd3ab5ca51ca5ca0c0b73ecee449fa22d2b10f9324f2c5",
+  "iterations_per_move_total": 16000,
+  "repeats": 7,
+  "workers": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "scheduled_trials": 168,
+  "gpu_requested": false,
+  "concurrent_evaluation_drivers": 0,
+  "fixture_scope": "Three legally replayable Red-first positions plus three static transposed, colour-exchanged counterparts. The symmetry counterparts are nonterminal search states, not asserted reachable Red-first match histories.",
+  "measurement_scope": "Sequential single-position searches only. Each worker setting shares the same VM CPU allocation. Eight workers do not create eight CPUs. No win-rate inference and no algorithm speed comparison between environments."
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "kind": "linux_address_undefined_sanitizer_validation",
+  "status": "passed",
+  "environment": {
+    "system": "Linux",
+    "release": "6.18.48+",
+    "machine": "x86_64",
+    "python": "3.13.15",
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "logical_cpus": 4,
+    "affinity_cpus": 4,
+    "cgroup_cpu_max": "400000 100000",
+    "cgroup_memory_max": "32212254720"
+  },
+  "native_source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+  "native_command": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-O1",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "-fsanitize=address,undefined",
+    "-pthread",
+    "/kaggle/working/hex-source/native/hex_search.cpp",
+    "-o",
+    "/kaggle/working/hex-results/sanitizers/native-sanitized"
+  ],
+  "native_executable_sha256": "7425c649802391b1557d788df7754f1cc5b3e4276aa2e4ea44b43aeca578e578",
+  "legacy_build": {
+    "schema_version": 1,
+    "kind": "benchmark_legacy",
+    "original_source_sha256": "3bcf831944b86847b2384ab4d85e451bf12e7890b3a17492e8ed617266287244",
+    "original_canonical_sha256": "3bcf831944b86847b2384ab4d85e451bf12e7890b3a17492e8ed617266287244",
+    "generated_source_sha256": "f42ab37e1893ba2bf0ac1eb212381803c95132b68d7e2a18a085d46ab240291e",
+    "patch_receipt": "legacy-sanitized.patch.json",
+    "patch_receipt_sha256": "ac625dfe332ed4810828f21a6568cd8ca26edcdff10883c9c603e05fcd27abc2",
+    "compiler": [
+      "/usr/bin/g++"
+    ],
+    "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+    "command": [
+      "/usr/bin/g++",
+      "-std=c++17",
+      "-O1",
+      "-g",
+      "-fno-omit-frame-pointer",
+      "-fsanitize=address,undefined",
+      "-pthread",
+      "/kaggle/working/hex-results/sanitizers/legacy-sanitized.cpp",
+      "-o",
+      "/kaggle/working/hex-results/sanitizers/legacy-sanitized"
+    ],
+    "executable": "/kaggle/working/hex-results/sanitizers/legacy-sanitized",
+    "executable_sha256": "6408773d3c90831729b4d1a6aeb4a01face35f1f34e3089eac9a6c0f0ed2b46d",
+    "environment": {
+      "system": "Linux",
+      "release": "6.18.48+",
+      "machine": "x86_64",
+      "python": "3.13.15",
+      "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+      "logical_cpus": 4,
+      "affinity_cpus": 4,
+      "cgroup_cpu_max": "400000 100000",
+      "cgroup_memory_max": "32212254720"
+    },
+    "compiler_output": "/kaggle/working/hex-results/sanitizers/legacy-sanitized",
+    "installed_exact_requested_path": true,
+    "sanitizers": true,
+    "unchanged_algorithm_regions": [
+      {
+        "region": "board_and_expansion",
+        "canonical_sha256": "e075ae14a930b5d1e6c57cb565b917460c8d6323f5f4e099eb491bf685c8179e",
+        "unchanged": true
+      },
+      {
+        "region": "selection_rollout_bridge_tactics",
+        "canonical_sha256": "049aa9aee2937de5fa10e6c5e5a1116c97a14f06af2e47d92d6f63664472aeb1",
+        "unchanged": true
+      },
+      {
+        "region": "tree_selection_and_expansion",
+        "canonical_sha256": "c9d072ca11c9a373bc2e9c23931c7353a6a65bbe02759110f3262bad39518986",
+        "unchanged": true
+      }
+    ]
+  },
+  "self_test": {
+    "returncode": 0,
+    "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":15,\"exhaustive_connectivity_positions\":19683}\n",
+    "stderr": ""
+  },
+  "protocol_tests": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_both_engines_exhausted_external_budget_return_legal_fallback (test_native_budget.NativeBudgetTests.test_both_engines_exhausted_external_budget_return_legal_fallback) ... ok\ntest_both_engines_reject_invalid_v3_or_terminal_boards (test_native_budget.NativeBudgetTests.test_both_engines_reject_invalid_v3_or_terminal_boards) ... ok\ntest_external_remaining_caps_search_allocation_and_terminates (test_native_budget.NativeBudgetTests.test_external_remaining_caps_search_allocation_and_terminates) ... ok\ntest_legacy_generation_preserves_original_and_guards_source_hash (test_native_budget.NativeBudgetTests.test_legacy_generation_preserves_original_and_guards_source_hash) ... ok\ntest_v2_iteration_mode_and_seeded_legacy_are_exactly_repeatable (test_native_budget.NativeBudgetTests.test_v2_iteration_mode_and_seeded_legacy_are_exactly_repeatable) ... ok\ntest_v3_is_deadline_mode_unless_iteration_limit_is_explicit (test_native_budget.NativeBudgetTests.test_v3_is_deadline_mode_unless_iteration_limit_is_explicit) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.739s\n\nOK\n"
+  },
+  "test_seconds": 1.3421378889999573,
+  "scope": "Connectivity, AMAF, perspective, cap, seeded worker and actual V2/V3 protocol contracts under ASan/UBSan. Short native searches, not a proof for every input or match workload."
+}

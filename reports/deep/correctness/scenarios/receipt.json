@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "fixture_sha256": "f63da9e8a742d1c37575d119e779c4b80cbc5db5cc118ebfd921919c26f876dd",
+  "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+  "executable_sha256": "6b16fe1c594b235efb541db8aef0b6055da0bc94705d5590692e799e7a5b0e36",
+  "build_receipt": {
+    "schema_version": 1,
+    "kind": "native",
+    "source": "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+    "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+    "compiler": [
+      "D:\\mingw64\\bin\\g++.exe"
+    ],
+    "compiler_version": "g++.exe (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+    "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+    "command": [
+      "D:\\mingw64\\bin\\g++.exe",
+      "-std=c++17",
+      "-O3",
+      "-pthread",
+      "-static",
+      "-static-libgcc",
+      "-static-libstdc++",
+      "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+      "-o",
+      "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe"
+    ],
+    "executable": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+    "executable_sha256": "6b16fe1c594b235efb541db8aef0b6055da0bc94705d5590692e799e7a5b0e36",
+    "environment": {
+      "system": "Windows",
+      "release": "11",
+      "machine": "AMD64",
+      "python": "3.12.7",
+      "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+      "logical_cpus": 16
+    },
+    "self_test": {
+      "returncode": 0,
+      "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":15,\"exhaustive_connectivity_positions\":19683}",
+      "stderr": ""
+    }
+  },
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "machine": "AMD64",
+    "python": "3.12.7",
+    "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+    "logical_cpus": 16
+  },
+  "fixtures": 61,
+  "legal_history_fixtures": 45,
+  "static_symmetry_fixtures": 16,
+  "responses": 488,
+  "response_passes": 488,
+  "rejection_passes": 4,
+  "wall_seconds": 22.1009140999995,
+  "scope": "Deterministic branch/protocol correctness only. Not a full-game win-rate benchmark or independent external review.",
+  "v2_v3_same_move_reason_comparisons": 244,
+  "v2_v3_same_move_reason_passes": 244,
+  "reason_counts": {
+    "pie_rule_swap": 16,
+    "search": 280,
+    "tactical_block": 96,
+    "tactical_win": 96
+  },
+  "file_hashes": {
+    "fixtures.json": "0a3f79947cdb9807e3c168126234853dad25c9901610469ed9ad99903fb304c9",
+    "responses.json": "fc221693fa3b867338956dfed5dc189a414e680d53f55f103c0d6da48bd9a213",
+    "rejections.json": "21c307b555c36d4762cc239f596662ab5d3c62e0131f93b82fbd943d6c350a65"
+  },
+  "script_sha256": "4f59f05a098bd95b0179f94702c866ce8e473ef3ae5fa8f197b892bbc879f157",
+  "symmetry_scope": "Enabled exact winning or single-threat blocking target follows rotate180 and transpose-plus-colour-exchange transform. No invariance claim for stochastic disabled-branch search under geometric transforms."
+}

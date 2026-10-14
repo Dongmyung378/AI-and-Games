@@ -22,12 +22,21 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Build and check the maintained C++ engine
         run: python -m hexai build
+      - name: Build the controlled historical algorithm at the portable path
+        run: python scripts/build_legacy_benchmark.py
       - name: Check search, evaluation and preserved rule integration
         run: python -m unittest discover -s tests -v
       - name: Run a small declared smoke evaluation
         run: python -m hexai evaluate --config configs/smoke.json --output .local/ci-smoke
       - name: Require all declared smoke games to complete
         run: python -c "import json; from pathlib import Path; d=json.loads(Path('.local/ci-smoke/summary.json').read_text()); assert d['completed_games']==d['scheduled_games'] and not d['missing_game_ids'], 'Smoke evaluation contains failed or missing games'"
+      - name: Run the shared-clock V3 integration smoke
+        run: python -m hexai evaluate --config configs/deep/public-runtime-smoke.json --output .local/ci-v3-smoke
+      - name: Require the V3 games to complete without failures or missing records
+        run: python -c "import json; from pathlib import Path; d=json.loads(Path('.local/ci-v3-smoke/summary.json').read_text()); assert d['completed_games']==d['scheduled_games']==4 and not d['missing_game_ids'], 'V3 integration contains failed or missing games'"
+      - name: Check both engines with address and undefined-behaviour sanitizers
+        if: runner.os == 'Linux' && matrix.python == '3.13'
+        run: python scripts/check_native_sanitizers.py --output .local/ci-sanitizers
 
   python-engine:
     runs-on: ubuntu-22.04

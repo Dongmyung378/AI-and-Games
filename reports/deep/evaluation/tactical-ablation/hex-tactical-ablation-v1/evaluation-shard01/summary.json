@@ -1,0 +1,587 @@
+{
+  "schema_version": 1,
+  "suite_id": "deep-tactical-ablation",
+  "split": "final",
+  "manifest_sha256": "8fc9b4efecf579d5077e7958e163a51deec3090ed943aaefde2ed0953d62e23c",
+  "budget": {
+    "mode": "iterations",
+    "iterations": 16000,
+    "workers": 2,
+    "node_cap": 60000,
+    "memory_mb": 128,
+    "game_seconds": 300,
+    "response_timeout": 60
+  },
+  "scheduled_games": 400,
+  "recorded_games": 200,
+  "completed_games": 200,
+  "missing_game_ids": [
+    "no_block_check-000-0",
+    "no_block_check-000-1",
+    "no_block_check-002-0",
+    "no_block_check-002-1",
+    "no_block_check-004-0",
+    "no_block_check-004-1",
+    "no_block_check-006-0",
+    "no_block_check-006-1",
+    "no_block_check-008-0",
+    "no_block_check-008-1",
+    "no_block_check-010-0",
+    "no_block_check-010-1",
+    "no_block_check-012-0",
+    "no_block_check-012-1",
+    "no_block_check-014-0",
+    "no_block_check-014-1",
+    "no_block_check-016-0",
+    "no_block_check-016-1",
+    "no_block_check-018-0",
+    "no_block_check-018-1",
+    "no_block_check-020-0",
+    "no_block_check-020-1",
+    "no_block_check-022-0",
+    "no_block_check-022-1",
+    "no_block_check-024-0",
+    "no_block_check-024-1",
+    "no_block_check-026-0",
+    "no_block_check-026-1",
+    "no_block_check-028-0",
+    "no_block_check-028-1",
+    "no_block_check-030-0",
+    "no_block_check-030-1",
+    "no_block_check-032-0",
+    "no_block_check-032-1",
+    "no_block_check-034-0",
+    "no_block_check-034-1",
+    "no_block_check-036-0",
+    "no_block_check-036-1",
+    "no_block_check-038-0",
+    "no_block_check-038-1",
+    "no_block_check-040-0",
+    "no_block_check-040-1",
+    "no_block_check-042-0",
+    "no_block_check-042-1",
+    "no_block_check-044-0",
+    "no_block_check-044-1",
+    "no_block_check-046-0",
+    "no_block_check-046-1",
+    "no_block_check-048-0",
+    "no_block_check-048-1",
+    "no_swap-000-0",
+    "no_swap-000-1",
+    "no_swap-002-0",
+    "no_swap-002-1",
+    "no_swap-004-0",
+    "no_swap-004-1",
+    "no_swap-006-0",
+    "no_swap-006-1",
+    "no_swap-008-0",
+    "no_swap-008-1",
+    "no_swap-010-0",
+    "no_swap-010-1",
+    "no_swap-012-0",
+    "no_swap-012-1",
+    "no_swap-014-0",
+    "no_swap-014-1",
+    "no_swap-016-0",
+    "no_swap-016-1",
+    "no_swap-018-0",
+    "no_swap-018-1",
+    "no_swap-020-0",
+    "no_swap-020-1",
+    "no_swap-022-0",
+    "no_swap-022-1",
+    "no_swap-024-0",
+    "no_swap-024-1",
+    "no_swap-026-0",
+    "no_swap-026-1",
+    "no_swap-028-0",
+    "no_swap-028-1",
+    "no_swap-030-0",
+    "no_swap-030-1",
+    "no_swap-032-0",
+    "no_swap-032-1",
+    "no_swap-034-0",
+    "no_swap-034-1",
+    "no_swap-036-0",
+    "no_swap-036-1",
+    "no_swap-038-0",
+    "no_swap-038-1",
+    "no_swap-040-0",
+    "no_swap-040-1",
+    "no_swap-042-0",
+    "no_swap-042-1",
+    "no_swap-044-0",
+    "no_swap-044-1",
+    "no_swap-046-0",
+    "no_swap-046-1",
+    "no_swap-048-0",
+    "no_swap-048-1",
+    "no_tactics-000-0",
+    "no_tactics-000-1",
+    "no_tactics-002-0",
+    "no_tactics-002-1",
+    "no_tactics-004-0",
+    "no_tactics-004-1",
+    "no_tactics-006-0",
+    "no_tactics-006-1",
+    "no_tactics-008-0",
+    "no_tactics-008-1",
+    "no_tactics-010-0",
+    "no_tactics-010-1",
+    "no_tactics-012-0",
+    "no_tactics-012-1",
+    "no_tactics-014-0",
+    "no_tactics-014-1",
+    "no_tactics-016-0",
+    "no_tactics-016-1",
+    "no_tactics-018-0",
+    "no_tactics-018-1",
+    "no_tactics-020-0",
+    "no_tactics-020-1",
+    "no_tactics-022-0",
+    "no_tactics-022-1",
+    "no_tactics-024-0",
+    "no_tactics-024-1",
+    "no_tactics-026-0",
+    "no_tactics-026-1",
+    "no_tactics-028-0",
+    "no_tactics-028-1",
+    "no_tactics-030-0",
+    "no_tactics-030-1",
+    "no_tactics-032-0",
+    "no_tactics-032-1",
+    "no_tactics-034-0",
+    "no_tactics-034-1",
+    "no_tactics-036-0",
+    "no_tactics-036-1",
+    "no_tactics-038-0",
+    "no_tactics-038-1",
+    "no_tactics-040-0",
+    "no_tactics-040-1",
+    "no_tactics-042-0",
+    "no_tactics-042-1",
+    "no_tactics-044-0",
+    "no_tactics-044-1",
+    "no_tactics-046-0",
+    "no_tactics-046-1",
+    "no_tactics-048-0",
+    "no_tactics-048-1",
+    "no_win_check-000-0",
+    "no_win_check-000-1",
+    "no_win_check-002-0",
+    "no_win_check-002-1",
+    "no_win_check-004-0",
+    "no_win_check-004-1",
+    "no_win_check-006-0",
+    "no_win_check-006-1",
+    "no_win_check-008-0",
+    "no_win_check-008-1",
+    "no_win_check-010-0",
+    "no_win_check-010-1",
+    "no_win_check-012-0",
+    "no_win_check-012-1",
+    "no_win_check-014-0",
+    "no_win_check-014-1",
+    "no_win_check-016-0",
+    "no_win_check-016-1",
+    "no_win_check-018-0",
+    "no_win_check-018-1",
+    "no_win_check-020-0",
+    "no_win_check-020-1",
+    "no_win_check-022-0",
+    "no_win_check-022-1",
+    "no_win_check-024-0",
+    "no_win_check-024-1",
+    "no_win_check-026-0",
+    "no_win_check-026-1",
+    "no_win_check-028-0",
+    "no_win_check-028-1",
+    "no_win_check-030-0",
+    "no_win_check-030-1",
+    "no_win_check-032-0",
+    "no_win_check-032-1",
+    "no_win_check-034-0",
+    "no_win_check-034-1",
+    "no_win_check-036-0",
+    "no_win_check-036-1",
+    "no_win_check-038-0",
+    "no_win_check-038-1",
+    "no_win_check-040-0",
+    "no_win_check-040-1",
+    "no_win_check-042-0",
+    "no_win_check-042-1",
+    "no_win_check-044-0",
+    "no_win_check-044-1",
+    "no_win_check-046-0",
+    "no_win_check-046-1",
+    "no_win_check-048-0",
+    "no_win_check-048-1"
+  ],
+  "comparisons": [
+    {
+      "left": "no_block_check",
+      "right": "selected",
+      "scheduled_games": 100,
+      "recorded_games": 50,
+      "completed_games": 50,
+      "left_wins": 25,
+      "right_wins": 25,
+      "left_win_rate_completed_games": 0.5,
+      "left_verified_wins_per_scheduled_game": 0.25,
+      "missing_games": 50,
+      "failure_rate_scheduled": 0.0,
+      "wilson_95_game_interval": [
+        0.3664451431682858,
+        0.6335548568317142
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 25,
+      "paired_mean_win_rate": 0.5,
+      "paired_cluster_bootstrap_95": [
+        0.5,
+        0.5
+      ],
+      "pair_strata": [
+        {
+          "signature": {
+            "hardware": {
+              "hardware": {
+                "affinity_cpus": 4,
+                "cgroup_cpu_max": "400000 100000",
+                "cgroup_memory_max": "32212254720",
+                "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+                "logical_cpus": 4,
+                "machine": "x86_64",
+                "release": "6.18.48+",
+                "system": "Linux"
+              },
+              "hardware_sha256": "0c6d76ab463a56ba6a059417c0b28674cd972fff07e94dd45696d15f13478fab",
+              "host_sha256": "649026ef63226f5d5328a3211252e43b3009f1be7b299c93fac9d0724b4977ea",
+              "scope": "Allocation fingerprint, not a benchmark score or independent external review."
+            },
+            "participants": {
+              "no_block_check": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_swap": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_tactics": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_win_check": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "selected": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              }
+            }
+          },
+          "complete_side_pairs": 25,
+          "mean_win_rate": 0.5
+        }
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 9,
+      "left_second_wins": 16
+    },
+    {
+      "left": "no_swap",
+      "right": "selected",
+      "scheduled_games": 100,
+      "recorded_games": 50,
+      "completed_games": 50,
+      "left_wins": 26,
+      "right_wins": 24,
+      "left_win_rate_completed_games": 0.52,
+      "left_verified_wins_per_scheduled_game": 0.26,
+      "missing_games": 50,
+      "failure_rate_scheduled": 0.0,
+      "wilson_95_game_interval": [
+        0.38511744890044614,
+        0.6520286471342196
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 25,
+      "paired_mean_win_rate": 0.52,
+      "paired_cluster_bootstrap_95": [
+        0.46,
+        0.6
+      ],
+      "pair_strata": [
+        {
+          "signature": {
+            "hardware": {
+              "hardware": {
+                "affinity_cpus": 4,
+                "cgroup_cpu_max": "400000 100000",
+                "cgroup_memory_max": "32212254720",
+                "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+                "logical_cpus": 4,
+                "machine": "x86_64",
+                "release": "6.18.48+",
+                "system": "Linux"
+              },
+              "hardware_sha256": "0c6d76ab463a56ba6a059417c0b28674cd972fff07e94dd45696d15f13478fab",
+              "host_sha256": "649026ef63226f5d5328a3211252e43b3009f1be7b299c93fac9d0724b4977ea",
+              "scope": "Allocation fingerprint, not a benchmark score or independent external review."
+            },
+            "participants": {
+              "no_block_check": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_swap": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_tactics": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_win_check": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "selected": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              }
+            }
+          },
+          "complete_side_pairs": 25,
+          "mean_win_rate": 0.52
+        }
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 15,
+      "left_second_wins": 11
+    },
+    {
+      "left": "no_tactics",
+      "right": "selected",
+      "scheduled_games": 100,
+      "recorded_games": 50,
+      "completed_games": 50,
+      "left_wins": 25,
+      "right_wins": 25,
+      "left_win_rate_completed_games": 0.5,
+      "left_verified_wins_per_scheduled_game": 0.25,
+      "missing_games": 50,
+      "failure_rate_scheduled": 0.0,
+      "wilson_95_game_interval": [
+        0.3664451431682858,
+        0.6335548568317142
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 25,
+      "paired_mean_win_rate": 0.5,
+      "paired_cluster_bootstrap_95": [
+        0.5,
+        0.5
+      ],
+      "pair_strata": [
+        {
+          "signature": {
+            "hardware": {
+              "hardware": {
+                "affinity_cpus": 4,
+                "cgroup_cpu_max": "400000 100000",
+                "cgroup_memory_max": "32212254720",
+                "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+                "logical_cpus": 4,
+                "machine": "x86_64",
+                "release": "6.18.48+",
+                "system": "Linux"
+              },
+              "hardware_sha256": "0c6d76ab463a56ba6a059417c0b28674cd972fff07e94dd45696d15f13478fab",
+              "host_sha256": "649026ef63226f5d5328a3211252e43b3009f1be7b299c93fac9d0724b4977ea",
+              "scope": "Allocation fingerprint, not a benchmark score or independent external review."
+            },
+            "participants": {
+              "no_block_check": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_swap": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_tactics": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_win_check": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "selected": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              }
+            }
+          },
+          "complete_side_pairs": 25,
+          "mean_win_rate": 0.5
+        }
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 8,
+      "left_second_wins": 17
+    },
+    {
+      "left": "no_win_check",
+      "right": "selected",
+      "scheduled_games": 100,
+      "recorded_games": 50,
+      "completed_games": 50,
+      "left_wins": 25,
+      "right_wins": 25,
+      "left_win_rate_completed_games": 0.5,
+      "left_verified_wins_per_scheduled_game": 0.25,
+      "missing_games": 50,
+      "failure_rate_scheduled": 0.0,
+      "wilson_95_game_interval": [
+        0.3664451431682858,
+        0.6335548568317142
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 25,
+      "paired_mean_win_rate": 0.5,
+      "paired_cluster_bootstrap_95": [
+        0.5,
+        0.5
+      ],
+      "pair_strata": [
+        {
+          "signature": {
+            "hardware": {
+              "hardware": {
+                "affinity_cpus": 4,
+                "cgroup_cpu_max": "400000 100000",
+                "cgroup_memory_max": "32212254720",
+                "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+                "logical_cpus": 4,
+                "machine": "x86_64",
+                "release": "6.18.48+",
+                "system": "Linux"
+              },
+              "hardware_sha256": "0c6d76ab463a56ba6a059417c0b28674cd972fff07e94dd45696d15f13478fab",
+              "host_sha256": "649026ef63226f5d5328a3211252e43b3009f1be7b299c93fac9d0724b4977ea",
+              "scope": "Allocation fingerprint, not a benchmark score or independent external review."
+            },
+            "participants": {
+              "no_block_check": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_swap": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_tactics": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "no_win_check": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              },
+              "selected": {
+                "executable_sha256": "1cd4b005c2000776f852cc2487cdaed432056c882617ba08b253a080338fd76a",
+                "kind": "native",
+                "original_source_sha256": null,
+                "source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+                "workers": 2
+              }
+            }
+          },
+          "complete_side_pairs": 25,
+          "mean_win_rate": 0.5
+        }
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 12,
+      "left_second_wins": 13
+    }
+  ],
+  "interpretation": "Wins require verified connecting paths. Failures are never playing-strength wins. Completed-game rates, verified wins per scheduled game, missing games and failures all retain explicit denominators. Pair bootstrap resamples complete side-reversal pairs within hardware and adapter strata. Hardware environments must also be reported separately."
+}

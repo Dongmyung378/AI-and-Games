@@ -1,0 +1,3703 @@
+{
+  "schema_version": 1,
+  "fixtures": [
+    {
+      "id": "red-win-2",
+      "board": "B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,00000R00000",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        9,
+        0
+      ],
+      "legal_trace": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        2,
+        5
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "red-win-2-rotate180",
+      "board": "00000R00000,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,0000000000B,00000R0000B,00000R0000B",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        1,
+        10
+      ],
+      "legal_trace": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          10
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        8,
+        5
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "red-win-2-transpose_exchange",
+      "board": "RRRRRRRRRR0,00000000000,00000000000,00000000000,00000000000,BB0BBBBBBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 21,
+      "previous_move": [
+        0,
+        9
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        2
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "blue-win-2",
+      "board": "RRRRRRRRRRR,00000000000,00000000000,00000000000,00000000000,BB0BBBBBBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 22,
+      "previous_move": [
+        0,
+        10
+      ],
+      "legal_trace": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        2
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "blue-win-2-rotate180",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,BBBBBBBB0BB,00000000000,00000000000,00000000000,00000000000,RRRRRRRRRRR",
+      "colour": "B",
+      "turn": 22,
+      "previous_move": [
+        10,
+        0
+      ],
+      "legal_trace": [
+        [
+          10,
+          10
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        8
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "blue-win-2-transpose_exchange",
+      "board": "B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000",
+      "colour": "R",
+      "turn": 22,
+      "previous_move": [
+        10,
+        0
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        2,
+        5
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "red-block-2",
+      "board": "RRRRRRRRRR0,00000000000,00000000000,00000000000,00000000000,BB0BBBBBBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        5,
+        10
+      ],
+      "legal_trace": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          5,
+          10
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        2
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "red-block-2-rotate180",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,BBBBBBBB0BB,00000000000,00000000000,00000000000,00000000000,0RRRRRRRRRR",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        5,
+        0
+      ],
+      "legal_trace": [
+        [
+          10,
+          10
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        8
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "red-block-2-transpose_exchange",
+      "board": "B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,00000R00000",
+      "colour": "B",
+      "turn": 21,
+      "previous_move": [
+        10,
+        5
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        2,
+        5
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "blue-block-2",
+      "board": "B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,00000R00000,00000R00000",
+      "colour": "B",
+      "turn": 20,
+      "previous_move": [
+        10,
+        5
+      ],
+      "legal_trace": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          10,
+          5
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        2,
+        5
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "blue-block-2-rotate180",
+      "board": "00000R00000,00000R00000,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,0000000000B,00000R0000B,00000R0000B",
+      "colour": "B",
+      "turn": 20,
+      "previous_move": [
+        0,
+        5
+      ],
+      "legal_trace": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        8,
+        5
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "blue-block-2-transpose_exchange",
+      "board": "RRRRRRRRR00,00000000000,00000000000,00000000000,00000000000,BB0BBBBBBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "R",
+      "turn": 20,
+      "previous_move": [
+        5,
+        10
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        2
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "red-win-4",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,00000R00000",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        9,
+        0
+      ],
+      "legal_trace": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        4,
+        5
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "red-win-4-rotate180",
+      "board": "00000R00000,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,0000000000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        1,
+        10
+      ],
+      "legal_trace": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          10
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        6,
+        5
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "red-win-4-transpose_exchange",
+      "board": "RRRRRRRRRR0,00000000000,00000000000,00000000000,00000000000,BBBB0BBBBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 21,
+      "previous_move": [
+        0,
+        9
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        4
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "blue-win-4",
+      "board": "RRRRRRRRRRR,00000000000,00000000000,00000000000,00000000000,BBBB0BBBBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 22,
+      "previous_move": [
+        0,
+        10
+      ],
+      "legal_trace": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        4
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "blue-win-4-rotate180",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,BBBBBB0BBBB,00000000000,00000000000,00000000000,00000000000,RRRRRRRRRRR",
+      "colour": "B",
+      "turn": 22,
+      "previous_move": [
+        10,
+        0
+      ],
+      "legal_trace": [
+        [
+          10,
+          10
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        6
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "blue-win-4-transpose_exchange",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000",
+      "colour": "R",
+      "turn": 22,
+      "previous_move": [
+        10,
+        0
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        4,
+        5
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "red-block-4",
+      "board": "RRRRRRRRRR0,00000000000,00000000000,00000000000,00000000000,BBBB0BBBBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        5,
+        10
+      ],
+      "legal_trace": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          5,
+          10
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        4
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "red-block-4-rotate180",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,BBBBBB0BBBB,00000000000,00000000000,00000000000,00000000000,0RRRRRRRRRR",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        5,
+        0
+      ],
+      "legal_trace": [
+        [
+          10,
+          10
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        6
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "red-block-4-transpose_exchange",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,00000R00000",
+      "colour": "B",
+      "turn": 21,
+      "previous_move": [
+        10,
+        5
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        4,
+        5
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "blue-block-4",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,00000R00000,00000R00000",
+      "colour": "B",
+      "turn": 20,
+      "previous_move": [
+        10,
+        5
+      ],
+      "legal_trace": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          10,
+          5
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        4,
+        5
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "blue-block-4-rotate180",
+      "board": "00000R00000,00000R00000,00000R0000B,00000R0000B,00000R0000B,00000R0000B,0000000000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B",
+      "colour": "B",
+      "turn": 20,
+      "previous_move": [
+        0,
+        5
+      ],
+      "legal_trace": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        6,
+        5
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "blue-block-4-transpose_exchange",
+      "board": "RRRRRRRRR00,00000000000,00000000000,00000000000,00000000000,BBBB0BBBBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "R",
+      "turn": 20,
+      "previous_move": [
+        5,
+        10
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        4
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "red-win-6",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,B0000R00000,00000R00000",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        9,
+        0
+      ],
+      "legal_trace": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        6,
+        5
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "red-win-6-rotate180",
+      "board": "00000R00000,00000R0000B,00000R0000B,00000R0000B,0000000000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        1,
+        10
+      ],
+      "legal_trace": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          10
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        4,
+        5
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "red-win-6-transpose_exchange",
+      "board": "RRRRRRRRRR0,00000000000,00000000000,00000000000,00000000000,BBBBBB0BBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 21,
+      "previous_move": [
+        0,
+        9
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        6
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "blue-win-6",
+      "board": "RRRRRRRRRRR,00000000000,00000000000,00000000000,00000000000,BBBBBB0BBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 22,
+      "previous_move": [
+        0,
+        10
+      ],
+      "legal_trace": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        6
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "blue-win-6-rotate180",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,BBBB0BBBBBB,00000000000,00000000000,00000000000,00000000000,RRRRRRRRRRR",
+      "colour": "B",
+      "turn": 22,
+      "previous_move": [
+        10,
+        0
+      ],
+      "legal_trace": [
+        [
+          10,
+          10
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        4
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "blue-win-6-transpose_exchange",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,B0000R00000,B0000R00000",
+      "colour": "R",
+      "turn": 22,
+      "previous_move": [
+        10,
+        0
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        6,
+        5
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "red-block-6",
+      "board": "RRRRRRRRRR0,00000000000,00000000000,00000000000,00000000000,BBBBBB0BBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        5,
+        10
+      ],
+      "legal_trace": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          5,
+          10
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        6
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "red-block-6-rotate180",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,BBBB0BBBBBB,00000000000,00000000000,00000000000,00000000000,0RRRRRRRRRR",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        5,
+        0
+      ],
+      "legal_trace": [
+        [
+          10,
+          10
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        4
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "red-block-6-transpose_exchange",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,B0000R00000,00000R00000",
+      "colour": "B",
+      "turn": 21,
+      "previous_move": [
+        10,
+        5
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        6,
+        5
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "blue-block-6",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000,00000R00000,00000R00000",
+      "colour": "B",
+      "turn": 20,
+      "previous_move": [
+        10,
+        5
+      ],
+      "legal_trace": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          10,
+          5
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        6,
+        5
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "blue-block-6-rotate180",
+      "board": "00000R00000,00000R00000,00000R0000B,00000R0000B,0000000000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B",
+      "colour": "B",
+      "turn": 20,
+      "previous_move": [
+        0,
+        5
+      ],
+      "legal_trace": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        4,
+        5
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "blue-block-6-transpose_exchange",
+      "board": "RRRRRRRRR00,00000000000,00000000000,00000000000,00000000000,BBBBBB0BBBB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "R",
+      "turn": 20,
+      "previous_move": [
+        5,
+        10
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        6
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "red-win-8",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,B0000R00000,00000R00000",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        9,
+        0
+      ],
+      "legal_trace": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        8,
+        5
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "red-win-8-rotate180",
+      "board": "00000R00000,00000R0000B,0000000000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        1,
+        10
+      ],
+      "legal_trace": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          10
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        2,
+        5
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "red-win-8-transpose_exchange",
+      "board": "RRRRRRRRRR0,00000000000,00000000000,00000000000,00000000000,BBBBBBBB0BB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 21,
+      "previous_move": [
+        0,
+        9
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        8
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "blue-win-8",
+      "board": "RRRRRRRRRRR,00000000000,00000000000,00000000000,00000000000,BBBBBBBB0BB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 22,
+      "previous_move": [
+        0,
+        10
+      ],
+      "legal_trace": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        8
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "blue-win-8-rotate180",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,BB0BBBBBBBB,00000000000,00000000000,00000000000,00000000000,RRRRRRRRRRR",
+      "colour": "B",
+      "turn": 22,
+      "previous_move": [
+        10,
+        0
+      ],
+      "legal_trace": [
+        [
+          10,
+          10
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        5,
+        2
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "blue-win-8-transpose_exchange",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,B0000R00000,B0000R00000",
+      "colour": "R",
+      "turn": 22,
+      "previous_move": [
+        10,
+        0
+      ],
+      "kind": "tactical_win",
+      "expected_move": [
+        8,
+        5
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "red-block-8",
+      "board": "RRRRRRRRRR0,00000000000,00000000000,00000000000,00000000000,BBBBBBBB0BB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        5,
+        10
+      ],
+      "legal_trace": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          5,
+          10
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        8
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "red-block-8-rotate180",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,BB0BBBBBBBB,00000000000,00000000000,00000000000,00000000000,0RRRRRRRRRR",
+      "colour": "R",
+      "turn": 21,
+      "previous_move": [
+        5,
+        0
+      ],
+      "legal_trace": [
+        [
+          10,
+          10
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        2
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "red-block-8-transpose_exchange",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,B0000R00000,00000R00000",
+      "colour": "B",
+      "turn": 21,
+      "previous_move": [
+        10,
+        5
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        8,
+        5
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "blue-block-8",
+      "board": "B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000R00000,B0000000000,00000R00000,00000R00000",
+      "colour": "B",
+      "turn": 20,
+      "previous_move": [
+        10,
+        5
+      ],
+      "legal_trace": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          10,
+          5
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        8,
+        5
+      ],
+      "reachability": "replayed Red-first legal history"
+    },
+    {
+      "id": "blue-block-8-rotate180",
+      "board": "00000R00000,00000R00000,0000000000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B,00000R0000B",
+      "colour": "B",
+      "turn": 20,
+      "previous_move": [
+        0,
+        5
+      ],
+      "legal_trace": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        2,
+        5
+      ],
+      "reachability": "replayed Red-first legal history",
+      "transformation": "rotate180"
+    },
+    {
+      "id": "blue-block-8-transpose_exchange",
+      "board": "RRRRRRRRR00,00000000000,00000000000,00000000000,00000000000,BBBBBBBB0BB,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "R",
+      "turn": 20,
+      "previous_move": [
+        5,
+        10
+      ],
+      "kind": "tactical_block",
+      "expected_move": [
+        5,
+        8
+      ],
+      "reachability": "Static Hex symmetry only: colour exchange also changes the initial mover. Not asserted reachable under this framework's Red-first history.",
+      "transformation": "transpose_exchange"
+    },
+    {
+      "id": "pie-5-5",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,00000R00000,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        5,
+        5
+      ],
+      "legal_trace": [
+        [
+          5,
+          5
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_rule_swap",
+      "expected_move": [
+        -1,
+        -1
+      ],
+      "hex_distance_from_centre": 0
+    },
+    {
+      "id": "pie-4-5",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000R00000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        4,
+        5
+      ],
+      "legal_trace": [
+        [
+          4,
+          5
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_rule_swap",
+      "expected_move": [
+        -1,
+        -1
+      ],
+      "hex_distance_from_centre": 1
+    },
+    {
+      "id": "pie-5-4",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,0000R000000,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        5,
+        4
+      ],
+      "legal_trace": [
+        [
+          5,
+          4
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_rule_swap",
+      "expected_move": [
+        -1,
+        -1
+      ],
+      "hex_distance_from_centre": 1
+    },
+    {
+      "id": "pie-2-5",
+      "board": "00000000000,00000000000,00000R00000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        2,
+        5
+      ],
+      "legal_trace": [
+        [
+          2,
+          5
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_rule_swap",
+      "expected_move": [
+        -1,
+        -1
+      ],
+      "hex_distance_from_centre": 3
+    },
+    {
+      "id": "pie-1-5",
+      "board": "00000000000,00000R00000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        1,
+        5
+      ],
+      "legal_trace": [
+        [
+          1,
+          5
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_no_swap",
+      "expected_move": null,
+      "hex_distance_from_centre": 4
+    },
+    {
+      "id": "pie-0-0",
+      "board": "R0000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        0,
+        0
+      ],
+      "legal_trace": [
+        [
+          0,
+          0
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_no_swap",
+      "expected_move": null,
+      "hex_distance_from_centre": 10
+    },
+    {
+      "id": "pie-0-10",
+      "board": "0000000000R,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        0,
+        10
+      ],
+      "legal_trace": [
+        [
+          0,
+          10
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_no_swap",
+      "expected_move": null,
+      "hex_distance_from_centre": 5
+    },
+    {
+      "id": "pie-10-0",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,R0000000000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        10,
+        0
+      ],
+      "legal_trace": [
+        [
+          10,
+          0
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_no_swap",
+      "expected_move": null,
+      "hex_distance_from_centre": 5
+    },
+    {
+      "id": "pie-10-10",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,0000000000R",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        10,
+        10
+      ],
+      "legal_trace": [
+        [
+          10,
+          10
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_no_swap",
+      "expected_move": null,
+      "hex_distance_from_centre": 10
+    },
+    {
+      "id": "pie-0-5",
+      "board": "00000R00000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        0,
+        5
+      ],
+      "legal_trace": [
+        [
+          0,
+          5
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_no_swap",
+      "expected_move": null,
+      "hex_distance_from_centre": 5
+    },
+    {
+      "id": "pie-5-0",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,R0000000000,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        5,
+        0
+      ],
+      "legal_trace": [
+        [
+          5,
+          0
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_no_swap",
+      "expected_move": null,
+      "hex_distance_from_centre": 5
+    },
+    {
+      "id": "pie-10-5",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000R00000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        10,
+        5
+      ],
+      "legal_trace": [
+        [
+          10,
+          5
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_no_swap",
+      "expected_move": null,
+      "hex_distance_from_centre": 5
+    },
+    {
+      "id": "pie-5-10",
+      "board": "00000000000,00000000000,00000000000,00000000000,00000000000,0000000000R,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "colour": "B",
+      "turn": 2,
+      "previous_move": [
+        5,
+        10
+      ],
+      "legal_trace": [
+        [
+          5,
+          10
+        ]
+      ],
+      "reachability": "replayed Red-first legal history",
+      "kind": "pie_no_swap",
+      "expected_move": null,
+      "hex_distance_from_centre": 5
+    }
+  ],
+  "fixture_sha256": "f63da9e8a742d1c37575d119e779c4b80cbc5db5cc118ebfd921919c26f876dd",
+  "scope": "Branch correctness and legal move scenarios. No stochastic playing-strength inference."
+}

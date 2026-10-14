@@ -49,6 +49,19 @@ def environment() -> dict:
     return data
 
 
+def hardware_signature(data: dict | None = None) -> dict:
+    """Coarse public grouping plus a hashed host identity; never expose a hostname."""
+    data = data or environment()
+    keys = ("system", "release", "machine", "cpu_model", "logical_cpus", "affinity_cpus",
+            "cgroup_cpu_max", "cgroup_memory_max")
+    hardware = {key: data[key] for key in keys if key in data}
+    digest = hashlib.sha256(json.dumps(hardware, sort_keys=True).encode()).hexdigest()
+    return {"hardware_sha256": digest,
+            "host_sha256": hashlib.sha256(platform.node().encode()).hexdigest(),
+            "hardware": hardware,
+            "scope": "Allocation fingerprint, not a benchmark score or independent external review."}
+
+
 def resolve_compiler(compiler: str | None = None) -> list[str]:
     if compiler:
         direct = Path(compiler)
@@ -105,9 +118,10 @@ def build(source: Path | None = None, output: Path | None = None,
 
 
 class EngineError(RuntimeError):
-    def __init__(self, status: str, message: str):
+    def __init__(self, status: str, message: str, response_seconds: float | None = None):
         super().__init__(message)
         self.status = status
+        self.response_seconds = response_seconds
 
 
 class NativeProcess:
@@ -192,7 +206,7 @@ class NativeProcess:
         try:
             line = self.lines.get(timeout=timeout)
         except queue.Empty:
-            raise EngineError("timeout", "Native response exceeded the configured timeout.") from None
+            raise EngineError("timeout", "Native response exceeded the configured timeout.", time.perf_counter() - started) from None
         if line is None:
             raise EngineError("process_error", "Native stdout closed without a move.")
         fields = line.split(",")

@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "kind": "controlled_historical_algorithm_runtime_adapter",
+  "original_source": "deployment/agents/Group026/RAVE_TS.cpp",
+  "original_source_sha256": "cac6f2894c2756229360c4f1ee663c965b6be897df384befeae6b0b9b3e79c1d",
+  "original_canonical_sha256": "3bcf831944b86847b2384ab4d85e451bf12e7890b3a17492e8ed617266287244",
+  "generated_source_sha256": "f42ab37e1893ba2bf0ac1eb212381803c95132b68d7e2a18a085d46ab240291e",
+  "patches": [
+    {
+      "label": "runtime_instrumentation_globals",
+      "matches": 1,
+      "before_sha256": "091c207fe1e0a704e873c333b91379df04e8e333380f2880ad3cac038a5fdd4e",
+      "after_sha256": "7390e5758c4003b3b7e1a399c8e24210ed52f584035845d9c5b245948b0d0fcd",
+      "before": "const int BOARD_SIZE = 11;",
+      "after": "\n// Benchmark-only runtime adapter. Original selection, expansion, rollout,\n// reward and zero-AMAF code below are preserved byte-for-byte (canonical LF).\n#include <cstdint>\n#include <iomanip>\nstruct BenchmarkRuntime {\n    std::uint64_t seed = 378, iterations = 0, completed = 0, nodes = 0, rave_updates = 0;\n    unsigned int workers = 1;\n    int request_turn = 1;\n    double seconds = 0, game_seconds = 300, allocated = -1, external_remaining = -1;\n    bool iteration_mode = false, original_iteration_cap_reached = false;\n    std::chrono::steady_clock::time_point deadline;\n    std::vector<std::uint64_t> worker_iterations, worker_nodes, worker_amaf;\n} benchmark;\n\nconst int BOARD_SIZE = 11;"
+    },
+    {
+      "label": "seed_injection_not_selection_math",
+      "matches": 1,
+      "before_sha256": "8b6e5ecd0a368c6b7d89e14171e7aa70f217e13cb775a29e43003a1bca19e51b",
+      "after_sha256": "cd27512baed189858d9dd0d75c4f7e6ea66eaa536cc6e9da9f23933183ef1e56",
+      "before": "thread_local std::mt19937 rng(std::random_device{}());",
+      "after": "thread_local std::mt19937 rng(378); // Seeded separately per controlled worker below."
+    },
+    {
+      "label": "externally_controlled_move_allowance",
+      "matches": 1,
+      "before_sha256": "f88ea6e6f681667c59b8119f58e863b10988c0e2766c54e40ced3cecfc0e1b7c",
+      "after_sha256": "4fb2d2c6791df7e69c901307579c8bc7a51577c6696594023398fe0227902435",
+      "before": "    double get_time_budget(int turn) {\n",
+      "after": "    double get_time_budget(int turn) {\n        if (benchmark.allocated >= 0) return benchmark.allocated;\n"
+    },
+    {
+      "label": "worker_telemetry_fields",
+      "matches": 1,
+      "before_sha256": "79b32fa3ba2e1bdd1170ee6a5a03e72ff9885cd1c37d709fa300fe626b611e05",
+      "after_sha256": "98770e306c6a9ebb100555f729e5b81045988779e42312334a598cac429921a3",
+      "before": "        int iterations;\n        std::map<Point, std::pair<double, double>> child_stats;",
+      "after": "        int iterations;\n        std::uint64_t nodes = 0, rave_updates = 0;\n        bool original_cap = false;\n        std::map<Point, std::pair<double, double>> child_stats;"
+    },
+    {
+      "label": "worker_id_and_seed",
+      "matches": 1,
+      "before_sha256": "11c287b180338aefd8f3caf3967f5438e0c995013850d333814a2edf854c2fa8",
+      "after_sha256": "bc0c979bdce57c55b33eb2fd66b6bafaabfbbb057eaa217d3fdff865a9e147af",
+      "before": "double time_limit) {\n        auto start_time = std::chrono::high_resolution_clock::now();",
+      "after": "double time_limit, unsigned int worker_id) {\n        std::uint64_t position = 1469598103934665603ULL;\n        for (int m = 0; m < NUM_TILES; ++m) position = (position ^ (board.tile_colours[m] + 1)) * 1099511628211ULL;\n        std::seed_seq seeds{static_cast<unsigned int>(benchmark.seed), static_cast<unsigned int>(benchmark.seed >> 32),\n            static_cast<unsigned int>(position), static_cast<unsigned int>(position >> 32),\n            static_cast<unsigned int>(benchmark.request_turn), worker_id, static_cast<unsigned int>(turn)};\n        rng.seed(seeds);\n        (void)time_limit;\n        std::uint64_t rave_updates = 0;\n"
+    },
+    {
+      "label": "shared_deadline_and_total_iteration_runtime",
+      "matches": 1,
+      "before_sha256": "940a3cf9ade67c7f10195cb7ca48fb73068e3eaab1409314ecf4889cedfca870",
+      "after_sha256": "0d8ba127d5e4419c9b158dbd3bdb5e799a13a4b9ea83cd641015188153c6d467",
+      "before": "            if (iterations > 1500000) break;\n\n            if (iterations % 1000 == 0) {\n                auto now = std::chrono::high_resolution_clock::now();\n                std::chrono::duration<double> elapsed = now - start_time;\n                if (elapsed.count() > time_limit - 0.1) break;\n            }",
+      "after": "            if (iterations > 1500000) break; // Original algorithm safety limit retained.\n            if (benchmark.iteration_mode && static_cast<std::uint64_t>(iterations) >=\n                benchmark.iterations / benchmark.workers + (worker_id < benchmark.iterations % benchmark.workers ? 1 : 0)) break;\n            if (std::chrono::steady_clock::now() >= benchmark.deadline) break;"
+    },
+    {
+      "label": "observe_original_zero_amaf",
+      "matches": 1,
+      "before_sha256": "7d25dd05ae1a5cd33225828f1a90fd001d0ba190615375354c6f23273e8c303b",
+      "after_sha256": "f91f19c748945902556647c8f0c94701a3277c73250c3ab43112347b50c40e9d",
+      "before": "                        node->rave_visits++;",
+      "after": "                        node->rave_visits++;\n                        ++rave_updates;"
+    },
+    {
+      "label": "worker_telemetry_no_tree_change",
+      "matches": 1,
+      "before_sha256": "2aa6e705f72795de7a42d64d8fd943d8372948cc6c2ebaecbf6a2db6295a571c",
+      "after_sha256": "7601168804b31123ff24006ce499b28794840d3c098955aaf3e4b2b8e2be3439",
+      "before": "        result.iterations = iterations;",
+      "after": "        result.iterations = iterations;\n        result.nodes = node_pool.size();\n        result.rave_updates = rave_updates;\n        result.original_cap = iterations > 1500000;"
+    },
+    {
+      "label": "controlled_worker_count",
+      "matches": 1,
+      "before_sha256": "ee8997bb098092afeaae482f232166857174cd6eaffbab01c08d679b76ba0ba4",
+      "after_sha256": "266acd2e284ef83034bfde32d134083fe4283b66c0e35c08bdd82b24809b5231",
+      "before": "        const unsigned int num_threads = 8;",
+      "after": "        const unsigned int num_threads = benchmark.workers;"
+    },
+    {
+      "label": "pass_controlled_worker_id",
+      "matches": 1,
+      "before_sha256": "f9f4a7cda90fa8e8cc021201fd014a38da7c94d2debeb94498b26f7675c7a966",
+      "after_sha256": "fc6cc71a5271e6cd81a70b912780941a2a48fd0dd1e0ccab30d7ca059af47c31",
+      "before": "this, root_board, my_colour, opp_move, time_budget));",
+      "after": "this, root_board, my_colour, opp_move, time_budget, i));"
+    },
+    {
+      "label": "aggregate_runtime_telemetry",
+      "matches": 1,
+      "before_sha256": "13991865925cb3da2f5a7a2677f7890a6c59f9d257ac8f0471a3aa6ee171cd29",
+      "after_sha256": "c9f988e8382bbf4aa718f57cf99d7b95e33ca9a31628fd43460863450157a584",
+      "before": "        for (auto& f : futures) {\n            ThreadResult res = f.get();",
+      "after": "        unsigned int worker_id = 0;\n        for (auto& f : futures) {\n            ThreadResult res = f.get();\n            benchmark.completed += res.iterations; benchmark.nodes += res.nodes; benchmark.rave_updates += res.rave_updates;\n            benchmark.original_iteration_cap_reached = benchmark.original_iteration_cap_reached || res.original_cap;\n            benchmark.worker_iterations[worker_id] = res.iterations; benchmark.worker_nodes[worker_id] = res.nodes;\n            benchmark.worker_amaf[worker_id++] = res.rave_updates;"
+    },
+    {
+      "label": "protocol_and_runtime_main",
+      "matches": 1,
+      "before_sha256": "6bf576cb59ab5cedf5cc7149f6d35dda99608ee9299893b7529cd57f7aa4bfad",
+      "after_sha256": "11ed074a2091491b78f96bac4cba30e40ef9c4536a8360f4fc766a3f8434d2a5",
+      "before": "int main(int argc, char* argv[]) {\n    try {\n        if (argc != 3 || (std::string(argv[1]) != \"R\" && std::string(argv[1]) != \"B\")\n            || protocol_integer(argv[2]) != BOARD_SIZE)\n            throw std::invalid_argument(\"Usage: RAVE_TS R|B 11 (native boards are fixed at 11x11).\");\n        init_centrality();\n        Agent agent(std::string(argv[1]) == \"R\" ? RED : BLUE);\n        std::string line;\n        while (std::getline(std::cin, line)) {\n            if (line.empty()) continue;\n            NativeRequest request = parse_request(line);\n            apply_request(agent, request);\n            Point move = agent.get_best_move(request.turn, request.opponent);\n            std::cout << move.x << \",\" << move.y << std::endl;\n        }\n        return 0;\n    } catch (const std::exception& error) {\n        std::cerr << \"Native Hex input error: \" << error.what() << std::endl;\n        return 2;\n    }\n}\n\n\n",
+      "after": "\ndouble benchmark_number(const std::string& value) {\n    std::size_t end = 0;\n    double number = std::stod(value, &end);\n    if (end != value.size() || !std::isfinite(number) || number < 0)\n        throw std::invalid_argument(\"Expected a finite nonnegative number.\");\n    return number;\n}\nstd::uint64_t benchmark_integer(const std::string& value) {\n    if (value.empty() || value.find_first_not_of(\"0123456789\") != std::string::npos)\n        throw std::invalid_argument(\"Expected an unsigned decimal integer.\");\n    return std::stoull(value);\n}\nint main(int argc, char* argv[]) {\n    try {\n        int first = 1;\n        if (argc >= 3 && (std::string(argv[1]) == \"R\" || std::string(argv[1]) == \"B\")) {\n            if (protocol_integer(argv[2]) != BOARD_SIZE) throw std::invalid_argument(\"Only 11x11 is supported.\");\n            first = 3;\n        }\n        for (int i = first; i < argc; ++i) {\n            std::string key = argv[i];\n            if (key == \"--version\") { std::cout << \"hex-legacy-controlled-benchmark 1.0.0\\n\"; return 0; }\n            if (i + 1 >= argc) throw std::invalid_argument(\"Missing option value.\");\n            std::string value = argv[++i];\n            if (key == \"--seed\") benchmark.seed = benchmark_integer(value);\n            else if (key == \"--workers\") {\n                auto count = benchmark_integer(value);\n                if (count < 1 || count > 64) throw std::invalid_argument(\"Workers must be 1 through 64.\");\n                benchmark.workers = static_cast<unsigned int>(count);\n            } else if (key == \"--iterations\") {\n                benchmark.iterations = benchmark_integer(value);\n                if (benchmark.iterations < 1 || benchmark.iterations > 1000000000ULL)\n                    throw std::invalid_argument(\"Iteration total must be 1 through 1000000000.\");\n                benchmark.iteration_mode = true;\n            } else if (key == \"--seconds\") benchmark.seconds = benchmark_number(value);\n            else if (key == \"--game-seconds\") benchmark.game_seconds = benchmark_number(value);\n            else throw std::invalid_argument(\"Unknown benchmark option: \" + key);\n        }\n        init_centrality();\n        Agent agent(RED);\n        double cumulative_used = 0;\n        int previous_turn = 0;\n        std::string line;\n        while (std::getline(std::cin, line)) {\n            if (line.empty()) continue;\n            const auto started = std::chrono::steady_clock::now();\n            if (line.back() == '\\r') line.pop_back();\n            std::vector<std::string> parts;\n            std::stringstream input(line);\n            std::string field;\n            while (std::getline(input, field, ';')) parts.push_back(field);\n            bool v3 = parts.size() == 9 && parts[0] == \"V3\";\n            if (!v3 && !(parts.size() == 7 && parts[0] == \"V2\"))\n                throw std::invalid_argument(\"Expected seven V2 or nine V3 fields.\");\n            std::string original_line = \"V2\";\n            for (int i = 1; i < 7; ++i) original_line += \";\" + parts[i];\n            NativeRequest request = parse_request(original_line);\n            if (parts[3] == \"START\" || request.turn <= previous_turn) cumulative_used = 0;\n            benchmark.request_turn = request.turn;\n            benchmark.completed = benchmark.nodes = benchmark.rave_updates = 0;\n            benchmark.original_iteration_cap_reached = false;\n            benchmark.worker_iterations.assign(benchmark.workers, 0);\n            benchmark.worker_nodes.assign(benchmark.workers, 0);\n            benchmark.worker_amaf.assign(benchmark.workers, 0);\n            benchmark.external_remaining = v3 ? benchmark_number(parts[8]) : -1;\n            double remaining = std::max(0.0, benchmark.game_seconds - cumulative_used);\n            if (v3) remaining = std::min(benchmark.game_seconds, benchmark.external_remaining);\n            benchmark.allocated = v3 ? std::min(benchmark_number(parts[7]), remaining) :\n                (benchmark.iteration_mode ? remaining : std::min(agent.get_time_budget(request.turn), remaining));\n            if (benchmark.seconds > 0) benchmark.allocated = std::min(benchmark.allocated, benchmark.seconds);\n            // End the search before the outer response deadline. No selection math changes.\n            const double margin = std::min(.010, benchmark.allocated * .05);\n            benchmark.deadline = started + std::chrono::duration_cast<std::chrono::steady_clock::duration>(\n                std::chrono::duration<double>(std::max(0.0, benchmark.allocated - margin)));\n            apply_request(agent, request);\n            if (agent.root_board.check_win(RED) || agent.root_board.check_win(BLUE))\n                throw std::invalid_argument(\"Terminal board: no move is legal.\");\n            Point move = agent.get_best_move(request.turn, request.opponent);\n            double seconds = std::chrono::duration<double>(std::chrono::steady_clock::now() - started).count();\n            cumulative_used += seconds;\n            previous_turn = request.turn;\n            std::cout << move.x << ',' << move.y << std::endl;\n            std::cerr << std::setprecision(10) << \"{\\\"kind\\\":\\\"hex_search_move\\\",\\\"version\\\":\\\"controlled-legacy-1.0.0\\\",\"\n                \"\\\"policy\\\":\\\"controlled_historical_rave_ts\\\",\\\"protocol\\\":\\\"\" << (v3 ? \"V3\" : \"V2\")\n                << \"\\\",\\\"seed\\\":\" << benchmark.seed << \",\\\"turn\\\":\" << request.turn\n                << \",\\\"colour\\\":\\\"\" << (request.colour == RED ? 'R' : 'B') << \"\\\",\\\"move\\\":[\" << move.x << ',' << move.y\n                << \"],\\\"reason\\\":\\\"\" << (move.x < 0 ? \"pie_rule_swap\" : (benchmark.completed ? \"search\" : \"tactic_or_budget_fallback\"))\n                << \"\\\",\\\"iterations\\\":\" << benchmark.completed << \",\\\"nodes\\\":\" << benchmark.nodes\n                << \",\\\"rave_updates\\\":\" << benchmark.rave_updates << \",\\\"seconds\\\":\" << seconds\n                << \",\\\"game_seconds_used\\\":\" << cumulative_used << \",\\\"effective_search_allowance_seconds\\\":\" << benchmark.allocated\n                << \",\\\"external_remaining_seconds\\\":\" << benchmark.external_remaining\n                << \",\\\"original_iteration_cap_reached\\\":\" << (benchmark.original_iteration_cap_reached ? \"true\" : \"false\")\n                << \",\\\"workers\\\":[\";\n            for (unsigned int w = 0; w < benchmark.workers; ++w) {\n                if (w) std::cerr << ',';\n                std::cerr << \"{\\\"id\\\":\" << w << \",\\\"iterations\\\":\" << benchmark.worker_iterations[w]\n                    << \",\\\"nodes\\\":\" << benchmark.worker_nodes[w] << \",\\\"rave_updates\\\":\" << benchmark.worker_amaf[w] << '}';\n            }\n            std::cerr << \"]}\" << std::endl;\n            // Prevent the historical scheduler's synthetic swap charge from affecting fairness.\n            agent.total_time_used = cumulative_used;\n            benchmark.allocated = -1;\n        }\n        return 0;\n    } catch (const std::exception& error) {\n        // Error strings here are fixed source text or option names, never document contents.\n        std::cerr << \"Controlled legacy Hex error: \" << error.what() << std::endl;\n        return 2;\n    }\n}\n"
+    }
+  ],
+  "unchanged_algorithm_regions": [
+    {
+      "region": "board_and_expansion",
+      "canonical_sha256": "e075ae14a930b5d1e6c57cb565b917460c8d6323f5f4e099eb491bf685c8179e",
+      "unchanged": true
+    },
+    {
+      "region": "selection_rollout_bridge_tactics",
+      "canonical_sha256": "049aa9aee2937de5fa10e6c5e5a1116c97a14f06af2e47d92d6f63664472aeb1",
+      "unchanged": true
+    },
+    {
+      "region": "tree_selection_and_expansion",
+      "canonical_sha256": "c9d072ca11c9a373bc2e9c23931c7353a6a65bbe02759110f3262bad39518986",
+      "unchanged": true
+    }
+  ],
+  "scope": "Protocol, seeded streams, workers, deadline polling, external budgets and telemetry only. Not a source-exact historical executable. The historical 1500001-iteration per-worker cap remains. No board, selection, expansion, rollout, reward, swap or tactical algorithm is repaired."
+}

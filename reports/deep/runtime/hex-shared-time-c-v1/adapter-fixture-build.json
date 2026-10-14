@@ -1,0 +1,57 @@
+{
+  "fixture": "rebuilt_from_preserved_source_for_disposable_adapter_tests",
+  "historical_build_info": {
+    "protocol": "V2",
+    "compiler": "Zig 0.15.2 (zig c++)",
+    "target": "x86_64-linux-musl",
+    "executable_format": "ELF64 x86_64",
+    "linkage": "static",
+    "stripped": true,
+    "supported_board_size": 11,
+    "source": "RAVE_TS.cpp",
+    "source_sha256": "3bcf831944b86847b2384ab4d85e451bf12e7890b3a17492e8ed617266287244",
+    "source_hash_normalization": "UTF-8; CRLF and CR normalized to LF",
+    "artifact": "RAVE_TS",
+    "artifact_sha256": "9d5c8df9f7edef95b9ebda255064dc0e09cccb238fbc4db12b0d4f007630b092",
+    "artifact_bytes": 695632,
+    "build_working_directory": "deployment",
+    "build_command": "zig c++ -target x86_64-linux-musl -std=c++17 -O3 -pthread -static -s agents/Group026/RAVE_TS.cpp -o agents/Group026/RAVE_TS"
+  },
+  "historical_source_checksum_matches": true,
+  "fixture_build_receipt": {
+    "schema_version": 1,
+    "kind": "legacy",
+    "source": "/kaggle/working/hex-source/deployment/agents/Group026/RAVE_TS.cpp",
+    "source_sha256": "3bcf831944b86847b2384ab4d85e451bf12e7890b3a17492e8ed617266287244",
+    "compiler": [
+      "/usr/bin/g++"
+    ],
+    "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+    "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+    "command": [
+      "/usr/bin/g++",
+      "-std=c++17",
+      "-O3",
+      "-pthread",
+      "/kaggle/working/hex-source/deployment/agents/Group026/RAVE_TS.cpp",
+      "-o",
+      "/kaggle/working/hex-source/.local/bin/legacy_hex"
+    ],
+    "executable": "/kaggle/working/hex-source/deployment/agents/Group026/RAVE_TS",
+    "executable_sha256": "2d7a69e1666b63c0261dd435197f4834c379744b25a147f7831f92e537ea9552",
+    "environment": {
+      "system": "Linux",
+      "release": "6.18.48+",
+      "machine": "x86_64",
+      "python": "3.13.15",
+      "cpu_model": "AMD EPYC 7B12",
+      "logical_cpus": 4,
+      "affinity_cpus": 4,
+      "cgroup_cpu_max": "400000 100000",
+      "cgroup_memory_max": "32212254720"
+    }
+  },
+  "fixture_executable_sha256": "2d7a69e1666b63c0261dd435197f4834c379744b25a147f7831f92e537ea9552",
+  "original_shipped_binary_embedded": false,
+  "scope": "This fixture rebuild is not the original shipped binary and does not validate that original binary."
+}

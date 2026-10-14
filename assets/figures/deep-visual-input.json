@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "repository_root": "../..",
+  "expected_inputs": {
+    "../../reports/deep/aggregates/shared-time.json": {
+      "sha256": "23f363f0c3c145dc8d4f38531b9bd40268d4cb40161805aaf17994a55fbeb29d",
+      "hash_mode": "raw_bytes"
+    },
+    "../../reports/deep/aggregates/tactical-ablation.json": {
+      "sha256": "41f9c0c81c17bf0fcd98efcaf6641ecfe24df39fbef32e15dfa03adf55c5166f",
+      "hash_mode": "raw_bytes"
+    },
+    "../../reports/deep/analysis/shared-time-metrics.json": {
+      "sha256": "f0c8ff5d60b6c091d9c18ba4d58fb39fb75df4cfd91e636349a90af1c6040deb",
+      "hash_mode": "raw_bytes"
+    },
+    "../../reports/deep/analysis/tactical-metrics.json": {
+      "sha256": "4dc7de80001bdbaad60d20c4691eefda887d0eb1ba0a0be6334aa8c54266ab95",
+      "hash_mode": "raw_bytes"
+    },
+    "../../reports/deep/benchmarks/windows.json": {
+      "sha256": "3801419c186d61e1ef29092aad7d222968a78da95e72cf6e66f1b305e6daefd3",
+      "hash_mode": "raw_bytes"
+    },
+    "../../reports/deep/benchmarks/kaggle.json": {
+      "sha256": "25c007d4c399eab536ec44f9503b01720afb3a8faf37310021c4337b039107b4",
+      "hash_mode": "raw_bytes"
+    },
+    "../../reports/deep/evaluation/shared-time/windows/evaluation-shard00/games/deep-shared-time-selected-vs-historical_algorithm-000-0.json": {
+      "sha256": "a7472d334c05688b4751075165acdc9fc87e3e0c5bc94d9998dfb8beb4897173",
+      "hash_mode": "raw_bytes"
+    }
+  },
+  "shared_time": {
+    "summary_path": "../../reports/deep/aggregates/shared-time.json",
+    "metrics_path": "../../reports/deep/analysis/shared-time-metrics.json",
+    "manifest_sha256": "4f56942c290da3afc22d6740e96be74d58029ab3a727ba5b432490b66c64efdf",
+    "focus": "selected",
+    "environment_id_map": {
+      "Windows": "windows",
+      "Linux": "kaggle"
+    }
+  },
+  "tactical": {
+    "summary_path": "../../reports/deep/aggregates/tactical-ablation.json",
+    "metrics_path": "../../reports/deep/analysis/tactical-metrics.json",
+    "manifest_sha256": "8fc9b4efecf579d5077e7958e163a51deec3090ed943aaefde2ed0953d62e23c",
+    "focus": "selected"
+  },
+  "worker_reports": [
+    {
+      "id": "windows",
+      "path": "../../reports/deep/benchmarks/windows.json"
+    },
+    {
+      "id": "kaggle",
+      "path": "../../reports/deep/benchmarks/kaggle.json"
+    }
+  ],
+  "thumbnail": {
+    "summary_path": "../../reports/deep/aggregates/shared-time.json",
+    "game_path": "../../reports/deep/evaluation/shared-time/windows/evaluation-shard00/games/deep-shared-time-selected-vs-historical_algorithm-000-0.json",
+    "manifest_sha256": "4f56942c290da3afc22d6740e96be74d58029ab3a727ba5b432490b66c64efdf",
+    "focus": "selected"
+  }
+}

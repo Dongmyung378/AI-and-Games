@@ -1,0 +1,82 @@
+{
+  "manifest_sha256": "4f56942c290da3afc22d6740e96be74d58029ab3a727ba5b432490b66c64efdf",
+  "shard_indexes": [
+    0,
+    1
+  ],
+  "shard_count": 10,
+  "concurrent_sequential_drivers": 2,
+  "maximum_active_native_search_workers": 4,
+  "commands": [
+    {
+      "shard_index": 0,
+      "command": [
+        "C:\\Users\\leona\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "hexai",
+        "evaluate",
+        "--config",
+        "D:\\Projects\\AI-and-Games\\configs\\deep\\shared-time.json",
+        "--output",
+        "D:\\Projects\\outputs\\hex-deep-strengthening-20261014\\local-shared-time\\evaluation-shard00",
+        "--executable",
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--shard-index",
+        "0",
+        "--shard-count",
+        "10",
+        "--max-wall-seconds",
+        "33000",
+        "--checkpoint-margin-seconds",
+        "120"
+      ],
+      "output": "D:\\Projects\\outputs\\hex-deep-strengthening-20261014\\local-shared-time\\evaluation-shard00"
+    },
+    {
+      "shard_index": 1,
+      "command": [
+        "C:\\Users\\leona\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "hexai",
+        "evaluate",
+        "--config",
+        "D:\\Projects\\AI-and-Games\\configs\\deep\\shared-time.json",
+        "--output",
+        "D:\\Projects\\outputs\\hex-deep-strengthening-20261014\\local-shared-time\\evaluation-shard01",
+        "--executable",
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--shard-index",
+        "1",
+        "--shard-count",
+        "10",
+        "--max-wall-seconds",
+        "33000",
+        "--checkpoint-margin-seconds",
+        "120"
+      ],
+      "output": "D:\\Projects\\outputs\\hex-deep-strengthening-20261014\\local-shared-time\\evaluation-shard01"
+    }
+  ],
+  "max_wall_seconds_per_driver": 33000,
+  "checkpoint_margin_seconds": 120,
+  "results": [
+    {
+      "shard_index": 0,
+      "returncode": 0,
+      "wall_seconds": 18987.0497743,
+      "recorded_games": 40,
+      "completed_games": 40,
+      "checkpoint_stop": null
+    },
+    {
+      "shard_index": 1,
+      "returncode": 0,
+      "wall_seconds": 18516.0178256,
+      "recorded_games": 40,
+      "completed_games": 40,
+      "checkpoint_stop": null
+    }
+  ],
+  "errors": [],
+  "status": "drivers_finished"
+}

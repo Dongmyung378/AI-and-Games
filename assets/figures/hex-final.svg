@@ -2,65 +2,65 @@
 <title id="title">새 시드의 최종 정책 평가</title>
 <desc id="desc">개발 자료로 고정한 RAVE-TS를 세 정책과 통계 미갱신 진단용 제어에 비교합니다. 완결된 선후공 교대 쌍의 점수와 95% 부트스트랩 구간 및 완료 경기의 승패를 표시합니다. 실패는 승리로 계산하지 않습니다. 내부 상대와 명시한 CPU 예산 범위의 결과입니다.</desc>
 <style>text{font-family:'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;font-variant-numeric:tabular-nums}</style>
-<rect x="0" y="0" width="1200" height="1150" fill="#F1F7F3" rx="0" stroke-width="1"/>
-<text x="48" y="64" fill="#173B35" font-size="36" font-weight="750" text-anchor="start">새 시드의 최종 정책 평가</text>
-<text x="48" y="106" fill="#64696B" font-size="22" font-weight="400" text-anchor="start">개발 자료로 선택한 RAVE-TS · 수당 전체 16,000회 · 워커 2개 · 11×11 보드</text>
-<rect x="48" y="143" width="1104" height="75" fill="#E1EFE7" rx="20" stroke="#D6E1DC" stroke-width="1"/>
-<text x="73" y="188" fill="#173B35" font-size="28" font-weight="750" text-anchor="start">완료 256 / 계획 256경기 · 완결 128쌍 · 실패 0건</text>
-<text x="1145" y="188" fill="#26766B" font-size="22" font-weight="700" text-anchor="end">집계 완료</text>
-<text x="48" y="268" fill="#173B35" font-size="24" font-weight="700" text-anchor="start">선택 정책의 내부 상대</text>
-<text x="1138" y="268" fill="#64696B" font-size="22" font-weight="400" text-anchor="end">승 / 패 · 95% 구간</text>
-<line x1="332.0" y1="300" x2="332.0" y2="696" stroke="#D6E1DC" stroke-width="1"/>
-<text x="332.0" y="735" fill="#64696B" font-size="21" font-weight="400" text-anchor="middle">0</text>
-<line x1="482.0" y1="300" x2="482.0" y2="696" stroke="#D6E1DC" stroke-width="1"/>
-<text x="482.0" y="735" fill="#64696B" font-size="21" font-weight="400" text-anchor="middle">25</text>
-<line x1="632.0" y1="300" x2="632.0" y2="696" stroke="#26766B" stroke-width="2" stroke-dasharray="6 6"/>
-<text x="632.0" y="735" fill="#64696B" font-size="21" font-weight="400" text-anchor="middle">50</text>
-<line x1="782.0" y1="300" x2="782.0" y2="696" stroke="#D6E1DC" stroke-width="1"/>
-<text x="782.0" y="735" fill="#64696B" font-size="21" font-weight="400" text-anchor="middle">75</text>
-<line x1="932.0" y1="300" x2="932.0" y2="696" stroke="#D6E1DC" stroke-width="1"/>
-<text x="932.0" y="735" fill="#64696B" font-size="21" font-weight="400" text-anchor="middle">100</text>
-<text x="48" y="345" fill="#173B35" font-size="26" font-weight="700" text-anchor="start">UCB</text>
-<line x1="810.125" y1="333" x2="913.25" y2="333" stroke="#26766B" stroke-width="5"/>
-<line x1="810.125" y1="323" x2="810.125" y2="343" stroke="#26766B" stroke-width="3"/>
-<line x1="913.25" y1="323" x2="913.25" y2="343" stroke="#26766B" stroke-width="3"/>
-<circle cx="866.375" cy="333" r="8" fill="#26766B" stroke="#FFFFFF" stroke-width="2"/>
-<text x="48" y="380" fill="#64696B" font-size="21" font-weight="400" text-anchor="start">완결 32쌍 · 실패 0건</text>
-<text x="1138" y="345" fill="#26766B" font-size="30" font-weight="750" text-anchor="end">57 / 7</text>
-<text x="1138" y="380" fill="#64696B" font-size="21" font-weight="400" text-anchor="end">79.7–96.9%</text>
-<text x="48" y="445" fill="#173B35" font-size="26" font-weight="700" text-anchor="start">톰슨 샘플링</text>
-<line x1="782.0" y1="433" x2="875.75" y2="433" stroke="#26766B" stroke-width="5"/>
-<line x1="782.0" y1="423" x2="782.0" y2="443" stroke="#26766B" stroke-width="3"/>
-<line x1="875.75" y1="423" x2="875.75" y2="443" stroke="#26766B" stroke-width="3"/>
-<circle cx="828.875" cy="433" r="8" fill="#26766B" stroke="#FFFFFF" stroke-width="2"/>
-<text x="48" y="480" fill="#64696B" font-size="21" font-weight="400" text-anchor="start">완결 32쌍 · 실패 0건</text>
-<text x="1138" y="445" fill="#26766B" font-size="30" font-weight="750" text-anchor="end">53 / 11</text>
-<text x="1138" y="480" fill="#64696B" font-size="21" font-weight="400" text-anchor="end">75.0–90.6%</text>
-<text x="48" y="545" fill="#173B35" font-size="26" font-weight="700" text-anchor="start">RAVE-UCB</text>
-<line x1="791.375" y1="533" x2="885.125" y2="533" stroke="#26766B" stroke-width="5"/>
-<line x1="791.375" y1="523" x2="791.375" y2="543" stroke="#26766B" stroke-width="3"/>
-<line x1="885.125" y1="523" x2="885.125" y2="543" stroke="#26766B" stroke-width="3"/>
-<circle cx="838.25" cy="533" r="8" fill="#26766B" stroke="#FFFFFF" stroke-width="2"/>
-<text x="48" y="580" fill="#64696B" font-size="21" font-weight="400" text-anchor="start">완결 32쌍 · 실패 0건</text>
-<text x="1138" y="545" fill="#26766B" font-size="30" font-weight="750" text-anchor="end">54 / 10</text>
-<text x="1138" y="580" fill="#64696B" font-size="21" font-weight="400" text-anchor="end">76.6–92.2%</text>
-<text x="48" y="645" fill="#173B35" font-size="26" font-weight="700" text-anchor="start">통계 미갱신 제어</text>
-<line x1="800.75" y1="633" x2="894.5" y2="633" stroke="#3A6689" stroke-width="5"/>
-<line x1="800.75" y1="623" x2="800.75" y2="643" stroke="#3A6689" stroke-width="3"/>
-<line x1="894.5" y1="623" x2="894.5" y2="643" stroke="#3A6689" stroke-width="3"/>
-<circle cx="847.625" cy="633" r="8" fill="#3A6689" stroke="#FFFFFF" stroke-width="2"/>
-<text x="48" y="680" fill="#64696B" font-size="21" font-weight="400" text-anchor="start">완결 32쌍 · 실패 0건</text>
-<text x="1138" y="645" fill="#3A6689" font-size="30" font-weight="750" text-anchor="end">55 / 9</text>
-<text x="1138" y="680" fill="#64696B" font-size="21" font-weight="400" text-anchor="end">78.1–93.8%</text>
-<text x="1144" y="735" fill="#64696B" font-size="21" font-weight="400" text-anchor="end">점수 (%)</text>
-<rect x="48" y="772" width="1104" height="192" fill="#FFFFFF" rx="20" stroke="#D6E1DC" stroke-width="1"/>
-<text x="72" y="815" fill="#173B35" font-size="29" font-weight="750" text-anchor="start">실행 조건과 장비</text>
-<text x="72" y="855" fill="#64696B" font-size="23" font-weight="400" text-anchor="start">노드 상한 100,000 · 경기 300초 · 응답 제한 60초</text>
-<text x="72" y="898" fill="#64696B" font-size="23" font-weight="400" text-anchor="start">로컬 Windows · 16 논리 CPU · 완료 128 / 기록 128경기</text>
-<text x="72" y="932" fill="#64696B" font-size="23" font-weight="400" text-anchor="start">Kaggle Linux · 4 vCPU 할당 · 완료 128 / 기록 128경기</text>
-<text x="48" y="1033" fill="#64696B" font-size="20" font-weight="400" text-anchor="start">점수와 구간은 완결된 교대 쌍, 승패는 완료 경기 기준입니다. 실패를 승리로 계산하지 않습니다.</text>
-<text x="48" y="1062" fill="#64696B" font-size="20" font-weight="400" text-anchor="start">모든 쌍에서 승리해 100–100% 구간이 나와도 앞으로의 100% 승리를 보장하지 않습니다.</text>
-<text x="48" y="1091" fill="#64696B" font-size="20" font-weight="400" text-anchor="start">통계 미갱신 제어는 같은 수정 엔진의 진단 조건입니다. 실제 과거 실행 파일과 별도 시간 기준 비교를 구분합니다.</text>
-<text x="48" y="1120" fill="#64696B" font-size="20" font-weight="400" text-anchor="start">외부 Davis·HexHex의 승률이나 전체 Hex 에이전트 순위를 뜻하지 않습니다. 새로운 시드는 새 시작 좌표를 보장하지 않습니다.</text>
+<rect x="0" y="0" width="1200" height="1150" fill="#F7F3EA" rx="0" stroke-width="1"/>
+<text x="48" y="64" fill="#17304A" font-size="36" font-weight="750" text-anchor="start">새 시드의 최종 정책 평가</text>
+<text x="48" y="106" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">개발 자료로 선택한 RAVE-TS, 수당 전체 16,000회, 워커 2개, 11×11 보드</text>
+<rect x="48" y="143" width="1104" height="75" fill="#EDE6D9" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="73" y="188" fill="#17304A" font-size="28" font-weight="750" text-anchor="start">완료 256 / 계획 256경기, 완결 128쌍, 실패 0건</text>
+<text x="1145" y="188" fill="#A74445" font-size="22" font-weight="700" text-anchor="end">집계 완료</text>
+<text x="48" y="268" fill="#17304A" font-size="24" font-weight="700" text-anchor="start">선택 정책의 내부 상대</text>
+<text x="1138" y="268" fill="#66717A" font-size="22" font-weight="400" text-anchor="end">승 / 패, 95% 구간</text>
+<line x1="332.0" y1="300" x2="332.0" y2="696" stroke="#D9D3C9" stroke-width="1"/>
+<text x="332.0" y="735" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">0</text>
+<line x1="482.0" y1="300" x2="482.0" y2="696" stroke="#D9D3C9" stroke-width="1"/>
+<text x="482.0" y="735" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">25</text>
+<line x1="632.0" y1="300" x2="632.0" y2="696" stroke="#A74445" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="632.0" y="735" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">50</text>
+<line x1="782.0" y1="300" x2="782.0" y2="696" stroke="#D9D3C9" stroke-width="1"/>
+<text x="782.0" y="735" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">75</text>
+<line x1="932.0" y1="300" x2="932.0" y2="696" stroke="#D9D3C9" stroke-width="1"/>
+<text x="932.0" y="735" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">100</text>
+<text x="48" y="345" fill="#17304A" font-size="26" font-weight="700" text-anchor="start">UCB</text>
+<line x1="810.125" y1="333" x2="913.25" y2="333" stroke="#A74445" stroke-width="5"/>
+<line x1="810.125" y1="323" x2="810.125" y2="343" stroke="#A74445" stroke-width="3"/>
+<line x1="913.25" y1="323" x2="913.25" y2="343" stroke="#A74445" stroke-width="3"/>
+<circle cx="866.375" cy="333" r="8" fill="#A74445" stroke="#FFFCF6" stroke-width="2"/>
+<text x="48" y="380" fill="#66717A" font-size="21" font-weight="400" text-anchor="start">완결 32쌍, 실패 0건</text>
+<text x="1138" y="345" fill="#A74445" font-size="30" font-weight="750" text-anchor="end">57 / 7</text>
+<text x="1138" y="380" fill="#66717A" font-size="21" font-weight="400" text-anchor="end">79.7–96.9%</text>
+<text x="48" y="445" fill="#17304A" font-size="26" font-weight="700" text-anchor="start">톰슨 샘플링</text>
+<line x1="782.0" y1="433" x2="875.75" y2="433" stroke="#A74445" stroke-width="5"/>
+<line x1="782.0" y1="423" x2="782.0" y2="443" stroke="#A74445" stroke-width="3"/>
+<line x1="875.75" y1="423" x2="875.75" y2="443" stroke="#A74445" stroke-width="3"/>
+<circle cx="828.875" cy="433" r="8" fill="#A74445" stroke="#FFFCF6" stroke-width="2"/>
+<text x="48" y="480" fill="#66717A" font-size="21" font-weight="400" text-anchor="start">완결 32쌍, 실패 0건</text>
+<text x="1138" y="445" fill="#A74445" font-size="30" font-weight="750" text-anchor="end">53 / 11</text>
+<text x="1138" y="480" fill="#66717A" font-size="21" font-weight="400" text-anchor="end">75.0–90.6%</text>
+<text x="48" y="545" fill="#17304A" font-size="26" font-weight="700" text-anchor="start">RAVE-UCB</text>
+<line x1="791.375" y1="533" x2="885.125" y2="533" stroke="#A74445" stroke-width="5"/>
+<line x1="791.375" y1="523" x2="791.375" y2="543" stroke="#A74445" stroke-width="3"/>
+<line x1="885.125" y1="523" x2="885.125" y2="543" stroke="#A74445" stroke-width="3"/>
+<circle cx="838.25" cy="533" r="8" fill="#A74445" stroke="#FFFCF6" stroke-width="2"/>
+<text x="48" y="580" fill="#66717A" font-size="21" font-weight="400" text-anchor="start">완결 32쌍, 실패 0건</text>
+<text x="1138" y="545" fill="#A74445" font-size="30" font-weight="750" text-anchor="end">54 / 10</text>
+<text x="1138" y="580" fill="#66717A" font-size="21" font-weight="400" text-anchor="end">76.6–92.2%</text>
+<text x="48" y="645" fill="#17304A" font-size="26" font-weight="700" text-anchor="start">통계 미갱신 제어</text>
+<line x1="800.75" y1="633" x2="894.5" y2="633" stroke="#45768D" stroke-width="5"/>
+<line x1="800.75" y1="623" x2="800.75" y2="643" stroke="#45768D" stroke-width="3"/>
+<line x1="894.5" y1="623" x2="894.5" y2="643" stroke="#45768D" stroke-width="3"/>
+<circle cx="847.625" cy="633" r="8" fill="#45768D" stroke="#FFFCF6" stroke-width="2"/>
+<text x="48" y="680" fill="#66717A" font-size="21" font-weight="400" text-anchor="start">완결 32쌍, 실패 0건</text>
+<text x="1138" y="645" fill="#45768D" font-size="30" font-weight="750" text-anchor="end">55 / 9</text>
+<text x="1138" y="680" fill="#66717A" font-size="21" font-weight="400" text-anchor="end">78.1–93.8%</text>
+<text x="1144" y="735" fill="#66717A" font-size="21" font-weight="400" text-anchor="end">점수 (%)</text>
+<rect x="48" y="772" width="1104" height="192" fill="#FFFCF6" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="72" y="815" fill="#17304A" font-size="29" font-weight="750" text-anchor="start">실행 조건과 장비</text>
+<text x="72" y="855" fill="#66717A" font-size="23" font-weight="400" text-anchor="start">노드 상한 100,000, 경기 300초, 응답 제한 60초</text>
+<text x="72" y="898" fill="#66717A" font-size="23" font-weight="400" text-anchor="start">로컬 Windows, 16 논리 CPU, 완료 128 / 기록 128경기</text>
+<text x="72" y="932" fill="#66717A" font-size="23" font-weight="400" text-anchor="start">Kaggle Linux, 4 vCPU 할당, 완료 128 / 기록 128경기</text>
+<text x="48" y="1033" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">점수와 구간은 완결된 교대 쌍, 승패는 완료 경기 기준입니다. 실패를 승리로 계산하지 않습니다.</text>
+<text x="48" y="1062" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">모든 쌍에서 승리해 100–100% 구간이 나와도 앞으로의 100% 승리를 보장하지 않습니다.</text>
+<text x="48" y="1091" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">통계 미갱신 제어는 같은 수정 엔진의 진단 조건입니다. 실제 과거 실행 파일과 별도 시간 기준 비교를 구분합니다.</text>
+<text x="48" y="1120" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">외부 Davis와 HexHex의 승률이나 전체 Hex 에이전트 순위를 뜻하지 않습니다. 새로운 시드는 새 시작 좌표를 보장하지 않습니다.</text>
 <metadata>{"project_id": "project-06", "visual_data_sha256": "b9e32752dc8376315d04f52e8cf1ffc5c73c3c85af08700f4b32f6d6a73ddfa8", "generated_from_verified_measurements": true}</metadata>
 </svg>

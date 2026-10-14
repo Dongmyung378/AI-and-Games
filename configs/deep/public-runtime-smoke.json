@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "suite_id": "hex-public-v3-runtime-smoke",
+  "split": "development",
+  "description": "Public packager integration check for shared V3 game-time budgets. Four games at five seconds per participant, not a strength benchmark or 300-second evaluation.",
+  "board_size": 11,
+  "budget": {
+    "mode": "game_time",
+    "game_seconds": 5,
+    "workers": 1,
+    "node_cap": 30000,
+    "memory_mb": 64,
+    "response_timeout": 30,
+    "expected_actor_moves": 24,
+    "minimum_future_actor_moves": 8,
+    "io_reserve_seconds": 0.02,
+    "response_margin_seconds": 1
+  },
+  "participants": {
+    "maintained": {
+      "kind": "native",
+      "policy": "rave_ts"
+    },
+    "controlled_legacy": {
+      "kind": "benchmark_legacy",
+      "legacy_executable": ".local/bin/legacy_benchmark"
+    }
+  },
+  "games": [
+    {
+      "game_id": "public-v3-0-a",
+      "pair_id": "public-v3-0",
+      "red": "maintained",
+      "blue": "controlled_legacy",
+      "seed": 503,
+      "opening_seed": 112,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "public-v3-0-b",
+      "pair_id": "public-v3-0",
+      "red": "controlled_legacy",
+      "blue": "maintained",
+      "seed": 503,
+      "opening_seed": 112,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "public-v3-1-a",
+      "pair_id": "public-v3-1",
+      "red": "maintained",
+      "blue": "controlled_legacy",
+      "seed": 504,
+      "opening_seed": 113,
+      "opening_moves": [
+        [
+          5,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "public-v3-1-b",
+      "pair_id": "public-v3-1",
+      "red": "controlled_legacy",
+      "blue": "maintained",
+      "seed": 504,
+      "opening_seed": 113,
+      "opening_moves": [
+        [
+          5,
+          5
+        ]
+      ]
+    }
+  ]
+}

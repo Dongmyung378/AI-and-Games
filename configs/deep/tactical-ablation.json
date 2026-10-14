@@ -1,0 +1,5697 @@
+{
+  "schema_version": 1,
+  "suite_id": "deep-tactical-ablation",
+  "split": "final",
+  "board_size": 11,
+  "budget": {
+    "mode": "iterations",
+    "iterations": 16000,
+    "workers": 2,
+    "node_cap": 60000,
+    "memory_mb": 128,
+    "game_seconds": 300,
+    "response_timeout": 60
+  },
+  "participants": {
+    "selected": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "workers": 2,
+      "bridge": true,
+      "ordering": true,
+      "swap": true,
+      "tactics": true,
+      "win_check": true,
+      "block_check": true,
+      "rave_k": 1000,
+      "node_cap": 60000,
+      "memory_mb": 128
+    },
+    "no_swap": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "workers": 2,
+      "bridge": true,
+      "ordering": true,
+      "swap": false,
+      "tactics": true,
+      "win_check": true,
+      "block_check": true,
+      "rave_k": 1000,
+      "node_cap": 60000,
+      "memory_mb": 128
+    },
+    "no_win_check": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "workers": 2,
+      "bridge": true,
+      "ordering": true,
+      "swap": true,
+      "tactics": true,
+      "win_check": false,
+      "block_check": true,
+      "rave_k": 1000,
+      "node_cap": 60000,
+      "memory_mb": 128
+    },
+    "no_block_check": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "workers": 2,
+      "bridge": true,
+      "ordering": true,
+      "swap": true,
+      "tactics": true,
+      "win_check": true,
+      "block_check": false,
+      "rave_k": 1000,
+      "node_cap": 60000,
+      "memory_mb": 128
+    },
+    "no_tactics": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "workers": 2,
+      "bridge": true,
+      "ordering": true,
+      "swap": true,
+      "tactics": false,
+      "win_check": true,
+      "block_check": true,
+      "rave_k": 1000,
+      "node_cap": 60000,
+      "memory_mb": 128
+    }
+  },
+  "games": [
+    {
+      "game_id": "no_swap-000-0",
+      "pair_id": "no_swap-000",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010000,
+      "opening_seed": 4010000,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-000-1",
+      "pair_id": "no_swap-000",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010000,
+      "opening_seed": 4010000,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-001-0",
+      "pair_id": "no_swap-001",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010001,
+      "opening_seed": 4010001,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-001-1",
+      "pair_id": "no_swap-001",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010001,
+      "opening_seed": 4010001,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-002-0",
+      "pair_id": "no_swap-002",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010002,
+      "opening_seed": 4010002,
+      "opening_moves": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-002-1",
+      "pair_id": "no_swap-002",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010002,
+      "opening_seed": 4010002,
+      "opening_moves": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-003-0",
+      "pair_id": "no_swap-003",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010003,
+      "opening_seed": 4010003,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-003-1",
+      "pair_id": "no_swap-003",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010003,
+      "opening_seed": 4010003,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-004-0",
+      "pair_id": "no_swap-004",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010004,
+      "opening_seed": 4010004,
+      "opening_moves": [
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-004-1",
+      "pair_id": "no_swap-004",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010004,
+      "opening_seed": 4010004,
+      "opening_moves": [
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-005-0",
+      "pair_id": "no_swap-005",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010005,
+      "opening_seed": 4010005,
+      "opening_moves": [
+        [
+          10,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-005-1",
+      "pair_id": "no_swap-005",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010005,
+      "opening_seed": 4010005,
+      "opening_moves": [
+        [
+          10,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-006-0",
+      "pair_id": "no_swap-006",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010006,
+      "opening_seed": 4010006,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-006-1",
+      "pair_id": "no_swap-006",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010006,
+      "opening_seed": 4010006,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-007-0",
+      "pair_id": "no_swap-007",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010007,
+      "opening_seed": 4010007,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-007-1",
+      "pair_id": "no_swap-007",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010007,
+      "opening_seed": 4010007,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-008-0",
+      "pair_id": "no_swap-008",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010008,
+      "opening_seed": 4010008,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-008-1",
+      "pair_id": "no_swap-008",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010008,
+      "opening_seed": 4010008,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-009-0",
+      "pair_id": "no_swap-009",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010009,
+      "opening_seed": 4010009,
+      "opening_moves": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-009-1",
+      "pair_id": "no_swap-009",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010009,
+      "opening_seed": 4010009,
+      "opening_moves": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-010-0",
+      "pair_id": "no_swap-010",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010010,
+      "opening_seed": 4010010,
+      "opening_moves": [
+        [
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-010-1",
+      "pair_id": "no_swap-010",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010010,
+      "opening_seed": 4010010,
+      "opening_moves": [
+        [
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-011-0",
+      "pair_id": "no_swap-011",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010011,
+      "opening_seed": 4010011,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-011-1",
+      "pair_id": "no_swap-011",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010011,
+      "opening_seed": 4010011,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-012-0",
+      "pair_id": "no_swap-012",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010012,
+      "opening_seed": 4010012,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-012-1",
+      "pair_id": "no_swap-012",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010012,
+      "opening_seed": 4010012,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-013-0",
+      "pair_id": "no_swap-013",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010013,
+      "opening_seed": 4010013,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-013-1",
+      "pair_id": "no_swap-013",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010013,
+      "opening_seed": 4010013,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-014-0",
+      "pair_id": "no_swap-014",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010014,
+      "opening_seed": 4010014,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-014-1",
+      "pair_id": "no_swap-014",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010014,
+      "opening_seed": 4010014,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-015-0",
+      "pair_id": "no_swap-015",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010015,
+      "opening_seed": 4010015,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-015-1",
+      "pair_id": "no_swap-015",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010015,
+      "opening_seed": 4010015,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-016-0",
+      "pair_id": "no_swap-016",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010016,
+      "opening_seed": 4010016,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-016-1",
+      "pair_id": "no_swap-016",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010016,
+      "opening_seed": 4010016,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-017-0",
+      "pair_id": "no_swap-017",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010017,
+      "opening_seed": 4010017,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-017-1",
+      "pair_id": "no_swap-017",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010017,
+      "opening_seed": 4010017,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-018-0",
+      "pair_id": "no_swap-018",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010018,
+      "opening_seed": 4010018,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-018-1",
+      "pair_id": "no_swap-018",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010018,
+      "opening_seed": 4010018,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-019-0",
+      "pair_id": "no_swap-019",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010019,
+      "opening_seed": 4010019,
+      "opening_moves": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-019-1",
+      "pair_id": "no_swap-019",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010019,
+      "opening_seed": 4010019,
+      "opening_moves": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-020-0",
+      "pair_id": "no_swap-020",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010020,
+      "opening_seed": 4010020,
+      "opening_moves": [
+        [
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-020-1",
+      "pair_id": "no_swap-020",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010020,
+      "opening_seed": 4010020,
+      "opening_moves": [
+        [
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-021-0",
+      "pair_id": "no_swap-021",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010021,
+      "opening_seed": 4010021,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-021-1",
+      "pair_id": "no_swap-021",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010021,
+      "opening_seed": 4010021,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-022-0",
+      "pair_id": "no_swap-022",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010022,
+      "opening_seed": 4010022,
+      "opening_moves": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-022-1",
+      "pair_id": "no_swap-022",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010022,
+      "opening_seed": 4010022,
+      "opening_moves": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-023-0",
+      "pair_id": "no_swap-023",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010023,
+      "opening_seed": 4010023,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-023-1",
+      "pair_id": "no_swap-023",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010023,
+      "opening_seed": 4010023,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-024-0",
+      "pair_id": "no_swap-024",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010024,
+      "opening_seed": 4010024,
+      "opening_moves": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-024-1",
+      "pair_id": "no_swap-024",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010024,
+      "opening_seed": 4010024,
+      "opening_moves": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-025-0",
+      "pair_id": "no_swap-025",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010025,
+      "opening_seed": 4010025,
+      "opening_moves": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-025-1",
+      "pair_id": "no_swap-025",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010025,
+      "opening_seed": 4010025,
+      "opening_moves": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-026-0",
+      "pair_id": "no_swap-026",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010026,
+      "opening_seed": 4010026,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-026-1",
+      "pair_id": "no_swap-026",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010026,
+      "opening_seed": 4010026,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-027-0",
+      "pair_id": "no_swap-027",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010027,
+      "opening_seed": 4010027,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-027-1",
+      "pair_id": "no_swap-027",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010027,
+      "opening_seed": 4010027,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-028-0",
+      "pair_id": "no_swap-028",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010028,
+      "opening_seed": 4010028,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-028-1",
+      "pair_id": "no_swap-028",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010028,
+      "opening_seed": 4010028,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-029-0",
+      "pair_id": "no_swap-029",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010029,
+      "opening_seed": 4010029,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-029-1",
+      "pair_id": "no_swap-029",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010029,
+      "opening_seed": 4010029,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-030-0",
+      "pair_id": "no_swap-030",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010030,
+      "opening_seed": 4010030,
+      "opening_moves": [
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-030-1",
+      "pair_id": "no_swap-030",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010030,
+      "opening_seed": 4010030,
+      "opening_moves": [
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-031-0",
+      "pair_id": "no_swap-031",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010031,
+      "opening_seed": 4010031,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-031-1",
+      "pair_id": "no_swap-031",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010031,
+      "opening_seed": 4010031,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-032-0",
+      "pair_id": "no_swap-032",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010032,
+      "opening_seed": 4010032,
+      "opening_moves": [
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-032-1",
+      "pair_id": "no_swap-032",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010032,
+      "opening_seed": 4010032,
+      "opening_moves": [
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-033-0",
+      "pair_id": "no_swap-033",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010033,
+      "opening_seed": 4010033,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-033-1",
+      "pair_id": "no_swap-033",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010033,
+      "opening_seed": 4010033,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-034-0",
+      "pair_id": "no_swap-034",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010034,
+      "opening_seed": 4010034,
+      "opening_moves": [
+        [
+          9,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-034-1",
+      "pair_id": "no_swap-034",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010034,
+      "opening_seed": 4010034,
+      "opening_moves": [
+        [
+          9,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-035-0",
+      "pair_id": "no_swap-035",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010035,
+      "opening_seed": 4010035,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-035-1",
+      "pair_id": "no_swap-035",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010035,
+      "opening_seed": 4010035,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-036-0",
+      "pair_id": "no_swap-036",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010036,
+      "opening_seed": 4010036,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-036-1",
+      "pair_id": "no_swap-036",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010036,
+      "opening_seed": 4010036,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-037-0",
+      "pair_id": "no_swap-037",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010037,
+      "opening_seed": 4010037,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-037-1",
+      "pair_id": "no_swap-037",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010037,
+      "opening_seed": 4010037,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-038-0",
+      "pair_id": "no_swap-038",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010038,
+      "opening_seed": 4010038,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-038-1",
+      "pair_id": "no_swap-038",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010038,
+      "opening_seed": 4010038,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-039-0",
+      "pair_id": "no_swap-039",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010039,
+      "opening_seed": 4010039,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-039-1",
+      "pair_id": "no_swap-039",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010039,
+      "opening_seed": 4010039,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-040-0",
+      "pair_id": "no_swap-040",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010040,
+      "opening_seed": 4010040,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-040-1",
+      "pair_id": "no_swap-040",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010040,
+      "opening_seed": 4010040,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-041-0",
+      "pair_id": "no_swap-041",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010041,
+      "opening_seed": 4010041,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-041-1",
+      "pair_id": "no_swap-041",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010041,
+      "opening_seed": 4010041,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-042-0",
+      "pair_id": "no_swap-042",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010042,
+      "opening_seed": 4010042,
+      "opening_moves": [
+        [
+          2,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-042-1",
+      "pair_id": "no_swap-042",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010042,
+      "opening_seed": 4010042,
+      "opening_moves": [
+        [
+          2,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-043-0",
+      "pair_id": "no_swap-043",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010043,
+      "opening_seed": 4010043,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-043-1",
+      "pair_id": "no_swap-043",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010043,
+      "opening_seed": 4010043,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-044-0",
+      "pair_id": "no_swap-044",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010044,
+      "opening_seed": 4010044,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-044-1",
+      "pair_id": "no_swap-044",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010044,
+      "opening_seed": 4010044,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-045-0",
+      "pair_id": "no_swap-045",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010045,
+      "opening_seed": 4010045,
+      "opening_moves": [
+        [
+          9,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-045-1",
+      "pair_id": "no_swap-045",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010045,
+      "opening_seed": 4010045,
+      "opening_moves": [
+        [
+          9,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-046-0",
+      "pair_id": "no_swap-046",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010046,
+      "opening_seed": 4010046,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-046-1",
+      "pair_id": "no_swap-046",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010046,
+      "opening_seed": 4010046,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-047-0",
+      "pair_id": "no_swap-047",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010047,
+      "opening_seed": 4010047,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-047-1",
+      "pair_id": "no_swap-047",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010047,
+      "opening_seed": 4010047,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-048-0",
+      "pair_id": "no_swap-048",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010048,
+      "opening_seed": 4010048,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-048-1",
+      "pair_id": "no_swap-048",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010048,
+      "opening_seed": 4010048,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-049-0",
+      "pair_id": "no_swap-049",
+      "red": "selected",
+      "blue": "no_swap",
+      "seed": 3010049,
+      "opening_seed": 4010049,
+      "opening_moves": [
+        [
+          9,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_swap-049-1",
+      "pair_id": "no_swap-049",
+      "red": "no_swap",
+      "blue": "selected",
+      "seed": 3010049,
+      "opening_seed": 4010049,
+      "opening_moves": [
+        [
+          9,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-000-0",
+      "pair_id": "no_win_check-000",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011000,
+      "opening_seed": 4011000,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-000-1",
+      "pair_id": "no_win_check-000",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011000,
+      "opening_seed": 4011000,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-001-0",
+      "pair_id": "no_win_check-001",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011001,
+      "opening_seed": 4011001,
+      "opening_moves": [
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-001-1",
+      "pair_id": "no_win_check-001",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011001,
+      "opening_seed": 4011001,
+      "opening_moves": [
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-002-0",
+      "pair_id": "no_win_check-002",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011002,
+      "opening_seed": 4011002,
+      "opening_moves": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-002-1",
+      "pair_id": "no_win_check-002",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011002,
+      "opening_seed": 4011002,
+      "opening_moves": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-003-0",
+      "pair_id": "no_win_check-003",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011003,
+      "opening_seed": 4011003,
+      "opening_moves": [
+        [
+          4,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-003-1",
+      "pair_id": "no_win_check-003",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011003,
+      "opening_seed": 4011003,
+      "opening_moves": [
+        [
+          4,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-004-0",
+      "pair_id": "no_win_check-004",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011004,
+      "opening_seed": 4011004,
+      "opening_moves": [
+        [
+          10,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-004-1",
+      "pair_id": "no_win_check-004",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011004,
+      "opening_seed": 4011004,
+      "opening_moves": [
+        [
+          10,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-005-0",
+      "pair_id": "no_win_check-005",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011005,
+      "opening_seed": 4011005,
+      "opening_moves": [
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-005-1",
+      "pair_id": "no_win_check-005",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011005,
+      "opening_seed": 4011005,
+      "opening_moves": [
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-006-0",
+      "pair_id": "no_win_check-006",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011006,
+      "opening_seed": 4011006,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-006-1",
+      "pair_id": "no_win_check-006",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011006,
+      "opening_seed": 4011006,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-007-0",
+      "pair_id": "no_win_check-007",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011007,
+      "opening_seed": 4011007,
+      "opening_moves": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-007-1",
+      "pair_id": "no_win_check-007",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011007,
+      "opening_seed": 4011007,
+      "opening_moves": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-008-0",
+      "pair_id": "no_win_check-008",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011008,
+      "opening_seed": 4011008,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-008-1",
+      "pair_id": "no_win_check-008",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011008,
+      "opening_seed": 4011008,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-009-0",
+      "pair_id": "no_win_check-009",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011009,
+      "opening_seed": 4011009,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-009-1",
+      "pair_id": "no_win_check-009",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011009,
+      "opening_seed": 4011009,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-010-0",
+      "pair_id": "no_win_check-010",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011010,
+      "opening_seed": 4011010,
+      "opening_moves": [
+        [
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-010-1",
+      "pair_id": "no_win_check-010",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011010,
+      "opening_seed": 4011010,
+      "opening_moves": [
+        [
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-011-0",
+      "pair_id": "no_win_check-011",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011011,
+      "opening_seed": 4011011,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-011-1",
+      "pair_id": "no_win_check-011",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011011,
+      "opening_seed": 4011011,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-012-0",
+      "pair_id": "no_win_check-012",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011012,
+      "opening_seed": 4011012,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-012-1",
+      "pair_id": "no_win_check-012",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011012,
+      "opening_seed": 4011012,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-013-0",
+      "pair_id": "no_win_check-013",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011013,
+      "opening_seed": 4011013,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-013-1",
+      "pair_id": "no_win_check-013",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011013,
+      "opening_seed": 4011013,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-014-0",
+      "pair_id": "no_win_check-014",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011014,
+      "opening_seed": 4011014,
+      "opening_moves": [
+        [
+          8,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-014-1",
+      "pair_id": "no_win_check-014",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011014,
+      "opening_seed": 4011014,
+      "opening_moves": [
+        [
+          8,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-015-0",
+      "pair_id": "no_win_check-015",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011015,
+      "opening_seed": 4011015,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-015-1",
+      "pair_id": "no_win_check-015",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011015,
+      "opening_seed": 4011015,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-016-0",
+      "pair_id": "no_win_check-016",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011016,
+      "opening_seed": 4011016,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-016-1",
+      "pair_id": "no_win_check-016",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011016,
+      "opening_seed": 4011016,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-017-0",
+      "pair_id": "no_win_check-017",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011017,
+      "opening_seed": 4011017,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-017-1",
+      "pair_id": "no_win_check-017",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011017,
+      "opening_seed": 4011017,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-018-0",
+      "pair_id": "no_win_check-018",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011018,
+      "opening_seed": 4011018,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-018-1",
+      "pair_id": "no_win_check-018",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011018,
+      "opening_seed": 4011018,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-019-0",
+      "pair_id": "no_win_check-019",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011019,
+      "opening_seed": 4011019,
+      "opening_moves": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-019-1",
+      "pair_id": "no_win_check-019",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011019,
+      "opening_seed": 4011019,
+      "opening_moves": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-020-0",
+      "pair_id": "no_win_check-020",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011020,
+      "opening_seed": 4011020,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-020-1",
+      "pair_id": "no_win_check-020",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011020,
+      "opening_seed": 4011020,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-021-0",
+      "pair_id": "no_win_check-021",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011021,
+      "opening_seed": 4011021,
+      "opening_moves": [
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-021-1",
+      "pair_id": "no_win_check-021",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011021,
+      "opening_seed": 4011021,
+      "opening_moves": [
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-022-0",
+      "pair_id": "no_win_check-022",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011022,
+      "opening_seed": 4011022,
+      "opening_moves": [
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-022-1",
+      "pair_id": "no_win_check-022",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011022,
+      "opening_seed": 4011022,
+      "opening_moves": [
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-023-0",
+      "pair_id": "no_win_check-023",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011023,
+      "opening_seed": 4011023,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-023-1",
+      "pair_id": "no_win_check-023",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011023,
+      "opening_seed": 4011023,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-024-0",
+      "pair_id": "no_win_check-024",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011024,
+      "opening_seed": 4011024,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-024-1",
+      "pair_id": "no_win_check-024",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011024,
+      "opening_seed": 4011024,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-025-0",
+      "pair_id": "no_win_check-025",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011025,
+      "opening_seed": 4011025,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-025-1",
+      "pair_id": "no_win_check-025",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011025,
+      "opening_seed": 4011025,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-026-0",
+      "pair_id": "no_win_check-026",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011026,
+      "opening_seed": 4011026,
+      "opening_moves": [
+        [
+          2,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-026-1",
+      "pair_id": "no_win_check-026",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011026,
+      "opening_seed": 4011026,
+      "opening_moves": [
+        [
+          2,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-027-0",
+      "pair_id": "no_win_check-027",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011027,
+      "opening_seed": 4011027,
+      "opening_moves": [
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-027-1",
+      "pair_id": "no_win_check-027",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011027,
+      "opening_seed": 4011027,
+      "opening_moves": [
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-028-0",
+      "pair_id": "no_win_check-028",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011028,
+      "opening_seed": 4011028,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-028-1",
+      "pair_id": "no_win_check-028",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011028,
+      "opening_seed": 4011028,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-029-0",
+      "pair_id": "no_win_check-029",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011029,
+      "opening_seed": 4011029,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-029-1",
+      "pair_id": "no_win_check-029",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011029,
+      "opening_seed": 4011029,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-030-0",
+      "pair_id": "no_win_check-030",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011030,
+      "opening_seed": 4011030,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-030-1",
+      "pair_id": "no_win_check-030",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011030,
+      "opening_seed": 4011030,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-031-0",
+      "pair_id": "no_win_check-031",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011031,
+      "opening_seed": 4011031,
+      "opening_moves": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-031-1",
+      "pair_id": "no_win_check-031",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011031,
+      "opening_seed": 4011031,
+      "opening_moves": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-032-0",
+      "pair_id": "no_win_check-032",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011032,
+      "opening_seed": 4011032,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-032-1",
+      "pair_id": "no_win_check-032",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011032,
+      "opening_seed": 4011032,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-033-0",
+      "pair_id": "no_win_check-033",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011033,
+      "opening_seed": 4011033,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-033-1",
+      "pair_id": "no_win_check-033",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011033,
+      "opening_seed": 4011033,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-034-0",
+      "pair_id": "no_win_check-034",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011034,
+      "opening_seed": 4011034,
+      "opening_moves": [
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-034-1",
+      "pair_id": "no_win_check-034",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011034,
+      "opening_seed": 4011034,
+      "opening_moves": [
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-035-0",
+      "pair_id": "no_win_check-035",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011035,
+      "opening_seed": 4011035,
+      "opening_moves": [
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-035-1",
+      "pair_id": "no_win_check-035",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011035,
+      "opening_seed": 4011035,
+      "opening_moves": [
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-036-0",
+      "pair_id": "no_win_check-036",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011036,
+      "opening_seed": 4011036,
+      "opening_moves": [
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-036-1",
+      "pair_id": "no_win_check-036",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011036,
+      "opening_seed": 4011036,
+      "opening_moves": [
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-037-0",
+      "pair_id": "no_win_check-037",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011037,
+      "opening_seed": 4011037,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-037-1",
+      "pair_id": "no_win_check-037",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011037,
+      "opening_seed": 4011037,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-038-0",
+      "pair_id": "no_win_check-038",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011038,
+      "opening_seed": 4011038,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-038-1",
+      "pair_id": "no_win_check-038",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011038,
+      "opening_seed": 4011038,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-039-0",
+      "pair_id": "no_win_check-039",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011039,
+      "opening_seed": 4011039,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-039-1",
+      "pair_id": "no_win_check-039",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011039,
+      "opening_seed": 4011039,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-040-0",
+      "pair_id": "no_win_check-040",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011040,
+      "opening_seed": 4011040,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-040-1",
+      "pair_id": "no_win_check-040",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011040,
+      "opening_seed": 4011040,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-041-0",
+      "pair_id": "no_win_check-041",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011041,
+      "opening_seed": 4011041,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-041-1",
+      "pair_id": "no_win_check-041",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011041,
+      "opening_seed": 4011041,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-042-0",
+      "pair_id": "no_win_check-042",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011042,
+      "opening_seed": 4011042,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-042-1",
+      "pair_id": "no_win_check-042",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011042,
+      "opening_seed": 4011042,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-043-0",
+      "pair_id": "no_win_check-043",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011043,
+      "opening_seed": 4011043,
+      "opening_moves": [
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-043-1",
+      "pair_id": "no_win_check-043",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011043,
+      "opening_seed": 4011043,
+      "opening_moves": [
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-044-0",
+      "pair_id": "no_win_check-044",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011044,
+      "opening_seed": 4011044,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-044-1",
+      "pair_id": "no_win_check-044",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011044,
+      "opening_seed": 4011044,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-045-0",
+      "pair_id": "no_win_check-045",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011045,
+      "opening_seed": 4011045,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-045-1",
+      "pair_id": "no_win_check-045",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011045,
+      "opening_seed": 4011045,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-046-0",
+      "pair_id": "no_win_check-046",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011046,
+      "opening_seed": 4011046,
+      "opening_moves": [
+        [
+          4,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-046-1",
+      "pair_id": "no_win_check-046",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011046,
+      "opening_seed": 4011046,
+      "opening_moves": [
+        [
+          4,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-047-0",
+      "pair_id": "no_win_check-047",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011047,
+      "opening_seed": 4011047,
+      "opening_moves": [
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-047-1",
+      "pair_id": "no_win_check-047",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011047,
+      "opening_seed": 4011047,
+      "opening_moves": [
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-048-0",
+      "pair_id": "no_win_check-048",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011048,
+      "opening_seed": 4011048,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-048-1",
+      "pair_id": "no_win_check-048",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011048,
+      "opening_seed": 4011048,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-049-0",
+      "pair_id": "no_win_check-049",
+      "red": "selected",
+      "blue": "no_win_check",
+      "seed": 3011049,
+      "opening_seed": 4011049,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_win_check-049-1",
+      "pair_id": "no_win_check-049",
+      "red": "no_win_check",
+      "blue": "selected",
+      "seed": 3011049,
+      "opening_seed": 4011049,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-000-0",
+      "pair_id": "no_block_check-000",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012000,
+      "opening_seed": 4012000,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-000-1",
+      "pair_id": "no_block_check-000",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012000,
+      "opening_seed": 4012000,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-001-0",
+      "pair_id": "no_block_check-001",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012001,
+      "opening_seed": 4012001,
+      "opening_moves": [
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-001-1",
+      "pair_id": "no_block_check-001",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012001,
+      "opening_seed": 4012001,
+      "opening_moves": [
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-002-0",
+      "pair_id": "no_block_check-002",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012002,
+      "opening_seed": 4012002,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-002-1",
+      "pair_id": "no_block_check-002",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012002,
+      "opening_seed": 4012002,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-003-0",
+      "pair_id": "no_block_check-003",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012003,
+      "opening_seed": 4012003,
+      "opening_moves": [
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-003-1",
+      "pair_id": "no_block_check-003",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012003,
+      "opening_seed": 4012003,
+      "opening_moves": [
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-004-0",
+      "pair_id": "no_block_check-004",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012004,
+      "opening_seed": 4012004,
+      "opening_moves": [
+        [
+          8,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-004-1",
+      "pair_id": "no_block_check-004",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012004,
+      "opening_seed": 4012004,
+      "opening_moves": [
+        [
+          8,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-005-0",
+      "pair_id": "no_block_check-005",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012005,
+      "opening_seed": 4012005,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-005-1",
+      "pair_id": "no_block_check-005",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012005,
+      "opening_seed": 4012005,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-006-0",
+      "pair_id": "no_block_check-006",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012006,
+      "opening_seed": 4012006,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-006-1",
+      "pair_id": "no_block_check-006",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012006,
+      "opening_seed": 4012006,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-007-0",
+      "pair_id": "no_block_check-007",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012007,
+      "opening_seed": 4012007,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-007-1",
+      "pair_id": "no_block_check-007",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012007,
+      "opening_seed": 4012007,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-008-0",
+      "pair_id": "no_block_check-008",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012008,
+      "opening_seed": 4012008,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-008-1",
+      "pair_id": "no_block_check-008",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012008,
+      "opening_seed": 4012008,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-009-0",
+      "pair_id": "no_block_check-009",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012009,
+      "opening_seed": 4012009,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-009-1",
+      "pair_id": "no_block_check-009",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012009,
+      "opening_seed": 4012009,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-010-0",
+      "pair_id": "no_block_check-010",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012010,
+      "opening_seed": 4012010,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-010-1",
+      "pair_id": "no_block_check-010",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012010,
+      "opening_seed": 4012010,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-011-0",
+      "pair_id": "no_block_check-011",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012011,
+      "opening_seed": 4012011,
+      "opening_moves": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-011-1",
+      "pair_id": "no_block_check-011",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012011,
+      "opening_seed": 4012011,
+      "opening_moves": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-012-0",
+      "pair_id": "no_block_check-012",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012012,
+      "opening_seed": 4012012,
+      "opening_moves": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-012-1",
+      "pair_id": "no_block_check-012",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012012,
+      "opening_seed": 4012012,
+      "opening_moves": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-013-0",
+      "pair_id": "no_block_check-013",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012013,
+      "opening_seed": 4012013,
+      "opening_moves": [
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-013-1",
+      "pair_id": "no_block_check-013",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012013,
+      "opening_seed": 4012013,
+      "opening_moves": [
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-014-0",
+      "pair_id": "no_block_check-014",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012014,
+      "opening_seed": 4012014,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-014-1",
+      "pair_id": "no_block_check-014",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012014,
+      "opening_seed": 4012014,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-015-0",
+      "pair_id": "no_block_check-015",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012015,
+      "opening_seed": 4012015,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-015-1",
+      "pair_id": "no_block_check-015",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012015,
+      "opening_seed": 4012015,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-016-0",
+      "pair_id": "no_block_check-016",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012016,
+      "opening_seed": 4012016,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-016-1",
+      "pair_id": "no_block_check-016",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012016,
+      "opening_seed": 4012016,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-017-0",
+      "pair_id": "no_block_check-017",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012017,
+      "opening_seed": 4012017,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-017-1",
+      "pair_id": "no_block_check-017",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012017,
+      "opening_seed": 4012017,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-018-0",
+      "pair_id": "no_block_check-018",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012018,
+      "opening_seed": 4012018,
+      "opening_moves": [
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-018-1",
+      "pair_id": "no_block_check-018",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012018,
+      "opening_seed": 4012018,
+      "opening_moves": [
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-019-0",
+      "pair_id": "no_block_check-019",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012019,
+      "opening_seed": 4012019,
+      "opening_moves": [
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-019-1",
+      "pair_id": "no_block_check-019",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012019,
+      "opening_seed": 4012019,
+      "opening_moves": [
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-020-0",
+      "pair_id": "no_block_check-020",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012020,
+      "opening_seed": 4012020,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-020-1",
+      "pair_id": "no_block_check-020",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012020,
+      "opening_seed": 4012020,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-021-0",
+      "pair_id": "no_block_check-021",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012021,
+      "opening_seed": 4012021,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-021-1",
+      "pair_id": "no_block_check-021",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012021,
+      "opening_seed": 4012021,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-022-0",
+      "pair_id": "no_block_check-022",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012022,
+      "opening_seed": 4012022,
+      "opening_moves": [
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-022-1",
+      "pair_id": "no_block_check-022",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012022,
+      "opening_seed": 4012022,
+      "opening_moves": [
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-023-0",
+      "pair_id": "no_block_check-023",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012023,
+      "opening_seed": 4012023,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-023-1",
+      "pair_id": "no_block_check-023",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012023,
+      "opening_seed": 4012023,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-024-0",
+      "pair_id": "no_block_check-024",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012024,
+      "opening_seed": 4012024,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-024-1",
+      "pair_id": "no_block_check-024",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012024,
+      "opening_seed": 4012024,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-025-0",
+      "pair_id": "no_block_check-025",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012025,
+      "opening_seed": 4012025,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-025-1",
+      "pair_id": "no_block_check-025",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012025,
+      "opening_seed": 4012025,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-026-0",
+      "pair_id": "no_block_check-026",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012026,
+      "opening_seed": 4012026,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-026-1",
+      "pair_id": "no_block_check-026",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012026,
+      "opening_seed": 4012026,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-027-0",
+      "pair_id": "no_block_check-027",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012027,
+      "opening_seed": 4012027,
+      "opening_moves": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-027-1",
+      "pair_id": "no_block_check-027",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012027,
+      "opening_seed": 4012027,
+      "opening_moves": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-028-0",
+      "pair_id": "no_block_check-028",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012028,
+      "opening_seed": 4012028,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-028-1",
+      "pair_id": "no_block_check-028",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012028,
+      "opening_seed": 4012028,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-029-0",
+      "pair_id": "no_block_check-029",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012029,
+      "opening_seed": 4012029,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-029-1",
+      "pair_id": "no_block_check-029",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012029,
+      "opening_seed": 4012029,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-030-0",
+      "pair_id": "no_block_check-030",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012030,
+      "opening_seed": 4012030,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-030-1",
+      "pair_id": "no_block_check-030",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012030,
+      "opening_seed": 4012030,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-031-0",
+      "pair_id": "no_block_check-031",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012031,
+      "opening_seed": 4012031,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-031-1",
+      "pair_id": "no_block_check-031",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012031,
+      "opening_seed": 4012031,
+      "opening_moves": [
+        [
+          9,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-032-0",
+      "pair_id": "no_block_check-032",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012032,
+      "opening_seed": 4012032,
+      "opening_moves": [
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-032-1",
+      "pair_id": "no_block_check-032",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012032,
+      "opening_seed": 4012032,
+      "opening_moves": [
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-033-0",
+      "pair_id": "no_block_check-033",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012033,
+      "opening_seed": 4012033,
+      "opening_moves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-033-1",
+      "pair_id": "no_block_check-033",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012033,
+      "opening_seed": 4012033,
+      "opening_moves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-034-0",
+      "pair_id": "no_block_check-034",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012034,
+      "opening_seed": 4012034,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-034-1",
+      "pair_id": "no_block_check-034",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012034,
+      "opening_seed": 4012034,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-035-0",
+      "pair_id": "no_block_check-035",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012035,
+      "opening_seed": 4012035,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-035-1",
+      "pair_id": "no_block_check-035",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012035,
+      "opening_seed": 4012035,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-036-0",
+      "pair_id": "no_block_check-036",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012036,
+      "opening_seed": 4012036,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-036-1",
+      "pair_id": "no_block_check-036",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012036,
+      "opening_seed": 4012036,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-037-0",
+      "pair_id": "no_block_check-037",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012037,
+      "opening_seed": 4012037,
+      "opening_moves": [
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-037-1",
+      "pair_id": "no_block_check-037",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012037,
+      "opening_seed": 4012037,
+      "opening_moves": [
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-038-0",
+      "pair_id": "no_block_check-038",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012038,
+      "opening_seed": 4012038,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-038-1",
+      "pair_id": "no_block_check-038",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012038,
+      "opening_seed": 4012038,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-039-0",
+      "pair_id": "no_block_check-039",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012039,
+      "opening_seed": 4012039,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-039-1",
+      "pair_id": "no_block_check-039",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012039,
+      "opening_seed": 4012039,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-040-0",
+      "pair_id": "no_block_check-040",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012040,
+      "opening_seed": 4012040,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-040-1",
+      "pair_id": "no_block_check-040",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012040,
+      "opening_seed": 4012040,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-041-0",
+      "pair_id": "no_block_check-041",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012041,
+      "opening_seed": 4012041,
+      "opening_moves": [
+        [
+          4,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-041-1",
+      "pair_id": "no_block_check-041",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012041,
+      "opening_seed": 4012041,
+      "opening_moves": [
+        [
+          4,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-042-0",
+      "pair_id": "no_block_check-042",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012042,
+      "opening_seed": 4012042,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-042-1",
+      "pair_id": "no_block_check-042",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012042,
+      "opening_seed": 4012042,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-043-0",
+      "pair_id": "no_block_check-043",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012043,
+      "opening_seed": 4012043,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-043-1",
+      "pair_id": "no_block_check-043",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012043,
+      "opening_seed": 4012043,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-044-0",
+      "pair_id": "no_block_check-044",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012044,
+      "opening_seed": 4012044,
+      "opening_moves": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-044-1",
+      "pair_id": "no_block_check-044",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012044,
+      "opening_seed": 4012044,
+      "opening_moves": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-045-0",
+      "pair_id": "no_block_check-045",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012045,
+      "opening_seed": 4012045,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-045-1",
+      "pair_id": "no_block_check-045",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012045,
+      "opening_seed": 4012045,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-046-0",
+      "pair_id": "no_block_check-046",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012046,
+      "opening_seed": 4012046,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-046-1",
+      "pair_id": "no_block_check-046",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012046,
+      "opening_seed": 4012046,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-047-0",
+      "pair_id": "no_block_check-047",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012047,
+      "opening_seed": 4012047,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-047-1",
+      "pair_id": "no_block_check-047",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012047,
+      "opening_seed": 4012047,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-048-0",
+      "pair_id": "no_block_check-048",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012048,
+      "opening_seed": 4012048,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-048-1",
+      "pair_id": "no_block_check-048",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012048,
+      "opening_seed": 4012048,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-049-0",
+      "pair_id": "no_block_check-049",
+      "red": "selected",
+      "blue": "no_block_check",
+      "seed": 3012049,
+      "opening_seed": 4012049,
+      "opening_moves": [
+        [
+          5,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_block_check-049-1",
+      "pair_id": "no_block_check-049",
+      "red": "no_block_check",
+      "blue": "selected",
+      "seed": 3012049,
+      "opening_seed": 4012049,
+      "opening_moves": [
+        [
+          5,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-000-0",
+      "pair_id": "no_tactics-000",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013000,
+      "opening_seed": 4013000,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-000-1",
+      "pair_id": "no_tactics-000",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013000,
+      "opening_seed": 4013000,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-001-0",
+      "pair_id": "no_tactics-001",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013001,
+      "opening_seed": 4013001,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-001-1",
+      "pair_id": "no_tactics-001",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013001,
+      "opening_seed": 4013001,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-002-0",
+      "pair_id": "no_tactics-002",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013002,
+      "opening_seed": 4013002,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-002-1",
+      "pair_id": "no_tactics-002",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013002,
+      "opening_seed": 4013002,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-003-0",
+      "pair_id": "no_tactics-003",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013003,
+      "opening_seed": 4013003,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-003-1",
+      "pair_id": "no_tactics-003",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013003,
+      "opening_seed": 4013003,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-004-0",
+      "pair_id": "no_tactics-004",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013004,
+      "opening_seed": 4013004,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-004-1",
+      "pair_id": "no_tactics-004",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013004,
+      "opening_seed": 4013004,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-005-0",
+      "pair_id": "no_tactics-005",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013005,
+      "opening_seed": 4013005,
+      "opening_moves": [
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-005-1",
+      "pair_id": "no_tactics-005",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013005,
+      "opening_seed": 4013005,
+      "opening_moves": [
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-006-0",
+      "pair_id": "no_tactics-006",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013006,
+      "opening_seed": 4013006,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-006-1",
+      "pair_id": "no_tactics-006",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013006,
+      "opening_seed": 4013006,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-007-0",
+      "pair_id": "no_tactics-007",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013007,
+      "opening_seed": 4013007,
+      "opening_moves": [
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-007-1",
+      "pair_id": "no_tactics-007",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013007,
+      "opening_seed": 4013007,
+      "opening_moves": [
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-008-0",
+      "pair_id": "no_tactics-008",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013008,
+      "opening_seed": 4013008,
+      "opening_moves": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-008-1",
+      "pair_id": "no_tactics-008",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013008,
+      "opening_seed": 4013008,
+      "opening_moves": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-009-0",
+      "pair_id": "no_tactics-009",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013009,
+      "opening_seed": 4013009,
+      "opening_moves": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-009-1",
+      "pair_id": "no_tactics-009",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013009,
+      "opening_seed": 4013009,
+      "opening_moves": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-010-0",
+      "pair_id": "no_tactics-010",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013010,
+      "opening_seed": 4013010,
+      "opening_moves": [
+        [
+          4,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-010-1",
+      "pair_id": "no_tactics-010",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013010,
+      "opening_seed": 4013010,
+      "opening_moves": [
+        [
+          4,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-011-0",
+      "pair_id": "no_tactics-011",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013011,
+      "opening_seed": 4013011,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-011-1",
+      "pair_id": "no_tactics-011",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013011,
+      "opening_seed": 4013011,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-012-0",
+      "pair_id": "no_tactics-012",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013012,
+      "opening_seed": 4013012,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-012-1",
+      "pair_id": "no_tactics-012",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013012,
+      "opening_seed": 4013012,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-013-0",
+      "pair_id": "no_tactics-013",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013013,
+      "opening_seed": 4013013,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-013-1",
+      "pair_id": "no_tactics-013",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013013,
+      "opening_seed": 4013013,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-014-0",
+      "pair_id": "no_tactics-014",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013014,
+      "opening_seed": 4013014,
+      "opening_moves": [
+        [
+          8,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-014-1",
+      "pair_id": "no_tactics-014",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013014,
+      "opening_seed": 4013014,
+      "opening_moves": [
+        [
+          8,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-015-0",
+      "pair_id": "no_tactics-015",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013015,
+      "opening_seed": 4013015,
+      "opening_moves": [
+        [
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-015-1",
+      "pair_id": "no_tactics-015",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013015,
+      "opening_seed": 4013015,
+      "opening_moves": [
+        [
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-016-0",
+      "pair_id": "no_tactics-016",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013016,
+      "opening_seed": 4013016,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-016-1",
+      "pair_id": "no_tactics-016",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013016,
+      "opening_seed": 4013016,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-017-0",
+      "pair_id": "no_tactics-017",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013017,
+      "opening_seed": 4013017,
+      "opening_moves": [
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-017-1",
+      "pair_id": "no_tactics-017",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013017,
+      "opening_seed": 4013017,
+      "opening_moves": [
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-018-0",
+      "pair_id": "no_tactics-018",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013018,
+      "opening_seed": 4013018,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-018-1",
+      "pair_id": "no_tactics-018",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013018,
+      "opening_seed": 4013018,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-019-0",
+      "pair_id": "no_tactics-019",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013019,
+      "opening_seed": 4013019,
+      "opening_moves": [
+        [
+          10,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-019-1",
+      "pair_id": "no_tactics-019",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013019,
+      "opening_seed": 4013019,
+      "opening_moves": [
+        [
+          10,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-020-0",
+      "pair_id": "no_tactics-020",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013020,
+      "opening_seed": 4013020,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-020-1",
+      "pair_id": "no_tactics-020",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013020,
+      "opening_seed": 4013020,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-021-0",
+      "pair_id": "no_tactics-021",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013021,
+      "opening_seed": 4013021,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-021-1",
+      "pair_id": "no_tactics-021",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013021,
+      "opening_seed": 4013021,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-022-0",
+      "pair_id": "no_tactics-022",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013022,
+      "opening_seed": 4013022,
+      "opening_moves": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-022-1",
+      "pair_id": "no_tactics-022",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013022,
+      "opening_seed": 4013022,
+      "opening_moves": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-023-0",
+      "pair_id": "no_tactics-023",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013023,
+      "opening_seed": 4013023,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-023-1",
+      "pair_id": "no_tactics-023",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013023,
+      "opening_seed": 4013023,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-024-0",
+      "pair_id": "no_tactics-024",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013024,
+      "opening_seed": 4013024,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-024-1",
+      "pair_id": "no_tactics-024",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013024,
+      "opening_seed": 4013024,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-025-0",
+      "pair_id": "no_tactics-025",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013025,
+      "opening_seed": 4013025,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-025-1",
+      "pair_id": "no_tactics-025",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013025,
+      "opening_seed": 4013025,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-026-0",
+      "pair_id": "no_tactics-026",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013026,
+      "opening_seed": 4013026,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-026-1",
+      "pair_id": "no_tactics-026",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013026,
+      "opening_seed": 4013026,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-027-0",
+      "pair_id": "no_tactics-027",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013027,
+      "opening_seed": 4013027,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-027-1",
+      "pair_id": "no_tactics-027",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013027,
+      "opening_seed": 4013027,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-028-0",
+      "pair_id": "no_tactics-028",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013028,
+      "opening_seed": 4013028,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-028-1",
+      "pair_id": "no_tactics-028",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013028,
+      "opening_seed": 4013028,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-029-0",
+      "pair_id": "no_tactics-029",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013029,
+      "opening_seed": 4013029,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-029-1",
+      "pair_id": "no_tactics-029",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013029,
+      "opening_seed": 4013029,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-030-0",
+      "pair_id": "no_tactics-030",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013030,
+      "opening_seed": 4013030,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-030-1",
+      "pair_id": "no_tactics-030",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013030,
+      "opening_seed": 4013030,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-031-0",
+      "pair_id": "no_tactics-031",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013031,
+      "opening_seed": 4013031,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-031-1",
+      "pair_id": "no_tactics-031",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013031,
+      "opening_seed": 4013031,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-032-0",
+      "pair_id": "no_tactics-032",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013032,
+      "opening_seed": 4013032,
+      "opening_moves": [
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-032-1",
+      "pair_id": "no_tactics-032",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013032,
+      "opening_seed": 4013032,
+      "opening_moves": [
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-033-0",
+      "pair_id": "no_tactics-033",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013033,
+      "opening_seed": 4013033,
+      "opening_moves": [
+        [
+          4,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-033-1",
+      "pair_id": "no_tactics-033",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013033,
+      "opening_seed": 4013033,
+      "opening_moves": [
+        [
+          4,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-034-0",
+      "pair_id": "no_tactics-034",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013034,
+      "opening_seed": 4013034,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-034-1",
+      "pair_id": "no_tactics-034",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013034,
+      "opening_seed": 4013034,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-035-0",
+      "pair_id": "no_tactics-035",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013035,
+      "opening_seed": 4013035,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-035-1",
+      "pair_id": "no_tactics-035",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013035,
+      "opening_seed": 4013035,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-036-0",
+      "pair_id": "no_tactics-036",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013036,
+      "opening_seed": 4013036,
+      "opening_moves": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-036-1",
+      "pair_id": "no_tactics-036",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013036,
+      "opening_seed": 4013036,
+      "opening_moves": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-037-0",
+      "pair_id": "no_tactics-037",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013037,
+      "opening_seed": 4013037,
+      "opening_moves": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-037-1",
+      "pair_id": "no_tactics-037",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013037,
+      "opening_seed": 4013037,
+      "opening_moves": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-038-0",
+      "pair_id": "no_tactics-038",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013038,
+      "opening_seed": 4013038,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-038-1",
+      "pair_id": "no_tactics-038",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013038,
+      "opening_seed": 4013038,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-039-0",
+      "pair_id": "no_tactics-039",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013039,
+      "opening_seed": 4013039,
+      "opening_moves": [
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-039-1",
+      "pair_id": "no_tactics-039",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013039,
+      "opening_seed": 4013039,
+      "opening_moves": [
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-040-0",
+      "pair_id": "no_tactics-040",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013040,
+      "opening_seed": 4013040,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-040-1",
+      "pair_id": "no_tactics-040",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013040,
+      "opening_seed": 4013040,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-041-0",
+      "pair_id": "no_tactics-041",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013041,
+      "opening_seed": 4013041,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-041-1",
+      "pair_id": "no_tactics-041",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013041,
+      "opening_seed": 4013041,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-042-0",
+      "pair_id": "no_tactics-042",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013042,
+      "opening_seed": 4013042,
+      "opening_moves": [
+        [
+          9,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-042-1",
+      "pair_id": "no_tactics-042",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013042,
+      "opening_seed": 4013042,
+      "opening_moves": [
+        [
+          9,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-043-0",
+      "pair_id": "no_tactics-043",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013043,
+      "opening_seed": 4013043,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-043-1",
+      "pair_id": "no_tactics-043",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013043,
+      "opening_seed": 4013043,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-044-0",
+      "pair_id": "no_tactics-044",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013044,
+      "opening_seed": 4013044,
+      "opening_moves": [
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-044-1",
+      "pair_id": "no_tactics-044",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013044,
+      "opening_seed": 4013044,
+      "opening_moves": [
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-045-0",
+      "pair_id": "no_tactics-045",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013045,
+      "opening_seed": 4013045,
+      "opening_moves": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-045-1",
+      "pair_id": "no_tactics-045",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013045,
+      "opening_seed": 4013045,
+      "opening_moves": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-046-0",
+      "pair_id": "no_tactics-046",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013046,
+      "opening_seed": 4013046,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-046-1",
+      "pair_id": "no_tactics-046",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013046,
+      "opening_seed": 4013046,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-047-0",
+      "pair_id": "no_tactics-047",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013047,
+      "opening_seed": 4013047,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-047-1",
+      "pair_id": "no_tactics-047",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013047,
+      "opening_seed": 4013047,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-048-0",
+      "pair_id": "no_tactics-048",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013048,
+      "opening_seed": 4013048,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-048-1",
+      "pair_id": "no_tactics-048",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013048,
+      "opening_seed": 4013048,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-049-0",
+      "pair_id": "no_tactics-049",
+      "red": "selected",
+      "blue": "no_tactics",
+      "seed": 3013049,
+      "opening_seed": 4013049,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "no_tactics-049-1",
+      "pair_id": "no_tactics-049",
+      "red": "no_tactics",
+      "blue": "selected",
+      "seed": 3013049,
+      "opening_seed": 4013049,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    }
+  ],
+  "selection_frozen": {
+    "policy": "rave_ts",
+    "bridge": true,
+    "ordering": true,
+    "rave_k": 1000,
+    "source": "Existing selected configuration; no retuning of old bridge, ordering or RAVE-k experiments."
+  },
+  "interpretation": "Missing-feature diagnostic ablations only. A forced red opening enables the blue participant pie-rule decision. Side order is reversed for identical opening and RNG seeds. Internal opponents do not measure Davis or public-platform strength."
+}

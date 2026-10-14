@@ -24,7 +24,7 @@ sequenceDiagram
     participant Workers as Root workers
     Manifest->>Runner: Participants, budgets, openings and seeds
     Runner->>Referee: Start game and apply forced opening
-    Referee->>Native: V2 board, current colour and turn
+    Referee->>Native: V2/V3 board, colour, turn and optional external budget
     Native->>Workers: Independent roots and divided total budget
     Workers-->>Native: Visits, wins and AMAF counters
     Native-->>Runner: Coordinate and JSON diagnostics
@@ -97,12 +97,83 @@ Immediate winning moves take priority. Blocking one immediate opponent winning c
 
 ## Frozen evaluation configuration
 
-[The selected configuration](../reports/selection.json) is RAVE-TS with bridge defence and move ordering enabled and `rave_k=1000`. Development comparisons use 4,000 total iterations per move; the final policy manifest uses 16,000. Both use two workers, with tactical checks and swaps enabled by their declared defaults. Only the original-source time reference uses eight workers.
+[The selected configuration](../reports/selection.json) is RAVE-TS with bridge defence and move ordering enabled and `rave_k=1000`. Development comparisons use 4,000 total iterations per move; the final policy manifest uses 16,000. Both use two workers, with tactical checks and swaps enabled by their declared defaults. Within those preserved primary match manifests, only the original-source time reference uses eight workers. The deeper shared-time and tactical suites use two workers; their separate benchmarks measure one, two, four and eight.
 
 The raw native executable defaults `--rave-k` to **300**; the Python CLI and selected evaluation setting use **1000**. Reproduction follows [the final manifest](../configs/final-policy.json) and [its frozen hashes](../reports/final-freeze.json). A common implementation does not make results under different settings or time limits interchangeable.
+
+## External game budgets and V3
+
+V2 remains compatible with the preserved adapters and fixed-iteration records.
+The maintained parser also accepts:
+
+```text
+V3;colour;board_size;command;opponent_x,y-or-empty;rows;turn;allocated_search_seconds;external_remaining_seconds
+```
+
+The independent runner owns the participant's accumulated request/response wall
+time, including pipe latency. It computes the same allocator for either agent:
+
+```text
+remaining = max(0, 300 - measured participant response seconds)
+expected_requests_left = max(8, 24 - completed actor requests)
+allocated_search_seconds = max(0, (remaining - 0.05) / expected_requests_left)
+response_timeout = min(remaining, allocated_search_seconds + 2)
+```
+
+The values come from the frozen shared-time manifest. The minimum of eight future
+requests avoids exhausting the entire allowance after a fixed number of moves.
+Native search clamps the allocation to external remaining time and its configured
+game ceiling, reserves a small finishing margin and checks the shared monotonic
+deadline before each simulation. One in-progress rollout and operating-system
+scheduling can still cause overhead; this is not a hard real-time guarantee.
+
+Without an explicit iteration count, V3 uses deadline search. V2's default
+iteration semantics remain unchanged. Tactical responses may use zero
+simulations while still consuming measured response time. Referee replay also
+reconstructs each allocation from the saved per-agent response history.
+
+## Controlled historical-algorithm adapter
+
+`scripts/build_legacy_benchmark.py` checks the preserved source's canonical
+SHA-256, applies exact guarded replacements to a separate generated source, and
+writes a machine-readable patch receipt. Runtime changes cover request handling,
+worker seeding, worker count, external budgets, deadline polling and telemetry.
+Historical board handling, tree selection, expansion, rollouts, rewards, pie-rule
+decisions and tactical checks stay intact. This is an algorithm control with
+matching execution conditions, not a byte-identical original executable.
+
+The maintained agent and this adapter use the same V3 allocator and declared
+two-worker count in the shared-time study. Their random-generator definitions and
+tree representations remain different. The historical per-worker iteration
+safety limit and dynamically growing PMR pool remain; the maintained node cap
+and tree allowance do not make this an equal-memory benchmark.
+
+The exact original source rebuilt through `--legacy` keeps its original unseeded
+eight-worker time manager. Its existing four-game reference remains separate.
+The maintained `legacy_ts` policy is a third control inside the new engine and
+must not be substituted for either historical executable.
+
+## Independent tactical switches and benchmarks
+
+`--swap`, `--win-check` and `--block-check` permit individual diagnostic removals.
+`--tactics 0` disables both immediate checks and remains backward compatible.
+The default agent retains all checks. Unit and scenario tests distinguish branch
+activation from strategic performance: a disabled search can independently find
+the same winning move without activating the removed branch.
+
+Three fixtures replay legal Red-first histories at turns 2, 41 and 81. Three
+more transpose those boards and exchange colours as static nonterminal search
+states, without asserting Red-first match-history reachability. Worker timing disables swap
+and immediate tactical shortcuts, so all requested simulations must actually be
+completed. Matching fixture hashes bind Windows and Kaggle measurements to the
+same states. Standard-library runtime checks and optional Matplotlib report
+generation have separate dependencies.
 
 ## Audit trail
 
 Build receipts include source, compiler and executable hashes. Evaluation metadata additionally records the runner hashes and host allocation. Per-game JSON preserves moves, player identities, colours, commands, diagnostic counters, execution time and failure status. Replay reconstructs the board and confirms a recorded winner's connecting path. Statistical aggregation rejects mixed manifests and duplicate game identifiers.
 
 The original framework, binary and four recorded-match images are inventoried independently. Their preservation is a provenance check; it does not retrospectively validate every historical search claim.
+
+
+See the [completed 400-game results](experiments.md), [V3 clock and actor semantics](deep-protocol.md), [actual public execution path](deep-runtime.md) and [evidence limitations](limitations.md).

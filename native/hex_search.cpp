@@ -93,6 +93,8 @@ struct Request {
     Board board;
     int last_move, turn;
     std::string command;
+    // V3 budgets come from the independent referee, including earlier pipe latency.
+    double move_allowance = -1, external_remaining = -1;
 };
 std::vector<std::string> fields(const std::string& input, char separator) {
     std::vector<std::string> result;
@@ -129,7 +131,10 @@ double nonnegative_number(const std::string& s) {
 Request parse_request(std::string line) {
     if (!line.empty() && line.back() == '\r') line.pop_back();
     auto parts = fields(line, ';');
-    if (parts.size() != 7 || parts[0] != "V2") throw std::invalid_argument("Expected seven V2 protocol fields.");
+    const bool external_budget = parts[0] == "V3";
+    if ((!external_budget && (parts.size() != 7 || parts[0] != "V2")) ||
+        (external_budget && parts.size() != 9))
+        throw std::invalid_argument("Expected seven V2 or nine V3 protocol fields.");
     if (parts[1] != "R" && parts[1] != "B") throw std::invalid_argument("Current colour must be R or B.");
     const int n = bounded_integer(parts[2], 3, MAX_SIZE);
     if (parts[3] != "START" && parts[3] != "CHANGE" && parts[3] != "SWAP")
@@ -150,7 +155,9 @@ Request parse_request(std::string line) {
             if (rows[x][y] != '0') board.play(x * n + y, rows[x][y] == 'R' ? RED : BLUE);
     }
     return {parts[1] == "R" ? RED : BLUE, board, last,
-            bounded_integer(parts[6], 1, 1000000), parts[3]};
+            bounded_integer(parts[6], 1, 1000000), parts[3],
+            external_budget ? nonnegative_number(parts[7]) : -1,
+            external_budget ? nonnegative_number(parts[8]) : -1};
 }
 
 struct Config {
@@ -159,6 +166,7 @@ struct Config {
     int workers = 1, node_cap = 60000;
     double seconds = 0, game_seconds = 300, memory_mb = 128, rave_k = 300, exploration = std::sqrt(2.0);
     bool bridge = true, ordering = true, swap = true, tactics = true, explicit_iterations = false;
+    bool win_check = true, block_check = true;
     bool rave() const { return policy == "rave_ucb" || policy == "rave_ts"; }
     bool thompson() const { return policy == "ts" || policy == "rave_ts" || policy == "legacy_ts"; }
 };
@@ -371,6 +379,7 @@ struct Decision {
     std::uint64_t iterations = 0, rave_updates = 0, chosen_visits = 0, chosen_wins = 0;
     int nodes = 0, effective_node_cap = 0;
     double seconds = 0;
+    double effective_allowance = 0;
     std::vector<WorkerResult> workers;
 };
 int tactical(const Board& board, Colour player) {
@@ -394,13 +403,16 @@ Decision decide(const Request& req, const Config& cfg, double already_used) {
         }
     }
     if (cfg.tactics) {
-        result.move = tactical(req.board, req.player);
+        result.move = cfg.win_check ? tactical(req.board, req.player) : -1;
         if (result.move >= 0) { result.reason = "tactical_win"; result.seconds = elapsed(begin); return result; }
-        result.move = tactical(req.board, opposite(req.player));
+        result.move = cfg.block_check ? tactical(req.board, opposite(req.player)) : -1;
         if (result.move >= 0) { result.reason = "tactical_block"; result.seconds = elapsed(begin); return result; }
     }
     double remaining = std::max(0.0, cfg.game_seconds - already_used);
+    if (req.external_remaining >= 0) remaining = std::min(remaining, req.external_remaining);
     double allowance = cfg.seconds > 0 ? std::min(cfg.seconds, remaining) : remaining;
+    if (req.move_allowance >= 0) allowance = std::min(allowance, req.move_allowance);
+    result.effective_allowance = allowance;
     // Reserve a small part of a finite wall-clock budget for aggregation and serialization.
     const double margin = std::min(0.010, allowance * 0.05);
     auto deadline = begin + std::chrono::duration_cast<Clock::duration>(std::chrono::duration<double>(std::max(0.0, allowance - margin)));
@@ -453,12 +465,16 @@ std::string json_quote(const std::string& value) {
     out << '"'; return out.str();
 }
 void diagnostics(const Request& req, const Config& cfg, const Decision& d, double game_used) {
-    std::cerr << std::setprecision(10) << "{\"kind\":\"hex_search_move\",\"version\":\"1.0.0\",\"policy\":" << json_quote(cfg.policy)
+    std::cerr << std::setprecision(10) << "{\"kind\":\"hex_search_move\",\"version\":\"1.1.0\",\"policy\":" << json_quote(cfg.policy)
               << ",\"turn\":" << req.turn << ",\"colour\":\"" << (req.player == RED ? 'R' : 'B')
               << "\",\"seed\":" << cfg.seed << ",\"move\":[" << (d.move < 0 ? -1 : d.move / req.board.n)
               << ',' << (d.move < 0 ? -1 : d.move % req.board.n) << "],\"reason\":" << json_quote(d.reason)
               << ",\"iterations\":" << d.iterations << ",\"nodes\":" << d.nodes << ",\"rave_updates\":" << d.rave_updates
               << ",\"seconds\":" << d.seconds << ",\"game_seconds_used\":" << game_used
+              << ",\"protocol\":" << json_quote(req.move_allowance >= 0 ? "V3" : "V2")
+              << ",\"requested_allowance_seconds\":" << req.move_allowance
+              << ",\"external_remaining_seconds\":" << req.external_remaining
+              << ",\"effective_search_allowance_seconds\":" << d.effective_allowance
               << ",\"node_cap\":" << d.effective_node_cap << ",\"chosen_visits\":" << d.chosen_visits
               << ",\"chosen_wins\":" << d.chosen_wins << ",\"workers\":[";
     bool first = true;
@@ -527,6 +543,12 @@ void self_test() {
     Request winning{RED, win, -1, 5, "CHANGE"};
     require(decide(winning, cfg, 0).reason == "tactical_win", "root tactical win");
     winning.player = BLUE; require(decide(winning, cfg, 0).move == 6, "root tactical block"); ++checks;
+    Config no_win = cfg; no_win.win_check = false; no_win.iterations = 1;
+    winning.player = RED;
+    require(decide(winning, no_win, 0).reason != "tactical_win", "individual win-check switch");
+    Config no_block = cfg; no_block.block_check = false; no_block.iterations = 1;
+    winning.player = BLUE;
+    require(decide(winning, no_block, 0).reason != "tactical_block", "individual block-check switch"); ++checks;
     win.play(6, RED); bool terminal_rejected = false;
     try { decide({BLUE, win, 6, 6, "CHANGE"}, cfg, 0); } catch (const std::invalid_argument&) { terminal_rejected = true; }
     require(terminal_rejected, "terminal board must not expand or return a move"); ++checks;
@@ -561,6 +583,23 @@ void self_test() {
     bool malformed_rejected = false;
     try { parse_request("V2;R;3;START;;000,000,000,;1"); } catch (const std::exception&) { malformed_rejected = true; }
     require(malformed_rejected, "malformed board rejection"); ++checks;
+    auto external = parse_request("V3;R;3;START;;000,000,000;1;0.004;0.002");
+    require(external.move_allowance == .004 && external.external_remaining == .002, "V3 independent referee budgets");
+    cfg.tactics = false; cfg.swap = false; cfg.seconds = 0; cfg.iterations = 10000000;
+    auto external_limited = decide(external, cfg, 0);
+    require(external_limited.effective_allowance == .002 && external_limited.iterations < cfg.iterations,
+            "V3 allowance cannot exceed external remaining game time");
+    external.move_allowance = 0;
+    auto external_exhausted = decide(external, cfg, 0);
+    require(external_exhausted.iterations == 0 && external_exhausted.move >= 0,
+            "zero V3 allocation produces a legal fallback");
+    external.move_allowance = 1; external.external_remaining = 1;
+    auto own_exhausted = decide(external, cfg, cfg.game_seconds);
+    require(own_exhausted.iterations == 0, "external request cannot bypass configured game ceiling");
+    bool invalid_external = false;
+    try { parse_request("V3;R;3;START;;000,000,000;1;nan;2"); }
+    catch (const std::exception&) { invalid_external = true; }
+    require(invalid_external, "nonfinite external allocation rejection"); ++checks;
     std::cout << "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":" << checks
               << ",\"exhaustive_connectivity_positions\":19683}" << std::endl;
 }
@@ -591,6 +630,8 @@ Config arguments(int argc, char** argv) {
         else if (key == "--ordering") cfg.ordering = bounded_integer(value, 0, 1) != 0;
         else if (key == "--swap") cfg.swap = bounded_integer(value, 0, 1) != 0;
         else if (key == "--tactics") cfg.tactics = bounded_integer(value, 0, 1) != 0;
+        else if (key == "--win-check") cfg.win_check = bounded_integer(value, 0, 1) != 0;
+        else if (key == "--block-check") cfg.block_check = bounded_integer(value, 0, 1) != 0;
         else throw std::invalid_argument("Unknown option: " + key);
     }
     if (cfg.iterations == 0 || cfg.iterations > 1000000000ULL) throw std::invalid_argument("Iteration limit must be 1 through 1000000000.");
@@ -604,15 +645,16 @@ Config arguments(int argc, char** argv) {
 int main(int argc, char** argv) {
     std::locale::global(std::locale::classic());
     try {
-        if (argc == 2 && std::string(argv[1]) == "--version") { std::cout << "hex-search 1.0.0 C++17\n"; return 0; }
+        if (argc == 2 && std::string(argv[1]) == "--version") { std::cout << "hex-search 1.1.0 C++17\n"; return 0; }
         if (argc == 2 && std::string(argv[1]) == "--self-test") { hex::self_test(); return 0; }
         if (argc == 2 && std::string(argv[1]) == "--help") {
             std::cout << "Usage: hex-search [R|B BOARD_SIZE] [options]\n"
                 "Reads V2;R|B;n;START|CHANGE|SWAP;x,y-or-empty;board-rows;turn from stdin.\n"
+                "V3 appends ;allocated_search_seconds;external_remaining_seconds.\n"
                 "Options: --policy ucb|ts|rave_ucb|rave_ts|legacy_ts --seed UINT --workers 1..64\n"
                 " --iterations TOTAL --seconds SEC --game-seconds SEC --node-cap TOTAL\n"
                 " --memory-mb MIB --rave-k NUMBER --bridge 0|1 --ordering 0|1\n"
-                " --swap 0|1 --tactics 0|1\n"
+                " --swap 0|1 --tactics 0|1 --win-check 0|1 --block-check 0|1\n"
                 "Default: rave_ts, seed378, 1worker, 10000iterations, game300seconds.\n"
                 "--seconds without --iterations selects deadline mode. If both are supplied,\n"
                 "the first reached limit stops search. stdout is x,y; stderr is JSON telemetry.\n"
@@ -629,7 +671,13 @@ int main(int argc, char** argv) {
             auto request = hex::parse_request(line);
             if (request.command == "START" || request.turn <= last_turn) game_used = 0;
             const double parse_seconds = hex::elapsed(request_start);
-            auto result = hex::decide(request, cfg, game_used + parse_seconds);
+            auto request_cfg = cfg;
+            // V2 defaults retain their exact iteration semantics. V3 defaults use its deadline.
+            if (request.move_allowance >= 0 && !cfg.explicit_iterations) request_cfg.iterations = 1000000000ULL;
+            // The referee knows complete response latency; its remaining time is authoritative.
+            const double used = request.external_remaining >= 0 ?
+                std::max(0.0, cfg.game_seconds - request.external_remaining) : game_used;
+            auto result = hex::decide(request, request_cfg, used + parse_seconds);
             result.seconds = hex::elapsed(request_start);
             game_used += result.seconds; last_turn = request.turn;
             std::cout << (result.move < 0 ? -1 : result.move / request.board.n) << ','

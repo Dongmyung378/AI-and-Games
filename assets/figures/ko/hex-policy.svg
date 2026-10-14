@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860" role="img" aria-labelledby="title desc">
+<title id="title">개발 정책의 균형 비교</title>
+<desc id="desc">같은 엔진에서 네 정책을 각 48경기씩 비교했습니다. 96개 실제 경기에 두 정책이 참가하므로 정책별 분모 합은 192입니다. 완료 경기 점수로 RAVE-TS를 선택했고 새로운 시드의 최종 평가에서는 재선택하지 않습니다.</desc>
+<style>text{font-family:'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect x="0" y="0" width="1200" height="860" fill="#F7F3EA" rx="0" stroke-width="1"/>
+<text x="48" y="64" fill="#17304A" font-size="36" font-weight="750" text-anchor="start">개발 비교로 정책을 선택하고 고정</text>
+<text x="48" y="106" fill="#66717A" font-size="22" font-weight="400" text-anchor="start">동일 C++ 엔진, 수당 전체 4,000회, 워커 2개, 96경기, 48개 선후공 교대 쌍</text>
+<text x="48" y="159" fill="#17304A" font-size="25" font-weight="700" text-anchor="start">세 내부 상대에 대한 완료 경기 점수</text>
+<line x1="330.0" y1="197" x2="330.0" y2="592" stroke="#D9D3C9" stroke-width="1"/>
+<text x="330.0" y="635" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">0</text>
+<line x1="483.0" y1="197" x2="483.0" y2="592" stroke="#D9D3C9" stroke-width="1"/>
+<text x="483.0" y="635" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">25</text>
+<line x1="636.0" y1="197" x2="636.0" y2="592" stroke="#A74445" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="636.0" y="635" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">50</text>
+<line x1="789.0" y1="197" x2="789.0" y2="592" stroke="#D9D3C9" stroke-width="1"/>
+<text x="789.0" y="635" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">75</text>
+<line x1="942.0" y1="197" x2="942.0" y2="592" stroke="#D9D3C9" stroke-width="1"/>
+<text x="942.0" y="635" fill="#66717A" font-size="21" font-weight="400" text-anchor="middle">100</text>
+<text x="1144" y="160" fill="#66717A" font-size="23" font-weight="400" text-anchor="end">승리 / 완료</text>
+<text x="48" y="242" fill="#17304A" font-size="29" font-weight="700" text-anchor="start">RAVE-TS</text>
+<rect x="330" y="210" width="561.0" height="44" fill="#A74445" rx="6" stroke-width="1"/>
+<text x="1144" y="242" fill="#A74445" font-size="32" font-weight="750" text-anchor="end">44 / 48</text>
+<text x="1144" y="275" fill="#66717A" font-size="22" font-weight="400" text-anchor="end">91.7%</text>
+<text x="48" y="345" fill="#17304A" font-size="29" font-weight="700" text-anchor="start">RAVE-UCB</text>
+<rect x="330" y="313" width="280.5" height="44" fill="#8F9AA4" rx="6" stroke-width="1"/>
+<text x="1144" y="345" fill="#8F9AA4" font-size="32" font-weight="750" text-anchor="end">22 / 48</text>
+<text x="1144" y="378" fill="#66717A" font-size="22" font-weight="400" text-anchor="end">45.8%</text>
+<text x="48" y="448" fill="#17304A" font-size="29" font-weight="700" text-anchor="start">톰슨 샘플링</text>
+<rect x="330" y="416" width="229.5" height="44" fill="#8F9AA4" rx="6" stroke-width="1"/>
+<text x="1144" y="448" fill="#8F9AA4" font-size="32" font-weight="750" text-anchor="end">18 / 48</text>
+<text x="1144" y="481" fill="#66717A" font-size="22" font-weight="400" text-anchor="end">37.5%</text>
+<text x="48" y="551" fill="#17304A" font-size="29" font-weight="700" text-anchor="start">UCB</text>
+<rect x="330" y="519" width="153.0" height="44" fill="#8F9AA4" rx="6" stroke-width="1"/>
+<text x="1144" y="551" fill="#8F9AA4" font-size="32" font-weight="750" text-anchor="end">12 / 48</text>
+<text x="1144" y="584" fill="#66717A" font-size="22" font-weight="400" text-anchor="end">25.0%</text>
+<text x="1144" y="635" fill="#66717A" font-size="21" font-weight="400" text-anchor="end">점수 (%)</text>
+<rect x="48" y="680" width="1104" height="91" fill="#EDE6D9" rx="20" stroke="#D9D3C9" stroke-width="1"/>
+<text x="75" y="721" fill="#A74445" font-size="30" font-weight="750" text-anchor="start">선택: RAVE-TS</text>
+<text x="411" y="721" fill="#17304A" font-size="26" font-weight="400" text-anchor="start">브리지 사용, 수 정렬 사용, k = 1,000</text>
+<text x="75" y="753" fill="#66717A" font-size="21" font-weight="400" text-anchor="start">완료 96 / 96경기, 실패 0건, 개발 자료로만 선택</text>
+<text x="48" y="830" fill="#66717A" font-size="20" font-weight="400" text-anchor="start">정책별 48경기는 서로 겹칩니다. 막대는 집계 점수이며 독립 표본의 정밀도나 최종 성능을 나타내지 않습니다.</text>
+<metadata>{"project_id": "project-06", "visual_data_sha256": "b9e32752dc8376315d04f52e8cf1ffc5c73c3c85af08700f4b32f6d6a73ddfa8", "generated_from_verified_measurements": true}</metadata>
+</svg>

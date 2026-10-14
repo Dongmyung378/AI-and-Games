@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "passed_completed_source_and_saved_record_validation",
+  "scope": "Curated technical summary of actual source execution and internal recomputation. Private workstation paths and logs are omitted. This is not independent external human replication, online-opponent evaluation or proof of all-environment compatibility.",
+  "evaluated_native_source_sha256": "e57fba15ab3c76cb4da605b542bb2147ae1710a6fc4479093469d4a22fd93a02",
+  "controlled_legacy_generated_source_sha256": "f42ab37e1893ba2bf0ac1eb212381803c95132b68d7e2a18a085d46ab240291e",
+  "windows_fresh_source": {
+    "environment": {
+      "system": "Windows",
+      "release": "11",
+      "machine": "AMD64",
+      "python": "3.12.7",
+      "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+      "logical_cpus": 16
+    },
+    "compiler_version": "g++.exe (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0",
+    "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+    "pip_disabled": true,
+    "system_site_packages_disabled": true,
+    "test_counts": {
+      "maintained-tests": {
+        "discovered": 64,
+        "passed": 64,
+        "skipped": 0
+      },
+      "original-referee-tests": {
+        "discovered": 18,
+        "passed": 18,
+        "skipped": 0
+      },
+      "original-adapter-tests": {
+        "discovered": 25,
+        "passed": 23,
+        "skipped": 2
+      }
+    },
+    "additional_source_built_original_v2_contracts": 2,
+    "skip_explanation": "Two preserved Linux-shipped-binary tests are skipped on Windows; two corresponding quick V2 contracts separately passed against freshly Windows-built original source. The shipped binary is unchanged.",
+    "native_self_test": {
+      "returncode": 0,
+      "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":15,\"exhaustive_connectivity_positions\":19683}",
+      "stderr": ""
+    },
+    "original_files_preserved": 64,
+    "historical_report_and_configuration_files_preserved": 1155,
+    "original_receipt_sha256": "8ef871f751811d5c4c003052beec64a55cc4eaff8e038eeca3058a65105cd756"
+  },
+  "kaggle_linux_source": {
+    "environment": {
+      "system": "Linux",
+      "release": "6.18.48+",
+      "machine": "x86_64",
+      "python": "3.13.15",
+      "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+      "logical_cpus": 4,
+      "affinity_cpus": 4,
+      "cgroup_cpu_max": "400000 100000",
+      "cgroup_memory_max": "32212254720"
+    },
+    "python_tests_total": 107,
+    "python_test_skips": 0,
+    "native_self_test_checks": 15,
+    "exhaustive_connectivity_positions": 19683,
+    "sanitizer_native_protocol_tests": 6,
+    "sanitizer_status": "passed",
+    "smoke_games_completed": 4,
+    "smoke_moves_replayed": 100,
+    "original_receipt_sha256": "28022c0120aac80808b09852f4bf3b66ea8720095ac99bd1ded85d1d18e2968c",
+    "public_raw_evidence": "reports/deep/runtime/public-runtime-smoke-latest/"
+  },
+  "fresh_saved_record_replay": {
+    "evaluation_suites": 9,
+    "saved_games_replayed": 1336,
+    "saved_moves_replayed": 53199,
+    "original_files_unchanged": 64,
+    "original_receipt_sha256": "1ea6d3a89d2211f1e73c8fd0b173d052abf6ff5dc29de81c1f8274cb4d6f56cd",
+    "scope": "Replay of completed pre-publication evidence in the fresh Windows environment. Final source ZIP integrity is checked separately after documentation and figures are finalized."
+  },
+  "public_tool_checkpoint": {
+    "completion_status": "checkpointed",
+    "recorded_games": 0,
+    "assigned_games": 40,
+    "original_receipt_sha256": "981e90c5f9a0327d4f20c30609dcbf8d83ca2980d9961bc0903c22c96f764bf0",
+    "scope": "Actual zero-game wall-guard checkpoint; not a strength sample or a one-second end-to-end hard timeout."
+  },
+  "windows_process_image_probe": {
+    "status": "passed_actual_windows_loaded_image_cases",
+    "original_receipt_sha256": "b979434a2a353e169bdfb0ed1ecf5283a3c814706d818d84f384c0859e810e5b",
+    "scope": "QueryFullProcessImageNameW checked actual absolute extensionless controlled executable paths with and without a sibling .exe. Current invocation proof only; no image-path capture is asserted for historical games."
+  },
+  "shared_time_evaluation": {
+    "games_completed": 400,
+    "games_failed": 0,
+    "complete_side_pairs": 200,
+    "manifest_sha256": "4f56942c290da3afc22d6740e96be74d58029ab3a727ba5b432490b66c64efdf",
+    "original_internal_audit_sha256": "388a6f6a3b4584eedb76aed00eddefbffe71e980e0a36ec228023e799a9653da",
+    "public_aggregate": "reports/deep/aggregates/shared-time.json",
+    "public_cost_analysis": "reports/deep/analysis/shared-time-costs.json"
+  },
+  "worker_costs": {
+    "actual_trials": 336,
+    "total_completed_iterations": 5376000,
+    "original_internal_audit_sha256": "2d806192c3a03a727e482dbc938c0fbd6edf5f23af2fc98a2fb551c131a207bd",
+    "public_raw_evidence": [
+      "reports/deep/benchmarks/windows.json",
+      "reports/deep/benchmarks/kaggle.json"
+    ]
+  }
+}
