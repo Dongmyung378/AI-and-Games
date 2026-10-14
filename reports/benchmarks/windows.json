@@ -1,0 +1,2881 @@
+{
+  "schema_version": 1,
+  "environment": {
+    "system": "Windows",
+    "release": "11",
+    "machine": "AMD64",
+    "python": "3.12.7",
+    "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+    "logical_cpus": 16
+  },
+  "executable_sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+  "board": "R0000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000",
+  "iterations_per_move": 16000,
+  "repeats": 7,
+  "summaries": [
+    {
+      "workers": 1,
+      "median_response_seconds": 0.754154499998549,
+      "p95_response_seconds": 0.8095574800005124,
+      "median_iterations_per_second": 21215.811879436886,
+      "median_native_search_seconds": 0.7377391,
+      "median_native_iterations_per_second": 21687.883968736372,
+      "max_process_peak_rss_bytes": 38481920,
+      "all_exact_iteration_budget": true
+    },
+    {
+      "workers": 2,
+      "median_response_seconds": 0.395839500000875,
+      "p95_response_seconds": 0.40784526999996157,
+      "median_iterations_per_second": 40420.42292384826,
+      "median_native_search_seconds": 0.3791384,
+      "median_native_iterations_per_second": 42200.948255307296,
+      "max_process_peak_rss_bytes": 38834176,
+      "all_exact_iteration_budget": true
+    },
+    {
+      "workers": 4,
+      "median_response_seconds": 0.2306040999974357,
+      "p95_response_seconds": 0.23421282999988763,
+      "median_iterations_per_second": 69382.98148288742,
+      "median_native_search_seconds": 0.2139535,
+      "median_native_iterations_per_second": 74782.60463138019,
+      "max_process_peak_rss_bytes": 39108608,
+      "all_exact_iteration_budget": true
+    },
+    {
+      "workers": 8,
+      "median_response_seconds": 0.13064009999652626,
+      "p95_response_seconds": 0.1346591899979103,
+      "median_iterations_per_second": 122473.88053457892,
+      "median_native_search_seconds": 0.1144472,
+      "median_native_iterations_per_second": 139802.45912525602,
+      "max_process_peak_rss_bytes": 39927808,
+      "all_exact_iteration_budget": true
+    }
+  ],
+  "trials": [
+    {
+      "workers": 1,
+      "trial": 0,
+      "seed": 378,
+      "move": [
+        6,
+        5
+      ],
+      "response_seconds": 0.7384146000040346,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 21668.04394159132,
+      "native_search_seconds": 0.7222991,
+      "iterations_per_second_native": 22151.4882131239,
+      "process_peak_rss_bytes": 38465536,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 378,
+          "move": [
+            6,
+            5
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16001,
+          "rave_updates": 2820731,
+          "seconds": 0.7222991,
+          "game_seconds_used": 0.7222991,
+          "node_cap": 60000,
+          "chosen_visits": 1911,
+          "chosen_wins": 1068,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 15514935943717363462,
+              "iterations": 16000,
+              "nodes": 16001,
+              "rave_updates": 2820731,
+              "seconds": 0.7155504,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "378",
+        "--workers",
+        "1",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 1,
+      "trial": 1,
+      "seed": 379,
+      "move": [
+        4,
+        6
+      ],
+      "response_seconds": 0.7514467000000877,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 21292.2619794566,
+      "native_search_seconds": 0.735487,
+      "iterations_per_second_native": 21754.293413751704,
+      "process_peak_rss_bytes": 38432768,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 379,
+          "move": [
+            4,
+            6
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16001,
+          "rave_updates": 2795500,
+          "seconds": 0.735487,
+          "game_seconds_used": 0.735487,
+          "node_cap": 60000,
+          "chosen_visits": 874,
+          "chosen_wins": 479,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 14628613208278680694,
+              "iterations": 16000,
+              "nodes": 16001,
+              "rave_updates": 2795500,
+              "seconds": 0.7281897,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "379",
+        "--workers",
+        "1",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 1,
+      "trial": 2,
+      "seed": 380,
+      "move": [
+        4,
+        7
+      ],
+      "response_seconds": 0.754154499998549,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 21215.811879436886,
+      "native_search_seconds": 0.7377391,
+      "iterations_per_second_native": 21687.883968736372,
+      "process_peak_rss_bytes": 38481920,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 380,
+          "move": [
+            4,
+            7
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16001,
+          "rave_updates": 2828101,
+          "seconds": 0.7377391,
+          "game_seconds_used": 0.7377391,
+          "node_cap": 60000,
+          "chosen_visits": 1255,
+          "chosen_wins": 697,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 15571967591002355067,
+              "iterations": 16000,
+              "nodes": 16001,
+              "rave_updates": 2828101,
+              "seconds": 0.7306618,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "380",
+        "--workers",
+        "1",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 1,
+      "trial": 3,
+      "seed": 381,
+      "move": [
+        5,
+        5
+      ],
+      "response_seconds": 0.7408147999958601,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 21597.84064801272,
+      "native_search_seconds": 0.7252132,
+      "iterations_per_second_native": 22062.47762726878,
+      "process_peak_rss_bytes": 38473728,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 381,
+          "move": [
+            5,
+            5
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16001,
+          "rave_updates": 2820421,
+          "seconds": 0.7252132,
+          "game_seconds_used": 0.7252132,
+          "node_cap": 60000,
+          "chosen_visits": 856,
+          "chosen_wins": 477,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 5329083054427798310,
+              "iterations": 16000,
+              "nodes": 16001,
+              "rave_updates": 2820421,
+              "seconds": 0.7182576,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "381",
+        "--workers",
+        "1",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 1,
+      "trial": 4,
+      "seed": 382,
+      "move": [
+        7,
+        3
+      ],
+      "response_seconds": 0.7904381000043941,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 20241.93924851428,
+      "native_search_seconds": 0.7756118,
+      "iterations_per_second_native": 20628.876455979655,
+      "process_peak_rss_bytes": 38461440,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 382,
+          "move": [
+            7,
+            3
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16001,
+          "rave_updates": 2811869,
+          "seconds": 0.7756118,
+          "game_seconds_used": 0.7756118,
+          "node_cap": 60000,
+          "chosen_visits": 1121,
+          "chosen_wins": 628,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 748772830274870806,
+              "iterations": 16000,
+              "nodes": 16001,
+              "rave_updates": 2811869,
+              "seconds": 0.7679205,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "382",
+        "--workers",
+        "1",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 1,
+      "trial": 5,
+      "seed": 383,
+      "move": [
+        2,
+        8
+      ],
+      "response_seconds": 0.7752219000030891,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 20639.25180640052,
+      "native_search_seconds": 0.7577871,
+      "iterations_per_second_native": 21114.109754573547,
+      "process_peak_rss_bytes": 38436864,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 383,
+          "move": [
+            2,
+            8
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16001,
+          "rave_updates": 2814346,
+          "seconds": 0.7577871,
+          "game_seconds_used": 0.7577871,
+          "node_cap": 60000,
+          "chosen_visits": 1704,
+          "chosen_wins": 965,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 17863816442351748345,
+              "iterations": 16000,
+              "nodes": 16001,
+              "rave_updates": 2814346,
+              "seconds": 0.7504563,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "383",
+        "--workers",
+        "1",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 1,
+      "trial": 6,
+      "seed": 384,
+      "move": [
+        5,
+        3
+      ],
+      "response_seconds": 0.8177514999988489,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 19565.84610364215,
+      "native_search_seconds": 0.8017954,
+      "iterations_per_second_native": 19955.215507597073,
+      "process_peak_rss_bytes": 38457344,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 384,
+          "move": [
+            5,
+            3
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16001,
+          "rave_updates": 2830989,
+          "seconds": 0.8017954,
+          "game_seconds_used": 0.8017954,
+          "node_cap": 60000,
+          "chosen_visits": 1005,
+          "chosen_wins": 559,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 12990515666076668304,
+              "iterations": 16000,
+              "nodes": 16001,
+              "rave_updates": 2830989,
+              "seconds": 0.7940412,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "384",
+        "--workers",
+        "1",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 2,
+      "trial": 0,
+      "seed": 378,
+      "move": [
+        6,
+        5
+      ],
+      "response_seconds": 0.4127139999982319,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 38767.76654067598,
+      "native_search_seconds": 0.3958052,
+      "iterations_per_second_native": 40423.92570890933,
+      "process_peak_rss_bytes": 38584320,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 378,
+          "move": [
+            6,
+            5
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16002,
+          "rave_updates": 2641735,
+          "seconds": 0.3958052,
+          "game_seconds_used": 0.3958052,
+          "node_cap": 60000,
+          "chosen_visits": 1254,
+          "chosen_wins": 716,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 15514935943717363462,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1325068,
+              "seconds": 0.3914879,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 10880101905646546036,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1316667,
+              "seconds": 0.3882345,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "378",
+        "--workers",
+        "2",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 2,
+      "trial": 1,
+      "seed": 379,
+      "move": [
+        7,
+        3
+      ],
+      "response_seconds": 0.36847000000125263,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 43422.802398962216,
+      "native_search_seconds": 0.3526612,
+      "iterations_per_second_native": 45369.323305200574,
+      "process_peak_rss_bytes": 38604800,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 379,
+          "move": [
+            7,
+            3
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16002,
+          "rave_updates": 2602233,
+          "seconds": 0.3526612,
+          "game_seconds_used": 0.3526612,
+          "node_cap": 60000,
+          "chosen_visits": 711,
+          "chosen_wins": 396,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 14628613208278680694,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1296102,
+              "seconds": 0.3439212,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 16649678012033321025,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1306131,
+              "seconds": 0.3482439,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "379",
+        "--workers",
+        "2",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 2,
+      "trial": 2,
+      "seed": 380,
+      "move": [
+        4,
+        7
+      ],
+      "response_seconds": 0.395839500000875,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 40420.42292384826,
+      "native_search_seconds": 0.3791384,
+      "iterations_per_second_native": 42200.948255307296,
+      "process_peak_rss_bytes": 38572032,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 380,
+          "move": [
+            4,
+            7
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16002,
+          "rave_updates": 2640671,
+          "seconds": 0.3791384,
+          "game_seconds_used": 0.3791384,
+          "node_cap": 60000,
+          "chosen_visits": 994,
+          "chosen_wins": 559,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 15571967591002355067,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1320550,
+              "seconds": 0.3745549,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 13161491900448796461,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1320121,
+              "seconds": 0.3709538,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "380",
+        "--workers",
+        "2",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 2,
+      "trial": 3,
+      "seed": 381,
+      "move": [
+        4,
+        7
+      ],
+      "response_seconds": 0.3726517999966745,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 42935.52318851749,
+      "native_search_seconds": 0.3566353,
+      "iterations_per_second_native": 44863.75857914233,
+      "process_peak_rss_bytes": 38420480,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 381,
+          "move": [
+            4,
+            7
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16002,
+          "rave_updates": 2639425,
+          "seconds": 0.3566353,
+          "game_seconds_used": 0.3566353,
+          "node_cap": 60000,
+          "chosen_visits": 952,
+          "chosen_wins": 530,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 5329083054427798310,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1316836,
+              "seconds": 0.351038,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 505473440358096516,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1322589,
+              "seconds": 0.3484718,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "381",
+        "--workers",
+        "2",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 2,
+      "trial": 4,
+      "seed": 382,
+      "move": [
+        5,
+        5
+      ],
+      "response_seconds": 0.39622809999855235,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 40380.780666637365,
+      "native_search_seconds": 0.3799397,
+      "iterations_per_second_native": 42111.945658745324,
+      "process_peak_rss_bytes": 38563840,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 382,
+          "move": [
+            5,
+            5
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16002,
+          "rave_updates": 2620434,
+          "seconds": 0.3799397,
+          "game_seconds_used": 0.3799397,
+          "node_cap": 60000,
+          "chosen_visits": 864,
+          "chosen_wins": 476,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 748772830274870806,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1312773,
+              "seconds": 0.3747818,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 13554657978408030310,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1307661,
+              "seconds": 0.3707338,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "382",
+        "--workers",
+        "2",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 2,
+      "trial": 5,
+      "seed": 383,
+      "move": [
+        5,
+        6
+      ],
+      "response_seconds": 0.3913905000008526,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 40879.88850001506,
+      "native_search_seconds": 0.3753749,
+      "iterations_per_second_native": 42624.053979101955,
+      "process_peak_rss_bytes": 38273024,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 383,
+          "move": [
+            5,
+            6
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16002,
+          "rave_updates": 2635928,
+          "seconds": 0.3753749,
+          "game_seconds_used": 0.3753749,
+          "node_cap": 60000,
+          "chosen_visits": 979,
+          "chosen_wins": 530,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 17863816442351748345,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1324041,
+              "seconds": 0.3703498,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 12395481984840096440,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1311887,
+              "seconds": 0.3617332,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "383",
+        "--workers",
+        "2",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 2,
+      "trial": 6,
+      "seed": 384,
+      "move": [
+        5,
+        6
+      ],
+      "response_seconds": 0.3964849000039976,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 40354.62636745732,
+      "native_search_seconds": 0.3801134,
+      "iterations_per_second_native": 42092.70180951263,
+      "process_peak_rss_bytes": 38834176,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 384,
+          "move": [
+            5,
+            6
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16002,
+          "rave_updates": 2633421,
+          "seconds": 0.3801134,
+          "game_seconds_used": 0.3801134,
+          "node_cap": 60000,
+          "chosen_visits": 1086,
+          "chosen_wins": 614,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 12990515666076668304,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1329279,
+              "seconds": 0.3729031,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 14024362096707327770,
+              "iterations": 8000,
+              "nodes": 8001,
+              "rave_updates": 1304142,
+              "seconds": 0.3725902,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "384",
+        "--workers",
+        "2",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 4,
+      "trial": 0,
+      "seed": 378,
+      "move": [
+        6,
+        4
+      ],
+      "response_seconds": 0.2306040999974357,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 69382.98148288742,
+      "native_search_seconds": 0.2139535,
+      "iterations_per_second_native": 74782.60463138019,
+      "process_peak_rss_bytes": 37920768,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 378,
+          "move": [
+            6,
+            4
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16004,
+          "rave_updates": 2466007,
+          "seconds": 0.2139535,
+          "game_seconds_used": 0.2139535,
+          "node_cap": 60000,
+          "chosen_visits": 746,
+          "chosen_wins": 412,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 15514935943717363462,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 624061,
+              "seconds": 0.1995885,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 10880101905646546036,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 610987,
+              "seconds": 0.1995459,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 10167659098388240877,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 617013,
+              "seconds": 0.1933233,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 5451161221345396879,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 613946,
+              "seconds": 0.2105077,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "378",
+        "--workers",
+        "4",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 4,
+      "trial": 1,
+      "seed": 379,
+      "move": [
+        4,
+        6
+      ],
+      "response_seconds": 0.18885769999906188,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 84719.87109913696,
+      "native_search_seconds": 0.1732731,
+      "iterations_per_second_native": 92339.78038137483,
+      "process_peak_rss_bytes": 39108608,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 379,
+          "move": [
+            4,
+            6
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16004,
+          "rave_updates": 2459890,
+          "seconds": 0.1732731,
+          "game_seconds_used": 0.1732731,
+          "node_cap": 60000,
+          "chosen_visits": 608,
+          "chosen_wins": 319,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 14628613208278680694,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 612480,
+              "seconds": 0.1659428,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 16649678012033321025,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 607453,
+              "seconds": 0.1660043,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 11930115576202244964,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 618063,
+              "seconds": 0.1669241,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 17537531122262027970,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 621894,
+              "seconds": 0.1700312,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "379",
+        "--workers",
+        "4",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 4,
+      "trial": 2,
+      "seed": 380,
+      "move": [
+        7,
+        3
+      ],
+      "response_seconds": 0.23123389999818755,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 69194.00658867671,
+      "native_search_seconds": 0.215567,
+      "iterations_per_second_native": 74222.86342529237,
+      "process_peak_rss_bytes": 38027264,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 380,
+          "move": [
+            7,
+            3
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16004,
+          "rave_updates": 2469304,
+          "seconds": 0.215567,
+          "game_seconds_used": 0.215567,
+          "node_cap": 60000,
+          "chosen_visits": 787,
+          "chosen_wins": 460,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 15571967591002355067,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 611209,
+              "seconds": 0.1955785,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 13161491900448796461,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 627241,
+              "seconds": 0.2121079,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 2665019308760805754,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 618763,
+              "seconds": 0.2103707,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 3066236596023285859,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 612091,
+              "seconds": 0.193642,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "380",
+        "--workers",
+        "4",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 4,
+      "trial": 3,
+      "seed": 381,
+      "move": [
+        5,
+        4
+      ],
+      "response_seconds": 0.22091339999315096,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 72426.57077613243,
+      "native_search_seconds": 0.2038858,
+      "iterations_per_second_native": 78475.3033315709,
+      "process_peak_rss_bytes": 37969920,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 381,
+          "move": [
+            5,
+            4
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16004,
+          "rave_updates": 2453046,
+          "seconds": 0.2038858,
+          "game_seconds_used": 0.2038858,
+          "node_cap": 60000,
+          "chosen_visits": 626,
+          "chosen_wins": 339,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 5329083054427798310,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 617753,
+              "seconds": 0.1816025,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 505473440358096516,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 620107,
+              "seconds": 0.1927154,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 8825745291350443402,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 606417,
+              "seconds": 0.2010117,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 10504091526936967126,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 608769,
+              "seconds": 0.1912325,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "381",
+        "--workers",
+        "4",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 4,
+      "trial": 4,
+      "seed": 382,
+      "move": [
+        5,
+        5
+      ],
+      "response_seconds": 0.22234469999966677,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 71960.33905923541,
+      "native_search_seconds": 0.2056626,
+      "iterations_per_second_native": 77797.3243555221,
+      "process_peak_rss_bytes": 37158912,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 382,
+          "move": [
+            5,
+            5
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16004,
+          "rave_updates": 2455974,
+          "seconds": 0.2056626,
+          "game_seconds_used": 0.2056626,
+          "node_cap": 60000,
+          "chosen_visits": 867,
+          "chosen_wins": 500,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 748772830274870806,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 614009,
+              "seconds": 0.2016108,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 13554657978408030310,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 606753,
+              "seconds": 0.1779488,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 1526391908375493565,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 617320,
+              "seconds": 0.2018819,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 3093607405850242507,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 617892,
+              "seconds": 0.1804747,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "382",
+        "--workers",
+        "4",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 4,
+      "trial": 5,
+      "seed": 383,
+      "move": [
+        2,
+        8
+      ],
+      "response_seconds": 0.23481159999937518,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 68139.73415300853,
+      "native_search_seconds": 0.2169556,
+      "iterations_per_second_native": 73747.80830732187,
+      "process_peak_rss_bytes": 36339712,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 383,
+          "move": [
+            2,
+            8
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16004,
+          "rave_updates": 2467273,
+          "seconds": 0.2169556,
+          "game_seconds_used": 0.2169556,
+          "node_cap": 60000,
+          "chosen_visits": 924,
+          "chosen_wins": 514,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 17863816442351748345,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 626698,
+              "seconds": 0.213483,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 12395481984840096440,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 616907,
+              "seconds": 0.1761802,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 10881644559488775794,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 616022,
+              "seconds": 0.1931594,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 8540836546206914267,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 607646,
+              "seconds": 0.2027436,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "383",
+        "--workers",
+        "4",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 4,
+      "trial": 6,
+      "seed": 384,
+      "move": [
+        6,
+        4
+      ],
+      "response_seconds": 0.23281570000108331,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 68723.88760691634,
+      "native_search_seconds": 0.2162156,
+      "iterations_per_second_native": 74000.21090060106,
+      "process_peak_rss_bytes": 37130240,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 384,
+          "move": [
+            6,
+            4
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16004,
+          "rave_updates": 2443386,
+          "seconds": 0.2162156,
+          "game_seconds_used": 0.2162156,
+          "node_cap": 60000,
+          "chosen_visits": 1302,
+          "chosen_wins": 727,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 12990515666076668304,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 614820,
+              "seconds": 0.177608,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 14024362096707327770,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 604656,
+              "seconds": 0.2131596,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 7024758143495944051,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 602850,
+              "seconds": 0.1815133,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 6068228191798327389,
+              "iterations": 4000,
+              "nodes": 4001,
+              "rave_updates": 621060,
+              "seconds": 0.1931044,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "384",
+        "--workers",
+        "4",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 8,
+      "trial": 0,
+      "seed": 378,
+      "move": [
+        8,
+        2
+      ],
+      "response_seconds": 0.13484719999541994,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 118652.81593198403,
+      "native_search_seconds": 0.1189471,
+      "iterations_per_second_native": 134513.57788462265,
+      "process_peak_rss_bytes": 36237312,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 378,
+          "move": [
+            8,
+            2
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16008,
+          "rave_updates": 2356628,
+          "seconds": 0.1189471,
+          "game_seconds_used": 0.1189471,
+          "node_cap": 60000,
+          "chosen_visits": 536,
+          "chosen_wins": 295,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 15514935943717363462,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 295499,
+              "seconds": 0.0829071,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 10880101905646546036,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 293292,
+              "seconds": 0.099715,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 10167659098388240877,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 295434,
+              "seconds": 0.0835843,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 5451161221345396879,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292878,
+              "seconds": 0.1096758,
+              "node_cap_reached": false
+            },
+            {
+              "id": 4,
+              "seed": 6839650086952404067,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292273,
+              "seconds": 0.1094804,
+              "node_cap_reached": false
+            },
+            {
+              "id": 5,
+              "seed": 2489517259365261759,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 291653,
+              "seconds": 0.1165591,
+              "node_cap_reached": false
+            },
+            {
+              "id": 6,
+              "seed": 4627558325315221998,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 293737,
+              "seconds": 0.1013075,
+              "node_cap_reached": false
+            },
+            {
+              "id": 7,
+              "seed": 1641725816325491299,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 301862,
+              "seconds": 0.0886824,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "378",
+        "--workers",
+        "8",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 8,
+      "trial": 1,
+      "seed": 379,
+      "move": [
+        6,
+        4
+      ],
+      "response_seconds": 0.1342205000037211,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 119206.82756774427,
+      "native_search_seconds": 0.1165523,
+      "iterations_per_second_native": 137277.42824465927,
+      "process_peak_rss_bytes": 39927808,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 379,
+          "move": [
+            6,
+            4
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16008,
+          "rave_updates": 2358857,
+          "seconds": 0.1165523,
+          "game_seconds_used": 0.1165523,
+          "node_cap": 60000,
+          "chosen_visits": 505,
+          "chosen_wins": 284,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 14628613208278680694,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 293026,
+              "seconds": 0.1139332,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 16649678012033321025,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 297275,
+              "seconds": 0.1102081,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 11930115576202244964,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 295217,
+              "seconds": 0.1097174,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 17537531122262027970,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 299152,
+              "seconds": 0.1127643,
+              "node_cap_reached": false
+            },
+            {
+              "id": 4,
+              "seed": 17695800614011870123,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 291361,
+              "seconds": 0.1107414,
+              "node_cap_reached": false
+            },
+            {
+              "id": 5,
+              "seed": 15954274940149716145,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 291953,
+              "seconds": 0.111346,
+              "node_cap_reached": false
+            },
+            {
+              "id": 6,
+              "seed": 4478823737320668629,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 297619,
+              "seconds": 0.1085406,
+              "node_cap_reached": false
+            },
+            {
+              "id": 7,
+              "seed": 6982831953642034241,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 293254,
+              "seconds": 0.1081107,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "379",
+        "--workers",
+        "8",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 8,
+      "trial": 2,
+      "seed": 380,
+      "move": [
+        6,
+        5
+      ],
+      "response_seconds": 0.12304259999655187,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 130036.26386672894,
+      "native_search_seconds": 0.1068074,
+      "iterations_per_second_native": 149802.35451850714,
+      "process_peak_rss_bytes": 37154816,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 380,
+          "move": [
+            6,
+            5
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16008,
+          "rave_updates": 2358208,
+          "seconds": 0.1068074,
+          "game_seconds_used": 0.1068074,
+          "node_cap": 60000,
+          "chosen_visits": 889,
+          "chosen_wins": 496,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 15571967591002355067,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 291619,
+              "seconds": 0.0998862,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 13161491900448796461,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 293130,
+              "seconds": 0.1031266,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 2665019308760805754,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 295210,
+              "seconds": 0.1030683,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 3066236596023285859,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292353,
+              "seconds": 0.0868443,
+              "node_cap_reached": false
+            },
+            {
+              "id": 4,
+              "seed": 2828500214814671045,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 302382,
+              "seconds": 0.1041085,
+              "node_cap_reached": false
+            },
+            {
+              "id": 5,
+              "seed": 16606895363163944902,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 297138,
+              "seconds": 0.0940736,
+              "node_cap_reached": false
+            },
+            {
+              "id": 6,
+              "seed": 1967823960431358055,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 294275,
+              "seconds": 0.0965915,
+              "node_cap_reached": false
+            },
+            {
+              "id": 7,
+              "seed": 17568075082806761964,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292101,
+              "seconds": 0.0998684,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "380",
+        "--workers",
+        "8",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 8,
+      "trial": 3,
+      "seed": 381,
+      "move": [
+        4,
+        7
+      ],
+      "response_seconds": 0.12954769999487326,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 123506.63115310567,
+      "native_search_seconds": 0.1123577,
+      "iterations_per_second_native": 142402.34536662817,
+      "process_peak_rss_bytes": 35074048,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 381,
+          "move": [
+            4,
+            7
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16008,
+          "rave_updates": 2350376,
+          "seconds": 0.1123577,
+          "game_seconds_used": 0.1123577,
+          "node_cap": 60000,
+          "chosen_visits": 532,
+          "chosen_wins": 296,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 5329083054427798310,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 295308,
+              "seconds": 0.0937493,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 505473440358096516,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292767,
+              "seconds": 0.0961854,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 8825745291350443402,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292892,
+              "seconds": 0.1093554,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 10504091526936967126,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292359,
+              "seconds": 0.0992316,
+              "node_cap_reached": false
+            },
+            {
+              "id": 4,
+              "seed": 16253541058610902197,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 296742,
+              "seconds": 0.0995686,
+              "node_cap_reached": false
+            },
+            {
+              "id": 5,
+              "seed": 11195016684639518429,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 291293,
+              "seconds": 0.1069551,
+              "node_cap_reached": false
+            },
+            {
+              "id": 6,
+              "seed": 11397186076611668388,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 293735,
+              "seconds": 0.1091822,
+              "node_cap_reached": false
+            },
+            {
+              "id": 7,
+              "seed": 13576546150621866767,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 295280,
+              "seconds": 0.0849561,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "381",
+        "--workers",
+        "8",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 8,
+      "trial": 4,
+      "seed": 382,
+      "move": [
+        4,
+        6
+      ],
+      "response_seconds": 0.13064009999652626,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 122473.88053457892,
+      "native_search_seconds": 0.1144472,
+      "iterations_per_second_native": 139802.45912525602,
+      "process_peak_rss_bytes": 37175296,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 382,
+          "move": [
+            4,
+            6
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16008,
+          "rave_updates": 2347421,
+          "seconds": 0.1144472,
+          "game_seconds_used": 0.1144472,
+          "node_cap": 60000,
+          "chosen_visits": 588,
+          "chosen_wins": 311,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 748772830274870806,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 291025,
+              "seconds": 0.1125117,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 13554657978408030310,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292057,
+              "seconds": 0.0919514,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 1526391908375493565,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 295571,
+              "seconds": 0.0843354,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 3093607405850242507,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 294457,
+              "seconds": 0.0941159,
+              "node_cap_reached": false
+            },
+            {
+              "id": 4,
+              "seed": 7701792826599138906,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292255,
+              "seconds": 0.0824019,
+              "node_cap_reached": false
+            },
+            {
+              "id": 5,
+              "seed": 6843007861812555514,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292379,
+              "seconds": 0.0920173,
+              "node_cap_reached": false
+            },
+            {
+              "id": 6,
+              "seed": 2687863087750325797,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 293428,
+              "seconds": 0.0834521,
+              "node_cap_reached": false
+            },
+            {
+              "id": 7,
+              "seed": 12839161350044752338,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 296249,
+              "seconds": 0.1057566,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "382",
+        "--workers",
+        "8",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 8,
+      "trial": 5,
+      "seed": 383,
+      "move": [
+        5,
+        6
+      ],
+      "response_seconds": 0.12563169999339152,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 127356.39174540846,
+      "native_search_seconds": 0.1079195,
+      "iterations_per_second_native": 148258.65575730058,
+      "process_peak_rss_bytes": 37584896,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 383,
+          "move": [
+            5,
+            6
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16008,
+          "rave_updates": 2352271,
+          "seconds": 0.1079195,
+          "game_seconds_used": 0.1079195,
+          "node_cap": 60000,
+          "chosen_visits": 514,
+          "chosen_wins": 270,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 17863816442351748345,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 297462,
+              "seconds": 0.1049453,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 12395481984840096440,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292950,
+              "seconds": 0.0915426,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 10881644559488775794,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 294320,
+              "seconds": 0.1007163,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 8540836546206914267,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292341,
+              "seconds": 0.085913,
+              "node_cap_reached": false
+            },
+            {
+              "id": 4,
+              "seed": 3173672859476839603,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 293238,
+              "seconds": 0.0851961,
+              "node_cap_reached": false
+            },
+            {
+              "id": 5,
+              "seed": 18172535995306676052,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 291985,
+              "seconds": 0.0945503,
+              "node_cap_reached": false
+            },
+            {
+              "id": 6,
+              "seed": 14818193649474179372,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 298679,
+              "seconds": 0.0913033,
+              "node_cap_reached": false
+            },
+            {
+              "id": 7,
+              "seed": 10289639358726977965,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 291296,
+              "seconds": 0.1044345,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "383",
+        "--workers",
+        "8",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    },
+    {
+      "workers": 8,
+      "trial": 6,
+      "seed": 384,
+      "move": [
+        6,
+        4
+      ],
+      "response_seconds": 0.13170769999851473,
+      "completed_iterations": 16000,
+      "iterations_per_second_external": 121481.12828771918,
+      "native_search_seconds": 0.1158921,
+      "iterations_per_second_native": 138059.45357794018,
+      "process_peak_rss_bytes": 35618816,
+      "telemetry": [
+        {
+          "kind": "hex_search_move",
+          "version": "1.0.0",
+          "policy": "rave_ts",
+          "turn": 2,
+          "colour": "B",
+          "seed": 384,
+          "move": [
+            6,
+            4
+          ],
+          "reason": "search",
+          "iterations": 16000,
+          "nodes": 16008,
+          "rave_updates": 2346090,
+          "seconds": 0.1158921,
+          "game_seconds_used": 0.1158921,
+          "node_cap": 60000,
+          "chosen_visits": 784,
+          "chosen_wins": 444,
+          "workers": [
+            {
+              "id": 0,
+              "seed": 12990515666076668304,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 293040,
+              "seconds": 0.1010485,
+              "node_cap_reached": false
+            },
+            {
+              "id": 1,
+              "seed": 14024362096707327770,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 291592,
+              "seconds": 0.1026956,
+              "node_cap_reached": false
+            },
+            {
+              "id": 2,
+              "seed": 7024758143495944051,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 290684,
+              "seconds": 0.0847341,
+              "node_cap_reached": false
+            },
+            {
+              "id": 3,
+              "seed": 6068228191798327389,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 303521,
+              "seconds": 0.0870947,
+              "node_cap_reached": false
+            },
+            {
+              "id": 4,
+              "seed": 14977774695835627662,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292370,
+              "seconds": 0.1131851,
+              "node_cap_reached": false
+            },
+            {
+              "id": 5,
+              "seed": 16396624507288127305,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292205,
+              "seconds": 0.0815074,
+              "node_cap_reached": false
+            },
+            {
+              "id": 6,
+              "seed": 5714382865548077751,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 292259,
+              "seconds": 0.0937541,
+              "node_cap_reached": false
+            },
+            {
+              "id": 7,
+              "seed": 10546252827888217045,
+              "iterations": 2000,
+              "nodes": 2001,
+              "rave_updates": 290419,
+              "seconds": 0.1016132,
+              "node_cap_reached": false
+            }
+          ]
+        }
+      ],
+      "command": [
+        "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+        "--policy",
+        "rave_ts",
+        "--seed",
+        "384",
+        "--workers",
+        "8",
+        "--game-seconds",
+        "300",
+        "--node-cap",
+        "60000",
+        "--memory-mb",
+        "128",
+        "--bridge",
+        "1",
+        "--ordering",
+        "1",
+        "--tactics",
+        "1",
+        "--swap",
+        "0",
+        "--rave-k",
+        "1000",
+        "--iterations",
+        "16000"
+      ]
+    }
+  ],
+  "scope": "Single nonterminal snapshot. Throughput is not a win-rate measurement. Process peak RSS includes all native workers, but not the Python driver. Missing memory metrics are zero/null, not measured zero usage."
+}

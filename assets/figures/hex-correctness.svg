@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
+<title id="title">탐색 통계와 연결성의 정확성 검사</title>
+<desc id="desc">같은 3×3 보드와 시드로 1,000회 탐색한 Python 참조 구현에서 기존 RAVE 갱신은 0회, 수정 AMAF 갱신은 13,772회입니다. C++ 연결성 판정은 19,683개 3×3 색상 배치를 독립 BFS와 비교했습니다. 승률이나 속도 비교가 아닙니다.</desc>
+<style>text{font-family:'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect x="0" y="0" width="1200" height="850" fill="#F1F7F3" rx="0" stroke-width="1"/>
+<text x="48" y="64" fill="#173B35" font-size="36" font-weight="750" text-anchor="start">탐색 통계의 갱신을 독립적으로 확인</text>
+<text x="48" y="106" fill="#64696B" font-size="22" font-weight="400" text-anchor="start">빈 3×3 보드 · RED 차례 · RAVE-UCB · 1,000회 탐색 · 시드 378 · 전술 비활성</text>
+<rect x="48" y="166" width="522" height="285" fill="#FFFFFF" rx="20" stroke="#D6E1DC" stroke-width="1"/>
+<text x="76" y="219" fill="#97AAA2" font-size="30" font-weight="750" text-anchor="start">기존 Python 참조</text>
+<text x="76" y="306" fill="#97AAA2" font-size="65" font-weight="750" text-anchor="start">0회</text>
+<text x="76" y="375" fill="#64696B" font-size="24" font-weight="400" text-anchor="start">롤아웃에서 이미 둔 수를 찾음</text>
+<text x="76" y="410" fill="#64696B" font-size="24" font-weight="400" text-anchor="start">해당 칸은 다시 둘 수 없어 미갱신</text>
+<rect x="630" y="166" width="522" height="285" fill="#FFFFFF" rx="20" stroke="#D6E1DC" stroke-width="1"/>
+<text x="658" y="219" fill="#26766B" font-size="30" font-weight="750" text-anchor="start">수정 Python 참조</text>
+<text x="658" y="306" fill="#26766B" font-size="65" font-weight="750" text-anchor="start">13,772회</text>
+<text x="658" y="375" fill="#64696B" font-size="24" font-weight="400" text-anchor="start">트리 경로 + 이후 롤아웃의 수</text>
+<text x="658" y="410" fill="#64696B" font-size="24" font-weight="400" text-anchor="start">같은 플레이어의 행동을 반영</text>
+<line x1="583" y1="296" x2="617" y2="296" stroke="#26766B" stroke-width="4"/>
+<path d="M603.493,302.524 L617.000,296.000 L603.493,289.476" fill="none" stroke="#26766B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="48" y="497" fill="#173B35" font-size="29" font-weight="750" text-anchor="start">확인 범위</text>
+<rect x="48" y="522" width="352" height="196" fill="#FFFFFF" rx="20" stroke="#D6E1DC" stroke-width="1"/>
+<text x="72" y="584" fill="#26766B" font-size="48" font-weight="750" text-anchor="start">19,683</text>
+<text x="72" y="633" fill="#173B35" font-size="24" font-weight="700" text-anchor="start">3×3 연결성 색상 배치</text>
+<text x="72" y="679" fill="#64696B" font-size="20" font-weight="400" text-anchor="start">C++ union-find ↔ 독립 BFS</text>
+<rect x="424" y="522" width="352" height="196" fill="#FFFFFF" rx="20" stroke="#D6E1DC" stroke-width="1"/>
+<text x="448" y="584" fill="#26766B" font-size="48" font-weight="750" text-anchor="start">256</text>
+<text x="448" y="633" fill="#173B35" font-size="24" font-weight="700" text-anchor="start">반복 C++ 요청</text>
+<text x="448" y="679" fill="#64696B" font-size="20" font-weight="400" text-anchor="start">32개 보드 × 4정책 × 2회</text>
+<rect x="800" y="522" width="352" height="196" fill="#FFFFFF" rx="20" stroke="#D6E1DC" stroke-width="1"/>
+<text x="824" y="584" fill="#26766B" font-size="48" font-weight="750" text-anchor="start">13</text>
+<text x="824" y="633" fill="#173B35" font-size="24" font-weight="700" text-anchor="start">Python 참조 테스트</text>
+<text x="824" y="679" fill="#64696B" font-size="20" font-weight="400" text-anchor="start">보상 관점 · AMAF · 합법 수</text>
+<text x="48" y="791" fill="#64696B" font-size="20" font-weight="400" text-anchor="start">13,772는 노드별 AMAF 반영 횟수입니다. 탐색 횟수와 달라 1,000보다 클 수 있습니다.</text>
+<text x="48" y="820" fill="#64696B" font-size="20" font-weight="400" text-anchor="start">통계가 작동하는지 확인한 검사입니다. 이 값만으로 대국 성능이나 실행 속도가 개선됐다고 판단하지 않습니다.</text>
+<metadata>{"project_id": "project-06", "visual_data_sha256": "b9e32752dc8376315d04f52e8cf1ffc5c73c3c85af08700f4b32f6d6a73ddfa8", "generated_from_verified_measurements": true}</metadata>
+</svg>

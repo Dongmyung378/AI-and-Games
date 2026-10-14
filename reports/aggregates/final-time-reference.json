@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "suite_id": "final-time-reference",
+  "split": "final",
+  "manifest_sha256": "dce42b5438c78e255a4be72268c0c830e7425147c0170207c969e75f09a5d44d",
+  "budget": {
+    "mode": "time",
+    "seconds": 5,
+    "workers": 8,
+    "node_cap": 100000,
+    "game_seconds": 300,
+    "response_timeout": 30
+  },
+  "scheduled_games": 4,
+  "recorded_games": 4,
+  "completed_games": 4,
+  "missing_game_ids": [],
+  "comparisons": [
+    {
+      "left": "original",
+      "right": "selected",
+      "scheduled_games": 4,
+      "recorded_games": 4,
+      "completed_games": 4,
+      "left_wins": 0,
+      "right_wins": 4,
+      "left_win_rate_completed_games": 0.0,
+      "wilson_95_game_interval": [
+        0.0,
+        0.4898908364545973
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 2,
+      "paired_mean_win_rate": 0.0,
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 0,
+      "left_second_wins": 0
+    }
+  ],
+  "interpretation": "Wins require verified connecting paths. Timeouts, illegal moves and protocol/process failures are excluded from playing-strength wins and reported separately. Pair bootstrap resamples complete side-reversal pairs only. Hardware environments must be reported separately.",
+  "environment_summaries": [
+    {
+      "environment": {
+        "affinity_cpus": 4,
+        "cgroup_cpu_max": "400000 100000",
+        "cgroup_memory_max": "32212254720",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+        "logical_cpus": 4,
+        "machine": "x86_64",
+        "python": "3.13.15",
+        "release": "6.18.48+",
+        "system": "Linux"
+      },
+      "summary": {
+        "schema_version": 1,
+        "suite_id": "final-time-reference",
+        "split": "final",
+        "manifest_sha256": "dce42b5438c78e255a4be72268c0c830e7425147c0170207c969e75f09a5d44d",
+        "budget": {
+          "mode": "time",
+          "seconds": 5,
+          "workers": 8,
+          "node_cap": 100000,
+          "game_seconds": 300,
+          "response_timeout": 30
+        },
+        "scheduled_games": 4,
+        "recorded_games": 4,
+        "completed_games": 4,
+        "missing_game_ids": [],
+        "comparisons": [
+          {
+            "left": "original",
+            "right": "selected",
+            "scheduled_games": 4,
+            "recorded_games": 4,
+            "completed_games": 4,
+            "left_wins": 0,
+            "right_wins": 4,
+            "left_win_rate_completed_games": 0.0,
+            "wilson_95_game_interval": [
+              0.0,
+              0.4898908364545973
+            ],
+            "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+            "complete_side_pairs": 2,
+            "paired_mean_win_rate": 0.0,
+            "paired_cluster_bootstrap_95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_resamples": 2000,
+            "bootstrap_seed": 378,
+            "failures": {},
+            "failures_by_actor": {},
+            "failure_rate_recorded": 0.0,
+            "left_first_wins": 0,
+            "left_second_wins": 0
+          }
+        ],
+        "interpretation": "Wins require verified connecting paths. Timeouts, illegal moves and protocol/process failures are excluded from playing-strength wins and reported separately. Pair bootstrap resamples complete side-reversal pairs only. Hardware environments must be reported separately."
+      }
+    }
+  ],
+  "run_metadata": [
+    {
+      "manifest_sha256": "dce42b5438c78e255a4be72268c0c830e7425147c0170207c969e75f09a5d44d",
+      "environment": {
+        "system": "Linux",
+        "release": "6.18.48+",
+        "machine": "x86_64",
+        "python": "3.13.15",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+        "logical_cpus": 4,
+        "affinity_cpus": 4,
+        "cgroup_cpu_max": "400000 100000",
+        "cgroup_memory_max": "32212254720"
+      },
+      "binaries": {
+        "selected": {
+          "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+          "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/native/hex_search.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/hex_search"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+            "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "original": {
+          "path": "/kaggle/working/hex-source/.local/bin/legacy_hex",
+          "sha256": "2d7a69e1666b63c0261dd435197f4834c379744b25a147f7831f92e537ea9552",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "legacy",
+            "source": "/kaggle/working/hex-source/deployment/agents/Group026/RAVE_TS.cpp",
+            "source_sha256": "3bcf831944b86847b2384ab4d85e451bf12e7890b3a17492e8ed617266287244",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/deployment/agents/Group026/RAVE_TS.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/legacy_hex"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/legacy_hex",
+            "executable_sha256": "2d7a69e1666b63c0261dd435197f4834c379744b25a147f7831f92e537ea9552",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            }
+          }
+        }
+      },
+      "shard_index": 0,
+      "shard_count": 1,
+      "runner_sha256": {
+        "native.py": "b96531703c67395be7158fe27725b65bcc266e6523fe7577c1106cbba4fa88e4",
+        "referee.py": "993c948a58dda397145fc77cc0e353b5b1632d6ae4a8b577a72e41180edadd5e",
+        "evaluation.py": "c0f2c1ac0e2ecbd42c2c7778acc181db777821284b74b386988bb40add715c08",
+        "cli.py": "ce2b6d29f618670de7824c3c9c1f61cdab5f540591a0f5ea830dd34a591f5235"
+      },
+      "execution": "Sequential games; each participant process may use declared root-parallel workers."
+    }
+  ]
+}

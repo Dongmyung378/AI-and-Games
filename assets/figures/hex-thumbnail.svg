@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">CPU 기반 Hex 게임 탐색</title>
+<desc id="desc">연결 목표를 설명하는 예시 보드와 MCTS, RAVE 및 루트 병렬 탐색의 구조입니다. 보드 그림은 실제 평가 경기의 재현이 아닙니다.</desc>
+<style>text{font-family:'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect x="0" y="0" width="1200" height="760" fill="#F1F7F3" rx="0" stroke-width="1"/>
+<text x="54" y="80" fill="#173B35" font-size="48" font-weight="750" text-anchor="start">Hex 게임 탐색 에이전트</text>
+<text x="54" y="132" fill="#64696B" font-size="31" font-weight="400" text-anchor="start">MCTS · RAVE · CPU 병렬 탐색</text>
+<rect x="55" y="178" width="552" height="405" fill="#FFFFFF" rx="20" stroke="#D6E1DC" stroke-width="1"/>
+<polygon points="169.249,221.000 169.249,249.000 145.000,263.000 120.751,249.000 120.751,221.000 145.000,207.000" fill="#3F729B" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="223.249,221.000 223.249,249.000 199.000,263.000 174.751,249.000 174.751,221.000 199.000,207.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="277.249,221.000 277.249,249.000 253.000,263.000 228.751,249.000 228.751,221.000 253.000,207.000" fill="#B85151" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="331.249,221.000 331.249,249.000 307.000,263.000 282.751,249.000 282.751,221.000 307.000,207.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="385.249,221.000 385.249,249.000 361.000,263.000 336.751,249.000 336.751,221.000 361.000,207.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="196.249,268.000 196.249,296.000 172.000,310.000 147.751,296.000 147.751,268.000 172.000,254.000" fill="#3F729B" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="250.249,268.000 250.249,296.000 226.000,310.000 201.751,296.000 201.751,268.000 226.000,254.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="304.249,268.000 304.249,296.000 280.000,310.000 255.751,296.000 255.751,268.000 280.000,254.000" fill="#B85151" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="358.249,268.000 358.249,296.000 334.000,310.000 309.751,296.000 309.751,268.000 334.000,254.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="412.249,268.000 412.249,296.000 388.000,310.000 363.751,296.000 363.751,268.000 388.000,254.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="223.249,315.000 223.249,343.000 199.000,357.000 174.751,343.000 174.751,315.000 199.000,301.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="277.249,315.000 277.249,343.000 253.000,357.000 228.751,343.000 228.751,315.000 253.000,301.000" fill="#3F729B" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="331.249,315.000 331.249,343.000 307.000,357.000 282.751,343.000 282.751,315.000 307.000,301.000" fill="#B85151" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="385.249,315.000 385.249,343.000 361.000,357.000 336.751,343.000 336.751,315.000 361.000,301.000" fill="#3F729B" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="439.249,315.000 439.249,343.000 415.000,357.000 390.751,343.000 390.751,315.000 415.000,301.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="250.249,362.000 250.249,390.000 226.000,404.000 201.751,390.000 201.751,362.000 226.000,348.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="304.249,362.000 304.249,390.000 280.000,404.000 255.751,390.000 255.751,362.000 280.000,348.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="358.249,362.000 358.249,390.000 334.000,404.000 309.751,390.000 309.751,362.000 334.000,348.000" fill="#B85151" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="412.249,362.000 412.249,390.000 388.000,404.000 363.751,390.000 363.751,362.000 388.000,348.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="466.249,362.000 466.249,390.000 442.000,404.000 417.751,390.000 417.751,362.000 442.000,348.000" fill="#3F729B" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="277.249,409.000 277.249,437.000 253.000,451.000 228.751,437.000 228.751,409.000 253.000,395.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="331.249,409.000 331.249,437.000 307.000,451.000 282.751,437.000 282.751,409.000 307.000,395.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="385.249,409.000 385.249,437.000 361.000,451.000 336.751,437.000 336.751,409.000 361.000,395.000" fill="#B85151" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="439.249,409.000 439.249,437.000 415.000,451.000 390.751,437.000 390.751,409.000 415.000,395.000" fill="#E5EEE8" stroke="#FFFFFF" stroke-width="3"/>
+<polygon points="493.249,409.000 493.249,437.000 469.000,451.000 444.751,437.000 444.751,409.000 469.000,395.000" fill="#3F729B" stroke="#FFFFFF" stroke-width="3"/>
+<line x1="198" y1="191" x2="411" y2="191" stroke="#B85151" stroke-width="6"/>
+<line x1="312" y1="467" x2="532" y2="467" stroke="#B85151" stroke-width="6"/>
+<line x1="95" y1="231" x2="203" y2="431" stroke="#3F729B" stroke-width="6"/>
+<line x1="430" y1="231" x2="538" y2="431" stroke="#3F729B" stroke-width="6"/>
+<text x="86" y="540" fill="#173B35" font-size="29" font-weight="700" text-anchor="start">같은 색으로 마주 보는 변을 연결</text>
+<text x="640" y="221" fill="#173B35" font-size="31" font-weight="750" text-anchor="start">다음 수를 고르는 과정</text>
+<rect x="640" y="252" width="504" height="89" fill="#FFFFFF" rx="20" stroke="#D6E1DC" stroke-width="1"/>
+<text x="665" y="288" fill="#26766B" font-size="29" font-weight="700" text-anchor="start">MCTS 선택</text>
+<text x="665" y="322" fill="#64696B" font-size="23" font-weight="400" text-anchor="start">시뮬레이션으로 탐색을 배정</text>
+<rect x="640" y="361" width="504" height="89" fill="#FFFFFF" rx="20" stroke="#D6E1DC" stroke-width="1"/>
+<text x="665" y="397" fill="#26766B" font-size="29" font-weight="700" text-anchor="start">AMAF와 RAVE</text>
+<text x="665" y="431" fill="#64696B" font-size="23" font-weight="400" text-anchor="start">이후 같은 색의 수를 통계에 반영</text>
+<rect x="640" y="470" width="504" height="89" fill="#FFFFFF" rx="20" stroke="#D6E1DC" stroke-width="1"/>
+<text x="665" y="506" fill="#26766B" font-size="29" font-weight="700" text-anchor="start">루트 병렬 탐색</text>
+<text x="665" y="540" fill="#64696B" font-size="23" font-weight="400" text-anchor="start">워커별 탐색 결과를 합쳐 결정</text>
+<rect x="55" y="628" width="1089" height="82" fill="#173B35" rx="16" stroke-width="1"/>
+<text x="82" y="681" fill="#FFFFFF" font-size="33" font-weight="750" text-anchor="start">탐색 통계 검증</text>
+<text x="450" y="681" fill="#E1F1E9" font-size="29" font-weight="400" text-anchor="start">선후공 교대 평가 · 실행 기록 재생</text>
+<metadata>{"project_id": "project-06", "visual_data_sha256": "b9e32752dc8376315d04f52e8cf1ffc5c73c3c85af08700f4b32f6d6a73ddfa8", "generated_from_verified_measurements": true}</metadata>
+</svg>

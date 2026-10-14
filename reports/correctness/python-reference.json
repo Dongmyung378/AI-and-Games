@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "purpose": "Read-only historical defect probe and corrected reference counter diagnostic; not a strength or speed comparison.",
+  "software": {
+    "python": "3.12.7 (main, Oct 16 2024, 00:21:24) [MSC v.1929 64 bit (AMD64)]",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "old_commit": "fd41e80626d3bb4c6fd87816c053a2e437f46ab5",
+  "source_sha256": {
+    "engine/agents/Group26/mcts_core.py": "6c55a5fc8580f531ff4baa9774e6c778ea9e6431b3800b6f2ce0ccd71f4bf6d4",
+    "engine/agents/Group26/Agent_RAVE_UCB.py": "ceac04b28f4b25b793a301bbe40c817adcb26528ab3215e1d9a1080cdd901eea",
+    "hexai/reference.py": "7597ddd2a7c71ff1a935f3c5bab869fd8448fa63da3bf2cc28b41380dc0f5ab2",
+    "hexai/__init__.py": "d75abcdc66cee7823c0d98e0c0663e39ed0e4958f445ae6893ac081fd12893f7",
+    "tests/test_reference.py": "e0fca5a0f7aedcc61075b40733f3980cf1585453aa592de0024dfab19856c5d3"
+  },
+  "case": {
+    "name": "empty_3x3_red_to_play",
+    "board_rows": [
+      "...",
+      "...",
+      "..."
+    ],
+    "board_size": 3,
+    "colour": "RED",
+    "policy": "rave_ucb",
+    "iterations": 1000,
+    "seed": 378,
+    "tactical": false
+  },
+  "historical": {
+    "root_visits": 1000,
+    "nodes": 1001,
+    "rave_updates": 0
+  },
+  "corrected": {
+    "root_visits": 1000,
+    "nodes": 1001,
+    "amaf_updates": 13772,
+    "amaf_updates_independently_aggregated": 13772,
+    "root_amaf_visits": 4117,
+    "selected_move": [
+      1,
+      1
+    ]
+  },
+  "verification": {
+    "original_rave_zero": true,
+    "corrected_amaf_active": true,
+    "aggregate_counter_matches": true,
+    "focused_tests": {
+      "command": "python -m unittest discover -s tests -p test_reference.py -v",
+      "test_methods": 13,
+      "status": "passed"
+    },
+    "independent_referee_connectivity_cases": 320
+  }
+}

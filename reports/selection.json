@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "selected_utc": "2026-10-14T00:25:17.081162+00:00",
+  "final_outcomes_observed": false,
+  "policy_scores": {
+    "rave_ts": {
+      "wins": 44,
+      "games": 48,
+      "win_rate": 0.9166666666666666
+    },
+    "ucb": {
+      "wins": 12,
+      "games": 48,
+      "win_rate": 0.25
+    },
+    "ts": {
+      "wins": 18,
+      "games": 48,
+      "win_rate": 0.375
+    },
+    "rave_ucb": {
+      "wins": 22,
+      "games": 48,
+      "win_rate": 0.4583333333333333
+    }
+  },
+  "selected_settings": {
+    "kind": "native",
+    "policy": "rave_ts",
+    "bridge": true,
+    "ordering": true,
+    "rave_k": 1000
+  },
+  "optional_feature_results": [
+    {
+      "candidate": "no_bridge",
+      "win_rate_vs_full": 0.1875,
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.375
+      ],
+      "complete_pairs": 8,
+      "passed_declared_gate": false,
+      "applied": false,
+      "status": "stopped_no_supported_gain"
+    },
+    {
+      "candidate": "no_ordering",
+      "win_rate_vs_full": 0.5,
+      "paired_cluster_bootstrap_95": [
+        0.25,
+        0.75
+      ],
+      "complete_pairs": 8,
+      "passed_declared_gate": false,
+      "applied": false,
+      "status": "stopped_no_supported_gain"
+    },
+    {
+      "candidate": "rave_k300",
+      "win_rate_vs_full": 0.5,
+      "paired_cluster_bootstrap_95": [
+        0.1875,
+        0.8125
+      ],
+      "complete_pairs": 8,
+      "passed_declared_gate": false,
+      "applied": false,
+      "status": "stopped_no_supported_gain"
+    },
+    {
+      "candidate": "rave_k3000",
+      "win_rate_vs_full": 0.75,
+      "paired_cluster_bootstrap_95": [
+        0.5,
+        1.0
+      ],
+      "complete_pairs": 8,
+      "passed_declared_gate": false,
+      "applied": false,
+      "status": "stopped_no_supported_gain"
+    }
+  ],
+  "development_scheduled": 160,
+  "development_completed": 160,
+  "failures": 0,
+  "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+  "runner_sha256": {
+    "native.py": "b96531703c67395be7158fe27725b65bcc266e6523fe7577c1106cbba4fa88e4",
+    "referee.py": "993c948a58dda397145fc77cc0e353b5b1632d6ae4a8b577a72e41180edadd5e",
+    "evaluation.py": "c0f2c1ac0e2ecbd42c2c7778acc181db777821284b74b386988bb40add715c08",
+    "cli.py": "ce2b6d29f618670de7824c3c9c1f61cdab5f540591a0f5ea830dd34a591f5235"
+  },
+  "development_aggregate_sha256": {
+    "development-policy": "b99f8d3ac2844f368ab3657f7c164af231106682d245716ab0c259ce4bf41e33",
+    "development-features": "0a229ddd8500ac85a9276aa405ef61efe90fe3a62c81c21d196050740c7a6cdd"
+  },
+  "selection_scope": "Use development data only. Select one tested feature candidate at most, and only for the RAVE-TS policy on which feature tests were run."
+}

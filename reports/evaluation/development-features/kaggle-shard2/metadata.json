@@ -1,0 +1,235 @@
+{
+  "manifest_sha256": "73492963e2cb5cc9a58f778c95100614ce3c5a66cf0fdcce45d0bc9e3df6852c",
+  "environment": {
+    "system": "Linux",
+    "release": "6.18.48+",
+    "machine": "x86_64",
+    "python": "3.13.15",
+    "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+    "logical_cpus": 4,
+    "affinity_cpus": 4,
+    "cgroup_cpu_max": "400000 100000",
+    "cgroup_memory_max": "32212254720"
+  },
+  "binaries": {
+    "full": {
+      "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+      "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+      "build_receipt": {
+        "schema_version": 1,
+        "kind": "native",
+        "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+        "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+        "compiler": [
+          "/usr/bin/g++"
+        ],
+        "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+        "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+        "command": [
+          "/usr/bin/g++",
+          "-std=c++17",
+          "-O3",
+          "-pthread",
+          "/kaggle/working/hex-source/native/hex_search.cpp",
+          "-o",
+          "/kaggle/working/hex-source/.local/bin/hex_search"
+        ],
+        "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+        "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+        "environment": {
+          "system": "Linux",
+          "release": "6.18.48+",
+          "machine": "x86_64",
+          "python": "3.13.15",
+          "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+          "logical_cpus": 4,
+          "affinity_cpus": 4,
+          "cgroup_cpu_max": "400000 100000",
+          "cgroup_memory_max": "32212254720"
+        },
+        "self_test": {
+          "returncode": 0,
+          "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+          "stderr": ""
+        }
+      }
+    },
+    "no_bridge": {
+      "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+      "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+      "build_receipt": {
+        "schema_version": 1,
+        "kind": "native",
+        "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+        "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+        "compiler": [
+          "/usr/bin/g++"
+        ],
+        "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+        "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+        "command": [
+          "/usr/bin/g++",
+          "-std=c++17",
+          "-O3",
+          "-pthread",
+          "/kaggle/working/hex-source/native/hex_search.cpp",
+          "-o",
+          "/kaggle/working/hex-source/.local/bin/hex_search"
+        ],
+        "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+        "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+        "environment": {
+          "system": "Linux",
+          "release": "6.18.48+",
+          "machine": "x86_64",
+          "python": "3.13.15",
+          "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+          "logical_cpus": 4,
+          "affinity_cpus": 4,
+          "cgroup_cpu_max": "400000 100000",
+          "cgroup_memory_max": "32212254720"
+        },
+        "self_test": {
+          "returncode": 0,
+          "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+          "stderr": ""
+        }
+      }
+    },
+    "no_ordering": {
+      "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+      "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+      "build_receipt": {
+        "schema_version": 1,
+        "kind": "native",
+        "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+        "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+        "compiler": [
+          "/usr/bin/g++"
+        ],
+        "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+        "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+        "command": [
+          "/usr/bin/g++",
+          "-std=c++17",
+          "-O3",
+          "-pthread",
+          "/kaggle/working/hex-source/native/hex_search.cpp",
+          "-o",
+          "/kaggle/working/hex-source/.local/bin/hex_search"
+        ],
+        "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+        "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+        "environment": {
+          "system": "Linux",
+          "release": "6.18.48+",
+          "machine": "x86_64",
+          "python": "3.13.15",
+          "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+          "logical_cpus": 4,
+          "affinity_cpus": 4,
+          "cgroup_cpu_max": "400000 100000",
+          "cgroup_memory_max": "32212254720"
+        },
+        "self_test": {
+          "returncode": 0,
+          "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+          "stderr": ""
+        }
+      }
+    },
+    "rave_k300": {
+      "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+      "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+      "build_receipt": {
+        "schema_version": 1,
+        "kind": "native",
+        "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+        "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+        "compiler": [
+          "/usr/bin/g++"
+        ],
+        "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+        "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+        "command": [
+          "/usr/bin/g++",
+          "-std=c++17",
+          "-O3",
+          "-pthread",
+          "/kaggle/working/hex-source/native/hex_search.cpp",
+          "-o",
+          "/kaggle/working/hex-source/.local/bin/hex_search"
+        ],
+        "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+        "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+        "environment": {
+          "system": "Linux",
+          "release": "6.18.48+",
+          "machine": "x86_64",
+          "python": "3.13.15",
+          "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+          "logical_cpus": 4,
+          "affinity_cpus": 4,
+          "cgroup_cpu_max": "400000 100000",
+          "cgroup_memory_max": "32212254720"
+        },
+        "self_test": {
+          "returncode": 0,
+          "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+          "stderr": ""
+        }
+      }
+    },
+    "rave_k3000": {
+      "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+      "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+      "build_receipt": {
+        "schema_version": 1,
+        "kind": "native",
+        "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+        "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+        "compiler": [
+          "/usr/bin/g++"
+        ],
+        "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+        "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+        "command": [
+          "/usr/bin/g++",
+          "-std=c++17",
+          "-O3",
+          "-pthread",
+          "/kaggle/working/hex-source/native/hex_search.cpp",
+          "-o",
+          "/kaggle/working/hex-source/.local/bin/hex_search"
+        ],
+        "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+        "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+        "environment": {
+          "system": "Linux",
+          "release": "6.18.48+",
+          "machine": "x86_64",
+          "python": "3.13.15",
+          "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+          "logical_cpus": 4,
+          "affinity_cpus": 4,
+          "cgroup_cpu_max": "400000 100000",
+          "cgroup_memory_max": "32212254720"
+        },
+        "self_test": {
+          "returncode": 0,
+          "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+          "stderr": ""
+        }
+      }
+    }
+  },
+  "shard_index": 2,
+  "shard_count": 4,
+  "runner_sha256": {
+    "native.py": "b96531703c67395be7158fe27725b65bcc266e6523fe7577c1106cbba4fa88e4",
+    "referee.py": "993c948a58dda397145fc77cc0e353b5b1632d6ae4a8b577a72e41180edadd5e",
+    "evaluation.py": "c0f2c1ac0e2ecbd42c2c7778acc181db777821284b74b386988bb40add715c08",
+    "cli.py": "ce2b6d29f618670de7824c3c9c1f61cdab5f540591a0f5ea830dd34a591f5235"
+  },
+  "execution": "Sequential games; each participant process may use declared root-parallel workers."
+}

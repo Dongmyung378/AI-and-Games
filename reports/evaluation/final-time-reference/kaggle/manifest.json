@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "suite_id": "final-time-reference",
+  "split": "final",
+  "board_size": 11,
+  "budget": {
+    "mode": "time",
+    "seconds": 5,
+    "workers": 8,
+    "node_cap": 100000,
+    "game_seconds": 300,
+    "response_timeout": 30
+  },
+  "participants": {
+    "selected": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "original": {
+      "kind": "legacy",
+      "legacy_executable": ".local/bin/legacy_hex"
+    }
+  },
+  "games": [
+    {
+      "game_id": "final-time-reference-0-0",
+      "pair_id": "final-time-reference-0",
+      "red": "selected",
+      "blue": "original",
+      "seed": 990000,
+      "opening_seed": 990000,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-time-reference-0-1",
+      "pair_id": "final-time-reference-0",
+      "red": "original",
+      "blue": "selected",
+      "seed": 990000,
+      "opening_seed": 990000,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-time-reference-1-0",
+      "pair_id": "final-time-reference-1",
+      "red": "selected",
+      "blue": "original",
+      "seed": 990001,
+      "opening_seed": 990001,
+      "opening_moves": [
+        [
+          5,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-time-reference-1-1",
+      "pair_id": "final-time-reference-1",
+      "red": "original",
+      "blue": "selected",
+      "seed": 990001,
+      "opening_seed": 990001,
+      "opening_moves": [
+        [
+          5,
+          5
+        ]
+      ]
+    }
+  ]
+}

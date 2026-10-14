@@ -1,0 +1,1618 @@
+{
+  "schema_version": 1,
+  "suite_id": "final-policy",
+  "split": "final",
+  "manifest_sha256": "d78b2e49bb9ba396ce655582dbc5574b7366ab71ae13844df78238efa9f39cfd",
+  "budget": {
+    "mode": "iterations",
+    "iterations": 16000,
+    "workers": 2,
+    "node_cap": 100000,
+    "game_seconds": 300,
+    "response_timeout": 60
+  },
+  "scheduled_games": 256,
+  "recorded_games": 256,
+  "completed_games": 256,
+  "missing_game_ids": [],
+  "comparisons": [
+    {
+      "left": "legacy_ts",
+      "right": "selected",
+      "scheduled_games": 64,
+      "recorded_games": 64,
+      "completed_games": 64,
+      "left_wins": 9,
+      "right_wins": 55,
+      "left_win_rate_completed_games": 0.140625,
+      "wilson_95_game_interval": [
+        0.0757857255603086,
+        0.24616281741577023
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 32,
+      "paired_mean_win_rate": 0.140625,
+      "paired_cluster_bootstrap_95": [
+        0.0625,
+        0.21875
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 4,
+      "left_second_wins": 5
+    },
+    {
+      "left": "rave_ucb",
+      "right": "selected",
+      "scheduled_games": 64,
+      "recorded_games": 64,
+      "completed_games": 64,
+      "left_wins": 10,
+      "right_wins": 54,
+      "left_win_rate_completed_games": 0.15625,
+      "wilson_95_game_interval": [
+        0.08714842338206585,
+        0.2642806177254878
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 32,
+      "paired_mean_win_rate": 0.15625,
+      "paired_cluster_bootstrap_95": [
+        0.078125,
+        0.234375
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 4,
+      "left_second_wins": 6
+    },
+    {
+      "left": "selected",
+      "right": "ts",
+      "scheduled_games": 64,
+      "recorded_games": 64,
+      "completed_games": 64,
+      "left_wins": 53,
+      "right_wins": 11,
+      "left_win_rate_completed_games": 0.828125,
+      "wilson_95_game_interval": [
+        0.7178678837734179,
+        0.9012225769875536
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 32,
+      "paired_mean_win_rate": 0.828125,
+      "paired_cluster_bootstrap_95": [
+        0.75,
+        0.90625
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 26,
+      "left_second_wins": 27
+    },
+    {
+      "left": "selected",
+      "right": "ucb",
+      "scheduled_games": 64,
+      "recorded_games": 64,
+      "completed_games": 64,
+      "left_wins": 57,
+      "right_wins": 7,
+      "left_win_rate_completed_games": 0.890625,
+      "wilson_95_game_interval": [
+        0.7910135867310387,
+        0.945998866555832
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 32,
+      "paired_mean_win_rate": 0.890625,
+      "paired_cluster_bootstrap_95": [
+        0.796875,
+        0.96875
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 28,
+      "left_second_wins": 29
+    }
+  ],
+  "interpretation": "Wins require verified connecting paths. Timeouts, illegal moves and protocol/process failures are excluded from playing-strength wins and reported separately. Pair bootstrap resamples complete side-reversal pairs only. Hardware environments must be reported separately.",
+  "environment_summaries": [
+    {
+      "environment": {
+        "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+        "logical_cpus": 16,
+        "machine": "AMD64",
+        "python": "3.12.7",
+        "release": "11",
+        "system": "Windows"
+      },
+      "summary": {
+        "schema_version": 1,
+        "suite_id": "final-policy",
+        "split": "final",
+        "manifest_sha256": "d78b2e49bb9ba396ce655582dbc5574b7366ab71ae13844df78238efa9f39cfd",
+        "budget": {
+          "mode": "iterations",
+          "iterations": 16000,
+          "workers": 2,
+          "node_cap": 100000,
+          "game_seconds": 300,
+          "response_timeout": 60
+        },
+        "scheduled_games": 256,
+        "recorded_games": 128,
+        "completed_games": 128,
+        "missing_game_ids": [
+          "final-policy-selected-vs-legacy_ts-002-0",
+          "final-policy-selected-vs-legacy_ts-002-1",
+          "final-policy-selected-vs-legacy_ts-003-0",
+          "final-policy-selected-vs-legacy_ts-003-1",
+          "final-policy-selected-vs-legacy_ts-006-0",
+          "final-policy-selected-vs-legacy_ts-006-1",
+          "final-policy-selected-vs-legacy_ts-007-0",
+          "final-policy-selected-vs-legacy_ts-007-1",
+          "final-policy-selected-vs-legacy_ts-010-0",
+          "final-policy-selected-vs-legacy_ts-010-1",
+          "final-policy-selected-vs-legacy_ts-011-0",
+          "final-policy-selected-vs-legacy_ts-011-1",
+          "final-policy-selected-vs-legacy_ts-014-0",
+          "final-policy-selected-vs-legacy_ts-014-1",
+          "final-policy-selected-vs-legacy_ts-015-0",
+          "final-policy-selected-vs-legacy_ts-015-1",
+          "final-policy-selected-vs-legacy_ts-018-0",
+          "final-policy-selected-vs-legacy_ts-018-1",
+          "final-policy-selected-vs-legacy_ts-019-0",
+          "final-policy-selected-vs-legacy_ts-019-1",
+          "final-policy-selected-vs-legacy_ts-022-0",
+          "final-policy-selected-vs-legacy_ts-022-1",
+          "final-policy-selected-vs-legacy_ts-023-0",
+          "final-policy-selected-vs-legacy_ts-023-1",
+          "final-policy-selected-vs-legacy_ts-026-0",
+          "final-policy-selected-vs-legacy_ts-026-1",
+          "final-policy-selected-vs-legacy_ts-027-0",
+          "final-policy-selected-vs-legacy_ts-027-1",
+          "final-policy-selected-vs-legacy_ts-030-0",
+          "final-policy-selected-vs-legacy_ts-030-1",
+          "final-policy-selected-vs-legacy_ts-031-0",
+          "final-policy-selected-vs-legacy_ts-031-1",
+          "final-policy-selected-vs-rave_ucb-002-0",
+          "final-policy-selected-vs-rave_ucb-002-1",
+          "final-policy-selected-vs-rave_ucb-003-0",
+          "final-policy-selected-vs-rave_ucb-003-1",
+          "final-policy-selected-vs-rave_ucb-006-0",
+          "final-policy-selected-vs-rave_ucb-006-1",
+          "final-policy-selected-vs-rave_ucb-007-0",
+          "final-policy-selected-vs-rave_ucb-007-1",
+          "final-policy-selected-vs-rave_ucb-010-0",
+          "final-policy-selected-vs-rave_ucb-010-1",
+          "final-policy-selected-vs-rave_ucb-011-0",
+          "final-policy-selected-vs-rave_ucb-011-1",
+          "final-policy-selected-vs-rave_ucb-014-0",
+          "final-policy-selected-vs-rave_ucb-014-1",
+          "final-policy-selected-vs-rave_ucb-015-0",
+          "final-policy-selected-vs-rave_ucb-015-1",
+          "final-policy-selected-vs-rave_ucb-018-0",
+          "final-policy-selected-vs-rave_ucb-018-1",
+          "final-policy-selected-vs-rave_ucb-019-0",
+          "final-policy-selected-vs-rave_ucb-019-1",
+          "final-policy-selected-vs-rave_ucb-022-0",
+          "final-policy-selected-vs-rave_ucb-022-1",
+          "final-policy-selected-vs-rave_ucb-023-0",
+          "final-policy-selected-vs-rave_ucb-023-1",
+          "final-policy-selected-vs-rave_ucb-026-0",
+          "final-policy-selected-vs-rave_ucb-026-1",
+          "final-policy-selected-vs-rave_ucb-027-0",
+          "final-policy-selected-vs-rave_ucb-027-1",
+          "final-policy-selected-vs-rave_ucb-030-0",
+          "final-policy-selected-vs-rave_ucb-030-1",
+          "final-policy-selected-vs-rave_ucb-031-0",
+          "final-policy-selected-vs-rave_ucb-031-1",
+          "final-policy-selected-vs-ts-002-0",
+          "final-policy-selected-vs-ts-002-1",
+          "final-policy-selected-vs-ts-003-0",
+          "final-policy-selected-vs-ts-003-1",
+          "final-policy-selected-vs-ts-006-0",
+          "final-policy-selected-vs-ts-006-1",
+          "final-policy-selected-vs-ts-007-0",
+          "final-policy-selected-vs-ts-007-1",
+          "final-policy-selected-vs-ts-010-0",
+          "final-policy-selected-vs-ts-010-1",
+          "final-policy-selected-vs-ts-011-0",
+          "final-policy-selected-vs-ts-011-1",
+          "final-policy-selected-vs-ts-014-0",
+          "final-policy-selected-vs-ts-014-1",
+          "final-policy-selected-vs-ts-015-0",
+          "final-policy-selected-vs-ts-015-1",
+          "final-policy-selected-vs-ts-018-0",
+          "final-policy-selected-vs-ts-018-1",
+          "final-policy-selected-vs-ts-019-0",
+          "final-policy-selected-vs-ts-019-1",
+          "final-policy-selected-vs-ts-022-0",
+          "final-policy-selected-vs-ts-022-1",
+          "final-policy-selected-vs-ts-023-0",
+          "final-policy-selected-vs-ts-023-1",
+          "final-policy-selected-vs-ts-026-0",
+          "final-policy-selected-vs-ts-026-1",
+          "final-policy-selected-vs-ts-027-0",
+          "final-policy-selected-vs-ts-027-1",
+          "final-policy-selected-vs-ts-030-0",
+          "final-policy-selected-vs-ts-030-1",
+          "final-policy-selected-vs-ts-031-0",
+          "final-policy-selected-vs-ts-031-1",
+          "final-policy-selected-vs-ucb-002-0",
+          "final-policy-selected-vs-ucb-002-1",
+          "final-policy-selected-vs-ucb-003-0",
+          "final-policy-selected-vs-ucb-003-1",
+          "final-policy-selected-vs-ucb-006-0",
+          "final-policy-selected-vs-ucb-006-1",
+          "final-policy-selected-vs-ucb-007-0",
+          "final-policy-selected-vs-ucb-007-1",
+          "final-policy-selected-vs-ucb-010-0",
+          "final-policy-selected-vs-ucb-010-1",
+          "final-policy-selected-vs-ucb-011-0",
+          "final-policy-selected-vs-ucb-011-1",
+          "final-policy-selected-vs-ucb-014-0",
+          "final-policy-selected-vs-ucb-014-1",
+          "final-policy-selected-vs-ucb-015-0",
+          "final-policy-selected-vs-ucb-015-1",
+          "final-policy-selected-vs-ucb-018-0",
+          "final-policy-selected-vs-ucb-018-1",
+          "final-policy-selected-vs-ucb-019-0",
+          "final-policy-selected-vs-ucb-019-1",
+          "final-policy-selected-vs-ucb-022-0",
+          "final-policy-selected-vs-ucb-022-1",
+          "final-policy-selected-vs-ucb-023-0",
+          "final-policy-selected-vs-ucb-023-1",
+          "final-policy-selected-vs-ucb-026-0",
+          "final-policy-selected-vs-ucb-026-1",
+          "final-policy-selected-vs-ucb-027-0",
+          "final-policy-selected-vs-ucb-027-1",
+          "final-policy-selected-vs-ucb-030-0",
+          "final-policy-selected-vs-ucb-030-1",
+          "final-policy-selected-vs-ucb-031-0",
+          "final-policy-selected-vs-ucb-031-1"
+        ],
+        "comparisons": [
+          {
+            "left": "legacy_ts",
+            "right": "selected",
+            "scheduled_games": 64,
+            "recorded_games": 32,
+            "completed_games": 32,
+            "left_wins": 6,
+            "right_wins": 26,
+            "left_win_rate_completed_games": 0.1875,
+            "wilson_95_game_interval": [
+              0.08889544689565954,
+              0.3530915520137596
+            ],
+            "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+            "complete_side_pairs": 16,
+            "paired_mean_win_rate": 0.1875,
+            "paired_cluster_bootstrap_95": [
+              0.09375,
+              0.3125
+            ],
+            "bootstrap_resamples": 2000,
+            "bootstrap_seed": 378,
+            "failures": {},
+            "failures_by_actor": {},
+            "failure_rate_recorded": 0.0,
+            "left_first_wins": 2,
+            "left_second_wins": 4
+          },
+          {
+            "left": "rave_ucb",
+            "right": "selected",
+            "scheduled_games": 64,
+            "recorded_games": 32,
+            "completed_games": 32,
+            "left_wins": 4,
+            "right_wins": 28,
+            "left_win_rate_completed_games": 0.125,
+            "wilson_95_game_interval": [
+              0.04970134387480073,
+              0.2806830548165022
+            ],
+            "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+            "complete_side_pairs": 16,
+            "paired_mean_win_rate": 0.125,
+            "paired_cluster_bootstrap_95": [
+              0.03125,
+              0.25
+            ],
+            "bootstrap_resamples": 2000,
+            "bootstrap_seed": 378,
+            "failures": {},
+            "failures_by_actor": {},
+            "failure_rate_recorded": 0.0,
+            "left_first_wins": 2,
+            "left_second_wins": 2
+          },
+          {
+            "left": "selected",
+            "right": "ts",
+            "scheduled_games": 64,
+            "recorded_games": 32,
+            "completed_games": 32,
+            "left_wins": 26,
+            "right_wins": 6,
+            "left_win_rate_completed_games": 0.8125,
+            "wilson_95_game_interval": [
+              0.6469084479862404,
+              0.9111045531043405
+            ],
+            "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+            "complete_side_pairs": 16,
+            "paired_mean_win_rate": 0.8125,
+            "paired_cluster_bootstrap_95": [
+              0.6875,
+              0.9375
+            ],
+            "bootstrap_resamples": 2000,
+            "bootstrap_seed": 378,
+            "failures": {},
+            "failures_by_actor": {},
+            "failure_rate_recorded": 0.0,
+            "left_first_wins": 12,
+            "left_second_wins": 14
+          },
+          {
+            "left": "selected",
+            "right": "ucb",
+            "scheduled_games": 64,
+            "recorded_games": 32,
+            "completed_games": 32,
+            "left_wins": 29,
+            "right_wins": 3,
+            "left_win_rate_completed_games": 0.90625,
+            "wilson_95_game_interval": [
+              0.7578184527161212,
+              0.9675984487016337
+            ],
+            "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+            "complete_side_pairs": 16,
+            "paired_mean_win_rate": 0.90625,
+            "paired_cluster_bootstrap_95": [
+              0.8125,
+              1.0
+            ],
+            "bootstrap_resamples": 2000,
+            "bootstrap_seed": 378,
+            "failures": {},
+            "failures_by_actor": {},
+            "failure_rate_recorded": 0.0,
+            "left_first_wins": 15,
+            "left_second_wins": 14
+          }
+        ],
+        "interpretation": "Wins require verified connecting paths. Timeouts, illegal moves and protocol/process failures are excluded from playing-strength wins and reported separately. Pair bootstrap resamples complete side-reversal pairs only. Hardware environments must be reported separately."
+      }
+    },
+    {
+      "environment": {
+        "affinity_cpus": 4,
+        "cgroup_cpu_max": "400000 100000",
+        "cgroup_memory_max": "32212254720",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+        "logical_cpus": 4,
+        "machine": "x86_64",
+        "python": "3.13.15",
+        "release": "6.18.48+",
+        "system": "Linux"
+      },
+      "summary": {
+        "schema_version": 1,
+        "suite_id": "final-policy",
+        "split": "final",
+        "manifest_sha256": "d78b2e49bb9ba396ce655582dbc5574b7366ab71ae13844df78238efa9f39cfd",
+        "budget": {
+          "mode": "iterations",
+          "iterations": 16000,
+          "workers": 2,
+          "node_cap": 100000,
+          "game_seconds": 300,
+          "response_timeout": 60
+        },
+        "scheduled_games": 256,
+        "recorded_games": 128,
+        "completed_games": 128,
+        "missing_game_ids": [
+          "final-policy-selected-vs-legacy_ts-000-0",
+          "final-policy-selected-vs-legacy_ts-000-1",
+          "final-policy-selected-vs-legacy_ts-001-0",
+          "final-policy-selected-vs-legacy_ts-001-1",
+          "final-policy-selected-vs-legacy_ts-004-0",
+          "final-policy-selected-vs-legacy_ts-004-1",
+          "final-policy-selected-vs-legacy_ts-005-0",
+          "final-policy-selected-vs-legacy_ts-005-1",
+          "final-policy-selected-vs-legacy_ts-008-0",
+          "final-policy-selected-vs-legacy_ts-008-1",
+          "final-policy-selected-vs-legacy_ts-009-0",
+          "final-policy-selected-vs-legacy_ts-009-1",
+          "final-policy-selected-vs-legacy_ts-012-0",
+          "final-policy-selected-vs-legacy_ts-012-1",
+          "final-policy-selected-vs-legacy_ts-013-0",
+          "final-policy-selected-vs-legacy_ts-013-1",
+          "final-policy-selected-vs-legacy_ts-016-0",
+          "final-policy-selected-vs-legacy_ts-016-1",
+          "final-policy-selected-vs-legacy_ts-017-0",
+          "final-policy-selected-vs-legacy_ts-017-1",
+          "final-policy-selected-vs-legacy_ts-020-0",
+          "final-policy-selected-vs-legacy_ts-020-1",
+          "final-policy-selected-vs-legacy_ts-021-0",
+          "final-policy-selected-vs-legacy_ts-021-1",
+          "final-policy-selected-vs-legacy_ts-024-0",
+          "final-policy-selected-vs-legacy_ts-024-1",
+          "final-policy-selected-vs-legacy_ts-025-0",
+          "final-policy-selected-vs-legacy_ts-025-1",
+          "final-policy-selected-vs-legacy_ts-028-0",
+          "final-policy-selected-vs-legacy_ts-028-1",
+          "final-policy-selected-vs-legacy_ts-029-0",
+          "final-policy-selected-vs-legacy_ts-029-1",
+          "final-policy-selected-vs-rave_ucb-000-0",
+          "final-policy-selected-vs-rave_ucb-000-1",
+          "final-policy-selected-vs-rave_ucb-001-0",
+          "final-policy-selected-vs-rave_ucb-001-1",
+          "final-policy-selected-vs-rave_ucb-004-0",
+          "final-policy-selected-vs-rave_ucb-004-1",
+          "final-policy-selected-vs-rave_ucb-005-0",
+          "final-policy-selected-vs-rave_ucb-005-1",
+          "final-policy-selected-vs-rave_ucb-008-0",
+          "final-policy-selected-vs-rave_ucb-008-1",
+          "final-policy-selected-vs-rave_ucb-009-0",
+          "final-policy-selected-vs-rave_ucb-009-1",
+          "final-policy-selected-vs-rave_ucb-012-0",
+          "final-policy-selected-vs-rave_ucb-012-1",
+          "final-policy-selected-vs-rave_ucb-013-0",
+          "final-policy-selected-vs-rave_ucb-013-1",
+          "final-policy-selected-vs-rave_ucb-016-0",
+          "final-policy-selected-vs-rave_ucb-016-1",
+          "final-policy-selected-vs-rave_ucb-017-0",
+          "final-policy-selected-vs-rave_ucb-017-1",
+          "final-policy-selected-vs-rave_ucb-020-0",
+          "final-policy-selected-vs-rave_ucb-020-1",
+          "final-policy-selected-vs-rave_ucb-021-0",
+          "final-policy-selected-vs-rave_ucb-021-1",
+          "final-policy-selected-vs-rave_ucb-024-0",
+          "final-policy-selected-vs-rave_ucb-024-1",
+          "final-policy-selected-vs-rave_ucb-025-0",
+          "final-policy-selected-vs-rave_ucb-025-1",
+          "final-policy-selected-vs-rave_ucb-028-0",
+          "final-policy-selected-vs-rave_ucb-028-1",
+          "final-policy-selected-vs-rave_ucb-029-0",
+          "final-policy-selected-vs-rave_ucb-029-1",
+          "final-policy-selected-vs-ts-000-0",
+          "final-policy-selected-vs-ts-000-1",
+          "final-policy-selected-vs-ts-001-0",
+          "final-policy-selected-vs-ts-001-1",
+          "final-policy-selected-vs-ts-004-0",
+          "final-policy-selected-vs-ts-004-1",
+          "final-policy-selected-vs-ts-005-0",
+          "final-policy-selected-vs-ts-005-1",
+          "final-policy-selected-vs-ts-008-0",
+          "final-policy-selected-vs-ts-008-1",
+          "final-policy-selected-vs-ts-009-0",
+          "final-policy-selected-vs-ts-009-1",
+          "final-policy-selected-vs-ts-012-0",
+          "final-policy-selected-vs-ts-012-1",
+          "final-policy-selected-vs-ts-013-0",
+          "final-policy-selected-vs-ts-013-1",
+          "final-policy-selected-vs-ts-016-0",
+          "final-policy-selected-vs-ts-016-1",
+          "final-policy-selected-vs-ts-017-0",
+          "final-policy-selected-vs-ts-017-1",
+          "final-policy-selected-vs-ts-020-0",
+          "final-policy-selected-vs-ts-020-1",
+          "final-policy-selected-vs-ts-021-0",
+          "final-policy-selected-vs-ts-021-1",
+          "final-policy-selected-vs-ts-024-0",
+          "final-policy-selected-vs-ts-024-1",
+          "final-policy-selected-vs-ts-025-0",
+          "final-policy-selected-vs-ts-025-1",
+          "final-policy-selected-vs-ts-028-0",
+          "final-policy-selected-vs-ts-028-1",
+          "final-policy-selected-vs-ts-029-0",
+          "final-policy-selected-vs-ts-029-1",
+          "final-policy-selected-vs-ucb-000-0",
+          "final-policy-selected-vs-ucb-000-1",
+          "final-policy-selected-vs-ucb-001-0",
+          "final-policy-selected-vs-ucb-001-1",
+          "final-policy-selected-vs-ucb-004-0",
+          "final-policy-selected-vs-ucb-004-1",
+          "final-policy-selected-vs-ucb-005-0",
+          "final-policy-selected-vs-ucb-005-1",
+          "final-policy-selected-vs-ucb-008-0",
+          "final-policy-selected-vs-ucb-008-1",
+          "final-policy-selected-vs-ucb-009-0",
+          "final-policy-selected-vs-ucb-009-1",
+          "final-policy-selected-vs-ucb-012-0",
+          "final-policy-selected-vs-ucb-012-1",
+          "final-policy-selected-vs-ucb-013-0",
+          "final-policy-selected-vs-ucb-013-1",
+          "final-policy-selected-vs-ucb-016-0",
+          "final-policy-selected-vs-ucb-016-1",
+          "final-policy-selected-vs-ucb-017-0",
+          "final-policy-selected-vs-ucb-017-1",
+          "final-policy-selected-vs-ucb-020-0",
+          "final-policy-selected-vs-ucb-020-1",
+          "final-policy-selected-vs-ucb-021-0",
+          "final-policy-selected-vs-ucb-021-1",
+          "final-policy-selected-vs-ucb-024-0",
+          "final-policy-selected-vs-ucb-024-1",
+          "final-policy-selected-vs-ucb-025-0",
+          "final-policy-selected-vs-ucb-025-1",
+          "final-policy-selected-vs-ucb-028-0",
+          "final-policy-selected-vs-ucb-028-1",
+          "final-policy-selected-vs-ucb-029-0",
+          "final-policy-selected-vs-ucb-029-1"
+        ],
+        "comparisons": [
+          {
+            "left": "legacy_ts",
+            "right": "selected",
+            "scheduled_games": 64,
+            "recorded_games": 32,
+            "completed_games": 32,
+            "left_wins": 3,
+            "right_wins": 29,
+            "left_win_rate_completed_games": 0.09375,
+            "wilson_95_game_interval": [
+              0.032401551298366194,
+              0.24218154728387864
+            ],
+            "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+            "complete_side_pairs": 16,
+            "paired_mean_win_rate": 0.09375,
+            "paired_cluster_bootstrap_95": [
+              0.0,
+              0.1875
+            ],
+            "bootstrap_resamples": 2000,
+            "bootstrap_seed": 378,
+            "failures": {},
+            "failures_by_actor": {},
+            "failure_rate_recorded": 0.0,
+            "left_first_wins": 2,
+            "left_second_wins": 1
+          },
+          {
+            "left": "rave_ucb",
+            "right": "selected",
+            "scheduled_games": 64,
+            "recorded_games": 32,
+            "completed_games": 32,
+            "left_wins": 6,
+            "right_wins": 26,
+            "left_win_rate_completed_games": 0.1875,
+            "wilson_95_game_interval": [
+              0.08889544689565954,
+              0.3530915520137596
+            ],
+            "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+            "complete_side_pairs": 16,
+            "paired_mean_win_rate": 0.1875,
+            "paired_cluster_bootstrap_95": [
+              0.0625,
+              0.3125
+            ],
+            "bootstrap_resamples": 2000,
+            "bootstrap_seed": 378,
+            "failures": {},
+            "failures_by_actor": {},
+            "failure_rate_recorded": 0.0,
+            "left_first_wins": 2,
+            "left_second_wins": 4
+          },
+          {
+            "left": "selected",
+            "right": "ts",
+            "scheduled_games": 64,
+            "recorded_games": 32,
+            "completed_games": 32,
+            "left_wins": 27,
+            "right_wins": 5,
+            "left_win_rate_completed_games": 0.84375,
+            "wilson_95_game_interval": [
+              0.682458504024696,
+              0.9313557971749429
+            ],
+            "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+            "complete_side_pairs": 16,
+            "paired_mean_win_rate": 0.84375,
+            "paired_cluster_bootstrap_95": [
+              0.71875,
+              0.9375
+            ],
+            "bootstrap_resamples": 2000,
+            "bootstrap_seed": 378,
+            "failures": {},
+            "failures_by_actor": {},
+            "failure_rate_recorded": 0.0,
+            "left_first_wins": 14,
+            "left_second_wins": 13
+          },
+          {
+            "left": "selected",
+            "right": "ucb",
+            "scheduled_games": 64,
+            "recorded_games": 32,
+            "completed_games": 32,
+            "left_wins": 28,
+            "right_wins": 4,
+            "left_win_rate_completed_games": 0.875,
+            "wilson_95_game_interval": [
+              0.7193169451834978,
+              0.9502986561251991
+            ],
+            "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+            "complete_side_pairs": 16,
+            "paired_mean_win_rate": 0.875,
+            "paired_cluster_bootstrap_95": [
+              0.71875,
+              1.0
+            ],
+            "bootstrap_resamples": 2000,
+            "bootstrap_seed": 378,
+            "failures": {},
+            "failures_by_actor": {},
+            "failure_rate_recorded": 0.0,
+            "left_first_wins": 13,
+            "left_second_wins": 15
+          }
+        ],
+        "interpretation": "Wins require verified connecting paths. Timeouts, illegal moves and protocol/process failures are excluded from playing-strength wins and reported separately. Pair bootstrap resamples complete side-reversal pairs only. Hardware environments must be reported separately."
+      }
+    }
+  ],
+  "run_metadata": [
+    {
+      "manifest_sha256": "d78b2e49bb9ba396ce655582dbc5574b7366ab71ae13844df78238efa9f39cfd",
+      "environment": {
+        "system": "Windows",
+        "release": "11",
+        "machine": "AMD64",
+        "python": "3.12.7",
+        "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+        "logical_cpus": 16
+      },
+      "binaries": {
+        "selected": {
+          "path": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+          "sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "D:\\mingw64\\bin\\g++.EXE"
+            ],
+            "compiler_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+            "command": [
+              "D:\\mingw64\\bin\\g++.EXE",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "-static",
+              "-static-libgcc",
+              "-static-libstdc++",
+              "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+              "-o",
+              "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe"
+            ],
+            "executable": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+            "executable_sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+            "environment": {
+              "system": "Windows",
+              "release": "11",
+              "machine": "AMD64",
+              "python": "3.12.7",
+              "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+              "logical_cpus": 16
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "ucb": {
+          "path": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+          "sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "D:\\mingw64\\bin\\g++.EXE"
+            ],
+            "compiler_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+            "command": [
+              "D:\\mingw64\\bin\\g++.EXE",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "-static",
+              "-static-libgcc",
+              "-static-libstdc++",
+              "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+              "-o",
+              "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe"
+            ],
+            "executable": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+            "executable_sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+            "environment": {
+              "system": "Windows",
+              "release": "11",
+              "machine": "AMD64",
+              "python": "3.12.7",
+              "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+              "logical_cpus": 16
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "ts": {
+          "path": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+          "sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "D:\\mingw64\\bin\\g++.EXE"
+            ],
+            "compiler_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+            "command": [
+              "D:\\mingw64\\bin\\g++.EXE",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "-static",
+              "-static-libgcc",
+              "-static-libstdc++",
+              "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+              "-o",
+              "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe"
+            ],
+            "executable": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+            "executable_sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+            "environment": {
+              "system": "Windows",
+              "release": "11",
+              "machine": "AMD64",
+              "python": "3.12.7",
+              "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+              "logical_cpus": 16
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "rave_ucb": {
+          "path": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+          "sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "D:\\mingw64\\bin\\g++.EXE"
+            ],
+            "compiler_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+            "command": [
+              "D:\\mingw64\\bin\\g++.EXE",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "-static",
+              "-static-libgcc",
+              "-static-libstdc++",
+              "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+              "-o",
+              "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe"
+            ],
+            "executable": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+            "executable_sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+            "environment": {
+              "system": "Windows",
+              "release": "11",
+              "machine": "AMD64",
+              "python": "3.12.7",
+              "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+              "logical_cpus": 16
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "legacy_ts": {
+          "path": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+          "sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "D:\\mingw64\\bin\\g++.EXE"
+            ],
+            "compiler_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+            "command": [
+              "D:\\mingw64\\bin\\g++.EXE",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "-static",
+              "-static-libgcc",
+              "-static-libstdc++",
+              "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+              "-o",
+              "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe"
+            ],
+            "executable": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+            "executable_sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+            "environment": {
+              "system": "Windows",
+              "release": "11",
+              "machine": "AMD64",
+              "python": "3.12.7",
+              "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+              "logical_cpus": 16
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "shard_index": 0,
+      "shard_count": 4,
+      "runner_sha256": {
+        "native.py": "b96531703c67395be7158fe27725b65bcc266e6523fe7577c1106cbba4fa88e4",
+        "referee.py": "993c948a58dda397145fc77cc0e353b5b1632d6ae4a8b577a72e41180edadd5e",
+        "evaluation.py": "c0f2c1ac0e2ecbd42c2c7778acc181db777821284b74b386988bb40add715c08",
+        "cli.py": "ce2b6d29f618670de7824c3c9c1f61cdab5f540591a0f5ea830dd34a591f5235"
+      },
+      "execution": "Sequential games; each participant process may use declared root-parallel workers."
+    },
+    {
+      "manifest_sha256": "d78b2e49bb9ba396ce655582dbc5574b7366ab71ae13844df78238efa9f39cfd",
+      "environment": {
+        "system": "Windows",
+        "release": "11",
+        "machine": "AMD64",
+        "python": "3.12.7",
+        "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+        "logical_cpus": 16
+      },
+      "binaries": {
+        "selected": {
+          "path": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+          "sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "D:\\mingw64\\bin\\g++.EXE"
+            ],
+            "compiler_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+            "command": [
+              "D:\\mingw64\\bin\\g++.EXE",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "-static",
+              "-static-libgcc",
+              "-static-libstdc++",
+              "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+              "-o",
+              "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe"
+            ],
+            "executable": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+            "executable_sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+            "environment": {
+              "system": "Windows",
+              "release": "11",
+              "machine": "AMD64",
+              "python": "3.12.7",
+              "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+              "logical_cpus": 16
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "ucb": {
+          "path": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+          "sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "D:\\mingw64\\bin\\g++.EXE"
+            ],
+            "compiler_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+            "command": [
+              "D:\\mingw64\\bin\\g++.EXE",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "-static",
+              "-static-libgcc",
+              "-static-libstdc++",
+              "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+              "-o",
+              "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe"
+            ],
+            "executable": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+            "executable_sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+            "environment": {
+              "system": "Windows",
+              "release": "11",
+              "machine": "AMD64",
+              "python": "3.12.7",
+              "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+              "logical_cpus": 16
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "ts": {
+          "path": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+          "sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "D:\\mingw64\\bin\\g++.EXE"
+            ],
+            "compiler_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+            "command": [
+              "D:\\mingw64\\bin\\g++.EXE",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "-static",
+              "-static-libgcc",
+              "-static-libstdc++",
+              "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+              "-o",
+              "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe"
+            ],
+            "executable": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+            "executable_sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+            "environment": {
+              "system": "Windows",
+              "release": "11",
+              "machine": "AMD64",
+              "python": "3.12.7",
+              "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+              "logical_cpus": 16
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "rave_ucb": {
+          "path": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+          "sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "D:\\mingw64\\bin\\g++.EXE"
+            ],
+            "compiler_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+            "command": [
+              "D:\\mingw64\\bin\\g++.EXE",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "-static",
+              "-static-libgcc",
+              "-static-libstdc++",
+              "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+              "-o",
+              "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe"
+            ],
+            "executable": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+            "executable_sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+            "environment": {
+              "system": "Windows",
+              "release": "11",
+              "machine": "AMD64",
+              "python": "3.12.7",
+              "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+              "logical_cpus": 16
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "legacy_ts": {
+          "path": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+          "sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "D:\\mingw64\\bin\\g++.EXE"
+            ],
+            "compiler_version": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "f45f8fd915aecbf8a15692089dee8ebef0f210148f13ea5c1642e55376dd234c",
+            "command": [
+              "D:\\mingw64\\bin\\g++.EXE",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "-static",
+              "-static-libgcc",
+              "-static-libstdc++",
+              "D:\\Projects\\AI-and-Games\\native\\hex_search.cpp",
+              "-o",
+              "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe"
+            ],
+            "executable": "D:\\Projects\\AI-and-Games\\.local\\bin\\hex_search.exe",
+            "executable_sha256": "108cbecd7befdb3ce8ebd73e2d37d95f13984095366f9319596f6683d58094a9",
+            "environment": {
+              "system": "Windows",
+              "release": "11",
+              "machine": "AMD64",
+              "python": "3.12.7",
+              "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+              "logical_cpus": 16
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "shard_index": 1,
+      "shard_count": 4,
+      "runner_sha256": {
+        "native.py": "b96531703c67395be7158fe27725b65bcc266e6523fe7577c1106cbba4fa88e4",
+        "referee.py": "993c948a58dda397145fc77cc0e353b5b1632d6ae4a8b577a72e41180edadd5e",
+        "evaluation.py": "c0f2c1ac0e2ecbd42c2c7778acc181db777821284b74b386988bb40add715c08",
+        "cli.py": "ce2b6d29f618670de7824c3c9c1f61cdab5f540591a0f5ea830dd34a591f5235"
+      },
+      "execution": "Sequential games; each participant process may use declared root-parallel workers."
+    },
+    {
+      "manifest_sha256": "d78b2e49bb9ba396ce655582dbc5574b7366ab71ae13844df78238efa9f39cfd",
+      "environment": {
+        "system": "Linux",
+        "release": "6.18.48+",
+        "machine": "x86_64",
+        "python": "3.13.15",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+        "logical_cpus": 4,
+        "affinity_cpus": 4,
+        "cgroup_cpu_max": "400000 100000",
+        "cgroup_memory_max": "32212254720"
+      },
+      "binaries": {
+        "selected": {
+          "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+          "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/native/hex_search.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/hex_search"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+            "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "ucb": {
+          "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+          "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/native/hex_search.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/hex_search"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+            "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "ts": {
+          "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+          "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/native/hex_search.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/hex_search"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+            "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "rave_ucb": {
+          "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+          "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/native/hex_search.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/hex_search"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+            "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "legacy_ts": {
+          "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+          "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/native/hex_search.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/hex_search"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+            "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "shard_index": 2,
+      "shard_count": 4,
+      "runner_sha256": {
+        "native.py": "b96531703c67395be7158fe27725b65bcc266e6523fe7577c1106cbba4fa88e4",
+        "referee.py": "993c948a58dda397145fc77cc0e353b5b1632d6ae4a8b577a72e41180edadd5e",
+        "evaluation.py": "c0f2c1ac0e2ecbd42c2c7778acc181db777821284b74b386988bb40add715c08",
+        "cli.py": "ce2b6d29f618670de7824c3c9c1f61cdab5f540591a0f5ea830dd34a591f5235"
+      },
+      "execution": "Sequential games; each participant process may use declared root-parallel workers."
+    },
+    {
+      "manifest_sha256": "d78b2e49bb9ba396ce655582dbc5574b7366ab71ae13844df78238efa9f39cfd",
+      "environment": {
+        "system": "Linux",
+        "release": "6.18.48+",
+        "machine": "x86_64",
+        "python": "3.13.15",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+        "logical_cpus": 4,
+        "affinity_cpus": 4,
+        "cgroup_cpu_max": "400000 100000",
+        "cgroup_memory_max": "32212254720"
+      },
+      "binaries": {
+        "selected": {
+          "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+          "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/native/hex_search.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/hex_search"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+            "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "ucb": {
+          "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+          "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/native/hex_search.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/hex_search"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+            "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "ts": {
+          "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+          "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/native/hex_search.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/hex_search"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+            "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "rave_ucb": {
+          "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+          "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/native/hex_search.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/hex_search"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+            "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        },
+        "legacy_ts": {
+          "path": "/kaggle/working/hex-source/.local/bin/hex_search",
+          "sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+          "build_receipt": {
+            "schema_version": 1,
+            "kind": "native",
+            "source": "/kaggle/working/hex-source/native/hex_search.cpp",
+            "source_sha256": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+            "compiler": [
+              "/usr/bin/g++"
+            ],
+            "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+            "compiler_sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+            "command": [
+              "/usr/bin/g++",
+              "-std=c++17",
+              "-O3",
+              "-pthread",
+              "/kaggle/working/hex-source/native/hex_search.cpp",
+              "-o",
+              "/kaggle/working/hex-source/.local/bin/hex_search"
+            ],
+            "executable": "/kaggle/working/hex-source/.local/bin/hex_search",
+            "executable_sha256": "f19a02a2c157707653dd69b280d6ae666e1e9366a4fd8fe0a18b65be80ab17c0",
+            "environment": {
+              "system": "Linux",
+              "release": "6.18.48+",
+              "machine": "x86_64",
+              "python": "3.13.15",
+              "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "logical_cpus": 4,
+              "affinity_cpus": 4,
+              "cgroup_cpu_max": "400000 100000",
+              "cgroup_memory_max": "32212254720"
+            },
+            "self_test": {
+              "returncode": 0,
+              "stdout": "{\"kind\":\"hex_search_self_test\",\"status\":\"passed\",\"checks\":13,\"exhaustive_connectivity_positions\":19683}",
+              "stderr": ""
+            }
+          }
+        }
+      },
+      "shard_index": 3,
+      "shard_count": 4,
+      "runner_sha256": {
+        "native.py": "b96531703c67395be7158fe27725b65bcc266e6523fe7577c1106cbba4fa88e4",
+        "referee.py": "993c948a58dda397145fc77cc0e353b5b1632d6ae4a8b577a72e41180edadd5e",
+        "evaluation.py": "c0f2c1ac0e2ecbd42c2c7778acc181db777821284b74b386988bb40add715c08",
+        "cli.py": "ce2b6d29f618670de7824c3c9c1f61cdab5f540591a0f5ea830dd34a591f5235"
+      },
+      "execution": "Sequential games; each participant process may use declared root-parallel workers."
+    }
+  ]
+}

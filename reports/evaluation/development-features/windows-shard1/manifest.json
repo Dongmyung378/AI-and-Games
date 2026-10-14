@@ -1,0 +1,949 @@
+{
+  "schema_version": 1,
+  "suite_id": "development-features",
+  "split": "development",
+  "board_size": 11,
+  "budget": {
+    "mode": "iterations",
+    "iterations": 4000,
+    "workers": 2,
+    "game_seconds": 300,
+    "response_timeout": 60,
+    "node_cap": 100000
+  },
+  "participants": {
+    "full": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "no_bridge": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": false,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "no_ordering": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": false,
+      "rave_k": 1000
+    },
+    "rave_k300": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 300
+    },
+    "rave_k3000": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 3000
+    }
+  },
+  "games": [
+    {
+      "game_id": "development-features-full-vs-no_bridge-000-0",
+      "pair_id": "development-features-full-vs-no_bridge-000",
+      "red": "full",
+      "blue": "no_bridge",
+      "seed": 810000,
+      "opening_seed": 810000,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-000-1",
+      "pair_id": "development-features-full-vs-no_bridge-000",
+      "red": "no_bridge",
+      "blue": "full",
+      "seed": 810000,
+      "opening_seed": 810000,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-001-0",
+      "pair_id": "development-features-full-vs-no_bridge-001",
+      "red": "full",
+      "blue": "no_bridge",
+      "seed": 810001,
+      "opening_seed": 810001,
+      "opening_moves": [
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-001-1",
+      "pair_id": "development-features-full-vs-no_bridge-001",
+      "red": "no_bridge",
+      "blue": "full",
+      "seed": 810001,
+      "opening_seed": 810001,
+      "opening_moves": [
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-002-0",
+      "pair_id": "development-features-full-vs-no_bridge-002",
+      "red": "full",
+      "blue": "no_bridge",
+      "seed": 810002,
+      "opening_seed": 810002,
+      "opening_moves": [
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-002-1",
+      "pair_id": "development-features-full-vs-no_bridge-002",
+      "red": "no_bridge",
+      "blue": "full",
+      "seed": 810002,
+      "opening_seed": 810002,
+      "opening_moves": [
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-003-0",
+      "pair_id": "development-features-full-vs-no_bridge-003",
+      "red": "full",
+      "blue": "no_bridge",
+      "seed": 810003,
+      "opening_seed": 810003,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-003-1",
+      "pair_id": "development-features-full-vs-no_bridge-003",
+      "red": "no_bridge",
+      "blue": "full",
+      "seed": 810003,
+      "opening_seed": 810003,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-004-0",
+      "pair_id": "development-features-full-vs-no_bridge-004",
+      "red": "full",
+      "blue": "no_bridge",
+      "seed": 810004,
+      "opening_seed": 810004,
+      "opening_moves": [
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-004-1",
+      "pair_id": "development-features-full-vs-no_bridge-004",
+      "red": "no_bridge",
+      "blue": "full",
+      "seed": 810004,
+      "opening_seed": 810004,
+      "opening_moves": [
+        [
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-005-0",
+      "pair_id": "development-features-full-vs-no_bridge-005",
+      "red": "full",
+      "blue": "no_bridge",
+      "seed": 810005,
+      "opening_seed": 810005,
+      "opening_moves": [
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-005-1",
+      "pair_id": "development-features-full-vs-no_bridge-005",
+      "red": "no_bridge",
+      "blue": "full",
+      "seed": 810005,
+      "opening_seed": 810005,
+      "opening_moves": [
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-006-0",
+      "pair_id": "development-features-full-vs-no_bridge-006",
+      "red": "full",
+      "blue": "no_bridge",
+      "seed": 810006,
+      "opening_seed": 810006,
+      "opening_moves": [
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-006-1",
+      "pair_id": "development-features-full-vs-no_bridge-006",
+      "red": "no_bridge",
+      "blue": "full",
+      "seed": 810006,
+      "opening_seed": 810006,
+      "opening_moves": [
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-007-0",
+      "pair_id": "development-features-full-vs-no_bridge-007",
+      "red": "full",
+      "blue": "no_bridge",
+      "seed": 810007,
+      "opening_seed": 810007,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_bridge-007-1",
+      "pair_id": "development-features-full-vs-no_bridge-007",
+      "red": "no_bridge",
+      "blue": "full",
+      "seed": 810007,
+      "opening_seed": 810007,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-000-0",
+      "pair_id": "development-features-full-vs-no_ordering-000",
+      "red": "full",
+      "blue": "no_ordering",
+      "seed": 811000,
+      "opening_seed": 811000,
+      "opening_moves": [
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-000-1",
+      "pair_id": "development-features-full-vs-no_ordering-000",
+      "red": "no_ordering",
+      "blue": "full",
+      "seed": 811000,
+      "opening_seed": 811000,
+      "opening_moves": [
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-001-0",
+      "pair_id": "development-features-full-vs-no_ordering-001",
+      "red": "full",
+      "blue": "no_ordering",
+      "seed": 811001,
+      "opening_seed": 811001,
+      "opening_moves": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-001-1",
+      "pair_id": "development-features-full-vs-no_ordering-001",
+      "red": "no_ordering",
+      "blue": "full",
+      "seed": 811001,
+      "opening_seed": 811001,
+      "opening_moves": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-002-0",
+      "pair_id": "development-features-full-vs-no_ordering-002",
+      "red": "full",
+      "blue": "no_ordering",
+      "seed": 811002,
+      "opening_seed": 811002,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-002-1",
+      "pair_id": "development-features-full-vs-no_ordering-002",
+      "red": "no_ordering",
+      "blue": "full",
+      "seed": 811002,
+      "opening_seed": 811002,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-003-0",
+      "pair_id": "development-features-full-vs-no_ordering-003",
+      "red": "full",
+      "blue": "no_ordering",
+      "seed": 811003,
+      "opening_seed": 811003,
+      "opening_moves": [
+        [
+          0,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-003-1",
+      "pair_id": "development-features-full-vs-no_ordering-003",
+      "red": "no_ordering",
+      "blue": "full",
+      "seed": 811003,
+      "opening_seed": 811003,
+      "opening_moves": [
+        [
+          0,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-004-0",
+      "pair_id": "development-features-full-vs-no_ordering-004",
+      "red": "full",
+      "blue": "no_ordering",
+      "seed": 811004,
+      "opening_seed": 811004,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-004-1",
+      "pair_id": "development-features-full-vs-no_ordering-004",
+      "red": "no_ordering",
+      "blue": "full",
+      "seed": 811004,
+      "opening_seed": 811004,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-005-0",
+      "pair_id": "development-features-full-vs-no_ordering-005",
+      "red": "full",
+      "blue": "no_ordering",
+      "seed": 811005,
+      "opening_seed": 811005,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-005-1",
+      "pair_id": "development-features-full-vs-no_ordering-005",
+      "red": "no_ordering",
+      "blue": "full",
+      "seed": 811005,
+      "opening_seed": 811005,
+      "opening_moves": [
+        [
+          10,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-006-0",
+      "pair_id": "development-features-full-vs-no_ordering-006",
+      "red": "full",
+      "blue": "no_ordering",
+      "seed": 811006,
+      "opening_seed": 811006,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-006-1",
+      "pair_id": "development-features-full-vs-no_ordering-006",
+      "red": "no_ordering",
+      "blue": "full",
+      "seed": 811006,
+      "opening_seed": 811006,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-007-0",
+      "pair_id": "development-features-full-vs-no_ordering-007",
+      "red": "full",
+      "blue": "no_ordering",
+      "seed": 811007,
+      "opening_seed": 811007,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-no_ordering-007-1",
+      "pair_id": "development-features-full-vs-no_ordering-007",
+      "red": "no_ordering",
+      "blue": "full",
+      "seed": 811007,
+      "opening_seed": 811007,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-000-0",
+      "pair_id": "development-features-full-vs-rave_k300-000",
+      "red": "full",
+      "blue": "rave_k300",
+      "seed": 812000,
+      "opening_seed": 812000,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-000-1",
+      "pair_id": "development-features-full-vs-rave_k300-000",
+      "red": "rave_k300",
+      "blue": "full",
+      "seed": 812000,
+      "opening_seed": 812000,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-001-0",
+      "pair_id": "development-features-full-vs-rave_k300-001",
+      "red": "full",
+      "blue": "rave_k300",
+      "seed": 812001,
+      "opening_seed": 812001,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-001-1",
+      "pair_id": "development-features-full-vs-rave_k300-001",
+      "red": "rave_k300",
+      "blue": "full",
+      "seed": 812001,
+      "opening_seed": 812001,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-002-0",
+      "pair_id": "development-features-full-vs-rave_k300-002",
+      "red": "full",
+      "blue": "rave_k300",
+      "seed": 812002,
+      "opening_seed": 812002,
+      "opening_moves": [
+        [
+          4,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-002-1",
+      "pair_id": "development-features-full-vs-rave_k300-002",
+      "red": "rave_k300",
+      "blue": "full",
+      "seed": 812002,
+      "opening_seed": 812002,
+      "opening_moves": [
+        [
+          4,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-003-0",
+      "pair_id": "development-features-full-vs-rave_k300-003",
+      "red": "full",
+      "blue": "rave_k300",
+      "seed": 812003,
+      "opening_seed": 812003,
+      "opening_moves": [
+        [
+          9,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-003-1",
+      "pair_id": "development-features-full-vs-rave_k300-003",
+      "red": "rave_k300",
+      "blue": "full",
+      "seed": 812003,
+      "opening_seed": 812003,
+      "opening_moves": [
+        [
+          9,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-004-0",
+      "pair_id": "development-features-full-vs-rave_k300-004",
+      "red": "full",
+      "blue": "rave_k300",
+      "seed": 812004,
+      "opening_seed": 812004,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-004-1",
+      "pair_id": "development-features-full-vs-rave_k300-004",
+      "red": "rave_k300",
+      "blue": "full",
+      "seed": 812004,
+      "opening_seed": 812004,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-005-0",
+      "pair_id": "development-features-full-vs-rave_k300-005",
+      "red": "full",
+      "blue": "rave_k300",
+      "seed": 812005,
+      "opening_seed": 812005,
+      "opening_moves": [
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-005-1",
+      "pair_id": "development-features-full-vs-rave_k300-005",
+      "red": "rave_k300",
+      "blue": "full",
+      "seed": 812005,
+      "opening_seed": 812005,
+      "opening_moves": [
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-006-0",
+      "pair_id": "development-features-full-vs-rave_k300-006",
+      "red": "full",
+      "blue": "rave_k300",
+      "seed": 812006,
+      "opening_seed": 812006,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-006-1",
+      "pair_id": "development-features-full-vs-rave_k300-006",
+      "red": "rave_k300",
+      "blue": "full",
+      "seed": 812006,
+      "opening_seed": 812006,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-007-0",
+      "pair_id": "development-features-full-vs-rave_k300-007",
+      "red": "full",
+      "blue": "rave_k300",
+      "seed": 812007,
+      "opening_seed": 812007,
+      "opening_moves": [
+        [
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k300-007-1",
+      "pair_id": "development-features-full-vs-rave_k300-007",
+      "red": "rave_k300",
+      "blue": "full",
+      "seed": 812007,
+      "opening_seed": 812007,
+      "opening_moves": [
+        [
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-000-0",
+      "pair_id": "development-features-full-vs-rave_k3000-000",
+      "red": "full",
+      "blue": "rave_k3000",
+      "seed": 813000,
+      "opening_seed": 813000,
+      "opening_moves": [
+        [
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-000-1",
+      "pair_id": "development-features-full-vs-rave_k3000-000",
+      "red": "rave_k3000",
+      "blue": "full",
+      "seed": 813000,
+      "opening_seed": 813000,
+      "opening_moves": [
+        [
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-001-0",
+      "pair_id": "development-features-full-vs-rave_k3000-001",
+      "red": "full",
+      "blue": "rave_k3000",
+      "seed": 813001,
+      "opening_seed": 813001,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-001-1",
+      "pair_id": "development-features-full-vs-rave_k3000-001",
+      "red": "rave_k3000",
+      "blue": "full",
+      "seed": 813001,
+      "opening_seed": 813001,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-002-0",
+      "pair_id": "development-features-full-vs-rave_k3000-002",
+      "red": "full",
+      "blue": "rave_k3000",
+      "seed": 813002,
+      "opening_seed": 813002,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-002-1",
+      "pair_id": "development-features-full-vs-rave_k3000-002",
+      "red": "rave_k3000",
+      "blue": "full",
+      "seed": 813002,
+      "opening_seed": 813002,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-003-0",
+      "pair_id": "development-features-full-vs-rave_k3000-003",
+      "red": "full",
+      "blue": "rave_k3000",
+      "seed": 813003,
+      "opening_seed": 813003,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-003-1",
+      "pair_id": "development-features-full-vs-rave_k3000-003",
+      "red": "rave_k3000",
+      "blue": "full",
+      "seed": 813003,
+      "opening_seed": 813003,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-004-0",
+      "pair_id": "development-features-full-vs-rave_k3000-004",
+      "red": "full",
+      "blue": "rave_k3000",
+      "seed": 813004,
+      "opening_seed": 813004,
+      "opening_moves": [
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-004-1",
+      "pair_id": "development-features-full-vs-rave_k3000-004",
+      "red": "rave_k3000",
+      "blue": "full",
+      "seed": 813004,
+      "opening_seed": 813004,
+      "opening_moves": [
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-005-0",
+      "pair_id": "development-features-full-vs-rave_k3000-005",
+      "red": "full",
+      "blue": "rave_k3000",
+      "seed": 813005,
+      "opening_seed": 813005,
+      "opening_moves": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-005-1",
+      "pair_id": "development-features-full-vs-rave_k3000-005",
+      "red": "rave_k3000",
+      "blue": "full",
+      "seed": 813005,
+      "opening_seed": 813005,
+      "opening_moves": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-006-0",
+      "pair_id": "development-features-full-vs-rave_k3000-006",
+      "red": "full",
+      "blue": "rave_k3000",
+      "seed": 813006,
+      "opening_seed": 813006,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-006-1",
+      "pair_id": "development-features-full-vs-rave_k3000-006",
+      "red": "rave_k3000",
+      "blue": "full",
+      "seed": 813006,
+      "opening_seed": 813006,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-007-0",
+      "pair_id": "development-features-full-vs-rave_k3000-007",
+      "red": "full",
+      "blue": "rave_k3000",
+      "seed": 813007,
+      "opening_seed": 813007,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-features-full-vs-rave_k3000-007-1",
+      "pair_id": "development-features-full-vs-rave_k3000-007",
+      "red": "rave_k3000",
+      "blue": "full",
+      "seed": 813007,
+      "opening_seed": 813007,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    }
+  ]
+}

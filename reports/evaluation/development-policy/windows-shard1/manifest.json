@@ -1,0 +1,1390 @@
+{
+  "schema_version": 1,
+  "suite_id": "development-policy",
+  "split": "development",
+  "board_size": 11,
+  "budget": {
+    "mode": "iterations",
+    "iterations": 4000,
+    "workers": 2,
+    "game_seconds": 300,
+    "response_timeout": 60,
+    "node_cap": 100000
+  },
+  "participants": {
+    "ucb": {
+      "kind": "native",
+      "policy": "ucb",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "ts": {
+      "kind": "native",
+      "policy": "ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "rave_ucb": {
+      "kind": "native",
+      "policy": "rave_ucb",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "rave_ts": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    }
+  },
+  "games": [
+    {
+      "game_id": "development-policy-ucb-vs-ts-000-0",
+      "pair_id": "development-policy-ucb-vs-ts-000",
+      "red": "ucb",
+      "blue": "ts",
+      "seed": 710000,
+      "opening_seed": 710000,
+      "opening_moves": [
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-000-1",
+      "pair_id": "development-policy-ucb-vs-ts-000",
+      "red": "ts",
+      "blue": "ucb",
+      "seed": 710000,
+      "opening_seed": 710000,
+      "opening_moves": [
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-001-0",
+      "pair_id": "development-policy-ucb-vs-ts-001",
+      "red": "ucb",
+      "blue": "ts",
+      "seed": 710001,
+      "opening_seed": 710001,
+      "opening_moves": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-001-1",
+      "pair_id": "development-policy-ucb-vs-ts-001",
+      "red": "ts",
+      "blue": "ucb",
+      "seed": 710001,
+      "opening_seed": 710001,
+      "opening_moves": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-002-0",
+      "pair_id": "development-policy-ucb-vs-ts-002",
+      "red": "ucb",
+      "blue": "ts",
+      "seed": 710002,
+      "opening_seed": 710002,
+      "opening_moves": [
+        [
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-002-1",
+      "pair_id": "development-policy-ucb-vs-ts-002",
+      "red": "ts",
+      "blue": "ucb",
+      "seed": 710002,
+      "opening_seed": 710002,
+      "opening_moves": [
+        [
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-003-0",
+      "pair_id": "development-policy-ucb-vs-ts-003",
+      "red": "ucb",
+      "blue": "ts",
+      "seed": 710003,
+      "opening_seed": 710003,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-003-1",
+      "pair_id": "development-policy-ucb-vs-ts-003",
+      "red": "ts",
+      "blue": "ucb",
+      "seed": 710003,
+      "opening_seed": 710003,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-004-0",
+      "pair_id": "development-policy-ucb-vs-ts-004",
+      "red": "ucb",
+      "blue": "ts",
+      "seed": 710004,
+      "opening_seed": 710004,
+      "opening_moves": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-004-1",
+      "pair_id": "development-policy-ucb-vs-ts-004",
+      "red": "ts",
+      "blue": "ucb",
+      "seed": 710004,
+      "opening_seed": 710004,
+      "opening_moves": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-005-0",
+      "pair_id": "development-policy-ucb-vs-ts-005",
+      "red": "ucb",
+      "blue": "ts",
+      "seed": 710005,
+      "opening_seed": 710005,
+      "opening_moves": [
+        [
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-005-1",
+      "pair_id": "development-policy-ucb-vs-ts-005",
+      "red": "ts",
+      "blue": "ucb",
+      "seed": 710005,
+      "opening_seed": 710005,
+      "opening_moves": [
+        [
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-006-0",
+      "pair_id": "development-policy-ucb-vs-ts-006",
+      "red": "ucb",
+      "blue": "ts",
+      "seed": 710006,
+      "opening_seed": 710006,
+      "opening_moves": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-006-1",
+      "pair_id": "development-policy-ucb-vs-ts-006",
+      "red": "ts",
+      "blue": "ucb",
+      "seed": 710006,
+      "opening_seed": 710006,
+      "opening_moves": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-007-0",
+      "pair_id": "development-policy-ucb-vs-ts-007",
+      "red": "ucb",
+      "blue": "ts",
+      "seed": 710007,
+      "opening_seed": 710007,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-ts-007-1",
+      "pair_id": "development-policy-ucb-vs-ts-007",
+      "red": "ts",
+      "blue": "ucb",
+      "seed": 710007,
+      "opening_seed": 710007,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-000-0",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-000",
+      "red": "ucb",
+      "blue": "rave_ucb",
+      "seed": 711000,
+      "opening_seed": 711000,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-000-1",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-000",
+      "red": "rave_ucb",
+      "blue": "ucb",
+      "seed": 711000,
+      "opening_seed": 711000,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-001-0",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-001",
+      "red": "ucb",
+      "blue": "rave_ucb",
+      "seed": 711001,
+      "opening_seed": 711001,
+      "opening_moves": [
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-001-1",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-001",
+      "red": "rave_ucb",
+      "blue": "ucb",
+      "seed": 711001,
+      "opening_seed": 711001,
+      "opening_moves": [
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-002-0",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-002",
+      "red": "ucb",
+      "blue": "rave_ucb",
+      "seed": 711002,
+      "opening_seed": 711002,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-002-1",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-002",
+      "red": "rave_ucb",
+      "blue": "ucb",
+      "seed": 711002,
+      "opening_seed": 711002,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-003-0",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-003",
+      "red": "ucb",
+      "blue": "rave_ucb",
+      "seed": 711003,
+      "opening_seed": 711003,
+      "opening_moves": [
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-003-1",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-003",
+      "red": "rave_ucb",
+      "blue": "ucb",
+      "seed": 711003,
+      "opening_seed": 711003,
+      "opening_moves": [
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-004-0",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-004",
+      "red": "ucb",
+      "blue": "rave_ucb",
+      "seed": 711004,
+      "opening_seed": 711004,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-004-1",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-004",
+      "red": "rave_ucb",
+      "blue": "ucb",
+      "seed": 711004,
+      "opening_seed": 711004,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-005-0",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-005",
+      "red": "ucb",
+      "blue": "rave_ucb",
+      "seed": 711005,
+      "opening_seed": 711005,
+      "opening_moves": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-005-1",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-005",
+      "red": "rave_ucb",
+      "blue": "ucb",
+      "seed": 711005,
+      "opening_seed": 711005,
+      "opening_moves": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-006-0",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-006",
+      "red": "ucb",
+      "blue": "rave_ucb",
+      "seed": 711006,
+      "opening_seed": 711006,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-006-1",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-006",
+      "red": "rave_ucb",
+      "blue": "ucb",
+      "seed": 711006,
+      "opening_seed": 711006,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-007-0",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-007",
+      "red": "ucb",
+      "blue": "rave_ucb",
+      "seed": 711007,
+      "opening_seed": 711007,
+      "opening_moves": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ucb-007-1",
+      "pair_id": "development-policy-ucb-vs-rave_ucb-007",
+      "red": "rave_ucb",
+      "blue": "ucb",
+      "seed": 711007,
+      "opening_seed": 711007,
+      "opening_moves": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-000-0",
+      "pair_id": "development-policy-ucb-vs-rave_ts-000",
+      "red": "ucb",
+      "blue": "rave_ts",
+      "seed": 712000,
+      "opening_seed": 712000,
+      "opening_moves": [
+        [
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-000-1",
+      "pair_id": "development-policy-ucb-vs-rave_ts-000",
+      "red": "rave_ts",
+      "blue": "ucb",
+      "seed": 712000,
+      "opening_seed": 712000,
+      "opening_moves": [
+        [
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-001-0",
+      "pair_id": "development-policy-ucb-vs-rave_ts-001",
+      "red": "ucb",
+      "blue": "rave_ts",
+      "seed": 712001,
+      "opening_seed": 712001,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-001-1",
+      "pair_id": "development-policy-ucb-vs-rave_ts-001",
+      "red": "rave_ts",
+      "blue": "ucb",
+      "seed": 712001,
+      "opening_seed": 712001,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-002-0",
+      "pair_id": "development-policy-ucb-vs-rave_ts-002",
+      "red": "ucb",
+      "blue": "rave_ts",
+      "seed": 712002,
+      "opening_seed": 712002,
+      "opening_moves": [
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-002-1",
+      "pair_id": "development-policy-ucb-vs-rave_ts-002",
+      "red": "rave_ts",
+      "blue": "ucb",
+      "seed": 712002,
+      "opening_seed": 712002,
+      "opening_moves": [
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-003-0",
+      "pair_id": "development-policy-ucb-vs-rave_ts-003",
+      "red": "ucb",
+      "blue": "rave_ts",
+      "seed": 712003,
+      "opening_seed": 712003,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-003-1",
+      "pair_id": "development-policy-ucb-vs-rave_ts-003",
+      "red": "rave_ts",
+      "blue": "ucb",
+      "seed": 712003,
+      "opening_seed": 712003,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-004-0",
+      "pair_id": "development-policy-ucb-vs-rave_ts-004",
+      "red": "ucb",
+      "blue": "rave_ts",
+      "seed": 712004,
+      "opening_seed": 712004,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-004-1",
+      "pair_id": "development-policy-ucb-vs-rave_ts-004",
+      "red": "rave_ts",
+      "blue": "ucb",
+      "seed": 712004,
+      "opening_seed": 712004,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-005-0",
+      "pair_id": "development-policy-ucb-vs-rave_ts-005",
+      "red": "ucb",
+      "blue": "rave_ts",
+      "seed": 712005,
+      "opening_seed": 712005,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-005-1",
+      "pair_id": "development-policy-ucb-vs-rave_ts-005",
+      "red": "rave_ts",
+      "blue": "ucb",
+      "seed": 712005,
+      "opening_seed": 712005,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-006-0",
+      "pair_id": "development-policy-ucb-vs-rave_ts-006",
+      "red": "ucb",
+      "blue": "rave_ts",
+      "seed": 712006,
+      "opening_seed": 712006,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-006-1",
+      "pair_id": "development-policy-ucb-vs-rave_ts-006",
+      "red": "rave_ts",
+      "blue": "ucb",
+      "seed": 712006,
+      "opening_seed": 712006,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-007-0",
+      "pair_id": "development-policy-ucb-vs-rave_ts-007",
+      "red": "ucb",
+      "blue": "rave_ts",
+      "seed": 712007,
+      "opening_seed": 712007,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ucb-vs-rave_ts-007-1",
+      "pair_id": "development-policy-ucb-vs-rave_ts-007",
+      "red": "rave_ts",
+      "blue": "ucb",
+      "seed": 712007,
+      "opening_seed": 712007,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-000-0",
+      "pair_id": "development-policy-ts-vs-rave_ucb-000",
+      "red": "ts",
+      "blue": "rave_ucb",
+      "seed": 713000,
+      "opening_seed": 713000,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-000-1",
+      "pair_id": "development-policy-ts-vs-rave_ucb-000",
+      "red": "rave_ucb",
+      "blue": "ts",
+      "seed": 713000,
+      "opening_seed": 713000,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-001-0",
+      "pair_id": "development-policy-ts-vs-rave_ucb-001",
+      "red": "ts",
+      "blue": "rave_ucb",
+      "seed": 713001,
+      "opening_seed": 713001,
+      "opening_moves": [
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-001-1",
+      "pair_id": "development-policy-ts-vs-rave_ucb-001",
+      "red": "rave_ucb",
+      "blue": "ts",
+      "seed": 713001,
+      "opening_seed": 713001,
+      "opening_moves": [
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-002-0",
+      "pair_id": "development-policy-ts-vs-rave_ucb-002",
+      "red": "ts",
+      "blue": "rave_ucb",
+      "seed": 713002,
+      "opening_seed": 713002,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-002-1",
+      "pair_id": "development-policy-ts-vs-rave_ucb-002",
+      "red": "rave_ucb",
+      "blue": "ts",
+      "seed": 713002,
+      "opening_seed": 713002,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-003-0",
+      "pair_id": "development-policy-ts-vs-rave_ucb-003",
+      "red": "ts",
+      "blue": "rave_ucb",
+      "seed": 713003,
+      "opening_seed": 713003,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-003-1",
+      "pair_id": "development-policy-ts-vs-rave_ucb-003",
+      "red": "rave_ucb",
+      "blue": "ts",
+      "seed": 713003,
+      "opening_seed": 713003,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-004-0",
+      "pair_id": "development-policy-ts-vs-rave_ucb-004",
+      "red": "ts",
+      "blue": "rave_ucb",
+      "seed": 713004,
+      "opening_seed": 713004,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-004-1",
+      "pair_id": "development-policy-ts-vs-rave_ucb-004",
+      "red": "rave_ucb",
+      "blue": "ts",
+      "seed": 713004,
+      "opening_seed": 713004,
+      "opening_moves": [
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-005-0",
+      "pair_id": "development-policy-ts-vs-rave_ucb-005",
+      "red": "ts",
+      "blue": "rave_ucb",
+      "seed": 713005,
+      "opening_seed": 713005,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-005-1",
+      "pair_id": "development-policy-ts-vs-rave_ucb-005",
+      "red": "rave_ucb",
+      "blue": "ts",
+      "seed": 713005,
+      "opening_seed": 713005,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-006-0",
+      "pair_id": "development-policy-ts-vs-rave_ucb-006",
+      "red": "ts",
+      "blue": "rave_ucb",
+      "seed": 713006,
+      "opening_seed": 713006,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-006-1",
+      "pair_id": "development-policy-ts-vs-rave_ucb-006",
+      "red": "rave_ucb",
+      "blue": "ts",
+      "seed": 713006,
+      "opening_seed": 713006,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-007-0",
+      "pair_id": "development-policy-ts-vs-rave_ucb-007",
+      "red": "ts",
+      "blue": "rave_ucb",
+      "seed": 713007,
+      "opening_seed": 713007,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ucb-007-1",
+      "pair_id": "development-policy-ts-vs-rave_ucb-007",
+      "red": "rave_ucb",
+      "blue": "ts",
+      "seed": 713007,
+      "opening_seed": 713007,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-000-0",
+      "pair_id": "development-policy-ts-vs-rave_ts-000",
+      "red": "ts",
+      "blue": "rave_ts",
+      "seed": 714000,
+      "opening_seed": 714000,
+      "opening_moves": [
+        [
+          9,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-000-1",
+      "pair_id": "development-policy-ts-vs-rave_ts-000",
+      "red": "rave_ts",
+      "blue": "ts",
+      "seed": 714000,
+      "opening_seed": 714000,
+      "opening_moves": [
+        [
+          9,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-001-0",
+      "pair_id": "development-policy-ts-vs-rave_ts-001",
+      "red": "ts",
+      "blue": "rave_ts",
+      "seed": 714001,
+      "opening_seed": 714001,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-001-1",
+      "pair_id": "development-policy-ts-vs-rave_ts-001",
+      "red": "rave_ts",
+      "blue": "ts",
+      "seed": 714001,
+      "opening_seed": 714001,
+      "opening_moves": [
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-002-0",
+      "pair_id": "development-policy-ts-vs-rave_ts-002",
+      "red": "ts",
+      "blue": "rave_ts",
+      "seed": 714002,
+      "opening_seed": 714002,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-002-1",
+      "pair_id": "development-policy-ts-vs-rave_ts-002",
+      "red": "rave_ts",
+      "blue": "ts",
+      "seed": 714002,
+      "opening_seed": 714002,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-003-0",
+      "pair_id": "development-policy-ts-vs-rave_ts-003",
+      "red": "ts",
+      "blue": "rave_ts",
+      "seed": 714003,
+      "opening_seed": 714003,
+      "opening_moves": [
+        [
+          9,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-003-1",
+      "pair_id": "development-policy-ts-vs-rave_ts-003",
+      "red": "rave_ts",
+      "blue": "ts",
+      "seed": 714003,
+      "opening_seed": 714003,
+      "opening_moves": [
+        [
+          9,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-004-0",
+      "pair_id": "development-policy-ts-vs-rave_ts-004",
+      "red": "ts",
+      "blue": "rave_ts",
+      "seed": 714004,
+      "opening_seed": 714004,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-004-1",
+      "pair_id": "development-policy-ts-vs-rave_ts-004",
+      "red": "rave_ts",
+      "blue": "ts",
+      "seed": 714004,
+      "opening_seed": 714004,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-005-0",
+      "pair_id": "development-policy-ts-vs-rave_ts-005",
+      "red": "ts",
+      "blue": "rave_ts",
+      "seed": 714005,
+      "opening_seed": 714005,
+      "opening_moves": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-005-1",
+      "pair_id": "development-policy-ts-vs-rave_ts-005",
+      "red": "rave_ts",
+      "blue": "ts",
+      "seed": 714005,
+      "opening_seed": 714005,
+      "opening_moves": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-006-0",
+      "pair_id": "development-policy-ts-vs-rave_ts-006",
+      "red": "ts",
+      "blue": "rave_ts",
+      "seed": 714006,
+      "opening_seed": 714006,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-006-1",
+      "pair_id": "development-policy-ts-vs-rave_ts-006",
+      "red": "rave_ts",
+      "blue": "ts",
+      "seed": 714006,
+      "opening_seed": 714006,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-007-0",
+      "pair_id": "development-policy-ts-vs-rave_ts-007",
+      "red": "ts",
+      "blue": "rave_ts",
+      "seed": 714007,
+      "opening_seed": 714007,
+      "opening_moves": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-ts-vs-rave_ts-007-1",
+      "pair_id": "development-policy-ts-vs-rave_ts-007",
+      "red": "rave_ts",
+      "blue": "ts",
+      "seed": 714007,
+      "opening_seed": 714007,
+      "opening_moves": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-000-0",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-000",
+      "red": "rave_ucb",
+      "blue": "rave_ts",
+      "seed": 715000,
+      "opening_seed": 715000,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-000-1",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-000",
+      "red": "rave_ts",
+      "blue": "rave_ucb",
+      "seed": 715000,
+      "opening_seed": 715000,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-001-0",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-001",
+      "red": "rave_ucb",
+      "blue": "rave_ts",
+      "seed": 715001,
+      "opening_seed": 715001,
+      "opening_moves": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-001-1",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-001",
+      "red": "rave_ts",
+      "blue": "rave_ucb",
+      "seed": 715001,
+      "opening_seed": 715001,
+      "opening_moves": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-002-0",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-002",
+      "red": "rave_ucb",
+      "blue": "rave_ts",
+      "seed": 715002,
+      "opening_seed": 715002,
+      "opening_moves": [
+        [
+          10,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-002-1",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-002",
+      "red": "rave_ts",
+      "blue": "rave_ucb",
+      "seed": 715002,
+      "opening_seed": 715002,
+      "opening_moves": [
+        [
+          10,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-003-0",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-003",
+      "red": "rave_ucb",
+      "blue": "rave_ts",
+      "seed": 715003,
+      "opening_seed": 715003,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-003-1",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-003",
+      "red": "rave_ts",
+      "blue": "rave_ucb",
+      "seed": 715003,
+      "opening_seed": 715003,
+      "opening_moves": [
+        [
+          8,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-004-0",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-004",
+      "red": "rave_ucb",
+      "blue": "rave_ts",
+      "seed": 715004,
+      "opening_seed": 715004,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-004-1",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-004",
+      "red": "rave_ts",
+      "blue": "rave_ucb",
+      "seed": 715004,
+      "opening_seed": 715004,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-005-0",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-005",
+      "red": "rave_ucb",
+      "blue": "rave_ts",
+      "seed": 715005,
+      "opening_seed": 715005,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-005-1",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-005",
+      "red": "rave_ts",
+      "blue": "rave_ucb",
+      "seed": 715005,
+      "opening_seed": 715005,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-006-0",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-006",
+      "red": "rave_ucb",
+      "blue": "rave_ts",
+      "seed": 715006,
+      "opening_seed": 715006,
+      "opening_moves": [
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-006-1",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-006",
+      "red": "rave_ts",
+      "blue": "rave_ucb",
+      "seed": 715006,
+      "opening_seed": 715006,
+      "opening_moves": [
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-007-0",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-007",
+      "red": "rave_ucb",
+      "blue": "rave_ts",
+      "seed": 715007,
+      "opening_seed": 715007,
+      "opening_moves": [
+        [
+          10,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "development-policy-rave_ucb-vs-rave_ts-007-1",
+      "pair_id": "development-policy-rave_ucb-vs-rave_ts-007",
+      "red": "rave_ts",
+      "blue": "rave_ucb",
+      "seed": 715007,
+      "opening_seed": 715007,
+      "opening_moves": [
+        [
+          10,
+          6
+        ]
+      ]
+    }
+  ]
+}

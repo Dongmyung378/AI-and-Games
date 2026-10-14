@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "original_commit": "fd41e80626d3bb4c6fd87816c053a2e437f46ab5",
+  "scope": "Hex improvements 1 through 5; CPU search, no neural retraining",
+  "development_suites": [
+    {
+      "path": "configs/development-policy.json",
+      "sha256": "4c25070de6e67e1fd33f0b7dc50b642ef8a659889aca45034d7a53929c221d07",
+      "games": 96,
+      "pairs": 48,
+      "seed_start": 710000,
+      "iterations": 4000
+    },
+    {
+      "path": "configs/development-features.json",
+      "sha256": "73492963e2cb5cc9a58f778c95100614ce3c5a66cf0fdcce45d0bc9e3df6852c",
+      "games": 64,
+      "pairs": 32,
+      "seed_start": 810000,
+      "iterations": 4000
+    }
+  ],
+  "policy_selection": "Highest balanced completed-game score in development-policy. Ties retain rave_ts, then declared policy order.",
+  "optional_feature_adoption": "Require at least 5 percentage points candidate score above 50 percent in the declared paired development comparison and pair-bootstrap lower bound above 50 percent. Otherwise retain corrected default and stop the candidate.",
+  "final_seed_start": 910000,
+  "final_seeds_not_used_for_selection": true,
+  "final_pairs_per_opponent": 32,
+  "final_iterations_per_move": 16000,
+  "final_opponents": [
+    "ucb",
+    "ts",
+    "rave_ucb"
+  ],
+  "host_sharding": "Keep both colour-balanced legs of a pair on the same host. Local and Kaggle records remain separately labelled.",
+  "stop_rule": "No further tuning of candidates that fail the predefined development adoption criterion. Algorithm correctness fixes are mandatory and not rolled back based on playing strength.",
+  "external_opponents": "Historical Davis and HexHex screenshots are preserved; no claim that new internal games reproduce those opponents.",
+  "time_confirmation": "Choose and freeze the final policy before running a separate same-host time-budget check. No selection using final outcomes."
+}

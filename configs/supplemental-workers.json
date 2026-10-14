@@ -1,0 +1,955 @@
+{
+  "schema_version": 1,
+  "suite_id": "supplemental-workers",
+  "split": "final",
+  "board_size": 11,
+  "budget": {
+    "mode": "time",
+    "seconds": 0.25,
+    "workers": 2,
+    "node_cap": 100000,
+    "memory_mb": 128,
+    "game_seconds": 300,
+    "response_timeout": 30
+  },
+  "participants": {
+    "ucb_w2": {
+      "kind": "native",
+      "policy": "ucb",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000,
+      "workers": 2
+    },
+    "selected_w1": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000,
+      "workers": 1
+    },
+    "selected_w2": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000,
+      "workers": 2
+    },
+    "selected_w4": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000,
+      "workers": 4
+    },
+    "selected_w8": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000,
+      "workers": 8
+    }
+  },
+  "games": [
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-000-0",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-000",
+      "red": "selected_w1",
+      "blue": "ucb_w2",
+      "seed": 1020000,
+      "opening_seed": 1020000,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-000-1",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-000",
+      "red": "ucb_w2",
+      "blue": "selected_w1",
+      "seed": 1020000,
+      "opening_seed": 1020000,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-001-0",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-001",
+      "red": "selected_w1",
+      "blue": "ucb_w2",
+      "seed": 1020001,
+      "opening_seed": 1020001,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-001-1",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-001",
+      "red": "ucb_w2",
+      "blue": "selected_w1",
+      "seed": 1020001,
+      "opening_seed": 1020001,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-002-0",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-002",
+      "red": "selected_w1",
+      "blue": "ucb_w2",
+      "seed": 1020002,
+      "opening_seed": 1020002,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-002-1",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-002",
+      "red": "ucb_w2",
+      "blue": "selected_w1",
+      "seed": 1020002,
+      "opening_seed": 1020002,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-003-0",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-003",
+      "red": "selected_w1",
+      "blue": "ucb_w2",
+      "seed": 1020003,
+      "opening_seed": 1020003,
+      "opening_moves": [
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-003-1",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-003",
+      "red": "ucb_w2",
+      "blue": "selected_w1",
+      "seed": 1020003,
+      "opening_seed": 1020003,
+      "opening_moves": [
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-004-0",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-004",
+      "red": "selected_w1",
+      "blue": "ucb_w2",
+      "seed": 1020004,
+      "opening_seed": 1020004,
+      "opening_moves": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-004-1",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-004",
+      "red": "ucb_w2",
+      "blue": "selected_w1",
+      "seed": 1020004,
+      "opening_seed": 1020004,
+      "opening_moves": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-005-0",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-005",
+      "red": "selected_w1",
+      "blue": "ucb_w2",
+      "seed": 1020005,
+      "opening_seed": 1020005,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-005-1",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-005",
+      "red": "ucb_w2",
+      "blue": "selected_w1",
+      "seed": 1020005,
+      "opening_seed": 1020005,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-006-0",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-006",
+      "red": "selected_w1",
+      "blue": "ucb_w2",
+      "seed": 1020006,
+      "opening_seed": 1020006,
+      "opening_moves": [
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-006-1",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-006",
+      "red": "ucb_w2",
+      "blue": "selected_w1",
+      "seed": 1020006,
+      "opening_seed": 1020006,
+      "opening_moves": [
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-007-0",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-007",
+      "red": "selected_w1",
+      "blue": "ucb_w2",
+      "seed": 1020007,
+      "opening_seed": 1020007,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w1-vs-ucb_w2-007-1",
+      "pair_id": "supplemental-workers-selected_w1-vs-ucb_w2-007",
+      "red": "ucb_w2",
+      "blue": "selected_w1",
+      "seed": 1020007,
+      "opening_seed": 1020007,
+      "opening_moves": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-000-0",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-000",
+      "red": "selected_w2",
+      "blue": "ucb_w2",
+      "seed": 1021000,
+      "opening_seed": 1021000,
+      "opening_moves": [
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-000-1",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-000",
+      "red": "ucb_w2",
+      "blue": "selected_w2",
+      "seed": 1021000,
+      "opening_seed": 1021000,
+      "opening_moves": [
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-001-0",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-001",
+      "red": "selected_w2",
+      "blue": "ucb_w2",
+      "seed": 1021001,
+      "opening_seed": 1021001,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-001-1",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-001",
+      "red": "ucb_w2",
+      "blue": "selected_w2",
+      "seed": 1021001,
+      "opening_seed": 1021001,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-002-0",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-002",
+      "red": "selected_w2",
+      "blue": "ucb_w2",
+      "seed": 1021002,
+      "opening_seed": 1021002,
+      "opening_moves": [
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-002-1",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-002",
+      "red": "ucb_w2",
+      "blue": "selected_w2",
+      "seed": 1021002,
+      "opening_seed": 1021002,
+      "opening_moves": [
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-003-0",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-003",
+      "red": "selected_w2",
+      "blue": "ucb_w2",
+      "seed": 1021003,
+      "opening_seed": 1021003,
+      "opening_moves": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-003-1",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-003",
+      "red": "ucb_w2",
+      "blue": "selected_w2",
+      "seed": 1021003,
+      "opening_seed": 1021003,
+      "opening_moves": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-004-0",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-004",
+      "red": "selected_w2",
+      "blue": "ucb_w2",
+      "seed": 1021004,
+      "opening_seed": 1021004,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-004-1",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-004",
+      "red": "ucb_w2",
+      "blue": "selected_w2",
+      "seed": 1021004,
+      "opening_seed": 1021004,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-005-0",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-005",
+      "red": "selected_w2",
+      "blue": "ucb_w2",
+      "seed": 1021005,
+      "opening_seed": 1021005,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-005-1",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-005",
+      "red": "ucb_w2",
+      "blue": "selected_w2",
+      "seed": 1021005,
+      "opening_seed": 1021005,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-006-0",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-006",
+      "red": "selected_w2",
+      "blue": "ucb_w2",
+      "seed": 1021006,
+      "opening_seed": 1021006,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-006-1",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-006",
+      "red": "ucb_w2",
+      "blue": "selected_w2",
+      "seed": 1021006,
+      "opening_seed": 1021006,
+      "opening_moves": [
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-007-0",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-007",
+      "red": "selected_w2",
+      "blue": "ucb_w2",
+      "seed": 1021007,
+      "opening_seed": 1021007,
+      "opening_moves": [
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w2-vs-ucb_w2-007-1",
+      "pair_id": "supplemental-workers-selected_w2-vs-ucb_w2-007",
+      "red": "ucb_w2",
+      "blue": "selected_w2",
+      "seed": 1021007,
+      "opening_seed": 1021007,
+      "opening_moves": [
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-000-0",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-000",
+      "red": "selected_w4",
+      "blue": "ucb_w2",
+      "seed": 1022000,
+      "opening_seed": 1022000,
+      "opening_moves": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-000-1",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-000",
+      "red": "ucb_w2",
+      "blue": "selected_w4",
+      "seed": 1022000,
+      "opening_seed": 1022000,
+      "opening_moves": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-001-0",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-001",
+      "red": "selected_w4",
+      "blue": "ucb_w2",
+      "seed": 1022001,
+      "opening_seed": 1022001,
+      "opening_moves": [
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-001-1",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-001",
+      "red": "ucb_w2",
+      "blue": "selected_w4",
+      "seed": 1022001,
+      "opening_seed": 1022001,
+      "opening_moves": [
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-002-0",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-002",
+      "red": "selected_w4",
+      "blue": "ucb_w2",
+      "seed": 1022002,
+      "opening_seed": 1022002,
+      "opening_moves": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-002-1",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-002",
+      "red": "ucb_w2",
+      "blue": "selected_w4",
+      "seed": 1022002,
+      "opening_seed": 1022002,
+      "opening_moves": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-003-0",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-003",
+      "red": "selected_w4",
+      "blue": "ucb_w2",
+      "seed": 1022003,
+      "opening_seed": 1022003,
+      "opening_moves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-003-1",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-003",
+      "red": "ucb_w2",
+      "blue": "selected_w4",
+      "seed": 1022003,
+      "opening_seed": 1022003,
+      "opening_moves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-004-0",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-004",
+      "red": "selected_w4",
+      "blue": "ucb_w2",
+      "seed": 1022004,
+      "opening_seed": 1022004,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-004-1",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-004",
+      "red": "ucb_w2",
+      "blue": "selected_w4",
+      "seed": 1022004,
+      "opening_seed": 1022004,
+      "opening_moves": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-005-0",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-005",
+      "red": "selected_w4",
+      "blue": "ucb_w2",
+      "seed": 1022005,
+      "opening_seed": 1022005,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-005-1",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-005",
+      "red": "ucb_w2",
+      "blue": "selected_w4",
+      "seed": 1022005,
+      "opening_seed": 1022005,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-006-0",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-006",
+      "red": "selected_w4",
+      "blue": "ucb_w2",
+      "seed": 1022006,
+      "opening_seed": 1022006,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-006-1",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-006",
+      "red": "ucb_w2",
+      "blue": "selected_w4",
+      "seed": 1022006,
+      "opening_seed": 1022006,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-007-0",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-007",
+      "red": "selected_w4",
+      "blue": "ucb_w2",
+      "seed": 1022007,
+      "opening_seed": 1022007,
+      "opening_moves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w4-vs-ucb_w2-007-1",
+      "pair_id": "supplemental-workers-selected_w4-vs-ucb_w2-007",
+      "red": "ucb_w2",
+      "blue": "selected_w4",
+      "seed": 1022007,
+      "opening_seed": 1022007,
+      "opening_moves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-000-0",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-000",
+      "red": "selected_w8",
+      "blue": "ucb_w2",
+      "seed": 1023000,
+      "opening_seed": 1023000,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-000-1",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-000",
+      "red": "ucb_w2",
+      "blue": "selected_w8",
+      "seed": 1023000,
+      "opening_seed": 1023000,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-001-0",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-001",
+      "red": "selected_w8",
+      "blue": "ucb_w2",
+      "seed": 1023001,
+      "opening_seed": 1023001,
+      "opening_moves": [
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-001-1",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-001",
+      "red": "ucb_w2",
+      "blue": "selected_w8",
+      "seed": 1023001,
+      "opening_seed": 1023001,
+      "opening_moves": [
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-002-0",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-002",
+      "red": "selected_w8",
+      "blue": "ucb_w2",
+      "seed": 1023002,
+      "opening_seed": 1023002,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-002-1",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-002",
+      "red": "ucb_w2",
+      "blue": "selected_w8",
+      "seed": 1023002,
+      "opening_seed": 1023002,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-003-0",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-003",
+      "red": "selected_w8",
+      "blue": "ucb_w2",
+      "seed": 1023003,
+      "opening_seed": 1023003,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-003-1",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-003",
+      "red": "ucb_w2",
+      "blue": "selected_w8",
+      "seed": 1023003,
+      "opening_seed": 1023003,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-004-0",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-004",
+      "red": "selected_w8",
+      "blue": "ucb_w2",
+      "seed": 1023004,
+      "opening_seed": 1023004,
+      "opening_moves": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-004-1",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-004",
+      "red": "ucb_w2",
+      "blue": "selected_w8",
+      "seed": 1023004,
+      "opening_seed": 1023004,
+      "opening_moves": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-005-0",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-005",
+      "red": "selected_w8",
+      "blue": "ucb_w2",
+      "seed": 1023005,
+      "opening_seed": 1023005,
+      "opening_moves": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-005-1",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-005",
+      "red": "ucb_w2",
+      "blue": "selected_w8",
+      "seed": 1023005,
+      "opening_seed": 1023005,
+      "opening_moves": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-006-0",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-006",
+      "red": "selected_w8",
+      "blue": "ucb_w2",
+      "seed": 1023006,
+      "opening_seed": 1023006,
+      "opening_moves": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-006-1",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-006",
+      "red": "ucb_w2",
+      "blue": "selected_w8",
+      "seed": 1023006,
+      "opening_seed": 1023006,
+      "opening_moves": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-007-0",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-007",
+      "red": "selected_w8",
+      "blue": "ucb_w2",
+      "seed": 1023007,
+      "opening_seed": 1023007,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "supplemental-workers-selected_w8-vs-ucb_w2-007-1",
+      "pair_id": "supplemental-workers-selected_w8-vs-ucb_w2-007",
+      "red": "ucb_w2",
+      "blue": "selected_w8",
+      "seed": 1023007,
+      "opening_seed": 1023007,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    }
+  ]
+}

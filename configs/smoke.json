@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "suite_id": "hex-runtime-smoke",
+  "split": "development",
+  "description": "Fast runtime check, not a statistically powered strength benchmark.",
+  "board_size": 11,
+  "budget": {
+    "mode": "iterations",
+    "iterations": 200,
+    "workers": 1,
+    "node_cap": 60000,
+    "memory_mb": 128,
+    "game_seconds": 300,
+    "response_timeout": 30
+  },
+  "participants": {
+    "ucb": {"kind": "native", "policy": "ucb"},
+    "rave_ts": {"kind": "native", "policy": "rave_ts"}
+  },
+  "games": [
+    {"game_id": "smoke0-a", "pair_id": "smoke0", "red": "ucb", "blue": "rave_ts", "seed": 378, "opening_seed": 12, "opening_moves": [[0, 0]]},
+    {"game_id": "smoke0-b", "pair_id": "smoke0", "red": "rave_ts", "blue": "ucb", "seed": 378, "opening_seed": 12, "opening_moves": [[0, 0]]},
+    {"game_id": "smoke1-a", "pair_id": "smoke1", "red": "ucb", "blue": "rave_ts", "seed": 379, "opening_seed": 13, "opening_moves": [[5, 5]]},
+    {"game_id": "smoke1-b", "pair_id": "smoke1", "red": "rave_ts", "blue": "ucb", "seed": 379, "opening_seed": 13, "opening_moves": [[5, 5]]}
+  ]
+}

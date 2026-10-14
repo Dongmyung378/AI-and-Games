@@ -8,6 +8,27 @@ permissions:
   contents: read
 
 jobs:
+  maintained-search:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, windows-2022]
+        python: ["3.10", "3.13"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Build and check the maintained C++ engine
+        run: python -m hexai build
+      - name: Check search, evaluation and preserved rule integration
+        run: python -m unittest discover -s tests -v
+      - name: Run a small declared smoke evaluation
+        run: python -m hexai evaluate --config configs/smoke.json --output .local/ci-smoke
+      - name: Require all declared smoke games to complete
+        run: python -c "import json; from pathlib import Path; d=json.loads(Path('.local/ci-smoke/summary.json').read_text()); assert d['completed_games']==d['scheduled_games'] and not d['missing_game_ids'], 'Smoke evaluation contains failed or missing games'"
+
   python-engine:
     runs-on: ubuntu-22.04
     defaults:

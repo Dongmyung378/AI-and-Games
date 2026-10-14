@@ -1,0 +1,394 @@
+{
+  "benchmarks": [
+    {
+      "board": "R0000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "environment": {
+        "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+        "logical_cpus": 16,
+        "machine": "AMD64",
+        "python": "3.12.7",
+        "release": "11",
+        "system": "Windows"
+      },
+      "hardware_label": "Intel Family 6 Model 141 · 16 논리 CPU",
+      "iterations_per_move": 16000,
+      "label": "로컬 Windows",
+      "repeats": 7,
+      "summaries": [
+        {
+          "all_exact_iteration_budget": true,
+          "max_process_peak_rss_bytes": 38481920,
+          "median_iterations_per_second": 21215.811879436886,
+          "median_response_seconds": 0.754154499998549,
+          "p95_response_seconds": 0.8095574800005124,
+          "workers": 1
+        },
+        {
+          "all_exact_iteration_budget": true,
+          "max_process_peak_rss_bytes": 38834176,
+          "median_iterations_per_second": 40420.42292384826,
+          "median_response_seconds": 0.395839500000875,
+          "p95_response_seconds": 0.40784526999996157,
+          "workers": 2
+        },
+        {
+          "all_exact_iteration_budget": true,
+          "max_process_peak_rss_bytes": 39108608,
+          "median_iterations_per_second": 69382.98148288742,
+          "median_response_seconds": 0.2306040999974357,
+          "p95_response_seconds": 0.23421282999988763,
+          "workers": 4
+        },
+        {
+          "all_exact_iteration_budget": true,
+          "max_process_peak_rss_bytes": 39927808,
+          "median_iterations_per_second": 122473.88053457892,
+          "median_response_seconds": 0.13064009999652626,
+          "p95_response_seconds": 0.1346591899979103,
+          "workers": 8
+        }
+      ]
+    },
+    {
+      "board": "R0000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000,00000000000",
+      "environment": {
+        "affinity_cpus": 4,
+        "cgroup_cpu_max": "400000 100000",
+        "cgroup_memory_max": "32212254720",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+        "logical_cpus": 4,
+        "machine": "x86_64",
+        "python": "3.13.15",
+        "release": "6.18.48+",
+        "system": "Linux"
+      },
+      "hardware_label": "Intel Xeon 2.20 GHz · 4 vCPU 할당",
+      "iterations_per_move": 16000,
+      "label": "Kaggle Linux",
+      "repeats": 5,
+      "summaries": [
+        {
+          "all_exact_iteration_budget": true,
+          "max_process_peak_rss_bytes": 37289984,
+          "median_iterations_per_second": 8435.95438536271,
+          "median_response_seconds": 1.8966437309999833,
+          "p95_response_seconds": 1.9299505597999769,
+          "workers": 1
+        },
+        {
+          "all_exact_iteration_budget": true,
+          "max_process_peak_rss_bytes": 37015552,
+          "median_iterations_per_second": 16321.43251287194,
+          "median_response_seconds": 0.9803061090000256,
+          "p95_response_seconds": 1.0017852054000058,
+          "workers": 2
+        },
+        {
+          "all_exact_iteration_budget": true,
+          "max_process_peak_rss_bytes": 36786176,
+          "median_iterations_per_second": 22412.58572924384,
+          "median_response_seconds": 0.7138846089999902,
+          "p95_response_seconds": 0.7557840387999931,
+          "workers": 4
+        },
+        {
+          "all_exact_iteration_budget": true,
+          "max_process_peak_rss_bytes": 34291712,
+          "median_iterations_per_second": 23412.345458234668,
+          "median_response_seconds": 0.6834001330000206,
+          "p95_response_seconds": 0.728849239200008,
+          "workers": 8
+        }
+      ]
+    }
+  ],
+  "correctness": {
+    "case": {
+      "board_rows": [
+        "...",
+        "...",
+        "..."
+      ],
+      "board_size": 3,
+      "colour": "RED",
+      "iterations": 1000,
+      "name": "empty_3x3_red_to_play",
+      "policy": "rave_ucb",
+      "seed": 378,
+      "tactical": false
+    },
+    "connectivity_positions": 19683,
+    "corrected_amaf_updates": 13772,
+    "historical_rave_updates": 0,
+    "native_requests": 256,
+    "reference_tests": 13
+  },
+  "features": {
+    "budget": {
+      "game_seconds": 300,
+      "iterations": 4000,
+      "mode": "iterations",
+      "node_cap": 100000,
+      "response_timeout": 60,
+      "workers": 2
+    },
+    "candidates": [
+      {
+        "applied": false,
+        "candidate": "no_bridge",
+        "ci": [
+          0.0,
+          0.375
+        ],
+        "losses": 13,
+        "pairs": 8,
+        "score": 0.1875,
+        "wins": 3
+      },
+      {
+        "applied": false,
+        "candidate": "no_ordering",
+        "ci": [
+          0.25,
+          0.75
+        ],
+        "losses": 8,
+        "pairs": 8,
+        "score": 0.5,
+        "wins": 8
+      },
+      {
+        "applied": false,
+        "candidate": "rave_k300",
+        "ci": [
+          0.1875,
+          0.8125
+        ],
+        "losses": 8,
+        "pairs": 8,
+        "score": 0.5,
+        "wins": 8
+      },
+      {
+        "applied": false,
+        "candidate": "rave_k3000",
+        "ci": [
+          0.5,
+          1.0
+        ],
+        "losses": 4,
+        "pairs": 8,
+        "score": 0.75,
+        "wins": 12
+      }
+    ],
+    "completed_games": 64,
+    "failures": 0,
+    "scheduled_games": 64
+  },
+  "final": {
+    "budget": {
+      "game_seconds": 300,
+      "iterations": 16000,
+      "mode": "iterations",
+      "node_cap": 100000,
+      "response_timeout": 60,
+      "workers": 2
+    },
+    "comparisons": [
+      {
+        "complete_side_pairs": 32,
+        "completed_games": 64,
+        "failure_rate_recorded": 0.0,
+        "failures": {},
+        "failures_by_actor": {},
+        "left": "selected",
+        "left_win_rate_completed_games": 0.890625,
+        "left_wins": 57,
+        "paired_cluster_bootstrap_95": [
+          0.796875,
+          0.96875
+        ],
+        "paired_mean_win_rate": 0.890625,
+        "recorded_games": 64,
+        "right": "ucb",
+        "right_wins": 7,
+        "scheduled_games": 64,
+        "source_orientation": {
+          "inverted": false,
+          "left": "selected",
+          "right": "ucb"
+        }
+      },
+      {
+        "complete_side_pairs": 32,
+        "completed_games": 64,
+        "failure_rate_recorded": 0.0,
+        "failures": {},
+        "failures_by_actor": {},
+        "left": "selected",
+        "left_win_rate_completed_games": 0.828125,
+        "left_wins": 53,
+        "paired_cluster_bootstrap_95": [
+          0.75,
+          0.90625
+        ],
+        "paired_mean_win_rate": 0.828125,
+        "recorded_games": 64,
+        "right": "ts",
+        "right_wins": 11,
+        "scheduled_games": 64,
+        "source_orientation": {
+          "inverted": false,
+          "left": "selected",
+          "right": "ts"
+        }
+      },
+      {
+        "complete_side_pairs": 32,
+        "completed_games": 64,
+        "failure_rate_recorded": 0.0,
+        "failures": {},
+        "failures_by_actor": {},
+        "left": "selected",
+        "left_win_rate_completed_games": 0.84375,
+        "left_wins": 54,
+        "paired_cluster_bootstrap_95": [
+          0.765625,
+          0.921875
+        ],
+        "paired_mean_win_rate": 0.84375,
+        "recorded_games": 64,
+        "right": "rave_ucb",
+        "right_wins": 10,
+        "scheduled_games": 64,
+        "source_orientation": {
+          "inverted": true,
+          "left": "rave_ucb",
+          "right": "selected"
+        }
+      },
+      {
+        "complete_side_pairs": 32,
+        "completed_games": 64,
+        "failure_rate_recorded": 0.0,
+        "failures": {},
+        "failures_by_actor": {},
+        "left": "selected",
+        "left_win_rate_completed_games": 0.859375,
+        "left_wins": 55,
+        "paired_cluster_bootstrap_95": [
+          0.78125,
+          0.9375
+        ],
+        "paired_mean_win_rate": 0.859375,
+        "recorded_games": 64,
+        "right": "legacy_ts",
+        "right_wins": 9,
+        "scheduled_games": 64,
+        "source_orientation": {
+          "inverted": true,
+          "left": "legacy_ts",
+          "right": "selected"
+        }
+      }
+    ],
+    "completed_games": 256,
+    "environments": [
+      {
+        "affinity_cpus": null,
+        "cgroup_cpu_max": null,
+        "completed_games": 128,
+        "cpu_model": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+        "label": "로컬 Windows",
+        "logical_cpus": 16,
+        "recorded_games": 128
+      },
+      {
+        "affinity_cpus": 4,
+        "cgroup_cpu_max": "400000 100000",
+        "completed_games": 128,
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+        "label": "Kaggle Linux",
+        "logical_cpus": 4,
+        "recorded_games": 128
+      }
+    ],
+    "manifest_sha256": "d78b2e49bb9ba396ce655582dbc5574b7366ab71ae13844df78238efa9f39cfd",
+    "missing_count": 0,
+    "presentation_orientation": "selected-left; reversed probabilities complemented and pair intervals transformed to [1-hi, 1-lo]; original aggregate unchanged",
+    "recorded_games": 256,
+    "scheduled_games": 256
+  },
+  "policy": {
+    "budget": {
+      "game_seconds": 300,
+      "iterations": 4000,
+      "mode": "iterations",
+      "node_cap": 100000,
+      "response_timeout": 60,
+      "workers": 2
+    },
+    "completed_games": 96,
+    "failures": 0,
+    "policy_scores": {
+      "rave_ts": {
+        "games": 48,
+        "win_rate": 0.9166666666666666,
+        "wins": 44
+      },
+      "rave_ucb": {
+        "games": 48,
+        "win_rate": 0.4583333333333333,
+        "wins": 22
+      },
+      "ts": {
+        "games": 48,
+        "win_rate": 0.375,
+        "wins": 18
+      },
+      "ucb": {
+        "games": 48,
+        "win_rate": 0.25,
+        "wins": 12
+      }
+    },
+    "scheduled_games": 96,
+    "selected_policy": "rave_ts"
+  },
+  "schema_version": 1,
+  "sources": {
+    "development-features": {
+      "name": "development-features.json",
+      "sha256": "0a229ddd8500ac85a9276aa405ef61efe90fe3a62c81c21d196050740c7a6cdd"
+    },
+    "development-policy": {
+      "name": "development-policy.json",
+      "sha256": "b99f8d3ac2844f368ab3657f7c164af231106682d245716ab0c259ce4bf41e33"
+    },
+    "final-policy": {
+      "name": "final-policy.json",
+      "sha256": "94092da964cd0680fcf7b6441d72f45dff554c195d30b943a05ad470c215fd34"
+    },
+    "kaggle-worker-cost": {
+      "name": "worker-benchmark.json",
+      "sha256": "ac253b633afe756913cf4db4a45dde70584bc804e84f64cbdc064a2c06b55328"
+    },
+    "local-worker-cost": {
+      "name": "local-worker-benchmark-isolated.json",
+      "sha256": "586e553da2b43a04bf6a9cf6552e7ce75c00678ab1a7d69bcf377dad121c42c6"
+    },
+    "native-correctness": {
+      "name": "native-independent-correctness-audit.json",
+      "sha256": "ae32dc0c6af02a833fc1d13c4e2ef35c507990be1e362398cef194e6a5197b39"
+    },
+    "python-correctness": {
+      "name": "python-correctness-probe.json",
+      "sha256": "6d63372793ce39124f24dac14a63fd0aa43b9df72427b641eedbea232581bdf7"
+    },
+    "selection": {
+      "name": "selection.json",
+      "sha256": "ac983192bb77aa3f33eb69b86ca69234f82011a369333f20d36b993275764fea"
+    }
+  }
+}

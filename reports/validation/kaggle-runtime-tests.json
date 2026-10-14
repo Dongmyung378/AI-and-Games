@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "environment": {
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+    "python": "3.13.15",
+    "cpus": 4,
+    "affinity_cpus": 4,
+    "cpu_quota": "400000 100000",
+    "memory_limit": "32212254720"
+  },
+  "checks": [
+    {
+      "name": "maintained-tests",
+      "passed": 26,
+      "log_sha256": "7dca2a7721e17300fe07ee48f7a86b2d1b1ec1e9160e9c0a2a2c8a245fba3ed2"
+    },
+    {
+      "name": "original-referee-tests",
+      "passed": 18,
+      "log_sha256": "5aa943d4d28fac08f0d0692745a9503ba9ed823281c28a8f6327a2ac1567af03"
+    },
+    {
+      "name": "original-adapter-tests",
+      "passed": 25,
+      "log_sha256": "108f8c610dfa04d6f5a57df57965fe790a3e7beedb172559f4908f55af2adda1"
+    }
+  ],
+  "python_tests_passed": 69,
+  "original_shipped_linux_executable_sha256": "9d5c8df9f7edef95b9ebda255064dc0e09cccb238fbc4db12b0d4f007630b092",
+  "original_shipped_adapter_scope": "Preserved executable opening, swap and next-role/protocol checks; not a full tournament or playing-strength evaluation.",
+  "native_self_test": {
+    "checks": 13,
+    "exhaustive_3x3_connectivity_positions": 19683
+  },
+  "gpu_used": false
+}

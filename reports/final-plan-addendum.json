@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "purpose": "Clarify the final comparison before selecting a policy or observing final results.",
+  "original_study_plan_sha256": "77d5b03d95a33d2aa70b3b802506b942c10046b939f7f340ec6e404830701e8a",
+  "selection_rule_changed": false,
+  "feature_adoption_rule_changed": false,
+  "final_opponents_rule": "Compare the selected policy with the other three declared policies; exclude an identical selected policy. Include legacy_ts as a fourth maintained-engine diagnostic control.",
+  "final_pairs_per_opponent": 32,
+  "final_iterations_per_move": 16000,
+  "final_seed_start": 910000,
+  "original_source_reference_games": 4,
+  "original_source_reference_protocol": "Separate Kaggle same-host deployment check: two side-reversed pairs, preserved source and shipped Linux binary, original eight workers and 300-second internal budget. New selected agent eight workers, 300-second ceiling and five-second per-move cap. Both have external 300-second participant ceiling and 30-second response deadline. Time managers and randomness differ, so no RAVE-only causal claim or exact historic-match reproduction.",
+  "reason": "The initial candidate list assumed RAVE-TS would be selected. Excluding self-comparisons and separating a diagnostic historical-statistic control keeps comparisons interpretable.",
+  "interpretation": "New seeds are disjoint from development seeds. First-move coordinates may repeat across suites. Outcomes are conditional on these internal opponents, openings and CPU budgets."
+}

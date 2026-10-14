@@ -1,126 +1,145 @@
-# Hex AI: Search, Sampling, and High-Performance Game Play
+# Hex Game AI: Reproducible CPU Search
 
 [한국어](README.ko.md) | **English**
 
-An AI engineering portfolio project that explores how Monte Carlo Tree Search (MCTS), Rapid Action Value Estimation (RAVE), and Thompson sampling can be combined to play Hex under a strict match-time budget.
+A CPU-based Hex agent built with Monte Carlo Tree Search (MCTS), Rapid Action Value Estimation (RAVE), Thompson sampling and root-parallel C++ search. This release adds corrected search statistics, frozen paired evaluations and source-build verification while preserving the original project and match evidence.
 
-![RAVE agent winning a recorded match against Davis 7](assets/results/rave-vs-davis-7-win.png)
+## Project overview
 
-## Project at a glance
-
-| Area | What was built |
+| Area | Implemented capability |
 | --- | --- |
-| Search research | Four controlled Python variants: UCB, Thompson sampling, RAVE-UCB, and RAVE-TS |
-| Systems engineering | A C++17 search engine connected to the Python referee through a subprocess protocol |
-| Performance | Eight root-parallel workers, union-find win detection, pooled allocation, and adaptive time budgets |
-| Game strategy | Pie-rule handling, bridge-saving rollouts, move ordering, and immediate win/block checks |
-| Evaluation | Unit-tested game rules, tournament tooling, and recorded matches against Davis and HexHex agents |
+| Algorithms | UCB, Thompson sampling, RAVE-UCB and RAVE-TS in a common maintained engine |
+| Correctness | Player-relative values, node-specific same-player AMAF updates and terminal-state handling |
+| Native execution | C++17, union-find connectivity, independent root workers and configurable resource limits |
+| Evaluation | Frozen manifests, side-reversed pairs, development/final separation and replay-verified connecting paths |
+| Reproducibility | Standard-library Python CLI, source builds, per-game checkpoints and environment/build fingerprints |
 
-The final agent is a RAVE-guided Thompson-sampling MCTS implementation. The project moved from a readable Python research baseline to an optimized C++ submission after simulation throughput became the main bottleneck.
+The maintained agent searches at runtime. It does not require a GPU, a learned policy or a neural checkpoint. The earlier self-play and AlphaZero-style exploration remains historical material, rather than a trained-model performance claim for this release.
 
-## My contribution
+## Results
 
-This repository originated as a Group 026 project for the University of Manchester's COMP34111 AI & Games course. My documented contribution focused on:
+All 160 development games completed with zero execution failures. RAVE-TS won 44 of its 48 balanced round-robin games and was selected by the predefined rule. This score was used for selection and is a development result.
 
-- implemented and compared the four Python MCTS variants;
-- used internal round-robin results to select RAVE + Thompson sampling as the development direction;
-- added Hex-specific bridge-saving, opening, and swap heuristics;
-- led the C++17 migration and eight-worker root parallelization;
-- explored self-play data generation and an AlphaZero-style model.
+| Development policy | Wins / completed games | Development win rate |
+| --- | --- | --- |
+| RAVE-TS | 44 / 48 | 91.7% |
+| RAVE-UCB | 22 / 48 | 45.8% |
+| Thompson sampling | 18 / 48 | 37.5% |
+| UCB | 12 / 48 | 25.0% |
 
-Team-owned framework code and historical experiments remain in the repository for context. Personal assessment documents are intentionally excluded from the public portfolio tree.
+Each policy played 16 games against each of the other three policies. Adding the denominators counts every game twice: the policy suite contained 96 games, plus 64 separate feature-comparison games. None of the four optional changes passed its adoption gate, so those candidates were stopped. The frozen configuration is **RAVE-TS, bridge defence enabled, move ordering enabled and `rave_k=1000`**. [Selection](reports/selection.json) and [the final freeze receipt](reports/final-freeze.json) preserve the settings and hashes.
 
-## Technical design
+<!-- FINAL_RESULTS_BEGIN -->
+![Held-out policy comparisons](assets/figures/hex-final.svg)
+
+All 256 frozen final games are recorded: 256 completed, 0 failed and zero missing. Win rates use completed games; failures are not converted to wins.
+
+| Opponent | RAVE-TS wins / completed games | Win rate | Complete pairs | Paired 95% interval | Failures |
+| --- | --- | --- | --- | --- | --- |
+| legacy_ts | 55 / 64 | 85.9% | 32 | 78.1–93.8% | 0 |
+| RAVE-UCB | 54 / 64 | 84.4% | 32 | 76.6–92.2% | 0 |
+| Thompson sampling | 53 / 64 | 82.8% | 32 | 75.0–90.6% | 0 |
+| UCB | 57 / 64 | 89.1% | 32 | 79.7–96.9% | 0 |
+
+These new-seed outcomes were not used for selection. They apply to the declared internal opponents, openings and CPU budgets. [The final aggregate](reports/aggregates/final-policy.json) also provides environment-specific results and failure details.
+<!-- FINAL_RESULTS_END -->
+
+The measurements distinguish playing strength, execution reliability and simulation throughput. A correctness repair is retained even when a short development comparison does not demonstrate a win-rate increase. Optional settings are adopted only under the criterion declared in [the study plan](reports/study-plan.json).
+
+## Problem and approach
+
+The original Python agents stored wins from the root player's perspective and maximized that value at opponent nodes too. The corrected implementation stores wins for the player to move at each node and inverts a child's value when its parent selects an action.
+
+The original RAVE update also looked for an already played tree action in a later rollout's move list. That action cannot occur again on a placement-only Hex board. The maintained implementation instead records every ancestor's legal future actions played by that ancestor's player, including both tree actions and rollout actions. These AMAF statistics are indexed by node and action, then blended with direct Monte Carlo evidence during selection.
+
+Both repairs are covered by focused tests. The original C++ implementation used a different player-reward convention, so the Python opponent-turn defect is not attributed to every historical implementation. The compact [Python reference](hexai/reference.py) uses the preserved referee's rules for inspection; the [native engine](native/hex_search.cpp) performs the larger CPU experiments.
+
+## System architecture
 
 ```mermaid
 flowchart LR
-    A[Python game engine] -->|board protocol over stdin| B[Python adapter]
-    B --> C[8 C++ search workers]
-    C --> D[MCTS tree]
-    D --> E[RAVE statistics]
-    D --> F[Thompson sampling]
-    D --> G[Hex heuristics]
-    C --> H[visit aggregation]
-    H -->|x,y over stdout| A
+    A[Frozen evaluation manifest] --> B[Python evaluation runner]
+    B --> C[Preserved Hex board rules]
+    B --> D[Persistent C++ participant processes]
+    D --> E[Independent root workers]
+    E --> F[MCTS and per-action AMAF]
+    F --> G[Aggregated root visits]
+    G --> C
+    C --> H[Verified move logs and results]
+    H --> I[Paired summaries and replay]
 ```
 
-The research implementation shares one MCTS lifecycle - selection, expansion, simulation, and backpropagation - while changing only the child-selection policy. The final C++ agent adds a disjoint-set board, per-worker memory pools, parallel root search, tactical checks, and a time manager.
+Each match runs both participants on the same host. Local and Kaggle CPU work is split by complete side-reversal pairs, so a pair never combines two hardware environments. [Architecture details](docs/architecture.md) explain the search conventions, protocol and memory limits.
 
-Read the [architecture walkthrough](docs/architecture.md) for component-level details and code pointers.
+## Experiments and verification
 
-## Results and evidence
+Development comparisons share the engine, forced opening, seed, board size and total per-move budget. Policy choice and optional feature settings are frozen before the final seed list is evaluated. Final scores are not used to select a replacement policy.
 
-The repository includes four manually recorded 11 x 11 matches:
+Wins require a replayed connecting path. Illegal moves, response timeouts, process failures and protocol errors remain visible as failures and are not converted into playing-strength wins. The primary interval resamples complete side-reversal pairs; the game-level Wilson interval is descriptive because the two games in a pair are dependent.
 
-| Agent | Opponent | Side | Recorded result |
+Worker benchmarks measure a fixed total simulation count. On a fixed 11×11 board with 16,000 iterations, median external response time fell from 0.754 to 0.131 seconds between one and eight workers on Windows, and from 1.897 to 0.683 seconds on Kaggle. Windows used seven repetitions and Kaggle used five; comparisons apply within each host. Eight workers share the available CPU allocation. [The experiment record](docs/experiments.md) provides the full measurements and memory caveats.
+
+The final fixed-iteration manifest contains 256 games: 32 side-reversal pairs against each of three alternative maintained policies and the maintained `legacy_ts` control. A separate four-game original-executable time reference is an execution check with different time managers, not a large-sample strength comparison.
+
+Read [the experiment record](docs/experiments.md), [the frozen selection](reports/selection.json) and [the reproduction guide](docs/reproducibility.md) before interpreting the comparison tables.
+
+## Limitations and historical evidence
+
+The final tests describe the declared internal opponents, opening distribution and CPU budgets. They do not establish a general Hex ranking or reproduce matches against Davis and HexHex.
+
+Four earlier 11×11 match screenshots and their [metadata](assets/results/recorded-matches.csv) are preserved:
+
+| Historical agent | Opponent | Recorded starting side | Result |
 | --- | --- | --- | --- |
 | RAVE-TS | Davis 7 | First | Win |
 | RAVE-TS | Davis 10 | First | Win |
 | RAVE-TS | HexHex | Second | Loss |
 | MCTS baseline | HexHex | Second | Loss |
 
-These screenshots are qualitative evidence from individual runs, not an aggregate win-rate claim. Their metadata is available as [CSV](assets/results/recorded-matches.csv). See [experiments and evidence](docs/experiments.md) for the result gallery, comparison design, and evaluation limitations.
+Davis is the online-site opponent identified in the original project. These are individual recorded outcomes. The repository does not bundle the external opponent executables, their exact runtime configuration or an original multi-game tournament CSV. The four preserved captures are not combined with the new internal numerical evaluation.
 
-## Run locally
+The maintained `legacy_ts` comparison is a control inside the new engine. It models the old inactive-RAVE count attenuation, while retaining the maintained engine's state handling, execution and other settings. It is not the original executable, an exact reconstruction of the old tournament or a causal isolation of every change since that submission.
 
-The Python research agents use only the standard library. Python 3.10 or later is required.
+## Run from source
 
-```bash
-cd engine
-python Hex.py -b 7 -v \
-  -p1 "agents.Group26.Agent_RAVE_TS Agent_RAVE_TS" \
-  -p2 "agents.Group26.Agent_UCB Agent_UCB"
-```
-
-Run the game-engine tests:
+Use Python 3.10 or newer and a C++17 compiler (`g++`, `clang++` or `zig c++`). The maintained runtime uses the Python standard library. Run these commands from the repository root on Windows, Linux or WSL:
 
 ```bash
-cd engine
-python -m unittest discover -s test -v
+python -m hexai doctor
+python -m hexai build
+python -m unittest discover -s tests -v
+python -m hexai predict --board "R00,000,000" --colour B --turn 2 --policy rave_ts --iterations 1000 --workers 1 --swap 0
 ```
 
-The optimized native agent supports **11 x 11 boards on Linux x86_64** (including x86_64 WSL). Its prebuilt executable needs Python 3.10+ and no Python packages. See [`deployment/`](deployment/README.md) for direct execution, rebuilding, and protocol regression tests. The Python research agents above support other board sizes.
+If the compiler is not automatically found, add it to `PATH` or pass `--compiler` to `doctor` and `build`. The build writes a host-specific executable and receipt under `.local/bin/`; it does not replace the original deployment executable.
 
-To use the preserved coursework container instead:
+To repeat the development policy comparison:
 
 ```bash
-cd deployment
-docker build --platform linux/amd64 --build-arg UID="$(id -u)" -t hex-ai .
-docker run --platform linux/amd64 --cpus=8 --memory=8g -v "$(pwd):/home/hex" --rm -it hex-ai /bin/bash
+python -m hexai evaluate --config configs/development-policy.json --output .local/development-policy
+python -m hexai evaluate --config configs/development-policy.json --output .local/development-policy --resume
 ```
 
-Inside the container:
+The second command resumes the same frozen manifest and skips verified completed game files. A stopped in-progress game is rerun; an entire evaluation is not discarded. Full comparisons take longer than the quick checks. [The reproduction guide](docs/reproducibility.md) covers final manifests, local/Kaggle shards, aggregation and saved-game replay.
 
-```bash
-chmod +x agents/Group026/RAVE_TS
-python3 Hex.py -l game.log
-```
-
-This runs a fresh native self-play match and saves its move history. Historical screenshots and internal tournament conclusions are documented separately; the original external opponents and aggregate tournament data are not bundled.
-
-## Repository guide
+## Code, data and attribution
 
 ```text
-.
-├── engine/                  Python game engine and research agents
-├── deployment/              Linux runtime and final C++ agent
-├── assets/
-│   └── results/             Screenshots and structured match metadata
-├── docs/
-│   ├── architecture.md      System and algorithm design
-│   ├── experiments.md       Comparison method and result gallery
-│   └── references.md        External research sources
-└── .github/workflows/       Automated test workflow
+hexai/                      Maintained CLI, evaluation runner and readable reference
+native/                     Maintained C++17 search source
+configs/                    Frozen development and final game manifests
+reports/                    Study plan, measured results and release evidence
+tests/                      Maintained correctness and evaluation checks
+docs/                       English documentation with Korean counterparts
+engine/                     Preserved coursework referee and original Python agents
+deployment/                 Preserved original native source, binary and runtime
+assets/results/             Preserved screenshots and historical match metadata
 ```
 
-## Documentation
+The source ZIP follows the same public repository tree and includes both the maintained implementation and preserved historical material, including the archived deployment binary. Published game records remain under `reports/`; newly generated maintained executables, scratch directories, authentication files and private notes are excluded. Build the maintained executable for the current host rather than running a Windows executable on Linux or an old Linux binary on Windows.
 
-- [Architecture](docs/architecture.md) / [아키텍처](docs/architecture.ko.md)
-- [Experiments and evidence](docs/experiments.md) / [실험 및 근거](docs/experiments.ko.md)
-- [Research references](docs/references.md)
-- [Python research environment](engine/README.md) / [한국어](engine/README.ko.md)
-- [Docker and final agent](deployment/README.md) / [한국어](deployment/README.ko.md)
+This repository originated as Group 026 coursework for the University of Manchester's COMP34111 AI & Games course. The documented individual contribution covered the four Python variants, Hex heuristics, C++ migration and root parallelization. The supplied referee and team framework remain attributed as shared work. See [research references](docs/references.md), [the original research README](engine/README.md) and [the original deployment README](deployment/README.md) for provenance.
 
-## Scope and attribution
-
-The supplied Hex referee and team-owned framework are not presented as individual work. Third-party papers are cited by link instead of being redistributed. Portfolio claims are limited to what is supported by the code, tests, structured match metadata, and recorded screenshots.
+- [Architecture](docs/architecture.md) / [한국어](docs/architecture.ko.md)
+- [Experiments](docs/experiments.md) / [한국어](docs/experiments.ko.md)
+- [Reproducibility](docs/reproducibility.md) / [한국어](docs/reproducibility.ko.md)

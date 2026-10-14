@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "suite_id": "supplemental-workers",
+  "split": "final",
+  "manifest_sha256": "4733577dfada09380a2a91e5def5aec5308e869c01ad24440488a8753faf5f33",
+  "budget": {
+    "mode": "time",
+    "seconds": 0.25,
+    "workers": 2,
+    "node_cap": 100000,
+    "memory_mb": 128,
+    "game_seconds": 300,
+    "response_timeout": 30
+  },
+  "scheduled_games": 64,
+  "recorded_games": 64,
+  "completed_games": 64,
+  "missing_game_ids": [],
+  "comparisons": [
+    {
+      "left": "selected_w1",
+      "right": "ucb_w2",
+      "scheduled_games": 16,
+      "recorded_games": 16,
+      "completed_games": 16,
+      "left_wins": 12,
+      "right_wins": 4,
+      "left_win_rate_completed_games": 0.75,
+      "wilson_95_game_interval": [
+        0.5050168346449122,
+        0.8981793250878696
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 8,
+      "paired_mean_win_rate": 0.75,
+      "paired_cluster_bootstrap_95": [
+        0.5625,
+        0.9375
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 5,
+      "left_second_wins": 7
+    },
+    {
+      "left": "selected_w2",
+      "right": "ucb_w2",
+      "scheduled_games": 16,
+      "recorded_games": 16,
+      "completed_games": 16,
+      "left_wins": 16,
+      "right_wins": 0,
+      "left_win_rate_completed_games": 1.0,
+      "wilson_95_game_interval": [
+        0.8063923194655637,
+        1.0
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 8,
+      "paired_mean_win_rate": 1.0,
+      "paired_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 8,
+      "left_second_wins": 8
+    },
+    {
+      "left": "selected_w4",
+      "right": "ucb_w2",
+      "scheduled_games": 16,
+      "recorded_games": 16,
+      "completed_games": 16,
+      "left_wins": 14,
+      "right_wins": 2,
+      "left_win_rate_completed_games": 0.875,
+      "wilson_95_game_interval": [
+        0.639771727342413,
+        0.9650225122567595
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 8,
+      "paired_mean_win_rate": 0.875,
+      "paired_cluster_bootstrap_95": [
+        0.75,
+        1.0
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 8,
+      "left_second_wins": 6
+    },
+    {
+      "left": "selected_w8",
+      "right": "ucb_w2",
+      "scheduled_games": 16,
+      "recorded_games": 16,
+      "completed_games": 16,
+      "left_wins": 14,
+      "right_wins": 2,
+      "left_win_rate_completed_games": 0.875,
+      "wilson_95_game_interval": [
+        0.639771727342413,
+        0.9650225122567595
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 8,
+      "paired_mean_win_rate": 0.875,
+      "paired_cluster_bootstrap_95": [
+        0.6875,
+        1.0
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 7,
+      "left_second_wins": 7
+    }
+  ],
+  "interpretation": "Wins require verified connecting paths. Timeouts, illegal moves and protocol/process failures are excluded from playing-strength wins and reported separately. Pair bootstrap resamples complete side-reversal pairs only. Hardware environments must be reported separately."
+}

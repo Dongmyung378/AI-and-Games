@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "suite_id": "final-time-reference",
+  "split": "final",
+  "manifest_sha256": "dce42b5438c78e255a4be72268c0c830e7425147c0170207c969e75f09a5d44d",
+  "budget": {
+    "mode": "time",
+    "seconds": 5,
+    "workers": 8,
+    "node_cap": 100000,
+    "game_seconds": 300,
+    "response_timeout": 30
+  },
+  "scheduled_games": 4,
+  "recorded_games": 4,
+  "completed_games": 4,
+  "missing_game_ids": [],
+  "comparisons": [
+    {
+      "left": "original",
+      "right": "selected",
+      "scheduled_games": 4,
+      "recorded_games": 4,
+      "completed_games": 4,
+      "left_wins": 0,
+      "right_wins": 4,
+      "left_win_rate_completed_games": 0.0,
+      "wilson_95_game_interval": [
+        0.0,
+        0.4898908364545973
+      ],
+      "wilson_caveat": "Descriptive game-level interval; side-paired games are dependent.",
+      "complete_side_pairs": 2,
+      "paired_mean_win_rate": 0.0,
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "bootstrap_resamples": 2000,
+      "bootstrap_seed": 378,
+      "failures": {},
+      "failures_by_actor": {},
+      "failure_rate_recorded": 0.0,
+      "left_first_wins": 0,
+      "left_second_wins": 0
+    }
+  ],
+  "interpretation": "Wins require verified connecting paths. Timeouts, illegal moves and protocol/process failures are excluded from playing-strength wins and reported separately. Pair bootstrap resamples complete side-reversal pairs only. Hardware environments must be reported separately."
+}

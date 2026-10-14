@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "declared_utc": "2026-10-14T01:01:17.594395+00:00",
+  "purpose": "Bounded exploratory final measurement of equal wall-time policy wins and root-worker playing-strength effects.",
+  "supplemental_outcomes_observed": false,
+  "frozen_before_supplemental_execution": true,
+  "primary_final_execution_already_started": true,
+  "policy_frozen_before_this_addendum": true,
+  "selected_settings": {
+    "kind": "native",
+    "policy": "rave_ts",
+    "bridge": true,
+    "ordering": true,
+    "rave_k": 1000
+  },
+  "policy_retuning_allowed": false,
+  "primary_selection_and_final_protocol_changed": false,
+  "protected_files_sha256": {
+    "configs/final-policy.json": "610f9727ca1e2ff61974bd339f7b16b136d0064ed0cd70f74884c194fab0742f",
+    "configs/final-time-reference.json": "09f9d318710aa9cd235dd420a492df2514a3eda967405976c6b346cb1eb59dcc",
+    "reports/selection.json": "ac983192bb77aa3f33eb69b86ca69234f82011a369333f20d36b993275764fea",
+    "reports/final-freeze.json": "c5a232f59cf2e760a5d4fb64371f7227b60476b6688bb23abc899fd4907a2cac",
+    "native/hex_search.cpp": "5db4238366fa0638eaad04df5f85b847a9ce79012c4132f36542db3f4f9e6f85",
+    "hexai/native.py": "b96531703c67395be7158fe27725b65bcc266e6523fe7577c1106cbba4fa88e4",
+    "hexai/referee.py": "993c948a58dda397145fc77cc0e353b5b1632d6ae4a8b577a72e41180edadd5e",
+    "hexai/evaluation.py": "c0f2c1ac0e2ecbd42c2c7778acc181db777821284b74b386988bb40add715c08",
+    "hexai/cli.py": "ce2b6d29f618670de7824c3c9c1f61cdab5f540591a0f5ea830dd34a591f5235"
+  },
+  "supplemental_suites": [
+    {
+      "path": "configs/supplemental-time-policy.json",
+      "suite_id": "supplemental-time-policy",
+      "manifest_sha256": "21de9e7ff85d366301d37dd36cd9f96e9e585d8f52aaf6f6b7020780c1d2e6d7",
+      "file_sha256": "56b3fd3a72cd234c78977530f84fdb15a996c7652c9bc7a749f4a7b1fec2d3cc",
+      "games": 48,
+      "pairs": 24,
+      "seed_min": 1010000,
+      "seed_max": 1012007,
+      "budget": {
+        "mode": "time",
+        "seconds": 0.25,
+        "workers": 2,
+        "node_cap": 100000,
+        "memory_mb": 128,
+        "game_seconds": 300,
+        "response_timeout": 30
+      }
+    },
+    {
+      "path": "configs/supplemental-workers.json",
+      "suite_id": "supplemental-workers",
+      "manifest_sha256": "4733577dfada09380a2a91e5def5aec5308e869c01ad24440488a8753faf5f33",
+      "file_sha256": "cf8d91d26447fdbede28e9757f5d9db9419e87c4fb3b5a748bbbcc953063c974",
+      "games": 64,
+      "pairs": 32,
+      "seed_min": 1020000,
+      "seed_max": 1023007,
+      "budget": {
+        "mode": "time",
+        "seconds": 0.25,
+        "workers": 2,
+        "node_cap": 100000,
+        "memory_mb": 128,
+        "game_seconds": 300,
+        "response_timeout": 30
+      }
+    }
+  ],
+  "policy_comparison": "Frozen selected RAVE-TS versus UCB, TS and RAVE-UCB. Eight side-reversal pairs per opponent; two workers for both participants.",
+  "worker_comparison": "Frozen selected RAVE-TS with one, two, four or eight root workers versus a fixed UCB opponent with two workers. Eight side-reversal pairs per condition.",
+  "shared_time_protocol": "11x11 boards; 0.25-second native per-move wall-time cap, external 300-second participant game ceiling and 30-second response deadline; 100000-node cap and 128-MB declared memory budget.",
+  "opening_rule": "One SHA-256-derived forced first move per unique pair seed, identical seed and opening in its side-reversed leg. Coordinates may repeat while seeds and identifiers are disjoint from every existing suite.",
+  "host_sharding": "Both legs of every pair must run sequentially on the same execution host. Report environment groups separately; avoid overlapping workloads on the same host.",
+  "analysis": "Report verified completed-game wins, both side-specific counts, failed games by status/actor, and 95-percent cluster-bootstrap intervals over complete side-reversal pairs. Failed games never become playing-strength wins.",
+  "interpretation": "These supplements were added after the primary final evaluation started. They are exploratory measurements, not additional selection data or a predeclared confirmatory test. Eight pairs per condition can produce wide intervals; avoid small-sample superiority claims. The worker comparison holds wall time and opponent fixed, not total CPU work, and four/eight workers may oversubscribe Kaggle CPU capacity.",
+  "stop_rule": "Run each scheduled game once, preserving failures. No additional opponents, seeds, time budgets, features, policy selection or worker tuning based on these outcomes.",
+  "relationship_to_original_plan": "Adds actual equal-time policy and worker win-rate measurements requested by P06-02/P06-03 while preserving primary frozen comparisons and the separate original-source reference."
+}

@@ -1,0 +1,3637 @@
+{
+  "schema_version": 1,
+  "suite_id": "final-policy",
+  "split": "final",
+  "board_size": 11,
+  "budget": {
+    "mode": "iterations",
+    "iterations": 16000,
+    "workers": 2,
+    "node_cap": 100000,
+    "game_seconds": 300,
+    "response_timeout": 60
+  },
+  "participants": {
+    "selected": {
+      "kind": "native",
+      "policy": "rave_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "ucb": {
+      "kind": "native",
+      "policy": "ucb",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "ts": {
+      "kind": "native",
+      "policy": "ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "rave_ucb": {
+      "kind": "native",
+      "policy": "rave_ucb",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    },
+    "legacy_ts": {
+      "kind": "native",
+      "policy": "legacy_ts",
+      "bridge": true,
+      "ordering": true,
+      "rave_k": 1000
+    }
+  },
+  "games": [
+    {
+      "game_id": "final-policy-selected-vs-ucb-000-0",
+      "pair_id": "final-policy-selected-vs-ucb-000",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910000,
+      "opening_seed": 910000,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-000-1",
+      "pair_id": "final-policy-selected-vs-ucb-000",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910000,
+      "opening_seed": 910000,
+      "opening_moves": [
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-001-0",
+      "pair_id": "final-policy-selected-vs-ucb-001",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910001,
+      "opening_seed": 910001,
+      "opening_moves": [
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-001-1",
+      "pair_id": "final-policy-selected-vs-ucb-001",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910001,
+      "opening_seed": 910001,
+      "opening_moves": [
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-002-0",
+      "pair_id": "final-policy-selected-vs-ucb-002",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910002,
+      "opening_seed": 910002,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-002-1",
+      "pair_id": "final-policy-selected-vs-ucb-002",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910002,
+      "opening_seed": 910002,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-003-0",
+      "pair_id": "final-policy-selected-vs-ucb-003",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910003,
+      "opening_seed": 910003,
+      "opening_moves": [
+        [
+          10,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-003-1",
+      "pair_id": "final-policy-selected-vs-ucb-003",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910003,
+      "opening_seed": 910003,
+      "opening_moves": [
+        [
+          10,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-004-0",
+      "pair_id": "final-policy-selected-vs-ucb-004",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910004,
+      "opening_seed": 910004,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-004-1",
+      "pair_id": "final-policy-selected-vs-ucb-004",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910004,
+      "opening_seed": 910004,
+      "opening_moves": [
+        [
+          9,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-005-0",
+      "pair_id": "final-policy-selected-vs-ucb-005",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910005,
+      "opening_seed": 910005,
+      "opening_moves": [
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-005-1",
+      "pair_id": "final-policy-selected-vs-ucb-005",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910005,
+      "opening_seed": 910005,
+      "opening_moves": [
+        [
+          2,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-006-0",
+      "pair_id": "final-policy-selected-vs-ucb-006",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910006,
+      "opening_seed": 910006,
+      "opening_moves": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-006-1",
+      "pair_id": "final-policy-selected-vs-ucb-006",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910006,
+      "opening_seed": 910006,
+      "opening_moves": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-007-0",
+      "pair_id": "final-policy-selected-vs-ucb-007",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910007,
+      "opening_seed": 910007,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-007-1",
+      "pair_id": "final-policy-selected-vs-ucb-007",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910007,
+      "opening_seed": 910007,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-008-0",
+      "pair_id": "final-policy-selected-vs-ucb-008",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910008,
+      "opening_seed": 910008,
+      "opening_moves": [
+        [
+          8,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-008-1",
+      "pair_id": "final-policy-selected-vs-ucb-008",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910008,
+      "opening_seed": 910008,
+      "opening_moves": [
+        [
+          8,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-009-0",
+      "pair_id": "final-policy-selected-vs-ucb-009",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910009,
+      "opening_seed": 910009,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-009-1",
+      "pair_id": "final-policy-selected-vs-ucb-009",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910009,
+      "opening_seed": 910009,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-010-0",
+      "pair_id": "final-policy-selected-vs-ucb-010",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910010,
+      "opening_seed": 910010,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-010-1",
+      "pair_id": "final-policy-selected-vs-ucb-010",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910010,
+      "opening_seed": 910010,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-011-0",
+      "pair_id": "final-policy-selected-vs-ucb-011",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910011,
+      "opening_seed": 910011,
+      "opening_moves": [
+        [
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-011-1",
+      "pair_id": "final-policy-selected-vs-ucb-011",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910011,
+      "opening_seed": 910011,
+      "opening_moves": [
+        [
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-012-0",
+      "pair_id": "final-policy-selected-vs-ucb-012",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910012,
+      "opening_seed": 910012,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-012-1",
+      "pair_id": "final-policy-selected-vs-ucb-012",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910012,
+      "opening_seed": 910012,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-013-0",
+      "pair_id": "final-policy-selected-vs-ucb-013",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910013,
+      "opening_seed": 910013,
+      "opening_moves": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-013-1",
+      "pair_id": "final-policy-selected-vs-ucb-013",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910013,
+      "opening_seed": 910013,
+      "opening_moves": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-014-0",
+      "pair_id": "final-policy-selected-vs-ucb-014",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910014,
+      "opening_seed": 910014,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-014-1",
+      "pair_id": "final-policy-selected-vs-ucb-014",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910014,
+      "opening_seed": 910014,
+      "opening_moves": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-015-0",
+      "pair_id": "final-policy-selected-vs-ucb-015",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910015,
+      "opening_seed": 910015,
+      "opening_moves": [
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-015-1",
+      "pair_id": "final-policy-selected-vs-ucb-015",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910015,
+      "opening_seed": 910015,
+      "opening_moves": [
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-016-0",
+      "pair_id": "final-policy-selected-vs-ucb-016",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910016,
+      "opening_seed": 910016,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-016-1",
+      "pair_id": "final-policy-selected-vs-ucb-016",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910016,
+      "opening_seed": 910016,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-017-0",
+      "pair_id": "final-policy-selected-vs-ucb-017",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910017,
+      "opening_seed": 910017,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-017-1",
+      "pair_id": "final-policy-selected-vs-ucb-017",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910017,
+      "opening_seed": 910017,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-018-0",
+      "pair_id": "final-policy-selected-vs-ucb-018",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910018,
+      "opening_seed": 910018,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-018-1",
+      "pair_id": "final-policy-selected-vs-ucb-018",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910018,
+      "opening_seed": 910018,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-019-0",
+      "pair_id": "final-policy-selected-vs-ucb-019",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910019,
+      "opening_seed": 910019,
+      "opening_moves": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-019-1",
+      "pair_id": "final-policy-selected-vs-ucb-019",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910019,
+      "opening_seed": 910019,
+      "opening_moves": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-020-0",
+      "pair_id": "final-policy-selected-vs-ucb-020",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910020,
+      "opening_seed": 910020,
+      "opening_moves": [
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-020-1",
+      "pair_id": "final-policy-selected-vs-ucb-020",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910020,
+      "opening_seed": 910020,
+      "opening_moves": [
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-021-0",
+      "pair_id": "final-policy-selected-vs-ucb-021",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910021,
+      "opening_seed": 910021,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-021-1",
+      "pair_id": "final-policy-selected-vs-ucb-021",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910021,
+      "opening_seed": 910021,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-022-0",
+      "pair_id": "final-policy-selected-vs-ucb-022",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910022,
+      "opening_seed": 910022,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-022-1",
+      "pair_id": "final-policy-selected-vs-ucb-022",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910022,
+      "opening_seed": 910022,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-023-0",
+      "pair_id": "final-policy-selected-vs-ucb-023",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910023,
+      "opening_seed": 910023,
+      "opening_moves": [
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-023-1",
+      "pair_id": "final-policy-selected-vs-ucb-023",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910023,
+      "opening_seed": 910023,
+      "opening_moves": [
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-024-0",
+      "pair_id": "final-policy-selected-vs-ucb-024",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910024,
+      "opening_seed": 910024,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-024-1",
+      "pair_id": "final-policy-selected-vs-ucb-024",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910024,
+      "opening_seed": 910024,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-025-0",
+      "pair_id": "final-policy-selected-vs-ucb-025",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910025,
+      "opening_seed": 910025,
+      "opening_moves": [
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-025-1",
+      "pair_id": "final-policy-selected-vs-ucb-025",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910025,
+      "opening_seed": 910025,
+      "opening_moves": [
+        [
+          5,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-026-0",
+      "pair_id": "final-policy-selected-vs-ucb-026",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910026,
+      "opening_seed": 910026,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-026-1",
+      "pair_id": "final-policy-selected-vs-ucb-026",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910026,
+      "opening_seed": 910026,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-027-0",
+      "pair_id": "final-policy-selected-vs-ucb-027",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910027,
+      "opening_seed": 910027,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-027-1",
+      "pair_id": "final-policy-selected-vs-ucb-027",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910027,
+      "opening_seed": 910027,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-028-0",
+      "pair_id": "final-policy-selected-vs-ucb-028",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910028,
+      "opening_seed": 910028,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-028-1",
+      "pair_id": "final-policy-selected-vs-ucb-028",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910028,
+      "opening_seed": 910028,
+      "opening_moves": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-029-0",
+      "pair_id": "final-policy-selected-vs-ucb-029",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910029,
+      "opening_seed": 910029,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-029-1",
+      "pair_id": "final-policy-selected-vs-ucb-029",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910029,
+      "opening_seed": 910029,
+      "opening_moves": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-030-0",
+      "pair_id": "final-policy-selected-vs-ucb-030",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910030,
+      "opening_seed": 910030,
+      "opening_moves": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-030-1",
+      "pair_id": "final-policy-selected-vs-ucb-030",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910030,
+      "opening_seed": 910030,
+      "opening_moves": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-031-0",
+      "pair_id": "final-policy-selected-vs-ucb-031",
+      "red": "selected",
+      "blue": "ucb",
+      "seed": 910031,
+      "opening_seed": 910031,
+      "opening_moves": [
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ucb-031-1",
+      "pair_id": "final-policy-selected-vs-ucb-031",
+      "red": "ucb",
+      "blue": "selected",
+      "seed": 910031,
+      "opening_seed": 910031,
+      "opening_moves": [
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-000-0",
+      "pair_id": "final-policy-selected-vs-ts-000",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911000,
+      "opening_seed": 911000,
+      "opening_moves": [
+        [
+          0,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-000-1",
+      "pair_id": "final-policy-selected-vs-ts-000",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911000,
+      "opening_seed": 911000,
+      "opening_moves": [
+        [
+          0,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-001-0",
+      "pair_id": "final-policy-selected-vs-ts-001",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911001,
+      "opening_seed": 911001,
+      "opening_moves": [
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-001-1",
+      "pair_id": "final-policy-selected-vs-ts-001",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911001,
+      "opening_seed": 911001,
+      "opening_moves": [
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-002-0",
+      "pair_id": "final-policy-selected-vs-ts-002",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911002,
+      "opening_seed": 911002,
+      "opening_moves": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-002-1",
+      "pair_id": "final-policy-selected-vs-ts-002",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911002,
+      "opening_seed": 911002,
+      "opening_moves": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-003-0",
+      "pair_id": "final-policy-selected-vs-ts-003",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911003,
+      "opening_seed": 911003,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-003-1",
+      "pair_id": "final-policy-selected-vs-ts-003",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911003,
+      "opening_seed": 911003,
+      "opening_moves": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-004-0",
+      "pair_id": "final-policy-selected-vs-ts-004",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911004,
+      "opening_seed": 911004,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-004-1",
+      "pair_id": "final-policy-selected-vs-ts-004",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911004,
+      "opening_seed": 911004,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-005-0",
+      "pair_id": "final-policy-selected-vs-ts-005",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911005,
+      "opening_seed": 911005,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-005-1",
+      "pair_id": "final-policy-selected-vs-ts-005",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911005,
+      "opening_seed": 911005,
+      "opening_moves": [
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-006-0",
+      "pair_id": "final-policy-selected-vs-ts-006",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911006,
+      "opening_seed": 911006,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-006-1",
+      "pair_id": "final-policy-selected-vs-ts-006",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911006,
+      "opening_seed": 911006,
+      "opening_moves": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-007-0",
+      "pair_id": "final-policy-selected-vs-ts-007",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911007,
+      "opening_seed": 911007,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-007-1",
+      "pair_id": "final-policy-selected-vs-ts-007",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911007,
+      "opening_seed": 911007,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-008-0",
+      "pair_id": "final-policy-selected-vs-ts-008",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911008,
+      "opening_seed": 911008,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-008-1",
+      "pair_id": "final-policy-selected-vs-ts-008",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911008,
+      "opening_seed": 911008,
+      "opening_moves": [
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-009-0",
+      "pair_id": "final-policy-selected-vs-ts-009",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911009,
+      "opening_seed": 911009,
+      "opening_moves": [
+        [
+          5,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-009-1",
+      "pair_id": "final-policy-selected-vs-ts-009",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911009,
+      "opening_seed": 911009,
+      "opening_moves": [
+        [
+          5,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-010-0",
+      "pair_id": "final-policy-selected-vs-ts-010",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911010,
+      "opening_seed": 911010,
+      "opening_moves": [
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-010-1",
+      "pair_id": "final-policy-selected-vs-ts-010",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911010,
+      "opening_seed": 911010,
+      "opening_moves": [
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-011-0",
+      "pair_id": "final-policy-selected-vs-ts-011",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911011,
+      "opening_seed": 911011,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-011-1",
+      "pair_id": "final-policy-selected-vs-ts-011",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911011,
+      "opening_seed": 911011,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-012-0",
+      "pair_id": "final-policy-selected-vs-ts-012",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911012,
+      "opening_seed": 911012,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-012-1",
+      "pair_id": "final-policy-selected-vs-ts-012",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911012,
+      "opening_seed": 911012,
+      "opening_moves": [
+        [
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-013-0",
+      "pair_id": "final-policy-selected-vs-ts-013",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911013,
+      "opening_seed": 911013,
+      "opening_moves": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-013-1",
+      "pair_id": "final-policy-selected-vs-ts-013",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911013,
+      "opening_seed": 911013,
+      "opening_moves": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-014-0",
+      "pair_id": "final-policy-selected-vs-ts-014",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911014,
+      "opening_seed": 911014,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-014-1",
+      "pair_id": "final-policy-selected-vs-ts-014",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911014,
+      "opening_seed": 911014,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-015-0",
+      "pair_id": "final-policy-selected-vs-ts-015",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911015,
+      "opening_seed": 911015,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-015-1",
+      "pair_id": "final-policy-selected-vs-ts-015",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911015,
+      "opening_seed": 911015,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-016-0",
+      "pair_id": "final-policy-selected-vs-ts-016",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911016,
+      "opening_seed": 911016,
+      "opening_moves": [
+        [
+          2,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-016-1",
+      "pair_id": "final-policy-selected-vs-ts-016",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911016,
+      "opening_seed": 911016,
+      "opening_moves": [
+        [
+          2,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-017-0",
+      "pair_id": "final-policy-selected-vs-ts-017",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911017,
+      "opening_seed": 911017,
+      "opening_moves": [
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-017-1",
+      "pair_id": "final-policy-selected-vs-ts-017",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911017,
+      "opening_seed": 911017,
+      "opening_moves": [
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-018-0",
+      "pair_id": "final-policy-selected-vs-ts-018",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911018,
+      "opening_seed": 911018,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-018-1",
+      "pair_id": "final-policy-selected-vs-ts-018",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911018,
+      "opening_seed": 911018,
+      "opening_moves": [
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-019-0",
+      "pair_id": "final-policy-selected-vs-ts-019",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911019,
+      "opening_seed": 911019,
+      "opening_moves": [
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-019-1",
+      "pair_id": "final-policy-selected-vs-ts-019",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911019,
+      "opening_seed": 911019,
+      "opening_moves": [
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-020-0",
+      "pair_id": "final-policy-selected-vs-ts-020",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911020,
+      "opening_seed": 911020,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-020-1",
+      "pair_id": "final-policy-selected-vs-ts-020",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911020,
+      "opening_seed": 911020,
+      "opening_moves": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-021-0",
+      "pair_id": "final-policy-selected-vs-ts-021",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911021,
+      "opening_seed": 911021,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-021-1",
+      "pair_id": "final-policy-selected-vs-ts-021",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911021,
+      "opening_seed": 911021,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-022-0",
+      "pair_id": "final-policy-selected-vs-ts-022",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911022,
+      "opening_seed": 911022,
+      "opening_moves": [
+        [
+          9,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-022-1",
+      "pair_id": "final-policy-selected-vs-ts-022",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911022,
+      "opening_seed": 911022,
+      "opening_moves": [
+        [
+          9,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-023-0",
+      "pair_id": "final-policy-selected-vs-ts-023",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911023,
+      "opening_seed": 911023,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-023-1",
+      "pair_id": "final-policy-selected-vs-ts-023",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911023,
+      "opening_seed": 911023,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-024-0",
+      "pair_id": "final-policy-selected-vs-ts-024",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911024,
+      "opening_seed": 911024,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-024-1",
+      "pair_id": "final-policy-selected-vs-ts-024",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911024,
+      "opening_seed": 911024,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-025-0",
+      "pair_id": "final-policy-selected-vs-ts-025",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911025,
+      "opening_seed": 911025,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-025-1",
+      "pair_id": "final-policy-selected-vs-ts-025",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911025,
+      "opening_seed": 911025,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-026-0",
+      "pair_id": "final-policy-selected-vs-ts-026",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911026,
+      "opening_seed": 911026,
+      "opening_moves": [
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-026-1",
+      "pair_id": "final-policy-selected-vs-ts-026",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911026,
+      "opening_seed": 911026,
+      "opening_moves": [
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-027-0",
+      "pair_id": "final-policy-selected-vs-ts-027",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911027,
+      "opening_seed": 911027,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-027-1",
+      "pair_id": "final-policy-selected-vs-ts-027",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911027,
+      "opening_seed": 911027,
+      "opening_moves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-028-0",
+      "pair_id": "final-policy-selected-vs-ts-028",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911028,
+      "opening_seed": 911028,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-028-1",
+      "pair_id": "final-policy-selected-vs-ts-028",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911028,
+      "opening_seed": 911028,
+      "opening_moves": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-029-0",
+      "pair_id": "final-policy-selected-vs-ts-029",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911029,
+      "opening_seed": 911029,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-029-1",
+      "pair_id": "final-policy-selected-vs-ts-029",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911029,
+      "opening_seed": 911029,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-030-0",
+      "pair_id": "final-policy-selected-vs-ts-030",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911030,
+      "opening_seed": 911030,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-030-1",
+      "pair_id": "final-policy-selected-vs-ts-030",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911030,
+      "opening_seed": 911030,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-031-0",
+      "pair_id": "final-policy-selected-vs-ts-031",
+      "red": "selected",
+      "blue": "ts",
+      "seed": 911031,
+      "opening_seed": 911031,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-ts-031-1",
+      "pair_id": "final-policy-selected-vs-ts-031",
+      "red": "ts",
+      "blue": "selected",
+      "seed": 911031,
+      "opening_seed": 911031,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-000-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-000",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912000,
+      "opening_seed": 912000,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-000-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-000",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912000,
+      "opening_seed": 912000,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-001-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-001",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912001,
+      "opening_seed": 912001,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-001-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-001",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912001,
+      "opening_seed": 912001,
+      "opening_moves": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-002-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-002",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912002,
+      "opening_seed": 912002,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-002-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-002",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912002,
+      "opening_seed": 912002,
+      "opening_moves": [
+        [
+          9,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-003-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-003",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912003,
+      "opening_seed": 912003,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-003-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-003",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912003,
+      "opening_seed": 912003,
+      "opening_moves": [
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-004-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-004",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912004,
+      "opening_seed": 912004,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-004-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-004",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912004,
+      "opening_seed": 912004,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-005-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-005",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912005,
+      "opening_seed": 912005,
+      "opening_moves": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-005-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-005",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912005,
+      "opening_seed": 912005,
+      "opening_moves": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-006-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-006",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912006,
+      "opening_seed": 912006,
+      "opening_moves": [
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-006-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-006",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912006,
+      "opening_seed": 912006,
+      "opening_moves": [
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-007-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-007",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912007,
+      "opening_seed": 912007,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-007-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-007",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912007,
+      "opening_seed": 912007,
+      "opening_moves": [
+        [
+          3,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-008-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-008",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912008,
+      "opening_seed": 912008,
+      "opening_moves": [
+        [
+          5,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-008-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-008",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912008,
+      "opening_seed": 912008,
+      "opening_moves": [
+        [
+          5,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-009-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-009",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912009,
+      "opening_seed": 912009,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-009-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-009",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912009,
+      "opening_seed": 912009,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-010-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-010",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912010,
+      "opening_seed": 912010,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-010-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-010",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912010,
+      "opening_seed": 912010,
+      "opening_moves": [
+        [
+          9,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-011-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-011",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912011,
+      "opening_seed": 912011,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-011-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-011",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912011,
+      "opening_seed": 912011,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-012-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-012",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912012,
+      "opening_seed": 912012,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-012-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-012",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912012,
+      "opening_seed": 912012,
+      "opening_moves": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-013-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-013",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912013,
+      "opening_seed": 912013,
+      "opening_moves": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-013-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-013",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912013,
+      "opening_seed": 912013,
+      "opening_moves": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-014-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-014",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912014,
+      "opening_seed": 912014,
+      "opening_moves": [
+        [
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-014-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-014",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912014,
+      "opening_seed": 912014,
+      "opening_moves": [
+        [
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-015-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-015",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912015,
+      "opening_seed": 912015,
+      "opening_moves": [
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-015-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-015",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912015,
+      "opening_seed": 912015,
+      "opening_moves": [
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-016-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-016",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912016,
+      "opening_seed": 912016,
+      "opening_moves": [
+        [
+          8,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-016-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-016",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912016,
+      "opening_seed": 912016,
+      "opening_moves": [
+        [
+          8,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-017-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-017",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912017,
+      "opening_seed": 912017,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-017-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-017",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912017,
+      "opening_seed": 912017,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-018-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-018",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912018,
+      "opening_seed": 912018,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-018-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-018",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912018,
+      "opening_seed": 912018,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-019-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-019",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912019,
+      "opening_seed": 912019,
+      "opening_moves": [
+        [
+          9,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-019-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-019",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912019,
+      "opening_seed": 912019,
+      "opening_moves": [
+        [
+          9,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-020-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-020",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912020,
+      "opening_seed": 912020,
+      "opening_moves": [
+        [
+          4,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-020-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-020",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912020,
+      "opening_seed": 912020,
+      "opening_moves": [
+        [
+          4,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-021-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-021",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912021,
+      "opening_seed": 912021,
+      "opening_moves": [
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-021-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-021",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912021,
+      "opening_seed": 912021,
+      "opening_moves": [
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-022-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-022",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912022,
+      "opening_seed": 912022,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-022-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-022",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912022,
+      "opening_seed": 912022,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-023-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-023",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912023,
+      "opening_seed": 912023,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-023-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-023",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912023,
+      "opening_seed": 912023,
+      "opening_moves": [
+        [
+          7,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-024-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-024",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912024,
+      "opening_seed": 912024,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-024-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-024",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912024,
+      "opening_seed": 912024,
+      "opening_moves": [
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-025-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-025",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912025,
+      "opening_seed": 912025,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-025-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-025",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912025,
+      "opening_seed": 912025,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-026-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-026",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912026,
+      "opening_seed": 912026,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-026-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-026",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912026,
+      "opening_seed": 912026,
+      "opening_moves": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-027-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-027",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912027,
+      "opening_seed": 912027,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-027-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-027",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912027,
+      "opening_seed": 912027,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-028-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-028",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912028,
+      "opening_seed": 912028,
+      "opening_moves": [
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-028-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-028",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912028,
+      "opening_seed": 912028,
+      "opening_moves": [
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-029-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-029",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912029,
+      "opening_seed": 912029,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-029-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-029",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912029,
+      "opening_seed": 912029,
+      "opening_moves": [
+        [
+          2,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-030-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-030",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912030,
+      "opening_seed": 912030,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-030-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-030",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912030,
+      "opening_seed": 912030,
+      "opening_moves": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-031-0",
+      "pair_id": "final-policy-selected-vs-rave_ucb-031",
+      "red": "selected",
+      "blue": "rave_ucb",
+      "seed": 912031,
+      "opening_seed": 912031,
+      "opening_moves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-rave_ucb-031-1",
+      "pair_id": "final-policy-selected-vs-rave_ucb-031",
+      "red": "rave_ucb",
+      "blue": "selected",
+      "seed": 912031,
+      "opening_seed": 912031,
+      "opening_moves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-000-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-000",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913000,
+      "opening_seed": 913000,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-000-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-000",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913000,
+      "opening_seed": 913000,
+      "opening_moves": [
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-001-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-001",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913001,
+      "opening_seed": 913001,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-001-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-001",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913001,
+      "opening_seed": 913001,
+      "opening_moves": [
+        [
+          10,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-002-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-002",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913002,
+      "opening_seed": 913002,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-002-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-002",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913002,
+      "opening_seed": 913002,
+      "opening_moves": [
+        [
+          7,
+          4
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-003-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-003",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913003,
+      "opening_seed": 913003,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-003-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-003",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913003,
+      "opening_seed": 913003,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-004-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-004",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913004,
+      "opening_seed": 913004,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-004-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-004",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913004,
+      "opening_seed": 913004,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-005-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-005",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913005,
+      "opening_seed": 913005,
+      "opening_moves": [
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-005-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-005",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913005,
+      "opening_seed": 913005,
+      "opening_moves": [
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-006-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-006",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913006,
+      "opening_seed": 913006,
+      "opening_moves": [
+        [
+          0,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-006-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-006",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913006,
+      "opening_seed": 913006,
+      "opening_moves": [
+        [
+          0,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-007-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-007",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913007,
+      "opening_seed": 913007,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-007-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-007",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913007,
+      "opening_seed": 913007,
+      "opening_moves": [
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-008-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-008",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913008,
+      "opening_seed": 913008,
+      "opening_moves": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-008-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-008",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913008,
+      "opening_seed": 913008,
+      "opening_moves": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-009-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-009",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913009,
+      "opening_seed": 913009,
+      "opening_moves": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-009-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-009",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913009,
+      "opening_seed": 913009,
+      "opening_moves": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-010-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-010",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913010,
+      "opening_seed": 913010,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-010-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-010",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913010,
+      "opening_seed": 913010,
+      "opening_moves": [
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-011-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-011",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913011,
+      "opening_seed": 913011,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-011-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-011",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913011,
+      "opening_seed": 913011,
+      "opening_moves": [
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-012-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-012",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913012,
+      "opening_seed": 913012,
+      "opening_moves": [
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-012-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-012",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913012,
+      "opening_seed": 913012,
+      "opening_moves": [
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-013-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-013",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913013,
+      "opening_seed": 913013,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-013-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-013",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913013,
+      "opening_seed": 913013,
+      "opening_moves": [
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-014-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-014",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913014,
+      "opening_seed": 913014,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-014-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-014",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913014,
+      "opening_seed": 913014,
+      "opening_moves": [
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-015-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-015",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913015,
+      "opening_seed": 913015,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-015-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-015",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913015,
+      "opening_seed": 913015,
+      "opening_moves": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-016-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-016",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913016,
+      "opening_seed": 913016,
+      "opening_moves": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-016-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-016",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913016,
+      "opening_seed": 913016,
+      "opening_moves": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-017-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-017",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913017,
+      "opening_seed": 913017,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-017-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-017",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913017,
+      "opening_seed": 913017,
+      "opening_moves": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-018-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-018",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913018,
+      "opening_seed": 913018,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-018-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-018",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913018,
+      "opening_seed": 913018,
+      "opening_moves": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-019-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-019",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913019,
+      "opening_seed": 913019,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-019-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-019",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913019,
+      "opening_seed": 913019,
+      "opening_moves": [
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-020-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-020",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913020,
+      "opening_seed": 913020,
+      "opening_moves": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-020-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-020",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913020,
+      "opening_seed": 913020,
+      "opening_moves": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-021-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-021",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913021,
+      "opening_seed": 913021,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-021-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-021",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913021,
+      "opening_seed": 913021,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-022-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-022",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913022,
+      "opening_seed": 913022,
+      "opening_moves": [
+        [
+          10,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-022-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-022",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913022,
+      "opening_seed": 913022,
+      "opening_moves": [
+        [
+          10,
+          6
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-023-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-023",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913023,
+      "opening_seed": 913023,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-023-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-023",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913023,
+      "opening_seed": 913023,
+      "opening_moves": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-024-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-024",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913024,
+      "opening_seed": 913024,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-024-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-024",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913024,
+      "opening_seed": 913024,
+      "opening_moves": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-025-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-025",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913025,
+      "opening_seed": 913025,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-025-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-025",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913025,
+      "opening_seed": 913025,
+      "opening_moves": [
+        [
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-026-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-026",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913026,
+      "opening_seed": 913026,
+      "opening_moves": [
+        [
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-026-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-026",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913026,
+      "opening_seed": 913026,
+      "opening_moves": [
+        [
+          3,
+          10
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-027-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-027",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913027,
+      "opening_seed": 913027,
+      "opening_moves": [
+        [
+          5,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-027-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-027",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913027,
+      "opening_seed": 913027,
+      "opening_moves": [
+        [
+          5,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-028-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-028",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913028,
+      "opening_seed": 913028,
+      "opening_moves": [
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-028-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-028",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913028,
+      "opening_seed": 913028,
+      "opening_moves": [
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-029-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-029",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913029,
+      "opening_seed": 913029,
+      "opening_moves": [
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-029-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-029",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913029,
+      "opening_seed": 913029,
+      "opening_moves": [
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-030-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-030",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913030,
+      "opening_seed": 913030,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-030-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-030",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913030,
+      "opening_seed": 913030,
+      "opening_moves": [
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-031-0",
+      "pair_id": "final-policy-selected-vs-legacy_ts-031",
+      "red": "selected",
+      "blue": "legacy_ts",
+      "seed": 913031,
+      "opening_seed": 913031,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "game_id": "final-policy-selected-vs-legacy_ts-031-1",
+      "pair_id": "final-policy-selected-vs-legacy_ts-031",
+      "red": "legacy_ts",
+      "blue": "selected",
+      "seed": 913031,
+      "opening_seed": 913031,
+      "opening_moves": [
+        [
+          6,
+          2
+        ]
+      ]
+    }
+  ]
+}
