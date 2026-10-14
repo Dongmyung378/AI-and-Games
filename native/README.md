@@ -127,9 +127,9 @@ AMAF disabled and multiplies Monte Carlo successes and failures by
 historical zero-AMAF blend's effect. It is not the old executable: board handling,
 deadlines, allocation, seeding, and other engine details remain maintained code.
 
-## Controlled historical-algorithm comparison
+## Controlled initial-algorithm comparison
 
-For an equal-worker, equal-budget comparison against the historical algorithm:
+For an equal-worker, equal-budget comparison against the initial algorithm:
 
 ```bash
 python scripts/build_legacy_benchmark.py --output .local/bin/legacy_benchmark
