@@ -43,11 +43,13 @@ def main():
     tree.getroot().set('lang','en')
     target.parent.mkdir(parents=True,exist_ok=True)
     tree.write(target,encoding='utf-8',xml_declaration=True)
+    target.write_text('\n'.join(line.rstrip() for line in target.read_text(encoding='utf-8').splitlines())+'\n',
+                      encoding='utf-8',newline='\n')
     receipt={'source':source.relative_to(ROOT).as_posix(),'target':target.relative_to(ROOT).as_posix(),
       'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'target_sha256':hashlib.sha256(target.read_bytes()).hexdigest(),
       'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
       'scope':'English labels only; all original numerical values, drawn shapes and historical receipts are preserved.'}
-    (target.parent/'localization.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+    (target.parent/'localization.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(receipt))
 
 if __name__=='__main__': main()
