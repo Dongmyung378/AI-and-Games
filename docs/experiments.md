@@ -383,9 +383,9 @@ The native self-test compares both colours on all 19,683 possible 3×3 assignmen
 | RAVE-TS vs HexHex, second | Loss after 40 turns |
 | MCTS baseline vs HexHex, second | Loss after 50 turns |
 
-![RAVE-TS win against Davis 7](../assets/results/rave-vs-davis-7-win.png)
+[Original RAVE-TS win screenshot against Davis 7 (Korean site interface)](../assets/results/rave-vs-davis-7-win.png)
 
-![RAVE-TS win against Davis 10](../assets/results/rave-vs-davis-10-win.png)
+[Original RAVE-TS win screenshot against Davis 10 (Korean site interface)](../assets/results/rave-vs-davis-10-win.png)
 
 ![RAVE-TS loss against HexHex](../assets/results/rave-vs-hexhex-loss.png)
 

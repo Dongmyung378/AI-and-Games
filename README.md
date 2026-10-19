@@ -212,7 +212,7 @@ All 160 development games completed with zero execution failures. RAVE-TS won 44
 Each policy played 16 games against each of the other three policies. Adding the denominators counts every game twice: the policy suite contained 96 games, plus 64 separate feature-comparison games. None of the four optional changes passed its adoption gate, so those candidates were stopped. The frozen configuration is **RAVE-TS, bridge defence enabled, move ordering enabled and `rave_k=1000`**. [Selection](reports/selection.json) and [the final freeze receipt](reports/final-freeze.json) preserve the settings and hashes.
 
 <!-- FINAL_RESULTS_BEGIN -->
-![Held-out policy comparisons](assets/figures/hex-final.svg)
+![Held-out policy comparisons](assets/figures/en/hex-final.svg)
 
 All 256 frozen final games are recorded: 256 completed, 0 failed and zero missing. Win rates use completed games; failures are not converted to wins.
 

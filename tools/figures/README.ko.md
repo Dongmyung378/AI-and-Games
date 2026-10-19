@@ -19,6 +19,8 @@ Windows에서는 `.local/figure-env/bin/python` 대신 `.local/figure-env/Script
 
 출력 폴더 `en/`과 `ko/`에는 `hex-shared-time.svg`, `hex-tactical-ablation.svg`, `hex-worker-positions.svg`, `hex-deep-thumbnail.svg`가 생성됩니다. 영어 기본 그림은 `assets/figures/`, 한국어 그림은 `assets/figures/ko/`에 있습니다. `assets/figures/deep-figure-manifest.json`에 새 그림과 생성 코드, 입력 및 글꼴의 해시를 기록합니다. 이전 SVG 일곱 개는 수치와 형상을 보존한 별도의 이전 평가 자료입니다.
 
+영어 README의 고정 횟수 평가 그림은 `assets/figures/en/hex-final.svg`의 영어 파생본을 연결합니다. `python tools/figures/localize_final_policy.py`로 다시 만들 수 있으며 한국어 원본의 모든 그래프 좌표와 수치는 유지합니다. 별도 번역 영수증을 기록하고 한국어 원본과 과거 영수증은 변경하지 않습니다.
+
 공유 시간 그림은 실제 상대 식별자로 선정 정책의 승률을 대응합니다. 구간은 기록된 장비 및 어댑터 조건 안에서 완결된 선후공 교대 쌍을 재추출한 값입니다. 참가자별 300초는 시간 상한이며 실제 소비 시간을 의미하지 않습니다. 완료 경기, 실행 실패와 미기록 경기의 분모는 구분합니다. 전술 그림의 50–50% 구간은 관측한 쌍의 점수가 모두 같아 생긴 결과이며 두 정책의 동등함을 입증하지 않습니다. 워커 그림은 Windows와 Kaggle의 요청 중앙값, 7회 반복의 기술 통계인 p95 및 네이티브 프로세스 RSS를 각각 표시하며 승률을 나타내지 않습니다. 보드 세 개는 합법적인 적색 선공 수순을 재생했고, 나머지 세 개는 전치와 색 교환을 적용한 비종료 정적 상태입니다. 정적 상태의 적색 선공 경기 도달 가능성은 주장하지 않습니다.
 
 썸네일은 실제 종료 보드와 기록된 승리 색상의 연결 경로를 확인하며, 같은 집계에서 승률 막대를 읽습니다. 보드와 수치를 예시로 만들지 않습니다.
