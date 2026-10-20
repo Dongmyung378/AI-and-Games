@@ -2,6 +2,18 @@
 
 [한국어](architecture.ko.md) | **English** | [Project overview](../README.md)
 
+The input is a Hex position and a player's turn; the output is a legal move or
+an allowed swap. The search builds a tree whose nodes are board positions and
+whose edges are possible moves. Its root is the current board. A rollout plays
+out a simulated continuation, and backpropagation sends that outcome back through
+the visited nodes. In this document, backpropagation means updating search
+statistics, not training a neural network.
+
+The referee owns the rules and checks the returned move. Python coordinates the
+experiment and records evidence, while C++ carries out the repeated searches.
+Protocol versions describe how these processes exchange a board, resource limits
+and a response; they do not name different game rules.
+
 ## Components and execution flow
 
 The maintained implementation lives in [`hexai/`](../hexai/) and [`native/hex_search.cpp`](../native/hex_search.cpp). The original `engine/` and `deployment/` remain historical artifacts. The new referee wrapper imports the preserved `Board` and `Colour` rules rather than replacing their connectivity definition.

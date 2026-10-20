@@ -4,9 +4,33 @@
 
 [Portfolio case study](https://park-dongmyung.com/projects/project-06/) | [Download source and evaluation records](https://park-dongmyung.com/downloads/ai-and-games-source/)
 
+Hex is a board game in which players place stones to connect their assigned
+opposite edges with an unbroken path. This project takes the current board,
+the agent's colour and turn, and a search budget as input, then returns a legal
+move or an allowed opening swap. A referee checks the move and records the game.
+The goal is to choose strong moves within limited CPU time and make the evidence
+for those choices reproducible.
+
 A CPU-based Hex agent built with Monte Carlo Tree Search (MCTS), Rapid Action Value Estimation (RAVE), Thompson sampling and root-parallel C++ search. The maintained release combines corrected search statistics, frozen paired evaluation, matching external game budgets and source-build verification while preserving the original project and match evidence.
 
 Here, **initial agent** refers to the first submitted Python and C++ implementations; **current agent** refers to the maintained public implementation with corrected search statistics and execution tools.
+
+## How the agent chooses a move
+
+**MCTS**, or Monte Carlo Tree Search, repeatedly explores possible continuations
+from the current board. A **rollout** completes a simulated game from a searched
+position, and its outcome updates the move statistics. One iteration is one
+search cycle, not a played match. **UCB** balances moves that currently look good
+against less-explored alternatives. **Thompson sampling (TS)** samples from a
+distribution of each move's win probability to account for uncertainty during
+selection.
+
+**AMAF** (All Moves As First) collects evidence about moves played later by the
+same player in a simulated continuation. **RAVE** blends this indirect evidence
+with direct statistics for a move, reducing reliance on indirect evidence as
+more direct visits accumulate. RAVE-TS combines that blend with Thompson sampling.
+Independent **root workers** search separate trees from the same board, then
+combine their root statistics to choose a move.
 
 ## Project overview
 
@@ -19,6 +43,29 @@ Here, **initial agent** refers to the first submitted Python and C++ implementat
 | Reproducibility | Standard-library Python CLI, source builds, per-game checkpoints and environment/build fingerprints |
 
 The maintained agent searches at runtime. It does not require a GPU, a learned policy or a neural checkpoint. The earlier self-play and AlphaZero-style exploration remains historical material, rather than a trained-model performance claim for this release.
+
+## Reading the comparisons
+
+A **policy** here is a rule for selecting search actions, not a trained neural
+network. A **seed** controls the random generator's starting state. A **frozen
+manifest** records the policy settings, opponents, openings, seeds and budgets
+before final evaluation, so results are not used to choose their own settings.
+
+A **side-reversal pair** plays the same declared opening setup with the agents'
+starting roles reversed. This reduces dependence on starting side; a complete
+pair has both games recorded. The pie rule allows the second player to exchange
+colours after the opening move. A **budget** is the allowed search work: equal
+iteration counts compare simulation counts, whereas equal game-time allowances
+compare measured response time accumulated over a game. They answer different
+questions.
+
+The win-rate tables measure playing strength against the named opponents.
+Failure counts describe execution reliability. Timing and memory measurements
+describe resource use. The paired confidence intervals resample whole
+side-reversal pairs to show sampling uncertainty without treating their games as
+independent. An ablation removes a feature while retaining the comparison settings
+to investigate its contribution; a win-rate result alone need not expose an
+effect on response time.
 
 ## Deeper verification of the selected agent
 
@@ -115,6 +162,12 @@ Three states replay legal Red-first histories at turns 2, 41 and 81. Three count
 | Kaggle Linux | 3.20–3.49× | 1.60–8.36% | 4 |
 
 Ratios are calculated within each environment. Hardware, compiler and operating system differ together, so cross-host differences do not isolate an algorithm improvement or an operating-system effect. Kaggle ran eight workers within a four-CPU allocation; this does not provide eight CPU cores.
+
+Latency is the elapsed time from a move request to its response; lower values
+mean a faster reply in this benchmark. p50 is the median, and p95 summarizes the
+slower end of the observed responses. Peak RSS is the largest measured amount
+of resident process memory, reported in MiB. A speedup ratio compares response
+times for the same fixture within a host; it does not measure extra wins.
 
 Cells show request-to-response p50 / p95 in milliseconds. p95 is a descriptive linear interpolation of seven observations.
 
