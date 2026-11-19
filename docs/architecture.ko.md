@@ -17,7 +17,7 @@
 
 $$\beta = \frac{n_{\text{amaf}}}{n_{\text{mc}} + n_{\text{amaf}} + b \cdot n_{\text{mc}} n_{\text{amaf}}}, \qquad b = 0.0005$$
 
-- **분산 상한(Variance Capping)**: 조상 노드에서 AMAF를 빌려올 때 의사 카운트를 `32`로 상한 제한(`eff_n = n_mc + pw + beta * min(amaf_n, 32)`)합니다. 상한이 없을 때는 Beta 사후 분산이 붕괴해 `33.3%`로 하락했으나, `32` 상한 적용 후 `56.7%`로 반전했고 튜닝된 `GRAVE-UCB`도 `56.7%`~`73.3%`로 압도했습니다.
+- **분산 상한(Variance Capping)**: 조상 노드에서 AMAF를 빌려올 때 의사 카운트를 `32`로 상한 제한(`eff_n = n_mc + pw + beta * min(amaf_n, 32)`)합니다. 상한이 없을 때는 Beta 사후 분산이 붕괴해 `33.3%`로 하락했으나, `32` 상한 적용 후 `56.7%`로 반전했고 튜닝된 `GRAVE-UCB`도 `56.7%`–`73.3%`로 압도했습니다.
 - **휴리스틱 프라이어 (`prior_weight = 8.0`)**: 얕은 노드(`depth <= 4`)에서는 4방향 버킷 큐 **Two-Distance 연결 포텐셜**과 학습된 **6-Ring 패턴 로짓**을 결합하고, 깊은 노드에서는 O(1) 6-Ring 로짓과 직전 수 거리 특징을 사용합니다.
 
 ## 3. Lock-Free Shared-Tree 병렬 MCTS & 실시간 Pondering
@@ -31,9 +31,9 @@ $$\beta = \frac{n_{\text{amaf}}}{n_{\text{mc}} + n_{\text{amaf}} + b \cdot n_{\t
 
 Shannon Pairing Strategy(Benzene/MoHex 정리 1)에 따라, 시작 변에서 목표 변까지 **서로 겹치지 않는(pairwise disjoint) 빈칸 캐리어 쌍**을 가진 2-브릿지 체인이 존재하면 상대 차례라도 **100% 수학적 필승**입니다.
 
-- **루트 VC-Win (`find_vc_win_move`)**: 합법 수 중 서로소 캐리어 VC 승리를 만드는 수를 찾고, 캐리어 개수가 최소인 수를 선택해 물리적 완성까지 단조 수렴합니다(MoHex 3 77수 대국의 71~77수 `0.00초` 4연속 필승 마무리).
+- **루트 VC-Win (`find_vc_win_move`)**: 합법 수 중 서로소 캐리어 VC 승리를 만드는 수를 찾고, 캐리어 개수가 최소인 수를 선택해 물리적 완성까지 단조 수렴합니다(MoHex 3 77수 대국의 71–77수 `0.00초` 4연속 필승 마무리).
 - **루트 VC-Mustplay (`compute_vc_mustplay`)**: 상대의 모든 1수 VC 위협 집합 $\{m\} \cup C(m)$의 교집합을 구해, 교집합 바깥의 패착 수를 루트에서 즉시 차단합니다(Pondering 트리를 리셋하지 않고 `NODE_PROVEN_WIN` 마킹으로 자연 프루닝).
-- **트리 내부 VC-Solver**: `depth <= 3 || empty_count <= 32`에서 실행해 물리적 연결 10~15플라이 전에 필승/필패를 전파합니다.
+- **트리 내부 VC-Solver**: `depth <= 3 || empty_count <= 32`에서 실행해 물리적 연결 10–15플라이 전에 필승/필패를 전파합니다.
 - **전수 건전성 증명**: `--self-test`에서 3×3 전체 **19,683개 보드**에 대해 독립 미니맥스 오라클과 전수 대조하여 **오탐 0건**을 검증합니다.
 
 ## 5. CPU 자가대국 6-Ring 패턴 학습 & 파이 룰 캘리브레이션
