@@ -15,7 +15,7 @@ from collections import Counter, defaultdict
 from .native import EngineError, NativeProcess, environment, executable_default, hardware_signature, sha256
 from .referee import Colour, Referee
 
-POLICIES = {"ucb", "ts", "rave_ucb", "rave_ts", "legacy_ts"}
+POLICIES = {"ucb", "ts", "rave_ucb", "rave_ts", "legacy_ts", "grave_ucb", "grave_ts"}
 CSV_FIELDS = ["game_id", "pair_id", "red", "blue", "status", "winner", "winning_colour",
               "failure_actor", "turns", "wall_seconds", "seed", "opening_seed", "manifest_sha256"]
 
@@ -59,9 +59,21 @@ def validate_manifest(data):
                 value = participant.get(key, 1)
                 if type(value) is not int or value <= 0:
                     raise ValueError("Native " + key + " must be a positive integer.")
-            for key in ("bridge", "ordering", "swap", "tactics", "win_check", "block_check"):
+            for key in ("bridge", "ordering", "swap", "tactics", "win_check", "block_check",
+                        "lgr", "prune_dead", "tree_reuse", "solver", "two_dist", "shared_tree",
+                        "pat_prior", "pat_rollout"):
                 if key in participant and type(participant[key]) is not bool:
                     raise ValueError(key + " must be a JSON boolean.")
+            for key in ("grave_ref", "expand_threshold"):
+                if key in participant:
+                    value = participant[key]
+                    if type(value) is not int or value < 0:
+                        raise ValueError(key + " must be a nonnegative integer.")
+            for key in ("rave_bias", "exploration", "prior_weight", "pat_temp"):
+                if key in participant:
+                    value = participant[key]
+                    if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0:
+                        raise ValueError(key + " must be nonnegative and finite.")
             value = participant.get("rave_k", 1000)
             if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
                 raise ValueError("rave_k must be positive and finite.")
@@ -168,9 +180,12 @@ def participant_command(participant, budget, game, colour, executable):
                "--tactics", str(int(participant.get("tactics", True))),
                "--swap", str(int(participant.get("swap", True))),
                "--rave-k", str(participant.get("rave_k", 1000))]
-    for key in ("win_check", "block_check"):
+    for key in ("win_check", "block_check", "lgr", "prune_dead", "tree_reuse", "solver", "two_dist", "shared_tree", "pat_prior", "pat_rollout"):
         if key in participant:
             command += ["--" + key.replace("_", "-"), str(int(participant[key]))]
+    for key in ("rave_bias", "grave_ref", "exploration", "expand_threshold", "prior_weight", "pat_temp"):
+        if key in participant:
+            command += ["--" + key.replace("_", "-"), str(participant[key])]
     if budget["mode"] == "iterations":
         command += ["--iterations", str(budget["iterations"])]
     elif budget["mode"] == "time":

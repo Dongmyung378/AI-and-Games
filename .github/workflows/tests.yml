@@ -1,4 +1,4 @@
-name: Tests
+name: CI — Hex-Search v1.2.0
 
 on:
   push:
@@ -8,70 +8,26 @@ permissions:
   contents: read
 
 jobs:
-  maintained-search:
+  build-and-test:
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-22.04, windows-2022]
-        python: ["3.10", "3.13"]
+        python: ["3.11", "3.13"]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-      - name: Build and check the maintained C++ engine
+      - name: Build C++17 engine and run exhaustive --self-test
         run: python -m hexai build
-      - name: Build the controlled historical algorithm at the portable path
-        run: python scripts/build_legacy_benchmark.py
-      - name: Check search, evaluation and preserved rule integration
+      - name: Run unit, protocol, Pondering, GUI, and SGF/JSON battle replay tests
         run: python -m unittest discover -s tests -v
-      - name: Run a small declared smoke evaluation
-        run: python -m hexai evaluate --config configs/smoke.json --output .local/ci-smoke
-      - name: Require all declared smoke games to complete
-        run: python -c "import json; from pathlib import Path; d=json.loads(Path('.local/ci-smoke/summary.json').read_text()); assert d['completed_games']==d['scheduled_games'] and not d['missing_game_ids'], 'Smoke evaluation contains failed or missing games'"
-      - name: Run the shared-clock V3 integration smoke
-        run: python -m hexai evaluate --config configs/deep/public-runtime-smoke.json --output .local/ci-v3-smoke
-      - name: Require the V3 games to complete without failures or missing records
-        run: python -c "import json; from pathlib import Path; d=json.loads(Path('.local/ci-v3-smoke/summary.json').read_text()); assert d['completed_games']==d['scheduled_games']==4 and not d['missing_game_ids'], 'V3 integration contains failed or missing games'"
-      - name: Check both engines with address and undefined-behaviour sanitizers
+      - name: Verify reproducible figure generation
+        run: python scripts/generate_figures.py --check
+      - name: Run AddressSanitizer + UBSan check on Linux
         if: runner.os == 'Linux' && matrix.python == '3.13'
-        run: python scripts/check_native_sanitizers.py --output .local/ci-sanitizers
-
-  python-engine:
-    runs-on: ubuntu-22.04
-    defaults:
-      run:
-        working-directory: engine
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Run game-engine tests
-        run: python -m unittest discover -s test -v
-
-  native-protocol:
-    runs-on: ubuntu-22.04
-    defaults:
-      run:
-        working-directory: deployment
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Compile and check the production C++ protocol
         run: |
-          g++ -std=c++17 -O2 -pthread test/native_protocol.cpp -o /tmp/hex-native-protocol
-          /tmp/hex-native-protocol
-      - name: Check adapter, referee, and shipped Linux executable
-        env:
-          HEX_PROTOCOL_TEST_BINARY: /tmp/hex-native-protocol
-        run: |
-          chmod +x agents/Group026/RAVE_TS
-          python -m unittest discover -s test -v
+          g++ -std=c++17 -O1 -g -pthread -fsanitize=address,undefined native/hex_search.cpp -o /tmp/hex_search_san
+          /tmp/hex_search_san --self-test

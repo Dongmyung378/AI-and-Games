@@ -81,16 +81,13 @@ def resolve_compiler(compiler: str | None = None) -> list[str]:
 
 
 def build(source: Path | None = None, output: Path | None = None,
-          compiler: str | None = None, legacy: bool = False) -> dict:
-    source = Path(source or ROOT / ("deployment/agents/Group026/RAVE_TS.cpp" if legacy else "native/hex_search.cpp")).resolve()
-    output = Path(output or (executable_default().with_name("legacy_hex.exe" if os.name == "nt" else "legacy_hex") if legacy else executable_default())).resolve()
+          compiler: str | None = None) -> dict:
+    source = Path(source or ROOT / "native/hex_search.cpp").resolve()
+    output = Path(output or executable_default()).resolve()
     if not source.is_file():
         raise ValueError("Source file not found: " + str(source))
-    original = ROOT / "deployment" / "agents" / "Group026" / "RAVE_TS"
-    if output == original.resolve() or output == source:
-        raise ValueError("Build output must not overwrite the preserved original source or executable.")
-    if any(output.is_relative_to((ROOT / directory).resolve()) for directory in ("engine", "deployment")):
-        raise ValueError("Build outputs belong in .local/build; historical directories are immutable.")
+    if output == source:
+        raise ValueError("Build output must not overwrite the source file.")
     output.parent.mkdir(parents=True, exist_ok=True)
     command = resolve_compiler(compiler)
     version = subprocess.run(command + ["--version"], capture_output=True, text=True, timeout=20, check=True).stdout.strip()
@@ -101,20 +98,36 @@ def build(source: Path | None = None, output: Path | None = None,
     completed = subprocess.run(full_command, capture_output=True, text=True, timeout=180)
     if completed.returncode:
         raise RuntimeError("Native build failed:\n" + completed.stderr[-12000:])
-    receipt = {"schema_version": 1, "kind": "legacy" if legacy else "native",
+    receipt = {"schema_version": 1, "kind": "native",
                "source": str(source), "source_sha256": sha256(source),
                "compiler": command, "compiler_version": version,
                "compiler_sha256": sha256(Path(command[0])), "command": full_command,
                "executable": str(output), "executable_sha256": sha256(output),
                "environment": environment()}
     output.with_name(output.name + ".build.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
-    if not legacy:
-        test = subprocess.run([str(output), "--self-test"], capture_output=True, text=True, timeout=30)
-        receipt["self_test"] = {"returncode": test.returncode, "stdout": test.stdout.strip(), "stderr": test.stderr.strip()}
-        if test.returncode:
-            raise RuntimeError("Native self-test failed: " + test.stderr + test.stdout)
-        output.with_name(output.name + ".build.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+    test = subprocess.run([str(output), "--self-test"], capture_output=True, text=True, timeout=30)
+    receipt["self_test"] = {"returncode": test.returncode, "stdout": test.stdout.strip(), "stderr": test.stderr.strip()}
+    if test.returncode:
+        raise RuntimeError("Native self-test failed: " + test.stderr + test.stdout)
+    output.with_name(output.name + ".build.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
     return receipt
+
+
+if os.name == "nt":
+    import ctypes as _ctypes
+    from ctypes import wintypes as _wintypes
+
+    class _WinProcessMemoryCounters(_ctypes.Structure):
+        _fields_ = [("cb", _wintypes.DWORD), ("PageFaultCount", _wintypes.DWORD)] + [
+            (name, _ctypes.c_size_t) for name in (
+                "PeakWorkingSetSize", "WorkingSetSize", "QuotaPeakPagedPoolUsage", "QuotaPagedPoolUsage",
+                "QuotaPeakNonPagedPoolUsage", "QuotaNonPagedPoolUsage", "PagefileUsage", "PeakPagefileUsage",
+            )
+        ]
+
+    _GET_PROC_MEM = _ctypes.windll.psapi.GetProcessMemoryInfo
+    _GET_PROC_MEM.argtypes = [_wintypes.HANDLE, _ctypes.POINTER(_WinProcessMemoryCounters), _wintypes.DWORD]
+    _GET_PROC_MEM.restype = _wintypes.BOOL
 
 
 class EngineError(RuntimeError):
@@ -162,19 +175,9 @@ class NativeProcess:
 
     def _memory_bytes(self):
         if os.name == "nt":
-            import ctypes
-            from ctypes import wintypes
-            size_type = ctypes.c_size_t
-            class Counters(ctypes.Structure):
-                _fields_ = [("cb", wintypes.DWORD), ("PageFaultCount", wintypes.DWORD)] + [(name, size_type) for name in
-                            ("PeakWorkingSetSize", "WorkingSetSize", "QuotaPeakPagedPoolUsage", "QuotaPagedPoolUsage",
-                             "QuotaPeakNonPagedPoolUsage", "QuotaNonPagedPoolUsage", "PagefileUsage", "PeakPagefileUsage")]
-            counters = Counters()
-            counters.cb = ctypes.sizeof(counters)
-            function = ctypes.windll.psapi.GetProcessMemoryInfo
-            function.argtypes = [wintypes.HANDLE, ctypes.POINTER(Counters), wintypes.DWORD]
-            function.restype = wintypes.BOOL
-            if function(int(self.process._handle), ctypes.byref(counters), counters.cb):
+            counters = _WinProcessMemoryCounters()
+            counters.cb = _ctypes.sizeof(counters)
+            if _GET_PROC_MEM(int(self.process._handle), _ctypes.byref(counters), counters.cb):
                 return counters.PeakWorkingSetSize
             return None
         try:

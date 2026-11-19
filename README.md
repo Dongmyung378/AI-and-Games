@@ -1,386 +1,152 @@
-# Hex Game AI: Reproducible CPU Search
+# Hex-Search v1.2 — Pure-CPU C++17 Hex AI Engine
 
-[한국어](README.ko.md) | **English**
+[한국어 README](README.ko.md) · [Technical Architecture (EN)](docs/architecture.md) · [기술 아키텍처 (KO)](docs/architecture.ko.md)
 
-[Portfolio case study](https://park-dongmyung.com/projects/project-06/) | [Download source and evaluation records](https://park-dongmyung.com/downloads/ai-and-games-source/)
+**Hex-Search v1.2** is a zero-dependency, **pure-CPU C++17** search engine for 11×11 Hex — built with no GPU, no deep neural network inference, and zero external libraries.
 
-Hex is a board game in which players place stones to connect their assigned
-opposite edges with an unbroken path. This project takes the current board,
-the agent's colour and turn, and a search budget as input, then returns a legal
-move or an allowed opening swap. A referee checks the move and records the game.
-The goal is to choose strong moves within limited CPU time and make the evidence
-for those choices reproducible.
+Starting from the clean `v0.0` core architecture, every upgrade (`v0.0 → v1.0 → v1.1 → v1.2`) was accepted only after winning color-balanced controlled matches against the previous frozen binary. Across four disciplined iterations, pure-CPU strength climbed **`+342 Elo` over `v0.0`**, sweeping online public bots **Davis 7 (2–0)** and **Davis 10 (2–0)** and defeating the classic computer-Hex benchmark **MoHex 3** as **both 2nd player (68 moves) and 1st player (77 moves)**.
 
-A CPU-based Hex agent built with Monte Carlo Tree Search (MCTS), Rapid Action Value Estimation (RAVE), Thompson sampling and root-parallel C++ search. The maintained release combines corrected search statistics, frozen paired evaluation, matching external game budgets and source-build verification while preserving the original project and match evidence.
+![Hex-Search v1.2 77-Move First-Player Victory Over MoHex 3 — Board & Telemetry](assets/hex-mohex-win.svg)
 
-Here, **initial agent** refers to the first submitted Python and C++ implementations; **current agent** refers to the maintained public implementation with corrected search statistics and execution tools.
+---
 
-## How the agent chooses a move
+## 1. Play Directly Against the AI (Customizable GUI Demo)
 
-**MCTS**, or Monte Carlo Tree Search, repeatedly explores possible continuations
-from the current board. A **rollout** completes a simulated game from a searched
-position, and its outcome updates the move statistics. One iteration is one
-search cycle, not a played match. **UCB** balances moves that currently look good
-against less-explored alternatives. **Thompson sampling (TS)** samples from a
-distribution of each move's win probability to account for uncertainty during
-selection.
-
-**AMAF** (All Moves As First) collects evidence about moves played later by the
-same player in a simulated continuation. **RAVE** blends this indirect evidence
-with direct statistics for a move, reducing reliance on indirect evidence as
-more direct visits accumulate. RAVE-TS combines that blend with Thompson sampling.
-Independent **root workers** search separate trees from the same board, then
-combine their root statistics to choose a move.
-
-## Project overview
-
-| Area | Implemented capability |
-| --- | --- |
-| Algorithms | UCB, Thompson sampling, RAVE-UCB and RAVE-TS in a common maintained engine |
-| Correctness | Player-relative values, node-specific same-player AMAF updates and terminal-state handling |
-| Native execution | C++17, union-find connectivity, independent root workers and configurable resource limits |
-| Evaluation | Frozen manifests, side-reversed pairs, development/final separation and replay-verified connecting paths |
-| Reproducibility | Standard-library Python CLI, source builds, per-game checkpoints and environment/build fingerprints |
-
-The maintained agent searches at runtime. It does not require a GPU, a learned policy or a neural checkpoint. The earlier self-play and AlphaZero-style exploration remains historical material, rather than a trained-model performance claim for this release.
-
-## Reading the comparisons
-
-A **policy** here is a rule for selecting search actions, not a trained neural
-network. A **seed** controls the random generator's starting state. A **frozen
-manifest** records the policy settings, opponents, openings, seeds and budgets
-before final evaluation, so results are not used to choose their own settings.
-
-A **side-reversal pair** plays the same declared opening setup with the agents'
-starting roles reversed. This reduces dependence on starting side; a complete
-pair has both games recorded. The pie rule allows the second player to exchange
-colours after the opening move. A **budget** is the allowed search work: equal
-iteration counts compare simulation counts, whereas equal game-time allowances
-compare measured response time accumulated over a game. They answer different
-questions.
-
-The win-rate tables measure playing strength against the named opponents.
-Failure counts describe execution reliability. Timing and memory measurements
-describe resource use. The paired confidence intervals resample whole
-side-reversal pairs to show sampling uncertainty without treating their games as
-independent. An ablation removes a feature while retaining the comparison settings
-to investigate its contribution; a win-rate result alone need not expose an
-effect on response time.
-
-## Deeper verification of the selected agent
-
-The extended release tests the existing selected configuration more thoroughly.
-It adds a real external **300-second per-agent game allowance**, a controlled
-comparison with the initial algorithm, individual tactical ablations and
-six-position worker measurements. RAVE-TS with bridge defence, move ordering
-and `rave_k=1000` remains selected. These additional final results do not select
-a replacement policy. Results and their validation scope remain separate.
-
-| Evaluation | What is held constant | Declared new scope |
-| --- | --- | --- |
-| Shared game time | Same host, two workers per agent and the same external time allocator | Four opponents, 100 games and 50 side-reversal pairs each |
-| Tactical ablation | Same maintained engine, 16,000 total iterations per move and two workers | Swap, immediate-win check, immediate block and both checks removed separately, 100 games each |
-| Worker benchmark | Same six nonterminal positions and equal total iteration budgets | Workers 1, 2, 4 and 8, measured separately on Windows and Kaggle |
-
-The prior **532 games and 16,768 replayed moves remain preserved**. Their
-development selection, final fixed-iteration results, short equal-time additions
-and four original-source reference games are not relabelled as the new study.
-New evaluation seeds are separate from the earlier manifests; a new seed does
-not guarantee a previously unseen opening coordinate.
-
-### Same time allowance, rather than only the same iteration count
-
-![Shared game-time comparison](assets/figures/hex-shared-time.svg)
-
-All 400 scheduled shared-time games were recorded and completed, with zero failures and zero missing games.
-
-| Opponent | RAVE-TS wins / completed games | Completed-game win rate | Complete pairs | Pair-bootstrap 95% interval | Failures / scheduled games |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Controlled initial algorithm (`benchmark_legacy`) | 81 / 100 | 81.0% | 50 | 73.0–88.0% | 0 / 100 |
-| RAVE-UCB | 84 / 100 | 84.0% | 50 | 77.0–90.0% | 0 / 100 |
-| Thompson sampling (TS) | 73 / 100 | 73.0% | 50 | 65.0–81.0% | 0 / 100 |
-| UCB | 70 / 100 | 70.0% | 50 | 61.0–79.0% | 0 / 100 |
-
-The 300-second value is a ceiling for all measured responses by each participant,
-not a promise to consume 300 seconds in every game. The referee measures pipe
-latency and sends the same adaptive per-move allocator to both engines through
-V3. Tactical decisions and earlier game endings can leave part of the allowance
-unused. Report the measured time consumed alongside the completed-game win
-rate, failure denominator, missing results and complete-pair count.
-
-The primary paired interval resamples complete side-reversal pairs within
-hardware and source-adapter strata. Windows and Kaggle outcomes remain separately
-visible. Two independent games may share a CPU job; this is not an isolated
-latency benchmark. Results apply to the specified internal opponents and budget.
-
-The [shared-time aggregate](reports/deep/aggregates/shared-time.json) and [response and memory measurements](reports/deep/analysis/shared-time-costs.json) retain actual denominators. Each opponent has 20 Windows games, 60 Xeon Kaggle games and 20 EPYC Kaggle games. The Windows UCB stratum scored 9/20, so the pooled score does not establish superiority on every host. All 18,514 requests and 800 participant-game time accounts stayed within the external allowance. Node caps restrict tree expansion while rollouts continue. The historical memory allocator remains preserved, so matching time and workers does not imply an equal-RAM experiment.
-
-### Individual tactical contributions and execution costs
-
-![Tactical-feature ablations](assets/figures/hex-tactical-ablation.svg)
-
-All 400 tactical games completed, with zero failures and zero missing games.
-
-| Removed feature | Selected wins / completed games | Complete pairs | Pair mean and 95% interval |
-| --- | ---: | ---: | --- |
-| Swap heuristic | 51 / 100 | 50 | 51.0%, 46.0–56.0% |
-| Immediate-win check | 50 / 100 | 50 | 50.0%, 50.0–50.0% |
-| Immediate block | 50 / 100 | 50 | 50.0%, 50.0–50.0% |
-| Both tactical checks | 50 / 100 | 50 | 50.0%, 50.0–50.0% |
-
-These outcomes do not demonstrate a strength gain. Each observed pair in the
-three immediate-check comparisons split one win each, so their empirical
-pair-bootstrap intervals collapse to 50–50%. This is zero variance in the
-observed pair scores, not exact population strength or evidence of equivalence.
-Recorded full physical traces were identical in 48/50 immediate-win pairs and
-27/50 pairs for both block and combined checks. The differing immediate-win
-traces changed only the final winning coordinate. All 7,407 shared ordinary-search
-positions across the four comparisons recorded the same worker seeds and moves.
-
-At 50 matched winning positions, the immediate check's median external response
-was 0.191 ms versus 231.654 ms for ordinary search. At 68 matched blocking
-positions, it was 0.256 ms versus 687.677 ms. These are conditional responses
-at the same input; some chosen actions differ. They are not whole-agent speedup
-factors. Median response across all moves remained about 1.16–1.22 seconds.
-The fixed selected policy was not retuned using these final diagnostics.
-
-The four ablations are related diagnostic comparisons. Report actual swap,
-immediate-win and block activations as well as measured response times. Rare
-activations can limit the information in a win-rate comparison. Failure to detect
-an effect does not establish feature equivalence, and an unadjusted interval is
-not used to announce a significant result across four comparisons.
-
-![Worker scaling across six positions](assets/figures/hex-worker-positions.svg)
-
-Windows and Kaggle Linux each completed 168 searches on the same fixture hash: 336 requests in total. Six states, four worker settings and seven repeats used exactly 16,000 total iterations per request, giving 2,688,000 iterations per host and 5,376,000 combined.
-
-Three states replay legal Red-first histories at turns 2, 41 and 81. Three counterparts transpose those boards and exchange colours; they are static nonterminal states, not asserted reachable Red-first match histories.
-
-| Environment | 4 vs 1 workers: median latency speedup | 8 vs 4: median time reduction | Observed logical CPUs |
-| --- | --- | --- | --- |
-| Local Windows | 3.34–3.68× | 39.52–43.33% | 16 |
-| Kaggle Linux | 3.20–3.49× | 1.60–8.36% | 4 |
-
-Ratios are calculated within each environment. Hardware, compiler and operating system differ together, so cross-host differences do not isolate an algorithm improvement or an operating-system effect. Kaggle ran eight workers within a four-CPU allocation; this does not provide eight CPU cores.
-
-Latency is the elapsed time from a move request to its response; lower values
-mean a faster reply in this benchmark. p50 is the median, and p95 summarizes the
-slower end of the observed responses. Peak RSS is the largest measured amount
-of resident process memory, reported in MiB. A speedup ratio compares response
-times for the same fixture within a host; it does not measure extra wins.
-
-Cells show request-to-response p50 / p95 in milliseconds. p95 is a descriptive linear interpolation of seven observations.
-
-**Local Windows**
-
-| State | 1 worker | 2 workers | 4 workers | 8 workers |
-| --- | --- | --- | --- | --- |
-| Opening, turn 2 | 750.8 / 772.8 | 380.9 / 418.0 | 221.4 / 235.4 | 126.1 / 132.5 |
-| Middle, turn 41 | 744.5 / 775.3 | 377.1 / 403.3 | 202.1 / 210.5 | 120.8 / 122.6 |
-| Late, turn 81 | 446.0 / 456.9 | 220.9 / 256.9 | 129.6 / 137.5 | 78.4 / 82.9 |
-| Opening static symmetry | 748.1 / 776.0 | 374.6 / 392.5 | 219.4 / 238.1 | 128.7 / 134.6 |
-| Middle static symmetry | 733.3 / 751.0 | 361.1 / 398.3 | 207.9 / 227.9 | 117.8 / 123.6 |
-| Late static symmetry | 425.5 / 438.4 | 219.0 / 229.4 | 127.3 / 138.0 | 76.9 / 80.2 |
-
-Maximum recorded native-process peak RSS across seven repeats per setting, MiB:
-
-| State | 1 worker | 2 workers | 4 workers | 8 workers |
-| --- | --- | --- | --- | --- |
-| Opening, turn 2 | 36.73 | 36.96 | 36.21 | 37.12 |
-| Middle, turn 41 | 31.84 | 32.39 | 32.70 | 32.06 |
-| Late, turn 81 | 26.91 | 27.31 | 28.07 | 27.20 |
-| Opening static symmetry | 36.74 | 36.86 | 37.13 | 35.83 |
-| Middle static symmetry | 31.84 | 32.21 | 32.29 | 31.97 |
-| Late static symmetry | 26.88 | 26.99 | 27.89 | 27.69 |
-
-**Kaggle Linux**
-
-| State | 1 worker | 2 workers | 4 workers | 8 workers |
-| --- | --- | --- | --- | --- |
-| Opening, turn 2 | 994.7 / 1017.2 | 463.5 / 472.0 | 310.5 / 316.4 | 300.9 / 304.7 |
-| Middle, turn 41 | 1018.6 / 1053.0 | 469.1 / 492.0 | 292.1 / 293.6 | 273.2 / 279.9 |
-| Late, turn 81 | 574.6 / 580.6 | 276.2 / 281.2 | 175.1 / 177.0 | 160.5 / 164.6 |
-| Opening static symmetry | 996.4 / 1021.1 | 463.6 / 466.6 | 310.5 / 356.9 | 305.6 / 327.6 |
-| Middle static symmetry | 1002.1 / 1039.9 | 464.1 / 477.6 | 289.8 / 296.2 | 276.7 / 282.7 |
-| Late static symmetry | 578.6 / 590.0 | 273.9 / 276.8 | 173.2 / 175.8 | 160.4 / 166.1 |
-
-Maximum recorded native-process peak RSS across seven repeats per setting, MiB:
-
-| State | 1 worker | 2 workers | 4 workers | 8 workers |
-| --- | --- | --- | --- | --- |
-| Opening, turn 2 | 35.41 | 35.52 | 35.26 | 28.77 |
-| Middle, turn 41 | 30.67 | 30.38 | 30.14 | 30.20 |
-| Late, turn 81 | 25.39 | 25.36 | 25.62 | 21.57 |
-| Opening static symmetry | 35.29 | 35.40 | 35.29 | 29.07 |
-| Middle static symmetry | 30.48 | 30.46 | 30.23 | 26.86 |
-| Late static symmetry | 25.48 | 25.45 | 25.48 | 19.75 |
-
-Every response selected a legal empty cell, and per-worker iterations summed to exactly 16,000. Recorded node-cap hits: 0. RSS includes native workers and excludes the Python driver. Windows records PeakWorkingSetSize and Linux records VmHWM; the cross-host memory values do not come from an identical measurement API. The memory setting bounds native node pools; it is not an OS-enforced whole-process memory ceiling. Swap and immediate tactical shortcuts were disabled, so every request followed the search path.
-
-Each request used a fresh native process, and settings ran in fixed order. The request-to-response clock excludes the Python process-creation call but can include native initialization still in progress. Dividing iterations among independent trees changes trajectories and work per iteration, so ratios are not pure parallel efficiency or playing-strength gains. Seven-repeat p95 values do not precisely estimate a production tail. These outcomes did not retune the selected policy. Raw records remain in `reports/deep/benchmarks/windows.json` and `reports/deep/benchmarks/kaggle.json`.
-
-Worker figures retain per-position p50 and p95 response times and process peak
-RSS for each host. RSS includes native workers and excludes the Python driver.
-Missing memory measurements remain unavailable, rather than becoming zero.
-More worker threads do not create more CPU cores, and throughput is not a win rate.
-The [optional Matplotlib figure tools](tools/figures/) require Python 3.11 or
-newer and remain separate from the Python 3.10-or-newer runtime.
-
-### Three different historical controls
-
-| Control | Meaning |
-| --- | --- |
-| `legacy_ts` | A diagnostic policy inside the maintained engine, not the original source |
-| Preserved original source rebuilt with `--legacy` | Initial algorithm and original eight-worker time manager; its old four-game comparison is preserved separately |
-| `benchmark_legacy` | Initial algorithm with guarded runtime-only changes for seeded workers, matching external budgets, deadline polling and telemetry |
-
-The controlled adapter retains the historical selection, expansion, rollout,
-rewards, swap and tactical logic, including inactive AMAF statistics. Its patch
-receipt and generated source are auditable. It is not the byte-identical original
-executable. The original per-worker iteration safety limit and unbounded tree
-growth remain; the maintained engine's node and memory allowances are explicit
-settings rather than an equal-RSS comparison.
-
-The public CPU packaging tool has also been executed end to end on Kaggle:
-source extraction and hash checks, source builds, maintained and original tests,
-ASan/UBSan checks and four short V3 games completed. This validates the tool's
-execution path, not the strength of a 300-second agent or an independent external
-review by another person. Detailed definitions, manifests and commands are in
-[the extended experiment record](docs/experiments.md) and
-[the reproduction guide](docs/reproducibility.md).
-
-The latest actual public CPU-tool Kaggle execution passed 107 Python test executions, 15 native self-test checks and six ASan/UBSan protocol checks. All four short V3 games completed and all 100 saved moves replayed. A separate checkpoint-only execution stopped before its first evaluation game and recorded zero games. Neither integration nor checkpoint evidence is added to the 400-game strength study. [Public execution evidence](docs/deep-runtime.md) retains source-version scope.
-
-## Preserved fixed-iteration results
-
-All 160 development games completed with zero execution failures. RAVE-TS won 44 of its 48 balanced round-robin games and was selected by the predefined rule. This score was used for selection and is a development result.
-
-| Development policy | Wins / completed games | Development win rate |
-| --- | --- | --- |
-| RAVE-TS | 44 / 48 | 91.7% |
-| RAVE-UCB | 22 / 48 | 45.8% |
-| Thompson sampling | 18 / 48 | 37.5% |
-| UCB | 12 / 48 | 25.0% |
-
-Each policy played 16 games against each of the other three policies. Adding the denominators counts every game twice: the policy suite contained 96 games, plus 64 separate feature-comparison games. None of the four optional changes passed its adoption gate, so those candidates were stopped. The frozen configuration is **RAVE-TS, bridge defence enabled, move ordering enabled and `rave_k=1000`**. [Selection](reports/selection.json) and [the final freeze receipt](reports/final-freeze.json) preserve the settings and hashes.
-
-<!-- FINAL_RESULTS_BEGIN -->
-![Held-out policy comparisons](assets/figures/en/hex-final.svg)
-
-All 256 frozen final games are recorded: 256 completed, 0 failed and zero missing. Win rates use completed games; failures are not converted to wins.
-
-| Opponent | RAVE-TS wins / completed games | Win rate | Complete pairs | Paired 95% interval | Failures |
-| --- | --- | --- | --- | --- | --- |
-| legacy_ts | 55 / 64 | 85.9% | 32 | 78.1–93.8% | 0 |
-| RAVE-UCB | 54 / 64 | 84.4% | 32 | 76.6–92.2% | 0 |
-| Thompson sampling | 53 / 64 | 82.8% | 32 | 75.0–90.6% | 0 |
-| UCB | 57 / 64 | 89.1% | 32 | 79.7–96.9% | 0 |
-
-These new-seed outcomes were not used for selection. They apply to the declared internal opponents, openings and CPU budgets. [The final aggregate](reports/aggregates/final-policy.json) also provides environment-specific results and failure details.
-<!-- FINAL_RESULTS_END -->
-
-The measurements distinguish playing strength, execution reliability and simulation throughput. A correctness repair is retained even when a short development comparison does not demonstrate a win-rate increase. Optional settings are adopted only under the criterion declared in [the study plan](reports/study-plan.json).
-
-## Problem and approach
-
-The initial Python agents stored wins from the root player's perspective and maximized that value at opponent nodes too. The corrected implementation stores wins for the player to move at each node and inverts a child's value when its parent selects an action.
-
-The initial RAVE update also looked for an already played tree action in a later rollout's move list. That action cannot occur again on a placement-only Hex board. The maintained implementation instead records every ancestor's legal future actions played by that ancestor's player, including both tree actions and rollout actions. These AMAF statistics are indexed by node and action, then blended with direct Monte Carlo evidence during selection.
-
-Both repairs are covered by focused tests. The initial C++ implementation used a different player-reward convention, so the Python opponent-turn defect is not attributed to every historical implementation. The compact [Python reference](hexai/reference.py) uses the preserved referee's rules for inspection; the [native engine](native/hex_search.cpp) performs the larger CPU experiments.
-
-The frozen 61-position 11×11 scenario set passed all 488 responses, all 244 V2/V3 move-and-reason comparisons and four invalid-input or terminal-state rejection checks. [The scenario receipt](reports/deep/correctness/scenarios/receipt.json) records correctness separately from playing strength.
-
-## System architecture
-
-```mermaid
-flowchart LR
-    A[Frozen evaluation manifest] --> B[Python evaluation runner]
-    B --> C[Preserved Hex board rules]
-    B --> D[Persistent C++ participant processes]
-    D --> E[Independent root workers]
-    E --> F[MCTS and per-action AMAF]
-    F --> G[Aggregated root visits]
-    G --> C
-    C --> H[Verified move logs and results]
-    H --> I[Paired summaries and replay]
-```
-
-Each match runs both participants on the same host. Local and Kaggle CPU work is split by complete side-reversal pairs, so a pair never combines two hardware environments. [Architecture details](docs/architecture.md) explain the search conventions, protocol and memory limits.
-
-## Experiments and verification
-
-Development comparisons share the engine, forced opening, seed, board size and total per-move budget. Policy choice and optional feature settings are frozen before the final seed list is evaluated. Final scores are not used to select a replacement policy.
-
-Wins require a replayed connecting path. Illegal moves, response timeouts, process failures and protocol errors remain visible as failures and are not converted into playing-strength wins. The primary interval resamples complete side-reversal pairs; the game-level Wilson interval is descriptive because the two games in a pair are dependent.
-
-The preserved first-release single-position worker benchmarks measured a fixed total simulation count. On a fixed 11×11 board with 16,000 iterations, median external response time fell from 0.754 to 0.131 seconds between one and eight workers on Windows, and from 1.897 to 0.683 seconds on Kaggle. Windows used seven repetitions and Kaggle used five; comparisons apply within each host. Eight workers share the available CPU allocation. [The experiment record](docs/experiments.md) provides the full measurements and memory caveats.
-
-The final fixed-iteration manifest contains 256 games: 32 side-reversal pairs against each of three alternative maintained policies and the maintained `legacy_ts` control. A separate four-game original-executable time reference is an execution check with different time managers, not a large-sample strength comparison.
-
-Read [the experiment record](docs/experiments.md), [the frozen selection](reports/selection.json) and [the reproduction guide](docs/reproducibility.md) before interpreting the comparison tables.
-
-## Limitations and historical evidence
-
-The final tests describe the declared internal opponents, opening distribution and CPU budgets. They do not establish a general Hex ranking or reproduce matches against Davis and HexHex.
-
-Four earlier 11×11 match screenshots and their [metadata](assets/results/recorded-matches.csv) are preserved:
-
-| Historical agent | Opponent | Recorded starting side | Result |
-| --- | --- | --- | --- |
-| RAVE-TS | Davis 7 | First | Win |
-| RAVE-TS | Davis 10 | First | Win |
-| RAVE-TS | HexHex | Second | Loss |
-| MCTS baseline | HexHex | Second | Loss |
-
-Davis is the online-site opponent identified in the original project. These are individual recorded outcomes. The repository does not bundle the external opponent executables, their exact runtime configuration or an original multi-game tournament CSV. The four preserved captures are not combined with the new internal numerical evaluation.
-
-The maintained `legacy_ts` comparison is a control inside the new engine. It models the old inactive-RAVE count attenuation, while retaining the maintained engine's state handling, execution and other settings. It is not the original executable, an exact reconstruction of the old tournament or a causal isolation of every change since that submission.
-
-## Run from source
-
-Use Python 3.10 or newer and a C++17 compiler (`g++`, `clang++` or `zig c++`). The maintained runtime uses the Python standard library. Run these commands from the repository root on Windows, Linux or WSL:
+Anyone with Python 3.10+ and a C++17 compiler (`g++`, `clang++`, or `zig c++`) can build the engine and **play directly against our `v1.2` model** with zero `pip install` dependencies:
 
 ```bash
-python -m hexai doctor
+# 1. Build the C++17 binary and run all 26 built-in formal self-tests
 python -m hexai build
-python -m unittest discover -s tests -v
-python -m hexai predict --board "R00,000,000" --colour B --turn 2 --policy rave_ts --iterations 1000 --workers 1 --swap 0
+
+# 2. Launch the clickable Human vs AI GUI (with presets & custom settings)
+python -m hexai play
 ```
 
-If the compiler is not automatically found, add it to `PATH` or pass `--compiler` to `doctor` and `build`. The build writes a host-specific executable and receipt under `.local/bin/`; it does not replace the original deployment executable.
+### User-Configurable GUI Features
+- **Dual Mode Toggle**: Switch with one click between **`Human vs AI`** (play directly against `hex-search-v1.2`) and **`Online Bot Assistant`** (bridge mode used to play Davis 7/10 and MoHex 3).
+- **4 Difficulty Presets**:
+  - `Beginner` (`0.5s/move`, 2 threads) · `Intermediate` (`2s/move`, 4 threads) · `Strong` (`5s/move`, 8 threads, Pondering) · **`Grandmaster`** (`300s adaptive V3 clock`, 12 threads, Pondering — full MoHex 3 match spec)
+- **Full Custom Controls**: Board size (`7×7 / 9×9 / 11×11`), play as 1st (Red) or 2nd (Blue), fixed seconds/move or total adaptive V3 clock, worker threads, pie rule (`swap-pieces` / `swap-sides`), Pondering ON/OFF, Undo, SGF/JSON export, and automatic **gold winning-chain highlight** at game end.
+- **Standard Hex GTP Support**: `./.local/bin/hex_search --gtp --workers 12 --game-seconds 300` (compatible with HexGui, Benzene, and `twogtp`).
 
-To repeat the development policy comparison:
+---
 
-```bash
-python -m hexai evaluate --config configs/development-policy.json --output .local/development-policy
-python -m hexai evaluate --config configs/development-policy.json --output .local/development-policy --resume
-```
+## 2. Online Benchmark Results & Verified Game Evidence
 
-The second command resumes the same frozen manifest and skips verified completed game files. A stopped in-progress game is rerun; an entire evaluation is not discarded. Full comparisons take longer than the quick checks. [The reproduction guide](docs/reproducibility.md) covers final manifests, local/Kaggle shards, aggregation and saved-game replay.
+All external games were played on 11×11 under standard `swap-pieces` pie rule with an adaptive 300-second clock. Raw SGF and JSON logs live in [`reports/online_battles/`](reports/online_battles/), and every board graphic below is deterministically rendered by replaying those exact game records through our independent referee (`tests/test_engine.py`).
 
-## Code, data and attribution
+![Online Bot Validation Scorecard & Iterative Breakthrough Loop](assets/hex-online-results.svg)
+
+### Real Victory Board Gallery (Davis 7 · Davis 10 · MoHex 3 2nd Player)
+
+![Final Winning Boards Against Davis 7, Davis 10, and MoHex 3](assets/hex-battle-gallery.svg)
+
+### Complete Online Match Log (All 8 Games Independently Replay-Verified)
+
+| Opponent Agent | AI Side | Version | Result | Moves | AI Clock / 300s | Key Turning Points & Proof Logs |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Davis 7** | 1st (Red) | `v1.0` | **Win** | **35** | 187.4s | Seized central control early; closed with `proven_win` ([SGF](reports/online_battles/20261119T064314Z_Davis_7_first.sgf) · [JSON](reports/online_battles/20261119T064314Z_Davis_7_first.json)) |
+| **Davis 7** | 2nd (Blue) | `v1.0` | **Win** | **58** | 272.4s | Swapped `j8`, converted a 58-move battle via `k4` `proven_win` (90.8% clock use) ([SGF](reports/online_battles/20261119T063451Z_Davis_7_second.sgf) · [JSON](reports/online_battles/20261119T063451Z_Davis_7_second.json)) |
+| **Davis 10** | 1st (Red) | `v1.0` | **Win** | **39** | 204.8s | Built a clean central span post-swap; 39-move `proven_win` ([SGF](reports/online_battles/20261119T064830Z_Davis_10_first.sgf) · [JSON](reports/online_battles/20261119T064830Z_Davis_10_first.json)) |
+| **Davis 10** | 2nd (Blue) | `v1.0` | **Win** | **44** | 232.9s | No-swap middlegame outplay; 44-move Left↔Right connection ([SGF](reports/online_battles/20261119T065645Z_Davis_10_second.sgf) · [JSON](reports/online_battles/20261119T065645Z_Davis_10_second.json)) |
+| **MoHex 3** | 2nd (Blue) | `v1.0` | **Win** | **68** | 287.6s | Swapped `j8`, won a 68-move tactical struggle with `a6` `proven_win` ([SGF](reports/online_battles/20261119T071757Z_Mohex_3_second.sgf) · [JSON](reports/online_battles/20261119T071757Z_Mohex_3_second.json)) |
+| **MoHex 3** | 1st (Red) | `v1.0` | Loss *(Diag)* | 54 | 260.6s | Played center `e7` on Turn 1 → immediately swapped by MoHex 3 → **motivated `v1.1`** ([SGF](reports/online_battles/20261119T071004Z_Mohex_3_first.sgf) · [JSON](reports/online_battles/20261119T071004Z_Mohex_3_first.json)) |
+| **MoHex 3** | 1st (Red) | `v1.1` | Loss *(Diag)* | 66 | 284.7s | Opening book `f9` reached **81.4%** winrate at Turn 19, then overturned on Turns 22–39 top-edge ladder → **motivated `v1.2`** ([SGF](reports/online_battles/20261119T083606Z_Mohex_3_first.sgf) · [JSON](reports/online_battles/20261119T083606Z_Mohex_3_first.json)) |
+| **MoHex 3** | 1st (Red) | **`v1.2`** | **Win** | **77** | **291.7s** | **135.7M total visits (+74.8M Pondering), Turn 41 `h2` ladder escape, Turns 71–77 4× `0.00s` Exact VC-Solver checkmate** ([SGF](reports/online_battles/20261119T101056Z_Mohex_3_first.sgf) · [JSON](reports/online_battles/20261119T101056Z_Mohex_3_first.json)) |
+
+---
+
+## 3. Version-by-Version Evolution: What Changed & How It Defeated MoHex 3
+
+![Cumulative Elo Progression from v0.0 to v1.2 and Rejected Ablations](assets/hex-progression.svg)
+
+### `v0.0` — Clean Pure-CPU MCTS Core Baseline (`0 Elo`)
+**Techniques used**:
+- **24-Byte Flat Arena Nodes + Lazy Expansion + Separate Flat AMAF Pool**: Eliminates pointer-heavy heap allocations, maximizing CPU cache locality and shrinking memory (RSS) by up to `4.27×`.
+- **O(1) Edge-Bitmask Union-Find**: Maintains a 2-bit edge mask (`1 = Start Edge`, `2 = Goal Edge`) per stone component so playout termination is an O(1) check (`edge_flags[root] == 3`) without full-board BFS.
+- **2-Ply Subtree Compaction (`rebase_subtree`)**: Compacts and inherits the surviving search subtree across turns instead of discarding prior search work.
+- **Exhaustively Verified Dead-Cell Pruning**: Prunes provably useless local cells verified across all **8,784** 3×3 neighborhood configurations with **0 false positives**.
+- **Variance-Capped GRAVE-TS**: Combines ancestor AMAF borrowing (GRAVE) with Thompson Sampling while capping borrowed ancestor pseudo-counts at `32` to prevent Beta posterior variance collapse.
+
+---
+
+### `v1.0` — Pure-CPU Strong Engine Architecture (**`72.0%`** vs `v0.0`, cumulative **`+218 Elo`**)
+**What changed (4 controlled upgrades)**:
+1. **MCTS-Solver + Mustplay (`32/60 = 53.3%` vs `v0.0`, `+23 Elo`)**: Propagates 1-move forced wins (`NODE_PROVEN_WIN`), multi-threat forced losses (`NODE_PROVEN_LOSS`), and single-threat forced defenses (Mustplay) up the tree.
+2. **4-Direction Bucket-Queue Two-Distance Potential (`34/50 = 68.0%` vs `v0.0`, `+108 Elo`)**: Computes the minimum stones needed to secure **two independent paths** to both goal edges on the Hex component graph and injects it as a shallow expansion prior (`depth <= 2`) — immediately spotting 11×11 global choke points.
+3. **Lock-Free Shared-Tree Parallel MCTS + Virtual Loss (`22/40 = 55.0%` vs S2 Root-Parallel; `80.0%` vs `v0.0`, `+35 Elo`)**: Replaces isolated per-worker trees with a single lock-free shared tree using `state.fetch_or(NODE_EXPANDING, acq_rel)` and atomic `vloss` (`2.0 * vl`), scaling search depth cleanly across 8–12 cores.
+4. **Pure-CPU Self-Play 6-Ring Pattern Learning (`23/40 = 57.5%` vs S3; `36/50 = 72.0%` vs `v0.0`, `+52 Elo`)**: Trained 216 4-way canonical symmetric 6-neighbor features via convex L-BFGS-B (Plackett-Luce MLE) on 10,547 pure-CPU self-play moves (`Val Top-1 49.81%`, `Top-5 71.16%`), powering deep priors and O(1) Boltzmann rollouts (`temp=0.35`).
+
+**Breakthrough & Failure Mode Uncovered**:
+- This leap swept **Davis 7 (2–0)** and **Davis 10 (2–0)** and beat **MoHex 3 as 2nd player (68 moves)**.
+- However, playing **1st vs MoHex 3 (54-move loss)** exposed a blind spot: pie-rule-unaware MCTS spent 12.5 seconds playing dead-center `e7` on Turn 1, which MoHex 3 instantly stole via `swap`, putting us behind from move 2.
+
+---
+
+### `v1.1` — Nash Pie-Rule Opening Book & Real-Time Pondering (**`55.0%`** vs `v1.0`, cumulative **`+253 Elo`**)
+**What changed**:
+- **Empirically Calibrated 11×11 50.0% Nash Opening Book & Swap Contour**: Swept the full 11×11 winrate contour to play balanced Turn-1 openings (`f9, h2, i2, e3, f3, j4`, etc.) in **`0.00s`**, eliminating center-swap blunders while saving ~12.5s of clock.
+- **Deeper Two-Distance Horizon (`depth <= 4`)**: Extended global bottleneck awareness 2 plies deeper at `<2.7%` speed overhead.
+- **Lock-Free Opponent-Turn Pondering (`PONDER;` / `STOP_PONDER`)**: As soon as our AI moves, background worker threads continue expanding the shared tree while the opponent thinks; on input, threads join in `<1ms` and hand millions of pre-computed visits directly into `decide()` via 1-ply rebase.
+
+**Breakthrough & Remaining Gap**:
+- Even with Pondering disabled in the benchmark, `v1.1` beat frozen `v1.0` `22/40 (55.0%)` and lifted 1st-player balance to `50.0%`.
+- In the **MoHex 3 1st-player rematch (66-move loss)**, the `f9` opening book propelled `v1.1` to an **`81.4%` advantage by Turn 19**, before MoHex 3 engineered an edge-ladder comeback across Turns 22–39 where pure rollout depth fell just short of seeing exact virtual connections.
+
+---
+
+### `v1.2` — Exact VC-Solver + MoHex 2.0 Search Tuning (**`62.5%`** vs `v1.1`, cumulative **`+342 Elo`**)
+**What changed**:
+- **Exact Disjoint-Carrier Virtual Connection (VC) Solver & VC-Mustplay Pruning**: Applying Shannon's Pairing Strategy, whenever a Start-to-Goal chain of 2-bridge hyperedges has pairwise-disjoint empty carrier pairs, the engine proves a **100% forced win 10–15 plies before physical connection** and prunes every root move outside the opponent's 1-move VC threat intersection. Exhaustively cross-checked against an independent minimax oracle across all **19,683** 3×3 boards with **0 false positives**.
+- **MoHex 2.0 Search Calibration + Exact-Tail Box-Muller Beta (`alpha >= 16`)**: After empirically proving `GRAVE-TS` beats `GRAVE-UCB` (`73.3%`), we ported `prior_weight=8.0, rave_bias=0.0005, expand_threshold=8` into `GRAVE-TS`, boosting throughput **`+8%`**, defeating frozen `v1.1` **`25/40 (62.5%, First 65.0%, +89 Elo)`**, and triggering **56 early VC-proven wins** in 40 games.
+
+**How `v1.2` Defeated MoHex 3 as 1st Player in 77 Moves** ([full telemetry](reports/online_battles/20261119T101056Z_Mohex_3_first.json)):
+1. **Turn 1 (`f9`, `0.01s`)**: Nash opening book saved 13 seconds and held a dead-even `49.87%` start after MoHex 3 swapped.
+2. **Turns 35–43 (Pondering Surge + `h2` Ladder Escape)**: MoHex 3 launched the same top-edge ladder (`b1→g1`), but Pondering supplied **`+8.52M` to `+9.75M` reused visits per turn**, letting `v1.2` spot the **`h2` jump (Turn 41) → `g4` lock (Turn 43)** and shatter the ladder (**135.7M total visits = 60.9M direct + 74.8M Pondered**).
+3. **Turns 71–77 (Exact VC-Solver `0.00s` Checkmate)**: On Turn 71 (`g10`), `v1.2` proved `vc_proven_win (0.00s)` **7 plies early**, then answered MoHex 3's `h1`, `e6`, `g11` intrusions with four consecutive `0.00s` pairing responses (`i1`, `d7`, `f11`), converting `291.68s / 300s (97.2%)` clock efficiency into a clean victory.
+
+---
+
+## 4. Eight Empirically Falsified & Reverted Hypotheses
+
+Every appealing idea that scored below 50% in controlled matches was reverted and documented:
+
+| Rejected Hypothesis | Controlled Score | Root Cause & Engineering Lesson |
+| :--- | :---: | :--- |
+| Uncapped Ancestor GRAVE (no `amaf_cap`) | `8/24 (33.3%)` | Large ancestor AMAF counts collapsed Beta posterior variance → capping at `32` flipped it to `56.7%` |
+| Deterministic LGR Rollouts | `11/24 (45.8%)` | Deterministic replies correlated rollouts and biased AMAF estimates |
+| Unbounded Two-Distance (all depths) | `24/50 (48.0%)` | Running Dijkstra at deep leaves cut speed `-18%` → restricting to shallow depths jumped winrate to `68.0%` |
+| Sharp Pattern Rollout (`temp=0.60`) | `19/40 (47.5%)` | Over-greedy rollouts reduced AMAF exploration diversity (`temp=0.35` scored `57.5%`) |
+| Forced Edge-Ladder Rollout Block | `16/40 (40.0%)` | Wasted tempo 100% of the time on irrelevant dead edges, polluting AMAF |
+| 12-Cell Patterns Inside Rollouts (`Ring6+Bridge6`) | `13/40 (32.5%)` | Validation Top-1 rose `+4.96%p` but rollout throughput dropped `-34.7%` |
+| Irwin-Hall(4) Approximate Beta Sampler | `18/40 (45.0%)` | `+19%` faster, but thin bounded tails weakened Thompson Sampling right-tail exploration |
+| `GRAVE-UCB` vs `GRAVE-TS` | Std `8/30 (26.7%)`, Tuned `13/30 (43.3%)` | Lost decisively to Variance-Capped `GRAVE-TS` despite `+35%` higher iteration count |
+
+---
+
+## 5. Repository Layout & One-Command Verification
 
 ```text
-hexai/                      Maintained CLI, evaluation runner and readable reference
-native/                     Maintained C++17 search source
-configs/                    Frozen development and final game manifests
-reports/                    Study plan, measured results and release evidence
-tests/                      Maintained correctness and evaluation checks
-docs/                       English documentation with Korean counterparts
-engine/                     Preserved coursework referee and initial Python agents
-deployment/                 Preserved original native source, binary and runtime
-assets/results/             Preserved screenshots and historical match metadata
+native/hex_search.cpp            # Single pure-CPU C++17 Hex engine v1.2.0 (26/26 self-tests)
+hexai/
+  referee.py                     # Self-contained Hex board, BFS winning-chain tracker, pie-rule referee
+  native.py                      # Cross-platform C++17 builder & thread-safe subprocess telemetry
+  evaluation.py                  # Color-balanced match runner & paired-bootstrap CI harness
+  battle_gui.py                  # Dual-mode Human vs AI & Online Bot Assistant Tkinter GUI
+  battle.py                      # Terminal CLI battle assistant + standard SGF/JSON logger
+  cli.py                         # Unified CLI (build, play, gui, battle, evaluate, benchmark, replay)
+tests/test_engine.py             # Unit, protocol, GTP, Pondering, GUI & 8-game SGF/JSON replay suite
+scripts/generate_figures.py      # Deterministic generator for all 5 SVG visual evidence assets
+reports/
+  benchmarks/progression_summary.json
+  online_battles/                # Raw SGF + JSON logs for Davis 7, Davis 10, and MoHex 3
+assets/                          # Generated 5 SVG proof graphics
+docs/                            # English & Korean deep-dive architecture documents
 ```
 
-The source ZIP follows the same public repository tree and includes both the maintained implementation and preserved historical material, including the archived deployment binary. Published game records remain under `reports/`; newly generated maintained executables, scratch directories, authentication files and private notes are excluded. Build the maintained executable for the current host rather than running a Windows executable on Linux or an old Linux binary on Windows.
-
-This repository originated as Group 026 coursework for the University of Manchester's COMP34111 AI & Games course. The documented individual contribution covered the four Python variants, Hex heuristics, C++ migration and root parallelization. The supplied referee and team framework remain attributed as shared work. See [research references](docs/references.md), [the original research README](engine/README.md) and [the original deployment README](deployment/README.md) for provenance.
-
-- [Architecture](docs/architecture.md) / [한국어](docs/architecture.ko.md)
-- [Experiments](docs/experiments.md) / [한국어](docs/experiments.ko.md)
-- [Reproducibility](docs/reproducibility.md) / [한국어](docs/reproducibility.ko.md)
-- [Limitations](docs/limitations.md) / [한국어](docs/limitations.ko.md)
-
-
-[Optional analysis tools](tools/analysis/) reanalyze recorded data without new games or policy selection.
+```bash
+# Full reproducible verification (build + 26/26 C++ self-tests + 12/12 Python/SGF tests + SVG check)
+python -m hexai build
+python -m unittest discover -s tests -v
+python scripts/generate_figures.py --check
+```

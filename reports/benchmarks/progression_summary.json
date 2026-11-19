@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "project": "hex-search-v1.2",
+  "hardware": {
+    "os": "Windows 11",
+    "cpu": "Intel64 Family 6 Model 141 Stepping 1 (16 logical CPUs)",
+    "compiler": "MinGW-W64 g++ 14.2.0 (-std=c++17 -O3 -pthread)",
+    "gpu": "None (100% Pure CPU, zero external dependencies)"
+  },
+  "baseline": {
+    "stage": "v0.0",
+    "label": "Core Engine Baseline",
+    "summary": "Compact 24B flat-arena nodes, lazy expansion, flat AMAF pool, xoshiro256**, O(1) edge-bitmask Union-Find, 2-ply subtree reuse, 8,784 exhaustive dead-cell pruning, variance-capped GRAVE-TS (ancestor cap=32).",
+    "cumulative_elo": 0
+  },
+  "accepted_progression": [
+    {
+      "stage": "v1.0-S1",
+      "label": "MCTS-Solver + Mustplay",
+      "baseline": "Frozen v0.0",
+      "changes": "NODE_PROVEN_WIN/LOSS propagation + 1-ply win / double-threat loss / single-threat mustplay (0 false positives across 3x3 minimax)",
+      "games": 60,
+      "wins": 32,
+      "win_rate_pct": 53.3,
+      "pair_wsl": [8, 16, 6],
+      "elo_delta": 23,
+      "cumulative_elo": 23
+    },
+    {
+      "stage": "v1.0-S2",
+      "label": "Two-Distance Potential (depth<=2)",
+      "baseline": "Frozen v0.0",
+      "changes": "Exact 4-direction bucket-queue Two-Distance connectivity heuristic on Hex component graph applied at shallow expansions (depth<=2)",
+      "games": 50,
+      "wins": 34,
+      "win_rate_pct": 68.0,
+      "pair_wsl": [12, 10, 3],
+      "elo_delta": 108,
+      "cumulative_elo": 131
+    },
+    {
+      "stage": "v1.0-S3",
+      "label": "Lock-Free Shared-Tree Parallel",
+      "baseline": "Frozen v1.0-S2 (Root-Parallel, 8w)",
+      "changes": "Atomic NODE_EXPANDING claim, acquire-release publish, virtual loss (2.0*vl), unified shared tree (320k-646k iters/s on 8 threads)",
+      "games": 40,
+      "wins": 22,
+      "win_rate_pct": 55.0,
+      "vs_v0_8w": {"wins": 32, "games": 40, "win_rate_pct": 80.0},
+      "elo_delta": 35,
+      "cumulative_elo": 166
+    },
+    {
+      "stage": "v1.0",
+      "label": "CPU Self-Play 6-Ring Patterns",
+      "baseline": "Frozen v1.0-S3 (8w)",
+      "changes": "216 canonical 4-way symmetric 6-ring patterns trained via convex L-BFGS-B on 10,547 self-play moves (Val Top-1 49.81%, Top-5 71.16%, temp=0.35)",
+      "games": 40,
+      "wins": 23,
+      "win_rate_pct": 57.5,
+      "pair_wsl": [7, 9, 4],
+      "vs_v0_final_8w": {"wins": 36, "games": 50, "win_rate_pct": 72.0, "ci95_pct": [58.0, 86.0]},
+      "elo_delta": 52,
+      "cumulative_elo": 218
+    },
+    {
+      "stage": "v1.1",
+      "label": "Nash Opening Book + Pondering",
+      "baseline": "Frozen v1.0 (8w, no-ponder control)",
+      "changes": "Empirically calibrated 11x11 50.0% Nash pie-rule opening book (0.00s) & swap contour, Two-Distance depth<=4, lock-free opponent-turn Pondering",
+      "games": 40,
+      "wins": 22,
+      "win_rate_pct": 55.0,
+      "pair_wsl": [6, 10, 4],
+      "first_second": {"first": "10/20 (50.0%)", "second": "12/20 (60.0%)"},
+      "elo_delta": 35,
+      "cumulative_elo": 253
+    },
+    {
+      "stage": "v1.2",
+      "label": "Exact VC-Solver + MoHex Tuning",
+      "baseline": "Frozen v1.1 (8w, no-ponder control)",
+      "changes": "Exact Disjoint-Carrier Virtual Connection Solver & VC-Mustplay (0 false positives across all 19,683 3x3 boards), Box-Muller Beta (alpha>=16), prior_weight=8, rave_bias=0.0005, expand_threshold=8",
+      "games": 40,
+      "wins": 25,
+      "win_rate_pct": 62.5,
+      "pair_wsl": [9, 7, 4],
+      "first_second": {"first": "13/20 (65.0%)", "second": "12/20 (60.0%)"},
+      "throughput_ratio": 1.08,
+      "vc_proven_wins": 56,
+      "elo_delta": 89,
+      "cumulative_elo": 342
+    }
+  ],
+  "rejected_ablations": [
+    {
+      "experiment": "Uncapped Ancestor GRAVE",
+      "score": "8/24 (33.3%)",
+      "win_rate_pct": 33.3,
+      "root_cause": "Uncapped ancestor AMAF pseudo-counts collapsed Beta posterior variance in Thompson Sampling; capping borrowed pseudo-counts at 32 flipped it to 56.7%."
+    },
+    {
+      "experiment": "Deterministic LGR Rollouts",
+      "score": "11/24 (45.8%)",
+      "win_rate_pct": 45.8,
+      "root_cause": "100% deterministic last-good-reply correlated playouts and biased AMAF/RAVE value estimates."
+    },
+    {
+      "experiment": "Unbounded Two-Distance (all depths)",
+      "score": "24/50 (48.0%)",
+      "win_rate_pct": 48.0,
+      "root_cause": "Running 4-direction Dijkstra on deep leaves cut throughput by -18%; gating to shallow depths recovered speed and jumped to 68.0%."
+    },
+    {
+      "experiment": "Sharp Pattern Rollout (temp=0.60)",
+      "score": "19/40 (47.5%)",
+      "win_rate_pct": 47.5,
+      "root_cause": "Overly greedy Boltzmann rollout reduced AMAF exploration diversity compared to temp=0.35 (57.5%)."
+    },
+    {
+      "experiment": "Forced Edge-Ladder Rollout Block",
+      "score": "16/40 (40.0%)",
+      "win_rate_pct": 40.0,
+      "root_cause": "Forcing 100% deterministic edge responses wasted rollout tempo on dead edge cells, corrupting AMAF estimates."
+    },
+    {
+      "experiment": "12-Cell Patterns inside Rollouts",
+      "score": "13/40 (32.5%)",
+      "win_rate_pct": 32.5,
+      "root_cause": "Despite +4.96%p Top-1 validation accuracy, evaluating Bridge-6 per rollout step cut throughput by -34.7% (43.0k vs 65.8k iters/move)."
+    },
+    {
+      "experiment": "Irwin-Hall(4) Thin-Tail Beta",
+      "score": "18/40 (45.0%)",
+      "win_rate_pct": 45.0,
+      "root_cause": "Despite +19% higher throughput, bounded negative-kurtosis tails weakened Thompson Sampling exploration; exact Box-Muller at alpha>=16 preserved full strength."
+    },
+    {
+      "experiment": "GRAVE-UCB vs GRAVE-TS (30g each)",
+      "score": "8/30 std (26.7%), 13/30 tuned (43.3%)",
+      "win_rate_pct": 43.3,
+      "root_cause": "Even with +35% more iterations, GRAVE-UCB lost decisively to variance-capped GRAVE-TS posterior sampling."
+    }
+  ],
+  "online_battles": [
+    {"opponent": "Davis 7", "side": "first", "version": "v1.0", "result": "win", "turns": 35, "ai_seconds": 187.4, "file": "20261119T064314Z_Davis_7_first.json"},
+    {"opponent": "Davis 7", "side": "second", "version": "v1.0", "result": "win", "turns": 58, "ai_seconds": 272.4, "file": "20261119T063451Z_Davis_7_second.json"},
+    {"opponent": "Davis 10", "side": "first", "version": "v1.0", "result": "win", "turns": 39, "ai_seconds": 204.8, "file": "20261119T064830Z_Davis_10_first.json"},
+    {"opponent": "Davis 10", "side": "second", "version": "v1.0", "result": "win", "turns": 44, "ai_seconds": 232.9, "file": "20261119T065645Z_Davis_10_second.json"},
+    {"opponent": "MoHex 3", "side": "second", "version": "v1.0", "result": "win", "turns": 68, "ai_seconds": 287.6, "file": "20261119T071757Z_Mohex_3_second.json"},
+    {"opponent": "MoHex 3", "side": "first", "version": "v1.0", "result": "loss", "turns": 54, "ai_seconds": 260.6, "note": "Diagnostic loss: Turn-1 center e7 swapped; motivated v1.1 Nash opening book + Pondering", "file": "20261119T071004Z_Mohex_3_first.json"},
+    {"opponent": "MoHex 3", "side": "first", "version": "v1.1", "result": "loss", "turns": 66, "ai_seconds": 284.7, "note": "Diagnostic loss: reached 81.4% by Turn 19, fell into top-edge ladder; motivated v1.2 Exact VC-Solver & tuning", "file": "20261119T083606Z_Mohex_3_first.json"},
+    {"opponent": "MoHex 3", "side": "first", "version": "v1.2", "result": "win", "turns": 77, "ai_seconds": 291.7, "total_visits": 135680535, "ponder_reused_visits": 74797399, "vc_proven_wins": 3, "note": "77-move victory: Turn 41 h2 ladder escape (+9.65M Ponder reuse) + Turn 71-77 0.00s Exact VC-Solver checkmate", "file": "20261119T101056Z_Mohex_3_first.json"}
+  ]
+}

@@ -10,6 +10,7 @@ import subprocess
 import sys
 import time
 
+from .battle import run_battle
 from .evaluation import (aggregate, atomic_json, canonical, evaluate, load_manifest,
                          manifest_hash, participant_command, percentile, replay)
 from .native import (ROOT, NativeProcess, build, environment, executable_default,
@@ -19,7 +20,7 @@ from .referee import Colour, Referee, parse_board
 
 def search_arguments(parser):
     parser.add_argument("--executable", type=Path, default=executable_default())
-    parser.add_argument("--policy", choices=["ucb", "ts", "rave_ucb", "rave_ts", "legacy_ts"], default="rave_ts")
+    parser.add_argument("--policy", choices=["ucb", "ts", "rave_ucb", "rave_ts", "legacy_ts", "grave_ucb", "grave_ts"], default="grave_ts")
     parser.add_argument("--seed", type=int, default=378)
     parser.add_argument("--workers", type=int, default=1)
     group = parser.add_mutually_exclusive_group()
@@ -27,7 +28,7 @@ def search_arguments(parser):
     group.add_argument("--seconds", type=float, default=None)
     parser.add_argument("--game-seconds", type=float, default=300)
     parser.add_argument("--timeout", type=float, default=30)
-    parser.add_argument("--node-cap", type=int, default=60000)
+    parser.add_argument("--node-cap", type=int, default=200000)
     parser.add_argument("--memory-mb", type=int, default=128)
     parser.add_argument("--bridge", type=int, choices=[0, 1], default=1)
     parser.add_argument("--ordering", type=int, choices=[0, 1], default=1)
@@ -36,6 +37,20 @@ def search_arguments(parser):
     parser.add_argument("--block-check", type=int, choices=[0, 1], default=1)
     parser.add_argument("--swap", type=int, choices=[0, 1], default=1)
     parser.add_argument("--rave-k", type=float, default=1000)
+    parser.add_argument("--rave-bias", type=float, default=None)
+    parser.add_argument("--grave-ref", type=int, default=None)
+    parser.add_argument("--exploration", type=float, default=None)
+    parser.add_argument("--expand-threshold", type=int, default=None)
+    parser.add_argument("--prior-weight", type=float, default=None)
+    parser.add_argument("--lgr", type=int, choices=[0, 1], default=None)
+    parser.add_argument("--prune-dead", type=int, choices=[0, 1], default=None)
+    parser.add_argument("--tree-reuse", type=int, choices=[0, 1], default=None)
+    parser.add_argument("--solver", type=int, choices=[0, 1], default=None)
+    parser.add_argument("--two-dist", type=int, choices=[0, 1], default=None)
+    parser.add_argument("--shared-tree", type=int, choices=[0, 1], default=None)
+    parser.add_argument("--pat-prior", type=int, choices=[0, 1], default=None)
+    parser.add_argument("--pat-rollout", type=int, choices=[0, 1], default=None)
+    parser.add_argument("--pat-temp", type=float, default=None)
 
 
 def predict(args):
@@ -45,6 +60,14 @@ def predict(args):
     participant = {"policy": args.policy, "bridge": bool(args.bridge), "ordering": bool(args.ordering),
                    "swap": bool(args.swap), "tactics": bool(args.tactics), "rave_k": args.rave_k,
                    "win_check": bool(args.win_check), "block_check": bool(args.block_check)}
+    for key in ("rave_bias", "grave_ref", "exploration", "expand_threshold", "prior_weight", "pat_temp"):
+        value = getattr(args, key, None)
+        if value is not None:
+            participant[key] = value
+    for key in ("lgr", "prune_dead", "tree_reuse", "solver", "two_dist", "shared_tree", "pat_prior", "pat_rollout"):
+        value = getattr(args, key, None)
+        if value is not None:
+            participant[key] = bool(value)
     budget = {"mode": "time" if args.seconds is not None else "iterations", "workers": args.workers,
               "game_seconds": args.game_seconds, "node_cap": args.node_cap, "memory_mb": args.memory_mb}
     if args.seconds is not None:
@@ -179,7 +202,6 @@ def main(argv=None):
     builder.add_argument("--source", type=Path)
     builder.add_argument("--output", type=Path)
     builder.add_argument("--compiler")
-    builder.add_argument("--legacy", action="store_true")
     runner = subs.add_parser("evaluate", help="Sequential frozen-manifest evaluation with per-game checkpoints.")
     runner.add_argument("--config", type=Path, required=True)
     runner.add_argument("--output", type=Path, required=True)
@@ -208,7 +230,7 @@ def main(argv=None):
     tester.add_argument("--fixtures", type=Path, help="JSON list (or object with fixtures key) of frozen benchmark positions.")
     tester.add_argument("--colour", choices=["R", "B"], default="B")
     tester.add_argument("--turn", type=int, default=2)
-    tester.add_argument("--policy", choices=["ucb", "ts", "rave_ucb", "rave_ts", "legacy_ts"], default="rave_ts")
+    tester.add_argument("--policy", choices=["ucb", "ts", "rave_ucb", "rave_ts", "legacy_ts", "grave_ucb", "grave_ts"], default="grave_ts")
     tester.add_argument("--seed", type=int, default=378)
     tester.add_argument("--node-cap", type=int, default=60000)
     tester.add_argument("--rave-k", type=float, default=1000)
@@ -219,8 +241,41 @@ def main(argv=None):
     validator = subs.add_parser("validate", help="Validate final seeds are disjoint from development seeds.")
     validator.add_argument("--config", type=Path, required=True)
     validator.add_argument("--development", nargs="*", type=Path, default=[])
+    def add_battle_arguments(p, default_mode="human", default_opp="Human", default_side="second", default_seconds=None, default_workers=8):
+        p.add_argument("--executable", type=Path, default=executable_default())
+        p.add_argument("--mode", choices=["human", "online"], default=default_mode, help="human: Play vs AI directly; online: Online bot bridge assistant.")
+        p.add_argument("--opponent", default=default_opp)
+        p.add_argument("--side", default=default_side, help="AI side: first|second|red|blue|black|white")
+        p.add_argument("--board-size", type=int, default=11)
+        p.add_argument("--policy", choices=["grave_ts", "grave_ucb", "rave_ts"], default="grave_ts")
+        p.add_argument("--workers", type=int, default=default_workers)
+        p.add_argument("--game-seconds", type=float, default=300.0, help="Adaptive V3 total clock per game (default 300s).")
+        p.add_argument("--expected-moves", type=int, default=24, help="Expected AI moves per game for V3 clock pacing.")
+        p.add_argument("--seconds", type=float, default=default_seconds, help="Optional fixed seconds per move (overrides V3 clock).")
+        p.add_argument("--node-cap", type=int, default=8000000)
+        p.add_argument("--memory-mb", type=int, default=1024)
+        p.add_argument("--pat-temp", type=float, default=0.35)
+        p.add_argument("--swap", type=int, choices=[0, 1], default=1)
+        p.add_argument("--swap-rule", choices=["swap_pieces", "swap_sides"], default="swap_pieces")
+        p.add_argument("--seed", type=int, default=378)
+        p.add_argument("--save-dir", type=Path, default=Path("reports/online_battles"))
+
+    player = subs.add_parser("play", help="Play directly against Hex-Search v1.2 in a customizable visual GUI.")
+    add_battle_arguments(player, default_mode="human", default_opp="Human", default_side="second", default_seconds=2.0, default_workers=4)
+    guier = subs.add_parser("gui", help="Visual 11x11 Hex GUI (Play vs AI or Online Bot Assistant).")
+    add_battle_arguments(guier, default_mode="human", default_opp="Human", default_side="second", default_seconds=None, default_workers=12)
+    battler = subs.add_parser("battle", help="Interactive CLI battle assistant with SGF/JSON match logging.")
+    add_battle_arguments(battler, default_mode="online", default_opp="MoHex 3", default_side="first", default_seconds=None, default_workers=12)
+    battler.add_argument("--gui", action="store_true", help="Launch visual Tkinter GUI board.")
     args = parser.parse_args(argv)
     try:
+        if args.command in {"play", "gui"} or (args.command == "battle" and getattr(args, "gui", False)):
+            from .battle_gui import run_battle_gui
+            run_battle_gui(args)
+            return 0
+        if args.command == "battle":
+            run_battle(args)
+            return 0
         if args.command == "doctor":
             info = environment()
             try:
@@ -231,7 +286,7 @@ def main(argv=None):
                 info["compiler"] = {"error": str(error)}
             result = info
         elif args.command == "build":
-            result = build(args.source, args.output, args.compiler, args.legacy)
+            result = build(args.source, args.output, args.compiler)
         elif args.command == "evaluate":
             result = evaluate(args.config, args.output, args.executable, args.shard_index, args.shard_count, args.resume,
                               args.max_wall_seconds, args.checkpoint_margin_seconds)
