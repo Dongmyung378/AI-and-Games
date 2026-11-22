@@ -2,7 +2,7 @@
 
 # Hex-Search v1.2
 
-### GPU · 신경망 · 외부 라이브러리 0개 — 순수 CPU C++17 11×11 Hex AI 엔진
+### 순수 CPU C++17 11×11 Hex AI 엔진 (GPU · 신경망 · 외부 라이브러리 0개)
 
 ![C++17](https://img.shields.io/badge/C%2B%2B-17%20Pure%20CPU-660099?style=flat-square&logo=cplusplus&logoColor=white)
 ![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-4A0070?style=flat-square)
@@ -52,7 +52,7 @@ python -m hexai play
 > [!TIP]
 > **GUI에서 지원하는 사용자 설정**
 > - **원클릭 모드 전환**: **`사람 vs AI`**(직접 대결) ↔ **`온라인 봇 어시스턴트`**(Davis·MoHex 등 외부 봇 대국 브리지)
-> - **난이도 프리셋 4종**: `입문` (`0.5초/수`, 2스레드) · `중급` (`2초/수`, 4스레드) · `강함` (`5초/수`, 8스레드, Pondering) · **`최강`** (`300초 V3 시계`, 12스레드, Pondering — MoHex 3 격파 풀스펙)
+> - **난이도 프리셋 4종**: `입문` (`0.5초/수`, 2스레드) · `중급` (`2초/수`, 4스레드) · `강함` (`5초/수`, 8스레드, Pondering) · **`최강`** (`300초 V3 시계`, 12스레드, Pondering, MoHex 3 격파 풀스펙)
 > - **사용자 직접 커스터마이징**: 보드 크기(`7×7 / 9×9 / 11×11`), 선공/후공 선택, 수당 고정 시간 / 전체 V3 시계, 스레드 수, Swap 규칙(`swap-pieces` / `swap-sides`), Pondering ON/OFF, Undo, SGF/JSON 자동 저장, 종료 시 **황금 승리 연결 경로 자동 하이라이트**
 > - **표준 Hex GTP 연동**: `./.local/bin/hex_search --gtp --workers 12 --game-seconds 300` (HexGui / Benzene / `twogtp` 호환)
 
@@ -103,7 +103,7 @@ python -m hexai play
 
 <br/>
 
-### `v0.0` — 고성능 순수 CPU MCTS 코어 기준선 (`0 Elo`)
+### `v0.0`: 고성능 순수 CPU MCTS 코어 기준선 (`0 Elo`)
 
 - **24바이트 Flat Arena 노드 + Lazy Expansion + 별도 Flat AMAF 풀**: 포인터 기반 힙 할당을 제거해 CPU 캐시 히트율을 극대화하고 메모리(RSS)를 최대 `4.27×` 절감했습니다.
 - **O(1) Edge-Bitmask Union-Find**: 각 돌 그룹에 2비트 변 마스크(`1=시작 변`, `2=목표 변`)를 유지해 롤아웃 매 스텝마다 BFS 없이 `edge_flags[root] == 3`으로 즉시 승패를 판정합니다.
@@ -113,7 +113,7 @@ python -m hexai play
 
 <br/>
 
-### `v1.0` — 순수 CPU 강엔진 아키텍처 (`v0.0` 대비 `72.0%`, 누적 `+218 Elo`)
+### `v1.0`: 순수 CPU 강엔진 아키텍처 (`v0.0` 대비 `72.0%`, 누적 `+218 Elo`)
 
 **무엇이 달라졌는가 (4단계 통제 검증)**
 1. **MCTS-Solver + Mustplay (`v0.0` 대비 `32/60 = 53.3%`, `+23 Elo`)**: 1수 필승(`NODE_PROVEN_WIN`), 2개 이상 동시 위협 필패(`NODE_PROVEN_LOSS`), 단일 위협 강제 방어(Mustplay)를 트리에 전파해 후반 전술 실수를 제거했습니다.
@@ -127,7 +127,7 @@ python -m hexai play
 
 <br/>
 
-### `v1.1` — 내쉬 균형 파이 룰 오프닝 북 & 실시간 Pondering (`v1.0` 대비 `55.0%`, 누적 `+253 Elo`)
+### `v1.1`: 내쉬 균형 파이 룰 오프닝 북 & 실시간 Pondering (`v1.0` 대비 `55.0%`, 누적 `+253 Elo`)
 
 **무엇이 달라졌는가**
 - **실측 11×11 50.0% 내쉬 오프닝 북 & 스왑 경계 보정**: `v1.0` 자가평가로 11×11 전체 50.0% 승률 등고선을 실측해 균형 오프닝(`f9, h2, i2, e3, f3, j4` 등)을 **`0.00초`** 만에 착수하도록 개선(초반 12.5초 절약 + 중앙 스왑 원천 차단).
@@ -140,7 +140,7 @@ python -m hexai play
 
 <br/>
 
-### `v1.2` — Exact VC-Solver + MoHex 2.0 탐색 튜닝 (`v1.1` 대비 `62.5%`, 누적 `+342 Elo`)
+### `v1.2`: Exact VC-Solver + MoHex 2.0 탐색 튜닝 (`v1.1` 대비 `62.5%`, 누적 `+342 Elo`)
 
 **무엇이 달라졌는가**
 - **Exact Disjoint-Carrier Virtual Connection(VC) Solver & VC-Mustplay 프루닝**: Shannon Pairing Strategy에 따라 서로 겹치지 않는 2-브릿지 캐리어 쌍으로 양쪽 변이 가상 연결되면 물리적 연결 **10–15플라이 전에도 100% 필승을 증명**하고, 상대의 1수 VC 위협 교집합 바깥 패착 수를 루트에서 즉시 쳐냅니다. 3×3 전체 **19,683개 보드**에 대해 독립 미니맥스 오라클과 교차 검증해 **오탐 0건**을 증명했습니다.

@@ -2,7 +2,7 @@
 
 # Hex-Search v1.2
 
-### Zero GPU · Zero Neural Nets · Zero Dependencies — Pure-CPU C++17 11×11 Hex AI Engine
+### Pure-CPU C++17 11×11 Hex AI Engine (Zero GPU · Zero Neural Nets · Zero Dependencies)
 
 ![C++17](https://img.shields.io/badge/C%2B%2B-17%20Pure%20CPU-660099?style=flat-square&logo=cplusplus&logoColor=white)
 ![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-4A0070?style=flat-square)
@@ -17,7 +17,7 @@
 
 <br/>
 
-**Hex-Search v1.2** is a zero-dependency, **pure-CPU C++17** search engine (`native/hex_search.cpp`) for 11×11 Hex — built with no GPU, no deep neural network inference, and zero external libraries.
+**Hex-Search v1.2** is a zero-dependency, **pure-CPU C++17** search engine (`native/hex_search.cpp`) for 11×11 Hex, built with no GPU, no deep neural network inference, and zero external libraries.
 
 Starting from the clean `v0.0` core architecture, every upgrade (`v0.0 → v1.0 → v1.1 → v1.2`) was accepted only after winning color-balanced controlled matches against the previous frozen binary. Across four disciplined iterations, pure-CPU strength climbed **`+342 Elo` over `v0.0`**, sweeping online public bots **Davis 7 (2–0)** and **Davis 10 (2–0)** and defeating the classic computer-Hex benchmark **MoHex 3** as **both 2nd player (68 moves) and 1st player (77 moves)**.
 
@@ -30,7 +30,7 @@ Starting from the clean `v0.0` core architecture, every upgrade (`v0.0 → v1.0 
 <br/>
 
 <p align="center">
-  <img src="assets/hex-mohex-win.svg" alt="Hex-Search v1.2 77-Move First-Player Victory Over MoHex 3 — Board & Telemetry" width="100%"/>
+  <img src="assets/hex-mohex-win.svg" alt="Hex-Search v1.2 77-Move First-Player Victory Over MoHex 3 (Board & Telemetry)" width="100%"/>
 </p>
 
 <br/>
@@ -52,7 +52,7 @@ python -m hexai play
 > [!TIP]
 > **User-Configurable GUI Features**
 > - **One-Click Mode Switch**: **`Human vs AI`** (play directly against `hex-search-v1.2`) ↔ **`Online Bot Assistant`** (bridge mode used to play Davis 7/10 and MoHex 3)
-> - **4 Difficulty Presets**: `Beginner` (`0.5s/move`, 2 threads) · `Intermediate` (`2s/move`, 4 threads) · `Strong` (`5s/move`, 8 threads, Pondering) · **`Grandmaster`** (`300s adaptive V3 clock`, 12 threads, Pondering — full MoHex 3 match spec)
+> - **4 Difficulty Presets**: `Beginner` (`0.5s/move`, 2 threads) · `Intermediate` (`2s/move`, 4 threads) · `Strong` (`5s/move`, 8 threads, Pondering) · **`Grandmaster`** (`300s adaptive V3 clock`, 12 threads, Pondering, full MoHex 3 match spec)
 > - **Full Custom Controls**: Board size (`7×7 / 9×9 / 11×11`), play as 1st (Red) or 2nd (Blue), fixed seconds/move or total adaptive V3 clock, worker threads, pie rule (`swap-pieces` / `swap-sides`), Pondering ON/OFF, Undo, SGF/JSON export, and automatic **gold winning-chain highlight** at game end
 > - **Standard Hex GTP Support**: `./.local/bin/hex_search --gtp --workers 12 --game-seconds 300` (compatible with HexGui, Benzene, and `twogtp`)
 
@@ -103,7 +103,7 @@ All external games were played on 11×11 under standard `swap-pieces` pie rule w
 
 <br/>
 
-### `v0.0` — Clean Pure-CPU MCTS Core Baseline (`0 Elo`)
+### `v0.0`: Clean Pure-CPU MCTS Core Baseline (`0 Elo`)
 
 - **24-Byte Flat Arena Nodes + Lazy Expansion + Separate Flat AMAF Pool**: Eliminates pointer-heavy heap allocations, maximizing CPU cache locality and shrinking memory (RSS) by up to `4.27×`.
 - **O(1) Edge-Bitmask Union-Find**: Maintains a 2-bit edge mask (`1 = Start Edge`, `2 = Goal Edge`) per stone component so playout termination is an O(1) check (`edge_flags[root] == 3`) without full-board BFS.
@@ -113,11 +113,11 @@ All external games were played on 11×11 under standard `swap-pieces` pie rule w
 
 <br/>
 
-### `v1.0` — Pure-CPU Strong Engine Architecture (`72.0%` vs `v0.0`, cumulative `+218 Elo`)
+### `v1.0`: Pure-CPU Strong Engine Architecture (`72.0%` vs `v0.0`, cumulative `+218 Elo`)
 
 **What changed (4 controlled upgrades)**
 1. **MCTS-Solver + Mustplay (`32/60 = 53.3%` vs `v0.0`, `+23 Elo`)**: Propagates 1-move forced wins (`NODE_PROVEN_WIN`), multi-threat forced losses (`NODE_PROVEN_LOSS`), and single-threat forced defenses (Mustplay) up the tree.
-2. **4-Direction Bucket-Queue Two-Distance Potential (`34/50 = 68.0%` vs `v0.0`, `+108 Elo`)**: Computes the minimum stones needed to secure **two independent paths** to both goal edges on the Hex component graph and injects it as a shallow expansion prior (`depth <= 2`) — immediately spotting 11×11 global choke points.
+2. **4-Direction Bucket-Queue Two-Distance Potential (`34/50 = 68.0%` vs `v0.0`, `+108 Elo`)**: Computes the minimum stones needed to secure **two independent paths** to both goal edges on the Hex component graph and injects it as a shallow expansion prior (`depth <= 2`), immediately spotting 11×11 global choke points.
 3. **Lock-Free Shared-Tree Parallel MCTS + Virtual Loss (`22/40 = 55.0%` vs S2 Root-Parallel; `80.0%` vs `v0.0`, `+35 Elo`)**: Replaces isolated per-worker trees with a single lock-free shared tree using `state.fetch_or(NODE_EXPANDING, acq_rel)` and atomic `vloss` (`2.0 * vl`), scaling search depth cleanly across 8–12 cores.
 4. **Pure-CPU Self-Play 6-Ring Pattern Learning (`23/40 = 57.5%` vs S3; `36/50 = 72.0%` vs `v0.0`, `+52 Elo`)**: Trained 216 4-way canonical symmetric 6-neighbor features via convex L-BFGS-B (Plackett-Luce MLE) on 10,547 pure-CPU self-play moves (`Val Top-1 49.81%`, `Top-5 71.16%`), powering deep priors and O(1) Boltzmann rollouts (`temp=0.35`).
 
@@ -127,7 +127,7 @@ All external games were played on 11×11 under standard `swap-pieces` pie rule w
 
 <br/>
 
-### `v1.1` — Nash Pie-Rule Opening Book & Real-Time Pondering (`55.0%` vs `v1.0`, cumulative `+253 Elo`)
+### `v1.1`: Nash Pie-Rule Opening Book & Real-Time Pondering (`55.0%` vs `v1.0`, cumulative `+253 Elo`)
 
 **What changed**
 - **Empirically Calibrated 11×11 50.0% Nash Opening Book & Swap Contour**: Swept the full 11×11 winrate contour to play balanced Turn-1 openings (`f9, h2, i2, e3, f3, j4`, etc.) in **`0.00s`**, eliminating center-swap blunders while saving 12.5s of Turn-1 clock.
@@ -140,7 +140,7 @@ All external games were played on 11×11 under standard `swap-pieces` pie rule w
 
 <br/>
 
-### `v1.2` — Exact VC-Solver + MoHex 2.0 Search Tuning (`62.5%` vs `v1.1`, cumulative `+342 Elo`)
+### `v1.2`: Exact VC-Solver + MoHex 2.0 Search Tuning (`62.5%` vs `v1.1`, cumulative `+342 Elo`)
 
 **What changed**
 - **Exact Disjoint-Carrier Virtual Connection (VC) Solver & VC-Mustplay Pruning**: Applying Shannon's Pairing Strategy, whenever a Start-to-Goal chain of 2-bridge hyperedges has pairwise-disjoint empty carrier pairs, the engine proves a **100% forced win 10–15 plies before physical connection** and prunes every root move outside the opponent's 1-move VC threat intersection. Exhaustively cross-checked against an independent minimax oracle across all **19,683** 3×3 boards with **0 false positives**.

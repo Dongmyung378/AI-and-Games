@@ -1,4 +1,4 @@
-// Hex-Search v1.2.0 — Zero-Dependency Pure-CPU C++17 Hex AI Engine.
+// Hex-Search v1.2.0: Zero-Dependency Pure-CPU C++17 Hex AI Engine.
 // Standard-library C++17 only; compact flat arena, lazy expansion, GRAVE, LGRF-2,
 // proven dead-cell pruning, fast inline Beta/Gamma sampling, and subtree reuse.
 #include <algorithm>

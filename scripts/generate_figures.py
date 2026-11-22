@@ -167,7 +167,7 @@ def replay_battle_file(filename: str) -> tuple[dict, BattleReferee, list[tuple[i
 def build_thumbnail_svg(st: BattleReferee, wpath: list[tuple[int, int]], lang: str) -> str:
     w, h = 1200, 760
     if lang == "ko":
-        title = "Hex-Search v1.2 — 순수 CPU C++17 탐색 엔진"
+        title = "Hex-Search v1.2: 순수 CPU C++17 탐색 엔진"
         desc = "GPU와 신경망 없이 순수 CPU C++17만으로 v0.0 대비 +342 Elo를 달성하고 Davis 7·10 전승 및 MoHex 3 선·후공 승리를 기록한 Hex AI 썸네일입니다."
         heading = "순수 CPU C++17 Hex 탐색 엔진"
         sub = "Lock-Free GRAVE-TS · Exact VC-Solver · 실시간 Pondering"
@@ -176,14 +176,14 @@ def build_thumbnail_svg(st: BattleReferee, wpath: list[tuple[int, int]], lang: s
             ("4승 0패", "Davis 7 · Davis 10 선·후공 전승", HEX_BLUE),
             ("1.35억 방문", "Pondering +7,480만 · 형식 검증 오탐 0건", INK),
         ]
-        board_hdr = "실전 기보 — MoHex 3 선공 77수 완승 (Red 상↔하)"
+        board_hdr = "실전 기보: MoHex 3 선공 77수 완승 (Red 상↔하)"
         board_foot = "황금 실선: 독립 BFS 심판이 검증한 Red 승리 경로 (i1 ↔ f11)"
         banner_l1 = "MoHex 3 선·후공 모두 격파"
         banner_l2 = "GPU · 신경망 · 외부 의존성 0개 · 순수 C++17 단일 엔진"
         banner_r1 = "77수 필승"
         banner_r2 = "71수 Exact VC-Solver 조기 증명"
     else:
-        title = "Hex-Search v1.2 — Pure-CPU C++17 Hex AI Engine"
+        title = "Hex-Search v1.2: Pure-CPU C++17 Hex AI Engine"
         desc = "Zero-dependency pure-CPU C++17 Hex search engine gaining +342 Elo over v0.0, sweeping Davis 7 and 10, and defeating MoHex 3 as both 1st and 2nd player."
         heading = "Pure-CPU C++17 Hex Search Engine"
         sub = "Lock-Free GRAVE-TS · Exact VC-Solver · Real-Time Pondering"
@@ -192,7 +192,7 @@ def build_thumbnail_svg(st: BattleReferee, wpath: list[tuple[int, int]], lang: s
             ("4 – 0 Sweep", "Davis 7 &amp; Davis 10 (1st &amp; 2nd Player)", HEX_BLUE),
             ("135.7M Visits", "+74.8M Ponder Reuse · 0 Formal FP", INK),
         ]
-        board_hdr = "Verified Game — 77-Move 1st-Player Win vs MoHex 3 (Red)"
+        board_hdr = "Verified Game: 77-Move 1st-Player Win vs MoHex 3 (Red)"
         board_foot = "Gold chain: Independently verified Red winning path (i1 ↔ f11)"
         banner_l1 = "Defeated MoHex 3 (1st &amp; 2nd)"
         banner_l2 = "Zero GPU · Zero Neural Nets · Zero External Dependencies"
@@ -253,7 +253,7 @@ def build_progression_svg(summary: dict, lang: str) -> str:
         desc = "이전 고정 체크포인트 대비 선·후공 교대 통제 대국으로 검증된 누적 +342 Elo 상승과 50% 미만으로 기각·원복된 8가지 가설 비교 차트입니다."
         heading = "단계별 실증 기력 향상 (v0.0 → v1.2) 및 기각된 가설"
         sub = "모든 업그레이드는 이전 고정 체크포인트 대비 선·후공 교대 통제 대국에서 50% 초과 승률을 검증한 경우만 채택했습니다."
-        left_title = "채택된 업그레이드 — v0.0 기준 누적 +342 Elo"
+        left_title = "채택된 업그레이드 (v0.0 기준 누적 +342 Elo)"
         left_note = "x축 아래 수치는 직전 고정 버전 대비 통제 대국 승률 (Pondering 미적용)"
         right_title = "기각·원복된 8가지 가설 (실측 승률 50% 미만)"
         thresh_lbl = "채택 기준 50%"
@@ -309,7 +309,7 @@ def build_progression_svg(summary: dict, lang: str) -> str:
 
     parts.append(f'<text x="320" y="564" text-anchor="middle" fill="{FAINT}" font-size="12.5">{left_note}</text>')
 
-    # Right card — 0..60% bar scale with clean right-aligned values past the track (zero threshold overlap)
+    # Right card: 0..60% bar scale with clean right-aligned values past the track (zero threshold overlap)
     parts.extend([
         f'<rect x="620" y="120" width="540" height="466" rx="14" fill="{SURFACE}" stroke="{RULE}" stroke-width="1.2"/>',
         f'<rect x="620" y="120" width="540" height="5" rx="2.5" fill="{ROSE_MUTED}"/>',
@@ -342,7 +342,7 @@ def build_progression_svg(summary: dict, lang: str) -> str:
 def build_mohex_win_svg(data: dict, st: BattleReferee, wpath: list[tuple[int, int]], lang: str) -> str:
     w, h = 1200, 600
     if lang == "ko":
-        title = "실전 검증 — Hex-Search v1.2 vs MoHex 3 선공 77수 승리"
+        title = "실전 검증: Hex-Search v1.2 vs MoHex 3 선공 77수 승리"
         desc = "11×11 적응형 300초 시계에서 Hex-Search v1.2가 MoHex 3를 상대로 선공 77수 만에 승리한 최종 보드와 턴별 예상 승률 및 Pondering 재사용 방문 수 그래프입니다."
         heading = "실전 검증: Hex-Search v1.2 vs MoHex 3 선공 77수 완승"
         sub = "11×11 표준 swap-pieces · 300초 시계 (291.7초 사용) · 12스레드 · 직접 6,088만 + Pondering 7,480만 = 총 1.35억 방문"
@@ -457,7 +457,7 @@ def build_battle_gallery_svg(lang: str) -> str:
     """Render 4-panel visual proof gallery directly from real SGF/JSON victory logs."""
     w, h = 1200, 790
     if lang == "ko":
-        title = "실전 승리 최종 보드 갤러리 — Davis 7 · Davis 10 · MoHex 3"
+        title = "실전 승리 최종 보드 갤러리 (Davis 7 · Davis 10 · MoHex 3)"
         desc = "저장된 원본 SGF/JSON 기보에서 독립 심판으로 1수부터 끝까지 재생해 렌더링한 4판의 실전 승리 최종 보드와 황금 승리 연결 경로입니다."
         heading = "실전 승리 최종 보드 갤러리 (원본 SGF/JSON 전수 리플레이)"
         sub = "모든 돌 배치와 황금 승리 연결 경로는 저장된 실제 대국 기록을 독립 BFS 심판으로 재생해 자동 생성했습니다."
@@ -468,9 +468,9 @@ def build_battle_gallery_svg(lang: str) -> str:
             ("20261119T071757Z_Mohex_3_second.json", "vs MoHex 3 · 후공 (Blue)", "68수 승 · 287.6초 · v1.0", UOM_PURPLE),
         ]
     else:
-        title = "Verified Final Boards Gallery — Online Bot Victories"
+        title = "Verified Final Boards Gallery (Online Bot Victories)"
         desc = "Four final 11x11 Hex boards rendered directly from independent replay of saved SGF/JSON victory logs against Davis 7, Davis 10, and MoHex 3."
-        heading = "Verified Final Boards Gallery — Online Bot Victories (SGF/JSON Replayed)"
+        heading = "Verified Final Boards Gallery: Online Bot Victories (SGF/JSON Replayed)"
         sub = "Every stone placement and Manchester Gold winning chain is rendered directly from independent replay of saved match logs."
         panels = [
             ("20261119T064314Z_Davis_7_first.json", "vs Davis 7 · AI 1st (Red)", "35 Moves · 187.4s · v1.0 WIN", HEX_RED),
@@ -513,7 +513,7 @@ def build_online_results_svg(summary: dict, lang: str) -> str:
             ("MoHex 3 (후공)", "68수 승", "j8 스왑 후 a6 필승 완결", "v1.0 · 287.6초 / 300초", HEX_BLUE, SURFACE),
             ("MoHex 3 (선공)", "77수 승", "총 1.35억 방문 · 41수 탈출", "v1.2 · T71 VC 필승", UOM_GOLD_BAR, SURFACE_GOLD),
         ]
-        loop_hdr = "MoHex 3 선공 돌파 과정 — 패배 원인 진단에서 77수 완승까지"
+        loop_hdr = "MoHex 3 선공 돌파 과정 (패배 원인 진단에서 77수 완승까지)"
         steps = [
             ("v1.0 · 54수 진단 패", "1수 정중앙 e7 착수 → MoHex 3 즉시 스왑", "→ v1.1 50% 내쉬 오프닝 북 + Pondering 도입", ROSE_MUTED, ROSE_BG),
             ("v1.1 · 66수 진단 패", "19수 승률 81.4% 압도 후 22–39수 사다리 역전", "→ v1.2 Exact VC-Solver + 탐색 튜닝 (+89 Elo)", UOM_GOLD_TEXT, SURFACE_GOLD),

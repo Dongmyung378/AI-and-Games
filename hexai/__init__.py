@@ -1,4 +1,4 @@
-"""Pure-CPU C++17 Hex Search Engine v1.2.0 — Python orchestration, evaluation, and interactive GUI."""
+"""Pure-CPU C++17 Hex Search Engine v1.2.0: Python orchestration, evaluation, and interactive GUI."""
 
 from .battle import BattleReferee, export_sgf, format_algebraic, parse_user_move
 from .evaluation import aggregate, evaluate, move_budget, replay

@@ -111,7 +111,7 @@ class HexBattleGUI:
         self.size = int(args.board_size)
         self.exe = Path(args.executable or executable_default()).resolve()
 
-        self.root.title("Hex-Search v1.2 — Play vs AI & Online Battle Board")
+        self.root.title("Hex-Search v1.2: Play vs AI & Online Battle Board")
         self.root.configure(bg=BG_ROOT)
         self.root.geometry("1260x840")
         self.root.minsize(1020, 700)
@@ -230,7 +230,7 @@ class HexBattleGUI:
         tel_card = tk.Frame(right, bg=BG_CARD, padx=12, pady=7)
         tel_card.pack(fill=tk.X, padx=10, pady=(0, 6))
 
-        self.lbl_winrate = tk.Label(tel_card, text="AI 예상 승률: —", bg=BG_CARD, fg=FG_TEXT, font=("Segoe UI", 10, "bold"), anchor="w")
+        self.lbl_winrate = tk.Label(tel_card, text="AI 예상 승률: -", bg=BG_CARD, fg=FG_TEXT, font=("Segoe UI", 10, "bold"), anchor="w")
         self.lbl_winrate.pack(fill=tk.X)
 
         self.wr_canvas = tk.Canvas(tel_card, height=11, bg="#0f172a", highlightthickness=0)
@@ -238,7 +238,7 @@ class HexBattleGUI:
 
         self.lbl_tel_detail = tk.Label(
             tel_card,
-            text="Solver: —  |  탐색: —\n시계: 300.0s 남음",
+            text="Solver: -  |  탐색: -\n시계: 300.0s 남음",
             bg=BG_CARD,
             fg=FG_MUTED,
             font=("Consolas", 9),
@@ -555,9 +555,9 @@ class HexBattleGUI:
         self.hist_list.delete(0, tk.END)
         self.progress["value"] = 0
         self._draw_winrate_bar(None)
-        self.lbl_winrate.configure(text="AI 예상 승률: —")
+        self.lbl_winrate.configure(text="AI 예상 승률: -")
         clock_desc = f"고정 {fixed_secs:.1f}s/수" if use_fixed else f"V3 시계 {game_secs:.0f}s 남음"
-        self.lbl_tel_detail.configure(text=f"Solver: —  |  {workers}스레드\n{clock_desc}")
+        self.lbl_tel_detail.configure(text=f"Solver: -  |  {workers}스레드\n{clock_desc}")
         is_human = self.var_mode.get() == "human"
         self.lbl_ai_move.configure(text="새 대국 시작!", fg=ACCENT_GOLD)
         if not self.ai_is_first:
@@ -758,7 +758,7 @@ class HexBattleGUI:
             self.lbl_ai_move.configure(text=f"{prefix} {alg.upper()}  ({move[0]}, {move[1]})", fg=ACCENT_GOLD)
 
         wait_msg = "당신 차례입니다! 빈 칸을 클릭하세요." if self.var_mode.get() == "human" else "온라인 보드에 둔 뒤 상대 수를 클릭하세요."
-        self.lbl_think_status.configure(text=f"{elapsed:.2f}초 소요 — {wait_msg}")
+        self.lbl_think_status.configure(text=f"{elapsed:.2f}초 소요 · {wait_msg}")
         self.lbl_winrate.configure(text=f"AI 예상 승률: {wr:.1f}%")
         self._draw_winrate_bar(wr)
 
@@ -775,7 +775,7 @@ class HexBattleGUI:
             self._start_ponder()
             if self.pondering:
                 self.lbl_think_status.configure(
-                    text=f"{elapsed:.2f}초 소요 — {wait_msg} (Pondering 가동 중)"
+                    text=f"{elapsed:.2f}초 소요 · {wait_msg} (Pondering 가동 중)"
                 )
 
     # ------------------------------------------------------------------
