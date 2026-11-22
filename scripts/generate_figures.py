@@ -108,14 +108,14 @@ def render_hex_board_svg(
     out.append(f'<line x1="{tr[0]+off:.1f}" y1="{tr[1]-off*0.14:.1f}" x2="{br[0]+off:.1f}" y2="{br[1]+off*0.14:.1f}" stroke="{HEX_BLUE}" stroke-width="{w_edge:.1f}" stroke-linecap="round"/>')
 
     if show_labels:
-        fs = max(8.5, r * 0.60)
+        fs = max(8.5, r * 0.58)
         for c in range(n):
             lbl = chr(ord("a") + c)
             pt = hex_pos(0, c, r, ox, oy)
-            out.append(f'<text class="mono" x="{pt[0]:.1f}" y="{pt[1]-r*1.48:.1f}" text-anchor="middle" fill="{HEX_RED_EDGE}" font-size="{fs:.1f}" font-weight="700">{lbl}</text>')
+            out.append(f'<text class="mono" x="{pt[0]:.1f}" y="{pt[1]-r*1.62:.1f}" text-anchor="middle" fill="{HEX_RED_EDGE}" font-size="{fs:.1f}" font-weight="700">{lbl}</text>')
         for row in range(n):
             pt = hex_pos(row, 0, r, ox, oy)
-            out.append(f'<text class="mono" x="{pt[0]-r*1.58:.1f}" y="{pt[1]+fs*0.35:.1f}" text-anchor="middle" fill="{HEX_BLUE_EDGE}" font-size="{fs:.1f}" font-weight="700">{row+1}</text>')
+            out.append(f'<text class="mono" x="{pt[0]-r*1.86:.1f}" y="{pt[1]+fs*0.35:.1f}" text-anchor="middle" fill="{HEX_BLUE_EDGE}" font-size="{fs:.1f}" font-weight="700">{row+1}</text>')
 
     # Hex cells
     for row in range(n):
@@ -254,7 +254,7 @@ def build_progression_svg(summary: dict, lang: str) -> str:
         heading = "단계별 실증 기력 향상 (v0.0 → v1.2) 및 기각된 가설"
         sub = "모든 업그레이드는 이전 고정 체크포인트 대비 선·후공 교대 통제 대국에서 50% 초과 승률을 검증한 경우만 채택했습니다."
         left_title = "채택된 업그레이드 — v0.0 기준 누적 +342 Elo"
-        left_note = "각 점 아래 수치는 직전 고정 버전 대비 통제 대국 승률 (Pondering 미적용 기준)"
+        left_note = "x축 아래 수치는 직전 고정 버전 대비 통제 대국 승률 (Pondering 미적용)"
         right_title = "기각·원복된 8가지 가설 (실측 승률 50% 미만)"
         thresh_lbl = "채택 기준 50%"
         right_note = "이론상 유망했으나 11×11 통제 대국에서 50% 미만으로 패배해 v1.2에서 제외"
@@ -265,7 +265,7 @@ def build_progression_svg(summary: dict, lang: str) -> str:
         heading = "Empirical Engine Progression (v0.0 → v1.2) &amp; Falsified Ablations"
         sub = "Every feature was accepted only after winning color-balanced controlled matches against the previous frozen checkpoint."
         left_title = "Accepted Upgrades over v0.0 Baseline (+342 Elo)"
-        left_note = "Below points: head-to-head win rate vs prior checkpoint (no-ponder)"
+        left_note = "Bottom row: head-to-head win rate vs prior checkpoint (no-ponder)"
         right_title = "Rejected Hypotheses (Win Rate &lt; 50% → Reverted)"
         thresh_lbl = "50% Threshold"
         right_note = "All 8 ideas scored below 50% on 11×11 and were reverted"
@@ -282,7 +282,7 @@ def build_progression_svg(summary: dict, lang: str) -> str:
         f'<text x="64" y="156" fill="{UOM_PURPLE}" font-size="18" font-weight="700">{left_title}</text>',
     ])
 
-    x0, y0, pw, ph = 104, 496, 464, 302
+    x0, y0, pw, ph = 104, 480, 464, 286
     max_elo = 380.0
     for tick in (0, 100, 200, 300, 380):
         yy = y0 - (tick / max_elo) * ph
@@ -304,34 +304,34 @@ def build_progression_svg(summary: dict, lang: str) -> str:
         txt_col = UOM_GOLD_TEXT if is_final else UOM_PURPLE_DARK
         parts.append(f'<circle cx="{xs[i]:.1f}" cy="{ys[i]:.1f}" r="{6.5 if is_final else 5.2}" fill="{col}" stroke="{SURFACE}" stroke-width="2.4"/>')
         parts.append(f'<text class="mono" x="{xs[i]:.1f}" y="{ys[i]-13:.1f}" text-anchor="middle" fill="{txt_col}" font-size="12.5" font-weight="700">+{elo}</text>')
-        if i > 0:
-            parts.append(f'<text class="mono" x="{xs[i]:.1f}" y="{ys[i]+22:.1f}" text-anchor="middle" fill="{MUTED}" font-size="10.8">{wr_lbl}</text>')
-        parts.append(f'<text class="mono" x="{xs[i]:.1f}" y="{y0+24}" text-anchor="middle" fill="{INK}" font-size="11.5" font-weight="600">{escape(stage)}</text>')
+        parts.append(f'<text class="mono" x="{xs[i]:.1f}" y="{y0+22}" text-anchor="middle" fill="{INK}" font-size="11.5" font-weight="700">{escape(stage)}</text>')
+        parts.append(f'<text class="mono" x="{xs[i]:.1f}" y="{y0+39}" text-anchor="middle" fill="{MUTED}" font-size="10.8">{escape(wr_lbl)}</text>')
 
     parts.append(f'<text x="320" y="564" text-anchor="middle" fill="{FAINT}" font-size="12.5">{left_note}</text>')
 
-    # Right card
+    # Right card — 0..60% bar scale with clean right-aligned values past the track (zero threshold overlap)
     parts.extend([
         f'<rect x="620" y="120" width="540" height="466" rx="14" fill="{SURFACE}" stroke="{RULE}" stroke-width="1.2"/>',
         f'<rect x="620" y="120" width="540" height="5" rx="2.5" fill="{ROSE_MUTED}"/>',
         f'<text x="644" y="156" fill="{ROSE_MUTED}" font-size="18" font-weight="700">{right_title}</text>',
     ])
 
-    bx0, bw = 872, 214
-    x50 = bx0 + 0.50 * bw
-    parts.append(f'<line x1="{x50:.1f}" y1="184" x2="{x50:.1f}" y2="532" stroke="{UOM_GOLD_BAR}" stroke-dasharray="4,4" stroke-width="1.5"/>')
+    bx0, bw = 880, 198
+    bar_max_pct = 60.0
+    x50 = bx0 + (50.0 / bar_max_pct) * bw
+    parts.append(f'<line x1="{x50:.1f}" y1="184" x2="{x50:.1f}" y2="532" stroke="{UOM_GOLD_BAR}" stroke-dasharray="4,4" stroke-width="1.6"/>')
     parts.append(f'<text x="{x50:.1f}" y="177" text-anchor="middle" fill="{UOM_GOLD_TEXT}" font-size="11.5" font-weight="700">{thresh_lbl}</text>')
 
     ry = 198
     for item in rej:
         wr = float(item["win_rate_pct"])
-        bar_w = (wr / 100.0) * bw
+        bar_w = min(bw, (wr / bar_max_pct) * bw)
         raw_name = item["experiment"]
         name = rej_ko.get(raw_name, raw_name) if lang == "ko" else raw_name
-        parts.append(f'<text x="{bx0-14}" y="{ry+16}" text-anchor="end" fill="{INK}" font-size="13" font-weight="500">{escape(name)}</text>')
+        parts.append(f'<text x="{bx0-14}" y="{ry+16}" text-anchor="end" fill="{INK}" font-size="12.5" font-weight="500">{escape(name)}</text>')
         parts.append(f'<rect x="{bx0}" y="{ry+2}" width="{bw}" height="20" rx="5" fill="{TRACK_BG}"/>')
         parts.append(f'<rect x="{bx0}" y="{ry+2}" width="{bar_w:.1f}" height="20" rx="5" fill="{ROSE_MUTED}"/>')
-        parts.append(f'<text class="mono" x="{bx0+bar_w+8:.1f}" y="{ry+16}" fill="{ROSE_MUTED}" font-size="12" font-weight="700">{wr:.1f}%</text>')
+        parts.append(f'<text class="mono" x="{bx0+bw+10:.1f}" y="{ry+16}" fill="{ROSE_MUTED}" font-size="12" font-weight="700">{wr:.1f}%</text>')
         ry += 42
 
     parts.append(f'<text x="890" y="564" text-anchor="middle" fill="{FAINT}" font-size="12.5">{right_note}</text>')
@@ -436,11 +436,11 @@ def build_mohex_win_svg(data: dict, st: BattleReferee, wpath: list[tuple[int, in
     parts.append(f'<text x="{t41_x:.1f}" y="185" text-anchor="middle" fill="{HEX_BLUE_EDGE}" font-size="12" font-weight="700">{c41_t}</text>')
     parts.append(f'<text class="mono" x="{t41_x:.1f}" y="201" text-anchor="middle" fill="{MUTED}" font-size="10.5">{c41_s}</text>')
 
-    # Editorial callout 2: T71-77 Exact VC-Solver
+    # Editorial callout 2: T71-77 Exact VC-Solver (cleanly left of rising slope)
     t71_x = cx0 + (71 / max_turn) * cw
-    parts.append(f'<rect x="{t71_x-154:.1f}" y="220" width="176" height="40" rx="8" fill="{SURFACE_GOLD}" stroke="{UOM_GOLD_BAR}" stroke-width="1.1"/>')
-    parts.append(f'<text x="{t71_x-66:.1f}" y="237" text-anchor="middle" fill="{UOM_GOLD_TEXT}" font-size="12" font-weight="700">{c71_t}</text>')
-    parts.append(f'<text x="{t71_x-66:.1f}" y="253" text-anchor="middle" fill="{MUTED}" font-size="10.8">{c71_s}</text>')
+    parts.append(f'<rect x="{t71_x-188:.1f}" y="206" width="176" height="40" rx="8" fill="{SURFACE_GOLD}" stroke="{UOM_GOLD_BAR}" stroke-width="1.1"/>')
+    parts.append(f'<text x="{t71_x-100:.1f}" y="223" text-anchor="middle" fill="{UOM_GOLD_TEXT}" font-size="12" font-weight="700">{c71_t}</text>')
+    parts.append(f'<text x="{t71_x-100:.1f}" y="239" text-anchor="middle" fill="{MUTED}" font-size="10.8">{c71_s}</text>')
 
     # Clean legend
     parts.append(f'<line x1="574" y1="534" x2="594" y2="534" stroke="{UOM_PURPLE}" stroke-width="3" stroke-linecap="round"/>')
