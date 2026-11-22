@@ -4,12 +4,12 @@
 
 ### Zero GPU · Zero Neural Nets · Zero Dependencies — Pure-CPU C++17 11×11 Hex AI Engine
 
-![C++17](https://img.shields.io/badge/C%2B%2B-17%20Pure%20CPU-00599C?style=flat-square&logo=cplusplus&logoColor=white)
-![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-10B981?style=flat-square)
-![Elo Gain](https://img.shields.io/badge/v0.0%20%E2%86%92%20v1.2-%2B342%20Elo-F59E0B?style=flat-square)
-![Online Bots](https://img.shields.io/badge/Davis%207%2F10-4%E2%80%930%20Sweep-3B82F6?style=flat-square)
-![MoHex 3](https://img.shields.io/badge/MoHex%203-1st%20%26%202nd%20Win-EF4444?style=flat-square)
-![Self Test](https://img.shields.io/badge/Self--Test-26%2F26%20%280%20FP%29-8B5CF6?style=flat-square)
+![C++17](https://img.shields.io/badge/C%2B%2B-17%20Pure%20CPU-660099?style=flat-square&logo=cplusplus&logoColor=white)
+![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-4A0070?style=flat-square)
+![Elo Gain](https://img.shields.io/badge/v0.0%20%E2%86%92%20v1.2-%2B342%20Elo-660099?style=flat-square)
+![Online Bots](https://img.shields.io/badge/Davis%207%2F10-4%E2%80%930%20Sweep-2B5B84?style=flat-square)
+![MoHex 3](https://img.shields.io/badge/MoHex%203-1st%20%26%202nd%20Win-A87908?style=flat-square)
+![Self Test](https://img.shields.io/badge/Self--Test-26%2F26%20%280%20FP%29-23192D?style=flat-square)
 
 [한국어 README](README.ko.md) · [Technical Architecture (EN)](docs/architecture.md) · [기술 아키텍처 (KO)](docs/architecture.ko.md)
 

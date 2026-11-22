@@ -4,12 +4,12 @@
 
 ### GPU · 신경망 · 외부 라이브러리 0개 — 순수 CPU C++17 11×11 Hex AI 엔진
 
-![C++17](https://img.shields.io/badge/C%2B%2B-17%20Pure%20CPU-00599C?style=flat-square&logo=cplusplus&logoColor=white)
-![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-10B981?style=flat-square)
-![Elo Gain](https://img.shields.io/badge/v0.0%20%E2%86%92%20v1.2-%2B342%20Elo-F59E0B?style=flat-square)
-![Online Bots](https://img.shields.io/badge/Davis%207%2F10-4%E2%80%930%20Sweep-3B82F6?style=flat-square)
-![MoHex 3](https://img.shields.io/badge/MoHex%203-1st%20%26%202nd%20Win-EF4444?style=flat-square)
-![Self Test](https://img.shields.io/badge/Self--Test-26%2F26%20%280%20FP%29-8B5CF6?style=flat-square)
+![C++17](https://img.shields.io/badge/C%2B%2B-17%20Pure%20CPU-660099?style=flat-square&logo=cplusplus&logoColor=white)
+![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-4A0070?style=flat-square)
+![Elo Gain](https://img.shields.io/badge/v0.0%20%E2%86%92%20v1.2-%2B342%20Elo-660099?style=flat-square)
+![Online Bots](https://img.shields.io/badge/Davis%207%2F10-4%E2%80%930%20Sweep-2B5B84?style=flat-square)
+![MoHex 3](https://img.shields.io/badge/MoHex%203-1st%20%26%202nd%20Win-A87908?style=flat-square)
+![Self Test](https://img.shields.io/badge/Self--Test-26%2F26%20%280%20FP%29-23192D?style=flat-square)
 
 [English README](README.md) · [기술 아키텍처 (KO)](docs/architecture.ko.md) · [Technical Architecture (EN)](docs/architecture.md)
 
@@ -30,7 +30,7 @@
 <br/>
 
 <p align="center">
-  <img src="assets/hex-mohex-win.svg" alt="Hex-Search v1.2 MoHex 3 선공 77수 승리 기보 및 텔레메트리" width="100%"/>
+  <img src="assets/ko/hex-mohex-win.svg" alt="Hex-Search v1.2 MoHex 3 선공 77수 승리 기보 및 텔레메트리" width="100%"/>
 </p>
 
 <br/>
@@ -65,7 +65,7 @@ python -m hexai play
 모든 대국은 11×11 표준 `swap-pieces` 규칙과 적응형 300초 시계에서 진행되었으며, [`reports/online_battles/`](reports/online_battles/)에 원본 SGF/JSON 기보가 보관되어 있습니다. 아래 보드 이미지는 저장된 기보를 독립 심판(`tests/test_engine.py`)으로 1수부터 마지막 수까지 재생하여 직접 렌더링한 실전 증거입니다.
 
 <p align="center">
-  <img src="assets/hex-online-results.svg" alt="온라인 봇 실전 검증 결과 및 버전별 돌파 과정" width="100%"/>
+  <img src="assets/ko/hex-online-results.svg" alt="온라인 봇 실전 검증 결과 및 버전별 돌파 과정" width="100%"/>
 </p>
 
 <br/>
@@ -73,7 +73,7 @@ python -m hexai play
 ### 실전 승리 기보 보드 갤러리 (Davis 7 · Davis 10 · MoHex 3 후공)
 
 <p align="center">
-  <img src="assets/hex-battle-gallery.svg" alt="Davis 7, Davis 10, MoHex 3 실전 승리 최종 보드 갤러리" width="100%"/>
+  <img src="assets/ko/hex-battle-gallery.svg" alt="Davis 7, Davis 10, MoHex 3 실전 승리 최종 보드 갤러리" width="100%"/>
 </p>
 
 <br/>
@@ -98,7 +98,7 @@ python -m hexai play
 ## 3. 버전별 변화와 "어떻게 MoHex 3까지 이길 수 있었는가"
 
 <p align="center">
-  <img src="assets/hex-progression.svg" alt="v0.0에서 v1.2까지의 단계별 Elo 진화 및 기각된 가설" width="100%"/>
+  <img src="assets/ko/hex-progression.svg" alt="v0.0에서 v1.2까지의 단계별 Elo 진화 및 기각된 가설" width="100%"/>
 </p>
 
 <br/>
