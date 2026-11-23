@@ -192,7 +192,7 @@ def build_thumbnail_svg(st: BattleReferee, wpath: list[tuple[int, int]], lang: s
             ("4 / 4 Sweep", "Davis 7 &amp; Davis 10 (1st &amp; 2nd Player)", HEX_BLUE),
             ("135.7M Visits", "+74.8M Ponder Reuse · 0 Formal FP", INK),
         ]
-        board_hdr = "Verified Game: 77 Move 1st Player Win vs MoHex 3 (Red)"
+        board_hdr = "Verified Game: 77-Move 1st-Player Win vs MoHex 3 (Red)"
         board_foot = "Gold chain: Independently verified Red winning path (i1 ↔ f11)"
         banner_l1 = "Defeated MoHex 3 (1st &amp; 2nd)"
         banner_l2 = "Zero GPU · Zero Neural Nets · Zero External Dependencies"
@@ -271,9 +271,9 @@ def build_progression_svg(summary: dict, lang: str) -> str:
         base_lbl = "기준선"
     else:
         title = "Empirical Engine Progression (v0.0 to v1.2) & Falsified Ablations"
-        desc = "Cumulative +342 Elo gain verified in color balanced controlled matches from v0.0 to v1.2 alongside 8 hypotheses rejected below 50%."
+        desc = "Cumulative +342 Elo gain verified in color-balanced controlled matches from v0.0 to v1.2 alongside 8 hypotheses rejected below 50%."
         heading = "Empirical Engine Progression (v0.0 → v1.2) &amp; Falsified Ablations"
-        sub = "Every feature was accepted only after winning color balanced controlled matches against the previous frozen checkpoint."
+        sub = "Every feature was accepted only after winning color-balanced controlled matches against the previous frozen checkpoint."
         left_title = "Accepted Upgrades over v0.0 Baseline (+342 Elo)"
         left_note = "Bottom row: direct match win rate vs prior checkpoint (without ponder)"
         right_title = "Rejected Hypotheses (Win Rate &lt; 50% → Reverted)"
@@ -370,9 +370,9 @@ def build_mohex_win_svg(data: dict, st: BattleReferee, wpath: list[tuple[int, in
         leg3 = "Exact VC Solver 필승 구간"
         eq_lbl = "50% 균형선"
     else:
-        title = "Verified 77 Move First Player Victory: Hex Search v1.2 vs MoHex 3"
-        desc = "Final 11x11 board and move by move winrate and pondering reuse telemetry from the verified 77 move first player win over MoHex 3."
-        heading = "Verified 77 Move 1st Player Victory: Hex Search v1.2 vs MoHex 3"
+        title = "Verified 77-Move First-Player Victory: Hex Search v1.2 vs MoHex 3"
+        desc = "Final 11x11 board and move-by-move winrate and pondering reuse telemetry from the verified 77-move first-player win over MoHex 3."
+        heading = "Verified 77-Move 1st-Player Victory: Hex Search v1.2 vs MoHex 3"
         sub = "11×11 Standard Pie Rule · 300s Adaptive Clock (291.7s used) · 12 Threads · 60.9M Direct + 74.8M Ponder = 135.7M Visits"
         board_hdr = "Final Board (Turn 77 · Red i1 ↔ f11 Connected)"
         chart_hdr = "AI Winrate Trajectory (%) &amp; Pondering Reused Visits (Millions)"
@@ -409,7 +409,7 @@ def build_mohex_win_svg(data: dict, st: BattleReferee, wpath: list[tuple[int, in
         yy = cy0 - (pct / 100.0) * ch
         if pct == 50:
             parts.append(f'<line x1="{cx0}" y1="{yy:.1f}" x2="{cx0+cw}" y2="{yy:.1f}" stroke="{UOM_GOLD_BAR}" stroke-dasharray="4,4" stroke-width="1.3"/>')
-            parts.append(f'<text x="{cx0+cw-2}" y="{yy-6:.1f}" text-anchor="end" fill="{UOM_GOLD_TEXT}" font-size="11" font-weight="600">{eq_lbl}</text>')
+            parts.append(f'<text x="{cx0+cw-48}" y="{yy-6:.1f}" text-anchor="end" fill="{UOM_GOLD_TEXT}" font-size="11" font-weight="600">{eq_lbl}</text>')
         else:
             parts.append(f'<line x1="{cx0}" y1="{yy:.1f}" x2="{cx0+cw}" y2="{yy:.1f}" stroke="{GRID}" stroke-width="1"/>')
         parts.append(f'<text class="mono" x="{cx0-10}" y="{yy+4:.1f}" text-anchor="end" fill="{MUTED}" font-size="11.5">{pct}%</text>')
@@ -442,26 +442,28 @@ def build_mohex_win_svg(data: dict, st: BattleReferee, wpath: list[tuple[int, in
         tx = cx0 + (t_lbl / max_turn) * cw
         parts.append(f'<text class="mono" x="{tx:.1f}" y="{cy0+22}" text-anchor="middle" fill="{MUTED}" font-size="11.5">T{t_lbl}</text>')
 
-    # Editorial callout 1: T41 ladder escape
+    # Editorial callout 1: T41 ladder escape (cleanly left of T41 dashed vertical line)
     t41_x = cx0 + (41 / max_turn) * cw
-    parts.append(f'<line x1="{t41_x:.1f}" y1="204" x2="{t41_x:.1f}" y2="{cy0}" stroke="{HEX_BLUE}" stroke-dasharray="3,3" stroke-width="1.1"/>')
-    parts.append(f'<rect x="{t41_x-86:.1f}" y="168" width="172" height="40" rx="8" fill="{SURFACE_TINT}" stroke="{HEX_BLUE}" stroke-width="1.1"/>')
-    parts.append(f'<text x="{t41_x:.1f}" y="185" text-anchor="middle" fill="{HEX_BLUE_EDGE}" font-size="12" font-weight="700">{c41_t}</text>')
-    parts.append(f'<text class="mono" x="{t41_x:.1f}" y="201" text-anchor="middle" fill="{MUTED}" font-size="10.5">{c41_s}</text>')
+    parts.append(f'<line x1="{t41_x:.1f}" y1="186" x2="{t41_x:.1f}" y2="{cy0}" stroke="{HEX_BLUE}" stroke-dasharray="3,3" stroke-width="1.1"/>')
+    parts.append(f'<line x1="820" y1="186" x2="{t41_x:.1f}" y2="186" stroke="{HEX_BLUE}" stroke-dasharray="3,3" stroke-width="1.1"/>')
+    parts.append(f'<rect x="640" y="166" width="180" height="40" rx="8" fill="{SURFACE_TINT}" stroke="{HEX_BLUE}" stroke-width="1.1"/>')
+    parts.append(f'<text x="730" y="183" text-anchor="middle" fill="{HEX_BLUE_EDGE}" font-size="12" font-weight="700">{c41_t}</text>')
+    parts.append(f'<text class="mono" x="730" y="199" text-anchor="middle" fill="{MUTED}" font-size="10.5">{c41_s}</text>')
 
-    # Editorial callout 2: T71 to T77 Exact VC Solver (cleanly left of rising slope)
+    # Editorial callout 2: T71 to T77 Exact VC Solver (cleanly in empty lower-right band)
     t71_x = cx0 + (71 / max_turn) * cw
-    parts.append(f'<rect x="{t71_x-196:.1f}" y="206" width="184" height="40" rx="8" fill="{SURFACE_GOLD}" stroke="{UOM_GOLD_BAR}" stroke-width="1.1"/>')
-    parts.append(f'<text x="{t71_x-104:.1f}" y="223" text-anchor="middle" fill="{UOM_GOLD_TEXT}" font-size="12" font-weight="700">{c71_t}</text>')
-    parts.append(f'<text x="{t71_x-104:.1f}" y="239" text-anchor="middle" fill="{MUTED}" font-size="10.8">{c71_s}</text>')
+    parts.append(f'<line x1="{t71_x:.1f}" y1="194" x2="{t71_x:.1f}" y2="356" stroke="{UOM_GOLD_BAR}" stroke-dasharray="3,3" stroke-width="1.1"/>')
+    parts.append(f'<rect x="936" y="356" width="188" height="40" rx="8" fill="{SURFACE_GOLD}" stroke="{UOM_GOLD_BAR}" stroke-width="1.1"/>')
+    parts.append(f'<text x="1030" y="373" text-anchor="middle" fill="{UOM_GOLD_TEXT}" font-size="12" font-weight="700">{c71_t}</text>')
+    parts.append(f'<text x="1030" y="389" text-anchor="middle" fill="{MUTED}" font-size="10.8">{c71_s}</text>')
 
-    # Clean legend
-    parts.append(f'<line x1="574" y1="534" x2="594" y2="534" stroke="{UOM_PURPLE}" stroke-width="3" stroke-linecap="round"/>')
-    parts.append(f'<text x="602" y="538" fill="{INK}" font-size="12.5">{leg1}</text>')
-    parts.append(f'<rect x="724" y="528" width="13" height="12" rx="2.5" fill="{HEX_BLUE}" opacity="0.35"/>')
-    parts.append(f'<text x="744" y="538" fill="{INK}" font-size="12.5">{leg2}</text>')
-    parts.append(f'<circle cx="994" cy="534" r="5" fill="{UOM_GOLD_BAR}"/>')
-    parts.append(f'<text x="1006" y="538" fill="{INK}" font-size="12.5">{leg3}</text>')
+    # Clean legend with comfortable right margin inside card (x=546..1160)
+    parts.append(f'<line x1="572" y1="534" x2="590" y2="534" stroke="{UOM_PURPLE}" stroke-width="3" stroke-linecap="round"/>')
+    parts.append(f'<text x="597" y="538" fill="{INK}" font-size="11.5">{leg1}</text>')
+    parts.append(f'<rect x="702" y="528" width="12" height="12" rx="2.5" fill="{HEX_BLUE}" opacity="0.35"/>')
+    parts.append(f'<text x="720" y="538" fill="{INK}" font-size="11.5">{leg2}</text>')
+    parts.append(f'<circle cx="964" cy="534" r="4.8" fill="{UOM_GOLD_BAR}"/>')
+    parts.append(f'<text x="975" y="538" fill="{INK}" font-size="11.5">{leg3}</text>')
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
