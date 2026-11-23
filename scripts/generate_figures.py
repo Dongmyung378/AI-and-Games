@@ -174,7 +174,7 @@ def build_thumbnail_svg(st: BattleReferee, wpath: list[tuple[int, int]], lang: s
         stats = [
             ("+342 Elo", "v0.0 → v1.2 통제 대국 기력 향상", UOM_PURPLE),
             ("4승 0패", "Davis 7 · Davis 10 선·후공 전승", HEX_BLUE),
-            ("1.35억 방문", "Pondering +7,480만 · 형식 검증 오탐 0건", INK),
+            ("1.36억 방문", "Pondering +7,480만 · 형식 검증 오탐 0건", INK),
         ]
         board_hdr = "실전 기보: MoHex 3 선공 77수 완승 (Red 상↔하)"
         board_foot = "황금 실선: 독립 BFS 심판이 검증한 Red 승리 경로 (i1 ↔ f11)"
@@ -358,7 +358,7 @@ def build_mohex_win_svg(data: dict, st: BattleReferee, wpath: list[tuple[int, in
         title = "실전 검증: Hex Search v1.2 vs MoHex 3 선공 77수 승리"
         desc = "11×11 적응형 300초 시계에서 Hex Search v1.2가 MoHex 3를 상대로 선공 77수 만에 승리한 최종 보드와 턴별 예상 승률 및 Pondering 재사용 방문 수 그래프입니다."
         heading = "실전 검증: Hex Search v1.2 vs MoHex 3 선공 77수 완승"
-        sub = "11×11 표준 파이 룰 · 300초 시계 (291.7초 사용) · 12스레드 · 직접 6,088만 + Pondering 7,480만 = 총 1.35억 방문"
+        sub = "11×11 표준 파이 룰 · 300초 시계 (291.7초 사용) · 12스레드 · 직접 6,088만 + Pondering 7,480만 = 총 1.36억 방문"
         board_hdr = "최종 보드 (77수 · Red i1 ↔ f11 상하 연결)"
         chart_hdr = "턴별 AI 예상 승률 (%) 및 Pondering 재사용 방문 수 (백만)"
         c41_t = "41수: h2 사다리 탈출"
@@ -524,7 +524,7 @@ def build_online_results_svg(summary: dict, lang: str) -> str:
             ("Davis 7", "2승 0패", "선공 35수 · 후공 58수 완승", "v1.0 · 전승", UOM_PURPLE, SURFACE),
             ("Davis 10", "2승 0패", "선공 39수 · 후공 44수 완승", "v1.0 · 전승", UOM_PURPLE, SURFACE),
             ("MoHex 3 (후공)", "68수 승", "j8 스왑 후 a6 필승 완결", "v1.0 · 287.6초 / 300초", HEX_BLUE, SURFACE),
-            ("MoHex 3 (선공)", "77수 승", "총 1.35억 방문 · 41수 탈출", "v1.2 · T71 VC 필승", UOM_GOLD_BAR, SURFACE_GOLD),
+            ("MoHex 3 (선공)", "77수 승", "총 1.36억 방문 · 41수 탈출", "v1.2 · T71 VC 필승", UOM_GOLD_BAR, SURFACE_GOLD),
         ]
         loop_hdr = "MoHex 3 선공 돌파 과정 (패배 원인 진단에서 77수 완승까지)"
         steps = [

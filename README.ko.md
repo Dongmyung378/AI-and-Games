@@ -22,8 +22,8 @@ GPU와 딥러닝 신경망 추론, 외부 라이브러리를 전혀 사용하지
 | **Davis 10** (후공 Blue) | `v1.0` | **승리 · 44수** | 232.9초 | 비스왑 진행 후 좌↔우 가상 연결 완성, 44수 완승 ([SGF](reports/online_battles/20261119T065645Z_Davis_10_second.sgf) · [JSON](reports/online_battles/20261119T065645Z_Davis_10_second.json)) |
 | **MoHex 3** (후공 Blue) | `v1.0` | **승리 · 68수** | 287.6초 | `j8` 스왑 후 68수 접전 끝에 `a6` `proven_win` 완승 ([SGF](reports/online_battles/20261119T071757Z_Mohex_3_second.sgf) · [JSON](reports/online_battles/20261119T071757Z_Mohex_3_second.json)) |
 | **MoHex 3** (선공 Red) | `v1.0` | 패배 · 54수 *(진단)* | 260.6초 | 1수 중앙 `e7` 착수 → MoHex 3 즉시 스왑으로 불리 → **`v1.1` 개선 동기** ([SGF](reports/online_battles/20261119T071004Z_Mohex_3_first.sgf) · [JSON](reports/online_battles/20261119T071004Z_Mohex_3_first.json)) |
-| **MoHex 3** (선공 Red) | `v1.1` | 패배 · 66수 *(진단)* | 284.7초 | 1수 `f9` 오프닝 북으로 19수 승률 <strong>81.4%</strong>까지 압도했으나 22&#126;39수 상단 사다리 역전 → **`v1.2` 개선 동기** ([SGF](reports/online_battles/20261119T083606Z_Mohex_3_first.sgf) · [JSON](reports/online_battles/20261119T083606Z_Mohex_3_first.json)) |
-| **MoHex 3** (선공 Red) | **`v1.2`** | **승리 · 77수** | **291.7초** | **총 1.35억 방문(Pondering +7,480만), 41수 `h2` 사다리 탈출, 71~77수 Exact VC Solver 4연속 `0.00초` 필승** ([SGF](reports/online_battles/20261119T101056Z_Mohex_3_first.sgf) · [JSON](reports/online_battles/20261119T101056Z_Mohex_3_first.json)) |
+| **MoHex 3** (선공 Red) | `v1.1` | 패배 · 66수 *(진단)* | 283.9초 | 1수 `f9` 오프닝 북으로 19수 승률 <strong>81.4%</strong>까지 압도했으나 22&#126;39수 상단 사다리 역전 → **`v1.2` 개선 동기** ([SGF](reports/online_battles/20261119T083606Z_Mohex_3_first.sgf) · [JSON](reports/online_battles/20261119T083606Z_Mohex_3_first.json)) |
+| **MoHex 3** (선공 Red) | **`v1.2`** | **승리 · 77수** | **291.7초** | **총 1.36억 방문(Pondering +7,480만), 41수 `h2` 사다리 탈출, 71~77수 Exact VC Solver 4연속 `0.00초` 필승** ([SGF](reports/online_battles/20261119T101056Z_Mohex_3_first.sgf) · [JSON](reports/online_battles/20261119T101056Z_Mohex_3_first.json)) |
 
 **핵심 검증 지표 요약:**
 - **순수 CPU 통제 진화**: `v0.0 → v1.0 (+218 Elo) → v1.1 (+253 Elo) → v1.2 (+342 Elo)` · 실측 50% 미만 가설 8건 원복
@@ -67,7 +67,7 @@ MoHex 3 선공 재도전(66수 패)에서는 `f9` 오프닝으로 19수 승률 <
 ### 4. `v1.2`: Exact VC Solver + MoHex 2.0 탐색 튜닝 (`v1.1` 대비 `62.5%`, 누적 `+342 Elo`)
 - **Exact Disjoint Carrier Virtual Connection(VC) Solver & VC Mustplay 프루닝**: Shannon Pairing Strategy에 따라 서로 겹치지 않는 2브릿지 캐리어 쌍으로 양쪽 변이 가상 연결되면 물리적 연결 **10&#126;15플라이 전에도 100% 필승을 증명**하고, 상대 1수 VC 위협 교집합 바깥의 패착 수를 루트에서 즉시 쳐냅니다. 3×3 전체 **19,683개 보드**에 대해 독립 미니맥스 오라클과 교차 검증해 **오탐 0건**을 증명했습니다.
 - **MoHex 2.0 탐색 파라미터 이식 + 정밀 꼬리 Box-Muller Beta (`alpha >= 16`)**: `GRAVE-UCB vs GRAVE-TS` 실험에서 `GRAVE-TS`의 압도적 우위(`73.3%`)를 확인한 뒤, `prior_weight=8.0, rave_bias=0.0005, expand_threshold=8`을 `GRAVE-TS`에 결합해 속도 **`+8%`**, 고정 `v1.1` 대비 **`25/40 (62.5%, 선공 65.0%, +89 Elo)`**, 40판 중 **56회 조기 VC 필승**을 달성했습니다.
-- **MoHex 3 선공 77수 완승 전개** ([상세 기보](reports/online_battles/20261119T101056Z_Mohex_3_first.json)): 1수 `f9` (`0.01초`) 균형 출발 → 35&#126;43수 Pondering 재사용 방문 수가 수당 <strong>+852만&#126;+975만</strong>까지 누적되며 41수 `h2` 점프 → 43수 `g4`로 상단 사다리 격파(총 **1.35억 방문 = 직접 6,088만 + Pondering 7,480만**) → 71수 `g10`에서 7플라이 조기 `vc_proven_win` 선언 후 71&#126;77수 4연속 `0.00초` 페어링 응수로 완승(`291.68초 / 300초`).
+- **MoHex 3 선공 77수 완승 전개** ([상세 기보](reports/online_battles/20261119T101056Z_Mohex_3_first.json)): 1수 `f9` (`0.01초`) 균형 출발 → 35&#126;41수 Pondering 재사용 방문 수가 수당 <strong>+852만&#126;+975만</strong>까지 누적되며 41수 `h2` 점프 → 43수 `g4`로 상단 사다리 격파(총 **1.36억 방문 = 직접 6,088만 + Pondering 7,480만**) → 71수 `g10`에서 7플라이 조기 `vc_proven_win` 선언 후 71&#126;77수 4연속 `0.00초` 페어링 응수로 완승(`291.68초 / 300초`).
 
 ### 데이터로 기각·원복한 8가지 가설
 
