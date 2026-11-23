@@ -1,7 +1,7 @@
 """Deterministic zero-dependency SVG figure generator from verified JSON/SGF engine records.
 
 Visual language: University of Manchester editorial publication palette (Manchester Purple #660099,
-heritage brass gold #C49118/#E8B931, warm archival paper #F6F3F9, print crimson & slate blue boards).
+heritage brass gold #C69214/#E8B931, warm archival paper #F6F3F9, print crimson & slate blue boards).
 Generates both English (`assets/`) and Korean (`assets/ko/` + optional portfolio dir) figure sets.
 """
 from __future__ import annotations
@@ -21,13 +21,13 @@ from hexai.battle import BattleReferee
 from hexai.referee import Colour
 
 # University of Manchester Editorial Palette (print / academic monograph grade)
-PAPER = "#F6F3F9"         # Warm Manchester lilac-ivory paper canvas
+PAPER = "#F6F3F9"         # Warm Manchester lilac ivory paper canvas
 SURFACE = "#FFFFFF"       # Crisp card surface
 SURFACE_TINT = "#FAF8FC"  # Subtle inner well
 SURFACE_GOLD = "#FCF9F0"  # Subtle warm highlight for flagship win card
 RULE = "#DDD4E6"          # Hairline structural divider & card border
 GRID = "#E9E3F0"          # Subtle chart gridline
-INK = "#23192D"           # Deep plum-charcoal primary text
+INK = "#23192D"           # Deep plum charcoal primary text
 MUTED = "#5E566A"         # Secondary editorial label text
 FAINT = "#8A8196"         # Footnote / citation text
 
@@ -36,17 +36,17 @@ UOM_PURPLE = "#660099"       # Official University of Manchester Purple
 UOM_PURPLE_DARK = "#4A0070"  # Deep purple emphasis
 UOM_PURPLE_SOFT = "#EFE6F7"  # Soft lavender tint wash
 UOM_PURPLE_MID = "#8A4FB0"   # Secondary purple connector
-UOM_GOLD_TEXT = "#A87908"    # High-contrast brass gold for text on light paper
+UOM_GOLD_TEXT = "#A87908"    # High contrast brass gold for text on light paper
 UOM_GOLD_BAR = "#C69214"     # Editorial brass gold for data markers/accents
 UOM_GOLD_CHAIN = "#E8B931"   # Crisp gold winning chain thread on stones
 UOM_GOLD_ON_DARK = "#F5CC4D" # Luminous Manchester gold on #660099 banner
 
-# Print-grade Hex board & supporting analytical colors
+# Print grade Hex board & supporting analytical colors
 HEX_RED = "#B5353E"          # Dignified print crimson (Top <-> Bottom)
 HEX_RED_EDGE = "#96242C"     # Slightly deeper red border/label
 HEX_BLUE = "#2B5B84"         # Scholarly Oxford slate blue (Left <-> Right)
 HEX_BLUE_EDGE = "#1F4464"    # Slightly deeper blue border/label
-HEX_EMPTY = "#EAE4F0"        # Tactile light parchment-stone empty cell
+HEX_EMPTY = "#EAE4F0"        # Tactile light parchment stone empty cell
 HEX_EMPTY_STROKE = "#CFC4DA" # Crisp empty cell hairline
 ROSE_MUTED = "#B04A56"       # Calm terracotta rose for rejected/diagnostic items
 ROSE_BG = "#F9EFF0"          # Subtle blush tag background
@@ -167,10 +167,10 @@ def replay_battle_file(filename: str) -> tuple[dict, BattleReferee, list[tuple[i
 def build_thumbnail_svg(st: BattleReferee, wpath: list[tuple[int, int]], lang: str) -> str:
     w, h = 1200, 760
     if lang == "ko":
-        title = "Hex-Search v1.2: 순수 CPU C++17 탐색 엔진"
+        title = "Hex Search v1.2: 순수 CPU C++17 탐색 엔진"
         desc = "GPU와 신경망 없이 순수 CPU C++17만으로 v0.0 대비 +342 Elo를 달성하고 Davis 7·10 전승 및 MoHex 3 선·후공 승리를 기록한 Hex AI 썸네일입니다."
         heading = "순수 CPU C++17 Hex 탐색 엔진"
-        sub = "Lock-Free GRAVE-TS · Exact VC-Solver · 실시간 Pondering"
+        sub = "Lock Free GRAVE TS · Exact VC Solver · 실시간 Pondering"
         stats = [
             ("+342 Elo", "v0.0 → v1.2 통제 대국 기력 향상", UOM_PURPLE),
             ("4승 0패", "Davis 7 · Davis 10 선·후공 전승", HEX_BLUE),
@@ -181,23 +181,23 @@ def build_thumbnail_svg(st: BattleReferee, wpath: list[tuple[int, int]], lang: s
         banner_l1 = "MoHex 3 선·후공 모두 격파"
         banner_l2 = "GPU · 신경망 · 외부 의존성 0개 · 순수 C++17 단일 엔진"
         banner_r1 = "77수 필승"
-        banner_r2 = "71수 Exact VC-Solver 조기 증명"
+        banner_r2 = "71수 Exact VC Solver 조기 증명"
     else:
-        title = "Hex-Search v1.2: Pure-CPU C++17 Hex AI Engine"
-        desc = "Zero-dependency pure-CPU C++17 Hex search engine gaining +342 Elo over v0.0, sweeping Davis 7 and 10, and defeating MoHex 3 as both 1st and 2nd player."
-        heading = "Pure-CPU C++17 Hex Search Engine"
-        sub = "Lock-Free GRAVE-TS · Exact VC-Solver · Real-Time Pondering"
+        title = "Hex Search v1.2: Pure CPU C++17 Hex AI Engine"
+        desc = "Zero dependency pure CPU C++17 Hex search engine gaining +342 Elo over v0.0, sweeping Davis 7 and 10, and defeating MoHex 3 as both 1st and 2nd player."
+        heading = "Pure CPU C++17 Hex Search Engine"
+        sub = "Lock Free GRAVE TS · Exact VC Solver · Real Time Pondering"
         stats = [
-            ("+342 Elo", "Controlled v0.0 → v1.2 Self-Play Gain", UOM_PURPLE),
-            ("4 – 0 Sweep", "Davis 7 &amp; Davis 10 (1st &amp; 2nd Player)", HEX_BLUE),
+            ("+342 Elo", "Controlled v0.0 → v1.2 Self Play Gain", UOM_PURPLE),
+            ("4 / 4 Sweep", "Davis 7 &amp; Davis 10 (1st &amp; 2nd Player)", HEX_BLUE),
             ("135.7M Visits", "+74.8M Ponder Reuse · 0 Formal FP", INK),
         ]
-        board_hdr = "Verified Game: 77-Move 1st-Player Win vs MoHex 3 (Red)"
+        board_hdr = "Verified Game: 77 Move 1st Player Win vs MoHex 3 (Red)"
         board_foot = "Gold chain: Independently verified Red winning path (i1 ↔ f11)"
         banner_l1 = "Defeated MoHex 3 (1st &amp; 2nd)"
         banner_l2 = "Zero GPU · Zero Neural Nets · Zero External Dependencies"
         banner_r1 = "77 Moves"
-        banner_r2 = "Turn 71 Exact VC-Solver Mate"
+        banner_r2 = "Turn 71 Exact VC Solver Mate"
 
     parts = svg_header(w, h, title, desc, lang)
     parts.extend([
@@ -241,12 +241,22 @@ def build_progression_svg(summary: dict, lang: str) -> str:
     rej_ko = {
         "Uncapped Ancestor GRAVE": "무제한 조상 GRAVE",
         "Deterministic LGR Rollouts": "결정적 LGR 롤아웃",
-        "Unbounded Two-Distance (All Depths)": "전 깊이 Two-Distance",
+        "Unbounded Two-Distance (all depths)": "전 깊이 Two Distance",
         "Sharp Pattern Rollout (temp=0.60)": "고온도 패턴 롤아웃 (0.60)",
         "Forced Edge-Ladder Rollout Block": "강제 엣지 사다리 차단",
-        "12-Cell Patterns Inside Rollouts": "롤아웃 내 12-Cell 패턴",
-        "Irwin-Hall(4) Approximate Beta": "Irwin-Hall(4) 근사 Beta",
-        "GRAVE-UCB vs GRAVE-TS (Std)": "GRAVE-UCB vs GRAVE-TS",
+        "12-Cell Patterns inside Rollouts": "롤아웃 내 12셀 패턴",
+        "Irwin-Hall(4) Thin-Tail Beta": "Irwin Hall(4) 근사 Beta",
+        "GRAVE-UCB vs GRAVE-TS (30g each)": "GRAVE UCB vs GRAVE TS",
+    }
+    rej_en = {
+        "Uncapped Ancestor GRAVE": "Uncapped Ancestor GRAVE",
+        "Deterministic LGR Rollouts": "Deterministic LGR Rollouts",
+        "Unbounded Two-Distance (all depths)": "Unbounded Two Distance (All)",
+        "Sharp Pattern Rollout (temp=0.60)": "Sharp Pattern Rollout (0.60)",
+        "Forced Edge-Ladder Rollout Block": "Forced Edge Ladder Block",
+        "12-Cell Patterns inside Rollouts": "12 Cell Patterns in Rollouts",
+        "Irwin-Hall(4) Thin-Tail Beta": "Irwin Hall(4) Thin Tail Beta",
+        "GRAVE-UCB vs GRAVE-TS (30g each)": "GRAVE UCB vs GRAVE TS",
     }
     if lang == "ko":
         title = "단계별 실증 Elo 진화 (v0.0 → v1.2) 및 기각된 8가지 가설"
@@ -261,11 +271,11 @@ def build_progression_svg(summary: dict, lang: str) -> str:
         base_lbl = "기준선"
     else:
         title = "Empirical Engine Progression (v0.0 to v1.2) & Falsified Ablations"
-        desc = "Cumulative +342 Elo gain verified in color-balanced controlled matches from v0.0 to v1.2 alongside 8 hypotheses rejected below 50%."
+        desc = "Cumulative +342 Elo gain verified in color balanced controlled matches from v0.0 to v1.2 alongside 8 hypotheses rejected below 50%."
         heading = "Empirical Engine Progression (v0.0 → v1.2) &amp; Falsified Ablations"
-        sub = "Every feature was accepted only after winning color-balanced controlled matches against the previous frozen checkpoint."
+        sub = "Every feature was accepted only after winning color balanced controlled matches against the previous frozen checkpoint."
         left_title = "Accepted Upgrades over v0.0 Baseline (+342 Elo)"
-        left_note = "Bottom row: head-to-head win rate vs prior checkpoint (no-ponder)"
+        left_note = "Bottom row: direct match win rate vs prior checkpoint (without ponder)"
         right_title = "Rejected Hypotheses (Win Rate &lt; 50% → Reverted)"
         thresh_lbl = "50% Threshold"
         right_note = "All 8 ideas scored below 50% on 11×11 and were reverted"
@@ -289,7 +299,10 @@ def build_progression_svg(summary: dict, lang: str) -> str:
         parts.append(f'<line x1="{x0}" y1="{yy:.1f}" x2="{x0+pw}" y2="{yy:.1f}" stroke="{GRID}" stroke-width="1"/>')
         parts.append(f'<text class="mono" x="{x0-12}" y="{yy+4:.1f}" text-anchor="end" fill="{MUTED}" font-size="12">+{tick}</text>')
 
-    pts = [("v0.0", 0, base_lbl)] + [(item["stage"], item["cumulative_elo"], f"{item['win_rate_pct']:.1f}%") for item in acc]
+    pts = [("v0.0", 0, base_lbl)] + [
+        (item["stage"].replace("-", " "), item["cumulative_elo"], f"{item['win_rate_pct']:.1f}%")
+        for item in acc
+    ]
     xs = [x0 + i * (pw / (len(pts) - 1)) for i in range(len(pts))]
     ys = [y0 - (p[1] / max_elo) * ph for p in pts]
 
@@ -309,7 +322,7 @@ def build_progression_svg(summary: dict, lang: str) -> str:
 
     parts.append(f'<text x="320" y="564" text-anchor="middle" fill="{FAINT}" font-size="12.5">{left_note}</text>')
 
-    # Right card: 0..60% bar scale with clean right-aligned values past the track (zero threshold overlap)
+    # Right card: 0..60% bar scale with clean right aligned values past the track (zero threshold overlap)
     parts.extend([
         f'<rect x="620" y="120" width="540" height="466" rx="14" fill="{SURFACE}" stroke="{RULE}" stroke-width="1.2"/>',
         f'<rect x="620" y="120" width="540" height="5" rx="2.5" fill="{ROSE_MUTED}"/>',
@@ -327,7 +340,7 @@ def build_progression_svg(summary: dict, lang: str) -> str:
         wr = float(item["win_rate_pct"])
         bar_w = min(bw, (wr / bar_max_pct) * bw)
         raw_name = item["experiment"]
-        name = rej_ko.get(raw_name, raw_name) if lang == "ko" else raw_name
+        name = rej_ko.get(raw_name, raw_name) if lang == "ko" else rej_en.get(raw_name, raw_name)
         parts.append(f'<text x="{bx0-14}" y="{ry+16}" text-anchor="end" fill="{INK}" font-size="12.5" font-weight="500">{escape(name)}</text>')
         parts.append(f'<rect x="{bx0}" y="{ry+2}" width="{bw}" height="20" rx="5" fill="{TRACK_BG}"/>')
         parts.append(f'<rect x="{bx0}" y="{ry+2}" width="{bar_w:.1f}" height="20" rx="5" fill="{ROSE_MUTED}"/>')
@@ -342,34 +355,34 @@ def build_progression_svg(summary: dict, lang: str) -> str:
 def build_mohex_win_svg(data: dict, st: BattleReferee, wpath: list[tuple[int, int]], lang: str) -> str:
     w, h = 1200, 600
     if lang == "ko":
-        title = "실전 검증: Hex-Search v1.2 vs MoHex 3 선공 77수 승리"
-        desc = "11×11 적응형 300초 시계에서 Hex-Search v1.2가 MoHex 3를 상대로 선공 77수 만에 승리한 최종 보드와 턴별 예상 승률 및 Pondering 재사용 방문 수 그래프입니다."
-        heading = "실전 검증: Hex-Search v1.2 vs MoHex 3 선공 77수 완승"
-        sub = "11×11 표준 swap-pieces · 300초 시계 (291.7초 사용) · 12스레드 · 직접 6,088만 + Pondering 7,480만 = 총 1.35억 방문"
+        title = "실전 검증: Hex Search v1.2 vs MoHex 3 선공 77수 승리"
+        desc = "11×11 적응형 300초 시계에서 Hex Search v1.2가 MoHex 3를 상대로 선공 77수 만에 승리한 최종 보드와 턴별 예상 승률 및 Pondering 재사용 방문 수 그래프입니다."
+        heading = "실전 검증: Hex Search v1.2 vs MoHex 3 선공 77수 완승"
+        sub = "11×11 표준 파이 룰 · 300초 시계 (291.7초 사용) · 12스레드 · 직접 6,088만 + Pondering 7,480만 = 총 1.35억 방문"
         board_hdr = "최종 보드 (77수 · Red i1 ↔ f11 상하 연결)"
         chart_hdr = "턴별 AI 예상 승률 (%) 및 Pondering 재사용 방문 수 (백만)"
         c41_t = "41수: h2 사다리 탈출"
         c41_s = "+9.65M Ponder 재사용"
-        c71_t = "71–77수: VC-Solver 필승"
+        c71_t = "71~77수: VC Solver 필승"
         c71_s = "4연속 0.00초 강제 체크메이트"
         leg1 = "AI 예상 승률 (%)"
         leg2 = "Pondering 재사용 방문 수 (최고 +9.75M)"
-        leg3 = "Exact VC-Solver 필승 구간"
+        leg3 = "Exact VC Solver 필승 구간"
         eq_lbl = "50% 균형선"
     else:
-        title = "Verified 77-Move First-Player Victory: Hex-Search v1.2 vs MoHex 3"
-        desc = "Final 11x11 board and move-by-move winrate and pondering reuse telemetry from the verified 77-move first-player win over MoHex 3."
-        heading = "Verified 77-Move 1st-Player Victory: Hex-Search v1.2 vs MoHex 3"
-        sub = "11×11 swap-pieces · 300s Adaptive Clock (291.7s used) · 12 Threads · 60.9M Direct + 74.8M Ponder = 135.7M Visits"
+        title = "Verified 77 Move First Player Victory: Hex Search v1.2 vs MoHex 3"
+        desc = "Final 11x11 board and move by move winrate and pondering reuse telemetry from the verified 77 move first player win over MoHex 3."
+        heading = "Verified 77 Move 1st Player Victory: Hex Search v1.2 vs MoHex 3"
+        sub = "11×11 Standard Pie Rule · 300s Adaptive Clock (291.7s used) · 12 Threads · 60.9M Direct + 74.8M Ponder = 135.7M Visits"
         board_hdr = "Final Board (Turn 77 · Red i1 ↔ f11 Connected)"
         chart_hdr = "AI Winrate Trajectory (%) &amp; Pondering Reused Visits (Millions)"
         c41_t = "T41: h2 Ladder Escape"
         c41_s = "+9.65M Ponder Reused"
-        c71_t = "T71–77: VC-Solver Win"
+        c71_t = "T71 to T77: VC Solver Win"
         c71_s = "4× 0.00s Forced Checkmate"
         leg1 = "AI Winrate (%)"
         leg2 = "Pondering Reused Visits (Peak +9.75M)"
-        leg3 = "Exact VC-Solver Proven Win"
+        leg3 = "Exact VC Solver Proven Win"
         eq_lbl = "50% Even"
 
     parts = svg_header(w, h, title, desc, lang)
@@ -436,11 +449,11 @@ def build_mohex_win_svg(data: dict, st: BattleReferee, wpath: list[tuple[int, in
     parts.append(f'<text x="{t41_x:.1f}" y="185" text-anchor="middle" fill="{HEX_BLUE_EDGE}" font-size="12" font-weight="700">{c41_t}</text>')
     parts.append(f'<text class="mono" x="{t41_x:.1f}" y="201" text-anchor="middle" fill="{MUTED}" font-size="10.5">{c41_s}</text>')
 
-    # Editorial callout 2: T71-77 Exact VC-Solver (cleanly left of rising slope)
+    # Editorial callout 2: T71 to T77 Exact VC Solver (cleanly left of rising slope)
     t71_x = cx0 + (71 / max_turn) * cw
-    parts.append(f'<rect x="{t71_x-188:.1f}" y="206" width="176" height="40" rx="8" fill="{SURFACE_GOLD}" stroke="{UOM_GOLD_BAR}" stroke-width="1.1"/>')
-    parts.append(f'<text x="{t71_x-100:.1f}" y="223" text-anchor="middle" fill="{UOM_GOLD_TEXT}" font-size="12" font-weight="700">{c71_t}</text>')
-    parts.append(f'<text x="{t71_x-100:.1f}" y="239" text-anchor="middle" fill="{MUTED}" font-size="10.8">{c71_s}</text>')
+    parts.append(f'<rect x="{t71_x-196:.1f}" y="206" width="184" height="40" rx="8" fill="{SURFACE_GOLD}" stroke="{UOM_GOLD_BAR}" stroke-width="1.1"/>')
+    parts.append(f'<text x="{t71_x-104:.1f}" y="223" text-anchor="middle" fill="{UOM_GOLD_TEXT}" font-size="12" font-weight="700">{c71_t}</text>')
+    parts.append(f'<text x="{t71_x-104:.1f}" y="239" text-anchor="middle" fill="{MUTED}" font-size="10.8">{c71_s}</text>')
 
     # Clean legend
     parts.append(f'<line x1="574" y1="534" x2="594" y2="534" stroke="{UOM_PURPLE}" stroke-width="3" stroke-linecap="round"/>')
@@ -454,7 +467,7 @@ def build_mohex_win_svg(data: dict, st: BattleReferee, wpath: list[tuple[int, in
 
 
 def build_battle_gallery_svg(lang: str) -> str:
-    """Render 4-panel visual proof gallery directly from real SGF/JSON victory logs."""
+    """Render 4 panel visual proof gallery directly from real SGF/JSON victory logs."""
     w, h = 1200, 790
     if lang == "ko":
         title = "실전 승리 최종 보드 갤러리 (Davis 7 · Davis 10 · MoHex 3)"
@@ -506,7 +519,7 @@ def build_online_results_svg(summary: dict, lang: str) -> str:
         title = "온라인 공개 봇 실전 검증 및 MoHex 3 선공 돌파 과정"
         desc = "Davis 7, Davis 10 전승 및 MoHex 3 후공·선공 승리 스코어카드와 두 차례 선공 진단 패배를 v1.2 완승으로 돌파한 반복 개선 루프입니다."
         heading = "외부 온라인 봇 실전 검증 및 버전별 돌파 루프"
-        sub = "11×11 표준 swap-pieces · 300초 적응형 V3 시계 · 전 대국 표준 Hex SGF + JSON 리플레이 검증 완료"
+        sub = "11×11 표준 파이 룰 · 300초 적응형 V3 시계 · 전 대국 표준 Hex SGF + JSON 리플레이 검증 완료"
         cards = [
             ("Davis 7", "2승 0패", "선공 35수 · 후공 58수 완승", "v1.0 · 전승", UOM_PURPLE, SURFACE),
             ("Davis 10", "2승 0패", "선공 39수 · 후공 44수 완승", "v1.0 · 전승", UOM_PURPLE, SURFACE),
@@ -516,25 +529,25 @@ def build_online_results_svg(summary: dict, lang: str) -> str:
         loop_hdr = "MoHex 3 선공 돌파 과정 (패배 원인 진단에서 77수 완승까지)"
         steps = [
             ("v1.0 · 54수 진단 패", "1수 정중앙 e7 착수 → MoHex 3 즉시 스왑", "→ v1.1 50% 내쉬 오프닝 북 + Pondering 도입", ROSE_MUTED, ROSE_BG),
-            ("v1.1 · 66수 진단 패", "19수 승률 81.4% 압도 후 22–39수 사다리 역전", "→ v1.2 Exact VC-Solver + 탐색 튜닝 (+89 Elo)", UOM_GOLD_TEXT, SURFACE_GOLD),
-            ("v1.2 · 77수 완승", "41수 h2 사다리 탈출 (+9.65M Ponder 재사용)", "→ 71–77수 4연속 0.00초 Exact VC 필승 증명", UOM_PURPLE, UOM_PURPLE_SOFT),
+            ("v1.1 · 66수 진단 패", "19수 승률 81.4% 압도 후 22~39수 사다리 역전", "→ v1.2 Exact VC Solver + 탐색 튜닝 (+89 Elo)", UOM_GOLD_TEXT, SURFACE_GOLD),
+            ("v1.2 · 77수 완승", "41수 h2 사다리 탈출 (+9.65M Ponder 재사용)", "→ 71~77수 4연속 0.00초 Exact VC 필승 증명", UOM_PURPLE, UOM_PURPLE_SOFT),
         ]
     else:
         title = "External Online Bot Validation & Version Breakthrough Loop"
-        desc = "Scorecard for Davis 7 (2-0), Davis 10 (2-0), and MoHex 3 (both sides won), plus the iterative diagnostic loop from v1.0 to v1.2."
+        desc = "Scorecard for Davis 7 (2W 0L), Davis 10 (2W 0L), and MoHex 3 (both sides won), plus the iterative diagnostic loop from v1.0 to v1.2."
         heading = "External Online Bot Validation &amp; Version Breakthrough Loop"
-        sub = "11×11 Standard Swap-Pieces · Adaptive 300s Clock · All 8 Games Logged &amp; Replay-Verified in SGF + JSON"
+        sub = "11×11 Standard Pie Rule · Adaptive 300s Clock · All 8 Games Logged &amp; Replay Verified in SGF + JSON"
         cards = [
-            ("Davis 7", "2 – 0", "1st: 35m Win · 2nd: 58m Win", "v1.0 · 100% Sweep", UOM_PURPLE, SURFACE),
-            ("Davis 10", "2 – 0", "1st: 39m Win · 2nd: 44m Win", "v1.0 · 100% Sweep", UOM_PURPLE, SURFACE),
+            ("Davis 7", "2W 0L", "1st: 35m Win · 2nd: 58m Win", "v1.0 · 100% Sweep", UOM_PURPLE, SURFACE),
+            ("Davis 10", "2W 0L", "1st: 39m Win · 2nd: 44m Win", "v1.0 · 100% Sweep", UOM_PURPLE, SURFACE),
             ("MoHex 3 (2nd)", "68m WIN", "Swapped j8 · a6 Proven Win", "v1.0 · 287.6s / 300s", HEX_BLUE, SURFACE),
             ("MoHex 3 (1st)", "77m WIN", "135.7M Visits · T41 Escape", "v1.2 · T71 VC Checkmate", UOM_GOLD_BAR, SURFACE_GOLD),
         ]
-        loop_hdr = "How Each Version Overcame MoHex 3 (First-Player Diagnostic → Breakthrough)"
+        loop_hdr = "How Each Version Overcame MoHex 3 (First Player Diagnostic → Breakthrough)"
         steps = [
-            ("v1.0 · 54m Loss", "Turn-1 center e7 swapped by MoHex 3", "→ v1.1 Added Nash Opening Book + Pondering", ROSE_MUTED, ROSE_BG),
-            ("v1.1 · 66m Loss", "81.4% at T19, caught in T22–39 edge ladder", "→ v1.2 Added Exact VC-Solver + Tuning (+89 Elo)", UOM_GOLD_TEXT, SURFACE_GOLD),
-            ("v1.2 · 77m WIN", "T41 h2 ladder escape (+9.65M Ponder reuse)", "→ T71–77 4× 0.00s Exact VC-Solver Checkmate", UOM_PURPLE, UOM_PURPLE_SOFT),
+            ("v1.0 · 54m Loss", "Turn 1 center e7 swapped by MoHex 3", "→ v1.1 Added Nash Opening Book + Pondering", ROSE_MUTED, ROSE_BG),
+            ("v1.1 · 66m Loss", "81.4% at T19, caught in T22 to T39 ladder", "→ v1.2 Added Exact VC Solver + Tuning (+89 Elo)", UOM_GOLD_TEXT, SURFACE_GOLD),
+            ("v1.2 · 77m WIN", "T41 h2 ladder escape (+9.65M Ponder reuse)", "→ T71 to T77 4× 0.00s Exact VC Checkmate", UOM_PURPLE, UOM_PURPLE_SOFT),
         ]
 
     parts = svg_header(w, h, title, desc, lang)
@@ -585,7 +598,7 @@ def render_all(summary: dict, mohex_data: dict, st: BattleReferee, wpath: list[t
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Generate reproducible Hex-Search v1.2 SVG figures (EN + KO).")
+    parser = argparse.ArgumentParser(description="Generate reproducible Hex Search v1.2 SVG figures (EN + KO).")
     parser.add_argument("--check", action="store_true", help="Verify generated SVGs match files on disk.")
     parser.add_argument("--portfolio-dir", type=Path, default=None, help="Optional portfolio images dir to copy Korean SVGs into.")
     args = parser.parse_args()
