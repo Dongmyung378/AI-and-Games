@@ -170,7 +170,7 @@ def build_thumbnail_svg(st: BattleReferee, wpath: list[tuple[int, int]], lang: s
         title = "Hex Search v1.2: 순수 CPU C++17 탐색 엔진"
         desc = "GPU와 신경망 없이 순수 CPU C++17만으로 v0.0 대비 +342 Elo를 달성하고 Davis 7·10 전승 및 MoHex 3 선·후공 승리를 기록한 Hex AI 썸네일입니다."
         heading = "순수 CPU C++17 Hex 탐색 엔진"
-        sub = "Lock Free GRAVE TS · Exact VC Solver · 실시간 Pondering"
+        sub = "Lock-Free GRAVE-TS · Exact VC Solver · 실시간 Pondering"
         stats = [
             ("+342 Elo", "v0.0 → v1.2 통제 대국 기력 향상", UOM_PURPLE),
             ("4승 0패", "Davis 7 · Davis 10 선·후공 전승", HEX_BLUE),
@@ -184,11 +184,11 @@ def build_thumbnail_svg(st: BattleReferee, wpath: list[tuple[int, int]], lang: s
         banner_r2 = "71수 Exact VC Solver 조기 증명"
     else:
         title = "Hex Search v1.2: Pure CPU C++17 Hex AI Engine"
-        desc = "Zero dependency pure CPU C++17 Hex search engine gaining +342 Elo over v0.0, sweeping Davis 7 and 10, and defeating MoHex 3 as both 1st and 2nd player."
+        desc = "Zero-dependency pure CPU C++17 Hex search engine gaining +342 Elo over v0.0, sweeping Davis 7 and 10, and defeating MoHex 3 as both 1st and 2nd player."
         heading = "Pure CPU C++17 Hex Search Engine"
-        sub = "Lock Free GRAVE TS · Exact VC Solver · Real Time Pondering"
+        sub = "Lock-Free GRAVE-TS · Exact VC Solver · Real-Time Pondering"
         stats = [
-            ("+342 Elo", "Controlled v0.0 → v1.2 Self Play Gain", UOM_PURPLE),
+            ("+342 Elo", "Controlled v0.0 → v1.2 Self-Play Gain", UOM_PURPLE),
             ("4 / 4 Sweep", "Davis 7 &amp; Davis 10 (1st &amp; 2nd Player)", HEX_BLUE),
             ("135.7M Visits", "+74.8M Ponder Reuse · 0 Formal FP", INK),
         ]
@@ -241,22 +241,22 @@ def build_progression_svg(summary: dict, lang: str) -> str:
     rej_ko = {
         "Uncapped Ancestor GRAVE": "무제한 조상 GRAVE",
         "Deterministic LGR Rollouts": "결정적 LGR 롤아웃",
-        "Unbounded Two-Distance (all depths)": "전 깊이 Two Distance",
+        "Unbounded Two-Distance (all depths)": "전 깊이 Two-Distance",
         "Sharp Pattern Rollout (temp=0.60)": "고온도 패턴 롤아웃 (0.60)",
         "Forced Edge-Ladder Rollout Block": "강제 엣지 사다리 차단",
         "12-Cell Patterns inside Rollouts": "롤아웃 내 12셀 패턴",
-        "Irwin-Hall(4) Thin-Tail Beta": "Irwin Hall(4) 근사 Beta",
-        "GRAVE-UCB vs GRAVE-TS (30g each)": "GRAVE UCB vs GRAVE TS",
+        "Irwin-Hall(4) Thin-Tail Beta": "Irwin-Hall(4) 근사 Beta",
+        "GRAVE-UCB vs GRAVE-TS (30g each)": "GRAVE-UCB vs GRAVE-TS",
     }
     rej_en = {
         "Uncapped Ancestor GRAVE": "Uncapped Ancestor GRAVE",
         "Deterministic LGR Rollouts": "Deterministic LGR Rollouts",
-        "Unbounded Two-Distance (all depths)": "Unbounded Two Distance (All)",
+        "Unbounded Two-Distance (all depths)": "Unbounded Two-Distance (All)",
         "Sharp Pattern Rollout (temp=0.60)": "Sharp Pattern Rollout (0.60)",
-        "Forced Edge-Ladder Rollout Block": "Forced Edge Ladder Block",
-        "12-Cell Patterns inside Rollouts": "12 Cell Patterns in Rollouts",
-        "Irwin-Hall(4) Thin-Tail Beta": "Irwin Hall(4) Thin Tail Beta",
-        "GRAVE-UCB vs GRAVE-TS (30g each)": "GRAVE UCB vs GRAVE TS",
+        "Forced Edge-Ladder Rollout Block": "Forced Edge-Ladder Block",
+        "12-Cell Patterns inside Rollouts": "12-Cell Patterns in Rollouts",
+        "Irwin-Hall(4) Thin-Tail Beta": "Irwin-Hall(4) Thin-Tail Beta",
+        "GRAVE-UCB vs GRAVE-TS (30g each)": "GRAVE-UCB vs GRAVE-TS",
     }
     if lang == "ko":
         title = "단계별 실증 Elo 진화 (v0.0 → v1.2) 및 기각된 8가지 가설"
