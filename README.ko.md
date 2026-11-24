@@ -122,21 +122,21 @@ C++ `--self-test` 26항목(3×3 전체 19,683 보드 연결성·VC Solver 미니
 ## 저장소 구성
 
 ```text
-native/hex_search.cpp            단일 순수 C++17 Hex 엔진 v1.2.0 (26/26 자체 검증 내장)
+native/hex_search.cpp       단일 순수 C++17 Hex 엔진 v1.2.0 (26/26 자체 검증)
 hexai/
-  referee.py                     자체 Hex 보드, BFS 연결성·승리 경로 추적, 파이 룰 심판
-  native.py                      크로스플랫폼 C++17 빌드 & 스레드 안전 서브프로세스 텔레메트리
-  evaluation.py                  선·후공 교대 통제 대국 & 쌍대 부트스트랩 신뢰구간 하네스
-  battle_gui.py                  사람 vs AI 대결 & 온라인 봇 어시스턴트 클릭형 Tkinter GUI
-  battle.py                      터미널 CLI 대국 어시스턴트 + 표준 SGF/JSON 로거
-  cli.py                         통합 CLI (build, play, gui, battle, evaluate, benchmark, replay)
-tests/test_engine.py             단위·프로토콜·GTP·Pondering·GUI 및 8판 실전 기보 전수 리플레이 테스트
-scripts/generate_figures.py      JSON/SGF 원본에서 영·국문 SVG 10종을 결정적으로 생성
+  referee.py                Hex 보드, BFS 승리 경로 추적 및 파이 룰 심판
+  native.py                 크로스플랫폼 C++17 빌드 & 서브프로세스 텔레메트리
+  evaluation.py             선·후공 교대 통제 대국 & 부트스트랩 신뢰구간 하네스
+  battle_gui.py             사람 vs AI & 온라인 봇 어시스턴트 Tkinter GUI
+  battle.py                 터미널 CLI 대국 어시스턴트 + SGF/JSON 로거
+  cli.py                    통합 CLI (build, play, battle, evaluate, replay)
+tests/test_engine.py        단위·GTP·Pondering·GUI 및 8판 SGF 리플레이 테스트
+scripts/generate_figures.py JSON/SGF 원본에서 영·국문 SVG 10종 결정적 생성
 reports/
   benchmarks/progression_summary.json
-  online_battles/                Davis 7, Davis 10, MoHex 3 실전 SGF + JSON 원본 기보
-assets/                          생성된 영문·국문(assets/ko/) SVG 시각화 이미지
-docs/                            국문·영문 기술 아키텍처 심화 문서
+  online_battles/           Davis 7, Davis 10, MoHex 3 실전 SGF + JSON 기보
+assets/                     생성된 영문·국문(assets/ko/) SVG 시각화 이미지
+docs/                       국문·영문 기술 아키텍처 심화 문서
 ```
 
 ---

@@ -109,7 +109,7 @@ python -m hexai play
 ## Software Verification
 
 ```bash
-# Full reproducible verification (build + 26/26 C++ self-tests + 12/12 Python/SGF tests + SVG check)
+# Full verification: build, 26 C++ self-tests, 12 Python/SGF tests, SVG check
 python -m hexai build
 python -m unittest discover -s tests -v
 python scripts/generate_figures.py --check
@@ -122,21 +122,21 @@ All 26 built-in C++ formal checks (including 19,683 exhaustive 3×3 connectivity
 ## Repository Layout
 
 ```text
-native/hex_search.cpp            Single pure-CPU C++17 Hex engine v1.2.0 (26/26 self-tests)
+native/hex_search.cpp       Pure-CPU C++17 Hex engine v1.2.0 (26/26 self-tests)
 hexai/
-  referee.py                     Self-contained Hex board, BFS winning chain tracker, pie-rule referee
-  native.py                      Cross-platform C++17 builder & thread-safe subprocess telemetry
-  evaluation.py                  Color-balanced match runner & paired bootstrap CI harness
-  battle_gui.py                  Dual-mode Human vs AI & Online Bot Assistant Tkinter GUI
-  battle.py                      Terminal CLI battle assistant + standard SGF/JSON logger
-  cli.py                         Unified CLI (build, play, gui, battle, evaluate, benchmark, replay)
-tests/test_engine.py             Unit, protocol, GTP, Pondering, GUI & 8-game SGF/JSON replay suite
-scripts/generate_figures.py      Deterministic generator for EN + KO SVG visual evidence assets
+  referee.py                Hex board, BFS win-chain tracker & pie-rule referee
+  native.py                 Cross-platform C++17 builder & telemetry runner
+  evaluation.py             Color-balanced match runner & bootstrap CI harness
+  battle_gui.py             Human vs AI & Online Bot Assistant Tkinter GUI
+  battle.py                 Terminal CLI battle assistant + SGF/JSON logger
+  cli.py                    Unified CLI (build, play, battle, evaluate, replay)
+tests/test_engine.py        Unit, GTP, Pondering, GUI & 8-game SGF replay tests
+scripts/generate_figures.py Deterministic EN + KO SVG visual evidence builder
 reports/
   benchmarks/progression_summary.json
-  online_battles/                Raw SGF + JSON logs for Davis 7, Davis 10, and MoHex 3
-assets/                          Generated EN & KO (assets/ko/) SVG proof graphics
-docs/                            English & Korean deep-dive architecture documents
+  online_battles/           Raw SGF + JSON logs (Davis 7/10 and MoHex 3)
+assets/                     Generated EN & KO (assets/ko/) SVG proof graphics
+docs/                       English & Korean deep-dive architecture documents
 ```
 
 ---
