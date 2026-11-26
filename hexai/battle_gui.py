@@ -96,11 +96,180 @@ CELL_EMPTY = "#243247"
 CELL_HOVER = "#354966"
 CELL_BORDER = "#475569"
 
+DIFFICULTY_PRESETS_SPEC: list[tuple[str, dict]] = [
+    ("beginner", {"clock_mode": "fixed", "fixed_seconds": "0.5", "game_seconds": "120", "workers": "2", "ponder": False}),
+    ("intermediate", {"clock_mode": "fixed", "fixed_seconds": "2.0", "game_seconds": "180", "workers": "4", "ponder": False}),
+    ("strong", {"clock_mode": "fixed", "fixed_seconds": "5.0", "game_seconds": "300", "workers": "8", "ponder": True}),
+    ("grandmaster", {"clock_mode": "v3", "fixed_seconds": "5.0", "game_seconds": "300", "workers": "12", "ponder": True}),
+]
+
+PRESET_LABELS: dict[str, dict[str, str]] = {
+    "en": {
+        "beginner": "Beginner (0.5s · 2 threads)",
+        "intermediate": "Intermediate (2s · 4 threads)",
+        "strong": "Strong (5s · 8 threads)",
+        "grandmaster": "Grandmaster (300s · 12 threads)",
+    },
+    "ko": {
+        "beginner": "입문 (0.5s·2스레드)",
+        "intermediate": "중급 (2s·4스레드)",
+        "strong": "강함 (5s·8스레드)",
+        "grandmaster": "최강 (300s·12스레드)",
+    },
+}
+
 DIFFICULTY_PRESETS: dict[str, dict] = {
-    "입문 (0.5s·2스레드)": {"clock_mode": "fixed", "fixed_seconds": "0.5", "game_seconds": "120", "workers": "2", "ponder": False},
-    "중급 (2s·4스레드)": {"clock_mode": "fixed", "fixed_seconds": "2.0", "game_seconds": "180", "workers": "4", "ponder": False},
-    "강함 (5s·8스레드)": {"clock_mode": "fixed", "fixed_seconds": "5.0", "game_seconds": "300", "workers": "8", "ponder": True},
-    "최강 (300s·12스레드)": {"clock_mode": "v3", "fixed_seconds": "5.0", "game_seconds": "300", "workers": "12", "ponder": True},
+    PRESET_LABELS["ko"][key]: cfg for key, cfg in DIFFICULTY_PRESETS_SPEC
+}
+for _lang_map in PRESET_LABELS.values():
+    for _k, _cfg in DIFFICULTY_PRESETS_SPEC:
+        DIFFICULTY_PRESETS[_lang_map[_k]] = _cfg
+
+UI_TEXT: dict[str, dict[str, str]] = {
+    "en": {
+        "title": "Hex-Search v1.2 · Play vs AI & Online Battle Board",
+        "waiting": "Ready...",
+        "winrate_empty": "AI Winrate: -",
+        "winrate_fmt": "AI Winrate: {wr:.1f}%",
+        "btn_swap": "Swap (Pie Rule)",
+        "btn_undo": "Undo",
+        "btn_save": "Save SGF",
+        "chk_coords": "Coords (f6)",
+        "chk_nums": "Move #",
+        "chk_transpose": "Swap Axes",
+        "chk_ponder": "Pondering (Search on Opponent Turn)",
+        "cfg_frame": " Match Mode & Engine Settings ",
+        "lbl_mode": "Mode:",
+        "rad_human": "Human vs AI",
+        "rad_online": "Online Bot Bridge",
+        "lbl_preset": "Preset:",
+        "lbl_board": "Board:",
+        "lbl_threads": "Threads:",
+        "lbl_opponent": "Opp:",
+        "lbl_side": "AI Side:",
+        "rad_first": "AI 1st (Red)",
+        "rad_second": "AI 2nd (Blue · You 1st)",
+        "rad_v3": "V3 Clock (s):",
+        "rad_fixed": "Fixed (s/mv):",
+        "lbl_swap": "Swap:",
+        "rad_pieces": "swap-pieces",
+        "rad_sides": "swap-sides",
+        "btn_new": "Start New Match (Apply Settings)",
+        "lbl_history": "Move History",
+        "orient_tb": "Top↔Bottom",
+        "orient_lr": "Left↔Right",
+        "tag_me": "You",
+        "tag_opp": "Opp",
+        "new_game": "New Match Started",
+        "your_turn_human": "Your turn! Click any empty hex cell.",
+        "your_turn_online": "Click the opponent's move on the board.",
+        "ai_first_think": "AI is computing the opening move...",
+        "game_over": "Game Over ({n} moves)",
+        "human_win": "Congratulations! You won!",
+        "ai_win": "AI (Hex-Search v1.2) Wins!",
+        "winner_fmt": "Winner: {w}",
+        "win_chain_note": "Gold winning connection highlighted. Match log auto-saved.",
+        "turn_fmt": "Turn {t}  •  To Move: {actor} ({col})",
+        "ai_thinking": "AI Thinking...",
+        "target_time": "Target budget: {sec:.1f}s ({w} threads)",
+        "searching": "Searching... {el:.1f}s / {alloc:.1f}s ({w} threads)",
+        "engine_err": "Engine Error",
+        "unknown_err": "Unknown error",
+        "swap_dest": "AI Play: SWAP → {dest} (Blue)",
+        "swap_plain": "AI Play: SWAP",
+        "ai_move_human": "AI Move:",
+        "ai_move_online": "AI Suggestion:",
+        "wait_human": "Your turn! Click an empty cell.",
+        "wait_online": "Play on online board, then click opponent move.",
+        "elapsed_fmt": "{el:.2f}s · {wait}",
+        "ponder_suffix": " (Pondering active)",
+        "clock_fixed_start": "Fixed {sec:.1f}s/move",
+        "clock_v3_start": "V3 Clock {sec:.0f}s left",
+        "clock_fixed_run": "Total {spent:.1f}s (Fixed mode)",
+        "clock_v3_run": "Clock: {rem:.1f}s / {tot:.0f}s left",
+        "tel_start": "Solver: -  |  {w} threads\n{clock}",
+        "tel_run": "Solver: {solver}  |  {iters:,} (+{reused:,} reused)\n{clock}",
+        "undo_done": "Move Undone",
+        "undo_note": "Click a cell to continue or let AI search.",
+        "saved_note": "Saved: {name}",
+        "err_title": "Engine Launch Error",
+        "err_body": "Failed to launch hex_search:\n{err}\nRun 'python -m hexai build' first.",
+        "illegal_title": "Illegal Move",
+        "save_title": "Match Saved",
+        "save_body": "Saved to:\n{p0}\n{p1}",
+    },
+    "ko": {
+        "title": "Hex-Search v1.2 · 사람 vs AI & 온라인 대국 보드",
+        "waiting": "대기 중...",
+        "winrate_empty": "AI 예상 승률: -",
+        "winrate_fmt": "AI 예상 승률: {wr:.1f}%",
+        "btn_swap": "Swap (파이 룰)",
+        "btn_undo": "되돌리기 (Undo)",
+        "btn_save": "기보 저장",
+        "chk_coords": "좌표(f6)",
+        "chk_nums": "수순(#)",
+        "chk_transpose": "상하↔좌우 반전",
+        "chk_ponder": "상대 턴 미리 탐색 (Pondering)",
+        "cfg_frame": " 대결 모드 & 사용자 설정 ",
+        "lbl_mode": "모드:",
+        "rad_human": "사람 vs AI",
+        "rad_online": "온라인 봇 어시스턴트",
+        "lbl_preset": "난이도:",
+        "lbl_board": "보드:",
+        "lbl_threads": "스레드:",
+        "lbl_opponent": "상대명:",
+        "lbl_side": "AI 진영:",
+        "rad_first": "AI 선공(Red)",
+        "rad_second": "AI 후공(Blue·내가 선공)",
+        "rad_v3": "V3 시계(초):",
+        "rad_fixed": "수당 고정(초):",
+        "lbl_swap": "Swap:",
+        "rad_pieces": "돌 반전(pieces)",
+        "rad_sides": "진영 교대(sides)",
+        "btn_new": "새 대국 시작 (설정 적용)",
+        "lbl_history": "수순 기록",
+        "orient_tb": "상↔하",
+        "orient_lr": "좌↔우",
+        "tag_me": "나",
+        "tag_opp": "상대",
+        "new_game": "새 대국 시작!",
+        "your_turn_human": "당신 차례입니다! 원하는 빈 칸을 클릭하세요.",
+        "your_turn_online": "상대 수를 보드에서 클릭하세요.",
+        "ai_first_think": "AI가 첫 수를 계산합니다...",
+        "game_over": "대국 종료 ({n}수)",
+        "human_win": "축하합니다! 승리했습니다!",
+        "ai_win": "AI (Hex-Search v1.2) 승리!",
+        "winner_fmt": "승자: {w}",
+        "win_chain_note": "황금 연결 경로가 표시되었습니다. 기보 자동 저장 완료.",
+        "turn_fmt": "Turn {t}  •  차례: {actor} ({col})",
+        "ai_thinking": "AI 생각 중...",
+        "target_time": "목표 시간: {sec:.1f}s ({w}스레드)",
+        "searching": "탐색 중... {el:.1f}s / {alloc:.1f}s ({w}스레드)",
+        "engine_err": "엔진 오류",
+        "unknown_err": "알 수 없는 오류",
+        "swap_dest": "AI 선택: SWAP → {dest} (Blue)",
+        "swap_plain": "AI 선택: SWAP (스왑!)",
+        "ai_move_human": "AI 착수:",
+        "ai_move_online": "AI 추천 수:",
+        "wait_human": "당신 차례입니다! 빈 칸을 클릭하세요.",
+        "wait_online": "온라인 보드에 둔 뒤 상대 수를 클릭하세요.",
+        "elapsed_fmt": "{el:.2f}초 소요 · {wait}",
+        "ponder_suffix": " · Pondering",
+        "clock_fixed_start": "고정 {sec:.1f}s/수",
+        "clock_v3_start": "V3 시계 {sec:.0f}s 남음",
+        "clock_fixed_run": "누적 {spent:.1f}s (고정 모드)",
+        "clock_v3_run": "시계: {rem:.1f}s / {tot:.0f}s 남음",
+        "tel_start": "Solver: -  |  {w}스레드\n{clock}",
+        "tel_run": "Solver: {solver}  |  {iters:,} (+{reused:,} 재사용)\n{clock}",
+        "undo_done": "되돌리기 완료",
+        "undo_note": "다시 수를 클릭하거나 AI가 탐색합니다.",
+        "saved_note": "저장됨: {name}",
+        "err_title": "엔진 실행 오류",
+        "err_body": "hex_search 실행 실패:\n{err}\n먼저 'python -m hexai build'를 실행하세요.",
+        "illegal_title": "불가능한 수",
+        "save_title": "기보 저장 완료",
+        "save_body": "저장 위치:\n{p0}\n{p1}",
+    },
 }
 
 
@@ -108,13 +277,22 @@ class HexBattleGUI:
     def __init__(self, root: tk.Tk, args) -> None:
         self.root = root
         self.args = args
+        self.lang = getattr(args, "lang", "en")
+        if self.lang not in UI_TEXT:
+            self.lang = "en"
         self.size = int(args.board_size)
         self.exe = Path(args.executable or executable_default()).resolve()
 
-        self.root.title("Hex-Search v1.2: Play vs AI & Online Battle Board")
+        self.root.title(self._t("title"))
         self.root.configure(bg=BG_ROOT)
-        self.root.geometry("1260x840")
-        self.root.minsize(1020, 700)
+        dpi_scale = max(1.0, min(1.5, float(self.root.winfo_fpixels("1i")) / 96.0))
+        scr_w = self.root.winfo_screenwidth()
+        scr_h = self.root.winfo_screenheight()
+        win_w = min(max(1320, int(1320 * dpi_scale)), max(1080, scr_w - 60))
+        win_h = min(max(880, int(880 * dpi_scale)), max(740, scr_h - 90))
+        self._sidebar_width = max(415, int(415 * dpi_scale))
+        self.root.geometry(f"{win_w}x{win_h}")
+        self.root.minsize(1060, 720)
 
         # Match / engine runtime state
         self.ai_label = "hex-search-v1.2"
@@ -133,17 +311,19 @@ class HexBattleGUI:
         self.session_token = 0
         self.hover_cell: tuple[int, int] | None = None
         self.saved_for_game = False
+        self.last_ai_event: dict | None = None
         self._result_queue: queue.Queue = queue.Queue()
 
         default_mode = getattr(args, "mode", "human")
         if default_mode not in {"human", "online"}:
             default_mode = "human"
         default_opp = "Human" if (default_mode == "human" and args.opponent in {"Human", "Davis 10"}) else args.opponent
+        self._preset_key = "strong" if default_mode == "human" and args.seconds is not None else "grandmaster"
 
         # Tk variables for setup & toggles
         self.var_mode = tk.StringVar(value=default_mode)
         self.var_board_size = tk.StringVar(value=str(self.size))
-        self.var_preset = tk.StringVar(value="강함 (5s·8스레드)" if default_mode == "human" and args.seconds is not None else "최강 (300s·12스레드)")
+        self.var_preset = tk.StringVar(value=PRESET_LABELS[self.lang][self._preset_key])
         self.var_opponent = tk.StringVar(value=default_opp)
         self.var_side = tk.StringVar(value="first" if self.ai_is_first else "second")
         self.var_swap_rule = tk.StringVar(value=self.swap_rule)
@@ -159,6 +339,111 @@ class HexBattleGUI:
         self._build_ui()
         self.root.protocol("WM_DELETE_WINDOW", self._on_close)
         self.start_new_game()
+
+    def _t(self, key: str, **kwargs) -> str:
+        text = UI_TEXT[self.lang].get(key, key)
+        return text.format(**kwargs) if kwargs else text
+
+    def set_language(self, lang: str) -> None:
+        if lang not in UI_TEXT or lang == self.lang:
+            return
+        self.lang = lang
+        self.root.title(self._t("title"))
+        self.btn_lang_en.configure(
+            bg=ACCENT_BLUE if lang == "en" else BG_CARD,
+            fg="#ffffff" if lang == "en" else FG_MUTED,
+        )
+        self.btn_lang_ko.configure(
+            bg=ACCENT_BLUE if lang == "ko" else BG_CARD,
+            fg="#ffffff" if lang == "ko" else FG_MUTED,
+        )
+        self.btn_swap.configure(text=self._t("btn_swap"))
+        self.btn_undo.configure(text=self._t("btn_undo"))
+        self.btn_save.configure(text=self._t("btn_save"))
+        self.chk_coords.configure(text=self._t("chk_coords"))
+        self.chk_nums.configure(text=self._t("chk_nums"))
+        self.chk_transpose.configure(text=self._t("chk_transpose"))
+        self.chk_ponder.configure(text=self._t("chk_ponder"))
+        self.cfg_frame.configure(text=self._t("cfg_frame"))
+        self.lbl_mode.configure(text=self._t("lbl_mode"))
+        self.rad_human.configure(text=self._t("rad_human"))
+        self.rad_online.configure(text=self._t("rad_online"))
+        self.lbl_preset.configure(text=self._t("lbl_preset"))
+        self.preset_box.configure(values=[PRESET_LABELS[lang][k] for k, _ in DIFFICULTY_PRESETS_SPEC])
+        self.var_preset.set(PRESET_LABELS[lang][self._preset_key])
+        self.lbl_board.configure(text=self._t("lbl_board"))
+        self.lbl_threads.configure(text=self._t("lbl_threads"))
+        self.lbl_opponent.configure(text=self._t("lbl_opponent"))
+        self.lbl_side.configure(text=self._t("lbl_side"))
+        self.rad_first.configure(text=self._t("rad_first"))
+        self.rad_second.configure(text=self._t("rad_second"))
+        self.rad_v3.configure(text=self._t("rad_v3"))
+        self.rad_fixed.configure(text=self._t("rad_fixed"))
+        self.lbl_swap.configure(text=self._t("lbl_swap"))
+        self.rad_pieces.configure(text=self._t("rad_pieces"))
+        self.rad_sides.configure(text=self._t("rad_sides"))
+        self.btn_new.configure(text=self._t("btn_new"))
+        self.lbl_history.configure(text=self._t("lbl_history"))
+        self._refresh_telemetry_labels()
+        self.hist_list.delete(0, tk.END)
+        for ev in self.history:
+            self._append_history_row(ev)
+        self._refresh_ui_state()
+
+    def _refresh_telemetry_labels(self) -> None:
+        ev = self.last_ai_event
+        if ev is None:
+            self.lbl_winrate.configure(text=self._t("winrate_empty"))
+            clock_desc = (
+                self._t("clock_fixed_start", sec=getattr(self, "fixed_seconds", 2.0))
+                if getattr(self, "use_fixed_seconds", False)
+                else self._t("clock_v3_start", sec=getattr(self, "game_seconds", 300.0))
+            )
+            self.lbl_tel_detail.configure(
+                text=self._t("tel_start", w=getattr(self, "workers", 4), clock=clock_desc)
+            )
+            if self.state is not None and self.state.winner is None and not self.history:
+                is_human = self.var_mode.get() == "human"
+                self.lbl_ai_move.configure(text=self._t("new_game"), fg=ACCENT_GOLD)
+                if not self.ai_is_first:
+                    self.lbl_think_status.configure(
+                        text=self._t("your_turn_human") if is_human else self._t("your_turn_online")
+                    )
+                else:
+                    self.lbl_think_status.configure(text=self._t("ai_first_think"))
+            return
+        wr = float(ev.get("winrate_pct", 50.0))
+        iters = int(ev.get("iterations", 0))
+        reused_v = int(ev.get("reused_visits", 0))
+        solver_st = str(ev.get("solver_status", "none"))
+        elapsed = float(ev.get("response_seconds", 0.0))
+        move = tuple(ev["move"])
+        alg = ev["algebraic"]
+        self.lbl_winrate.configure(text=self._t("winrate_fmt", wr=wr))
+        self._draw_winrate_bar(wr)
+        rem = max(0.0, self.game_seconds - self.ai_spent)
+        clock_str = (
+            self._t("clock_fixed_run", spent=self.ai_spent)
+            if self.use_fixed_seconds
+            else self._t("clock_v3_run", rem=rem, tot=self.game_seconds)
+        )
+        solver_badge = solver_st.upper() if solver_st != "none" else "normal"
+        self.lbl_tel_detail.configure(
+            text=self._t("tel_run", solver=solver_badge, iters=iters, reused=reused_v, clock=clock_str)
+        )
+        if self.state is not None and self.state.winner is None:
+            if move == (-1, -1):
+                if self.swap_rule == "swap_pieces" and self.state.swapped_stone is not None:
+                    dest = format_algebraic(self.state.swapped_stone).upper()
+                    self.lbl_ai_move.configure(text=self._t("swap_dest", dest=dest), fg=ACCENT_GOLD)
+                else:
+                    self.lbl_ai_move.configure(text=self._t("swap_plain"), fg=ACCENT_GOLD)
+            else:
+                prefix = self._t("ai_move_human") if self.var_mode.get() == "human" else self._t("ai_move_online")
+                self.lbl_ai_move.configure(text=f"{prefix} {alg.upper()}  ({move[0]}, {move[1]})", fg=ACCENT_GOLD)
+            wait_msg = self._t("wait_human") if self.var_mode.get() == "human" else self._t("wait_online")
+            suffix = self._t("ponder_suffix") if self.pondering else ""
+            self.lbl_think_status.configure(text=self._t("elapsed_fmt", el=elapsed, wait=wait_msg) + suffix)
 
     # ------------------------------------------------------------------
     # UI Construction
@@ -178,8 +463,11 @@ class HexBattleGUI:
         left = tk.Frame(main, bg=BG_ROOT)
         left.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
+        top_bar = tk.Frame(left, bg=BG_PANEL)
+        top_bar.pack(fill=tk.X, pady=(0, 8))
+
         self.lbl_players = tk.Label(
-            left,
+            top_bar,
             text="",
             bg=BG_PANEL,
             fg=FG_TEXT,
@@ -188,7 +476,38 @@ class HexBattleGUI:
             pady=8,
             anchor="w",
         )
-        self.lbl_players.pack(fill=tk.X, pady=(0, 8))
+        self.lbl_players.pack(side=tk.LEFT, fill=tk.X, expand=True)
+
+        lang_box = tk.Frame(top_bar, bg=BG_PANEL, padx=8)
+        lang_box.pack(side=tk.RIGHT)
+        self.btn_lang_en = tk.Button(
+            lang_box,
+            text="EN",
+            command=lambda: self.set_language("en"),
+            bg=ACCENT_BLUE if self.lang == "en" else BG_CARD,
+            fg="#ffffff" if self.lang == "en" else FG_MUTED,
+            activebackground="#2563eb",
+            activeforeground="#ffffff",
+            relief=tk.FLAT,
+            font=("Segoe UI", 9, "bold"),
+            padx=9,
+            pady=3,
+        )
+        self.btn_lang_en.pack(side=tk.LEFT, padx=(0, 3))
+        self.btn_lang_ko = tk.Button(
+            lang_box,
+            text="한국어",
+            command=lambda: self.set_language("ko"),
+            bg=ACCENT_BLUE if self.lang == "ko" else BG_CARD,
+            fg="#ffffff" if self.lang == "ko" else FG_MUTED,
+            activebackground="#2563eb",
+            activeforeground="#ffffff",
+            relief=tk.FLAT,
+            font=("Segoe UI", 9, "bold"),
+            padx=9,
+            pady=3,
+        )
+        self.btn_lang_ko.pack(side=tk.LEFT)
 
         self.canvas = tk.Canvas(left, bg="#131c2e", highlightthickness=1, highlightbackground="#334155")
         self.canvas.pack(fill=tk.BOTH, expand=True)
@@ -198,7 +517,7 @@ class HexBattleGUI:
         self.canvas.bind("<Button-1>", self._on_canvas_click)
 
         # Right sidebar
-        right = tk.Frame(main, bg=BG_PANEL, width=385)
+        right = tk.Frame(main, bg=BG_PANEL, width=self._sidebar_width)
         right.pack(side=tk.RIGHT, fill=tk.Y, padx=(10, 0))
         right.pack_propagate(False)
 
@@ -211,7 +530,7 @@ class HexBattleGUI:
 
         self.lbl_ai_move = tk.Label(
             banner,
-            text="대기 중...",
+            text=self._t("waiting"),
             bg=BG_CARD,
             fg=ACCENT_GOLD,
             font=("Segoe UI", 17, "bold"),
@@ -230,7 +549,7 @@ class HexBattleGUI:
         tel_card = tk.Frame(right, bg=BG_CARD, padx=12, pady=7)
         tel_card.pack(fill=tk.X, padx=10, pady=(0, 6))
 
-        self.lbl_winrate = tk.Label(tel_card, text="AI 예상 승률: -", bg=BG_CARD, fg=FG_TEXT, font=("Segoe UI", 10, "bold"), anchor="w")
+        self.lbl_winrate = tk.Label(tel_card, text=self._t("winrate_empty"), bg=BG_CARD, fg=FG_TEXT, font=("Segoe UI", 10, "bold"), anchor="w")
         self.lbl_winrate.pack(fill=tk.X)
 
         self.wr_canvas = tk.Canvas(tel_card, height=11, bg="#0f172a", highlightthickness=0)
@@ -238,7 +557,7 @@ class HexBattleGUI:
 
         self.lbl_tel_detail = tk.Label(
             tel_card,
-            text="Solver: -  |  탐색: -\n시계: 300.0s 남음",
+            text="",
             bg=BG_CARD,
             fg=FG_MUTED,
             font=("Consolas", 9),
@@ -252,21 +571,21 @@ class HexBattleGUI:
         act_frame.pack(fill=tk.X, padx=10, pady=(0, 6))
 
         self.btn_swap = tk.Button(
-            act_frame, text="Swap (파이 룰)", command=self._on_swap_click,
+            act_frame, text=self._t("btn_swap"), command=self._on_swap_click,
             bg="#475569", fg=FG_TEXT, activebackground="#64748b", activeforeground=FG_TEXT,
             relief=tk.FLAT, font=("Segoe UI", 9, "bold"), pady=5, state=tk.DISABLED,
         )
         self.btn_swap.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 3))
 
         self.btn_undo = tk.Button(
-            act_frame, text="되돌리기 (Undo)", command=self._on_undo_click,
+            act_frame, text=self._t("btn_undo"), command=self._on_undo_click,
             bg="#475569", fg=FG_TEXT, activebackground="#64748b", activeforeground=FG_TEXT,
             relief=tk.FLAT, font=("Segoe UI", 9, "bold"), pady=5,
         )
         self.btn_undo.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=3)
 
         self.btn_save = tk.Button(
-            act_frame, text="기보 저장", command=self._on_manual_save,
+            act_frame, text=self._t("btn_save"), command=self._on_manual_save,
             bg="#2563eb", fg=FG_TEXT, activebackground="#3b82f6", activeforeground=FG_TEXT,
             relief=tk.FLAT, font=("Segoe UI", 9, "bold"), pady=5,
         )
@@ -278,108 +597,141 @@ class HexBattleGUI:
 
         opt_row1 = tk.Frame(opt_frame, bg=BG_CARD)
         opt_row1.pack(fill=tk.X)
-        for text, var in (
-            ("좌표(f6)", self.var_show_coords),
-            ("수순(#)", self.var_show_numbers),
-            ("상하↔좌우 반전", self.var_transpose),
-        ):
-            tk.Checkbutton(
-                opt_row1, text=text, variable=var,
-                command=lambda: (self._refresh_ui_state(), self.redraw_board()),
-                bg=BG_CARD, fg=FG_TEXT, selectcolor=BG_ROOT,
-                activebackground=BG_CARD, activeforeground=FG_TEXT, font=("Segoe UI", 9),
-            ).pack(side=tk.LEFT, padx=(0, 6))
+        self.chk_coords = tk.Checkbutton(
+            opt_row1, text=self._t("chk_coords"), variable=self.var_show_coords,
+            command=lambda: (self._refresh_ui_state(), self.redraw_board()),
+            bg=BG_CARD, fg=FG_TEXT, selectcolor=BG_ROOT,
+            activebackground=BG_CARD, activeforeground=FG_TEXT, font=("Segoe UI", 9),
+        )
+        self.chk_coords.pack(side=tk.LEFT, padx=(0, 6))
+        self.chk_nums = tk.Checkbutton(
+            opt_row1, text=self._t("chk_nums"), variable=self.var_show_numbers,
+            command=lambda: (self._refresh_ui_state(), self.redraw_board()),
+            bg=BG_CARD, fg=FG_TEXT, selectcolor=BG_ROOT,
+            activebackground=BG_CARD, activeforeground=FG_TEXT, font=("Segoe UI", 9),
+        )
+        self.chk_nums.pack(side=tk.LEFT, padx=(0, 6))
+        self.chk_transpose = tk.Checkbutton(
+            opt_row1, text=self._t("chk_transpose"), variable=self.var_transpose,
+            command=lambda: (self._refresh_ui_state(), self.redraw_board()),
+            bg=BG_CARD, fg=FG_TEXT, selectcolor=BG_ROOT,
+            activebackground=BG_CARD, activeforeground=FG_TEXT, font=("Segoe UI", 9),
+        )
+        self.chk_transpose.pack(side=tk.LEFT, padx=(0, 6))
 
-        tk.Checkbutton(
-            opt_frame, text="상대 턴 미리 탐색 (Pondering)", variable=self.var_ponder,
+        self.chk_ponder = tk.Checkbutton(
+            opt_frame, text=self._t("chk_ponder"), variable=self.var_ponder,
             command=self._on_ponder_toggle, bg=BG_CARD, fg=ACCENT_GOLD, selectcolor=BG_ROOT,
             activebackground=BG_CARD, activeforeground=ACCENT_GOLD, font=("Segoe UI", 9, "bold"), anchor="w",
-        ).pack(fill=tk.X, pady=(2, 0))
+        )
+        self.chk_ponder.pack(fill=tk.X, pady=(2, 0))
 
         # --- Interactive Game & User Custom Settings Card ---
-        cfg = tk.LabelFrame(right, text=" 대결 모드 & 사용자 설정 ", bg=BG_PANEL, fg=FG_MUTED, font=("Segoe UI", 9, "bold"), padx=8, pady=6)
+        self.cfg_frame = tk.LabelFrame(right, text=self._t("cfg_frame"), bg=BG_PANEL, fg=FG_MUTED, font=("Segoe UI", 9, "bold"), padx=8, pady=6)
+        cfg = self.cfg_frame
         cfg.pack(fill=tk.X, padx=10, pady=(0, 6))
 
         # Mode switch
         rm = tk.Frame(cfg, bg=BG_PANEL)
         rm.pack(fill=tk.X, pady=2)
-        tk.Label(rm, text="모드:", bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9)).pack(side=tk.LEFT)
-        tk.Radiobutton(
-            rm, text="사람 vs AI", variable=self.var_mode, value="human", command=self._on_mode_change,
+        self.lbl_mode = tk.Label(rm, text=self._t("lbl_mode"), bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9))
+        self.lbl_mode.pack(side=tk.LEFT)
+        self.rad_human = tk.Radiobutton(
+            rm, text=self._t("rad_human"), variable=self.var_mode, value="human", command=self._on_mode_change,
             bg=BG_PANEL, fg=ACCENT_GREEN, selectcolor=BG_ROOT, activebackground=BG_PANEL, font=("Segoe UI", 9, "bold"),
-        ).pack(side=tk.LEFT)
-        tk.Radiobutton(
-            rm, text="온라인 봇 어시스턴트", variable=self.var_mode, value="online", command=self._on_mode_change,
+        )
+        self.rad_human.pack(side=tk.LEFT)
+        self.rad_online = tk.Radiobutton(
+            rm, text=self._t("rad_online"), variable=self.var_mode, value="online", command=self._on_mode_change,
             bg=BG_PANEL, fg=FG_TEXT, selectcolor=BG_ROOT, activebackground=BG_PANEL, font=("Segoe UI", 9),
-        ).pack(side=tk.LEFT, padx=(6, 0))
+        )
+        self.rad_online.pack(side=tk.LEFT, padx=(6, 0))
 
         # Difficulty presets (quick apply)
         rp = tk.Frame(cfg, bg=BG_PANEL)
         rp.pack(fill=tk.X, pady=2)
-        tk.Label(rp, text="난이도:", bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9)).pack(side=tk.LEFT)
-        preset_box = ttk.Combobox(rp, textvariable=self.var_preset, values=list(DIFFICULTY_PRESETS.keys()), state="readonly", width=22)
-        preset_box.pack(side=tk.LEFT, fill=tk.X, expand=True)
-        preset_box.bind("<<ComboboxSelected>>", self._on_preset_selected)
+        self.lbl_preset = tk.Label(rp, text=self._t("lbl_preset"), bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9))
+        self.lbl_preset.pack(side=tk.LEFT)
+        self.preset_box = ttk.Combobox(
+            rp,
+            textvariable=self.var_preset,
+            values=[PRESET_LABELS[self.lang][k] for k, _ in DIFFICULTY_PRESETS_SPEC],
+            state="readonly",
+            width=22,
+        )
+        self.preset_box.pack(side=tk.LEFT, fill=tk.X, expand=True)
+        self.preset_box.bind("<<ComboboxSelected>>", self._on_preset_selected)
 
         # Board size + Opponent name + Threads
         r1 = tk.Frame(cfg, bg=BG_PANEL)
         r1.pack(fill=tk.X, pady=2)
-        tk.Label(r1, text="보드:", bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9)).pack(side=tk.LEFT)
+        self.lbl_board = tk.Label(r1, text=self._t("lbl_board"), bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9))
+        self.lbl_board.pack(side=tk.LEFT)
         for sz in ("7", "9", "11"):
             tk.Radiobutton(
                 r1, text=f"{sz}×{sz}", variable=self.var_board_size, value=sz,
                 bg=BG_PANEL, fg=FG_TEXT, selectcolor=BG_ROOT, activebackground=BG_PANEL, font=("Segoe UI", 9),
             ).pack(side=tk.LEFT)
-        tk.Label(r1, text="스레드:", bg=BG_PANEL, fg=FG_TEXT, font=("Segoe UI", 9)).pack(side=tk.LEFT, padx=(8, 2))
+        self.lbl_threads = tk.Label(r1, text=self._t("lbl_threads"), bg=BG_PANEL, fg=FG_TEXT, font=("Segoe UI", 9))
+        self.lbl_threads.pack(side=tk.LEFT, padx=(8, 2))
         tk.Entry(r1, textvariable=self.var_workers, bg=BG_CARD, fg=FG_TEXT, insertbackground=FG_TEXT, relief=tk.FLAT, width=4).pack(side=tk.LEFT)
 
         r1b = tk.Frame(cfg, bg=BG_PANEL)
         r1b.pack(fill=tk.X, pady=2)
-        tk.Label(r1b, text="상대명:", bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9)).pack(side=tk.LEFT)
+        self.lbl_opponent = tk.Label(r1b, text=self._t("lbl_opponent"), bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9))
+        self.lbl_opponent.pack(side=tk.LEFT)
         tk.Entry(r1b, textvariable=self.var_opponent, bg=BG_CARD, fg=FG_TEXT, insertbackground=FG_TEXT, relief=tk.FLAT).pack(side=tk.LEFT, fill=tk.X, expand=True)
 
         # AI Side
         r2 = tk.Frame(cfg, bg=BG_PANEL)
         r2.pack(fill=tk.X, pady=2)
-        tk.Label(r2, text="AI 진영:", bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9)).pack(side=tk.LEFT)
-        tk.Radiobutton(
-            r2, text="AI 선공(Red)", variable=self.var_side, value="first",
+        self.lbl_side = tk.Label(r2, text=self._t("lbl_side"), bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9))
+        self.lbl_side.pack(side=tk.LEFT)
+        self.rad_first = tk.Radiobutton(
+            r2, text=self._t("rad_first"), variable=self.var_side, value="first",
             bg=BG_PANEL, fg=ACCENT_RED_LIGHT, selectcolor=BG_ROOT, activebackground=BG_PANEL, font=("Segoe UI", 9),
-        ).pack(side=tk.LEFT)
-        tk.Radiobutton(
-            r2, text="AI 후공(Blue·내가 선공)", variable=self.var_side, value="second",
+        )
+        self.rad_first.pack(side=tk.LEFT)
+        self.rad_second = tk.Radiobutton(
+            r2, text=self._t("rad_second"), variable=self.var_side, value="second",
             bg=BG_PANEL, fg=ACCENT_BLUE_LIGHT, selectcolor=BG_ROOT, activebackground=BG_PANEL, font=("Segoe UI", 9),
-        ).pack(side=tk.LEFT, padx=(6, 0))
+        )
+        self.rad_second.pack(side=tk.LEFT, padx=(6, 0))
 
         # Custom clock
         r3 = tk.Frame(cfg, bg=BG_PANEL)
         r3.pack(fill=tk.X, pady=2)
-        tk.Radiobutton(
-            r3, text="V3 시계(초):", variable=self.var_clock_mode, value="v3",
+        self.rad_v3 = tk.Radiobutton(
+            r3, text=self._t("rad_v3"), variable=self.var_clock_mode, value="v3",
             bg=BG_PANEL, fg=FG_TEXT, selectcolor=BG_ROOT, activebackground=BG_PANEL, font=("Segoe UI", 9),
-        ).pack(side=tk.LEFT)
+        )
+        self.rad_v3.pack(side=tk.LEFT)
         tk.Entry(r3, textvariable=self.var_game_seconds, bg=BG_CARD, fg=FG_TEXT, insertbackground=FG_TEXT, relief=tk.FLAT, width=5).pack(side=tk.LEFT, padx=(2, 8))
-        tk.Radiobutton(
-            r3, text="수당 고정(초):", variable=self.var_clock_mode, value="fixed",
+        self.rad_fixed = tk.Radiobutton(
+            r3, text=self._t("rad_fixed"), variable=self.var_clock_mode, value="fixed",
             bg=BG_PANEL, fg=FG_TEXT, selectcolor=BG_ROOT, activebackground=BG_PANEL, font=("Segoe UI", 9),
-        ).pack(side=tk.LEFT)
+        )
+        self.rad_fixed.pack(side=tk.LEFT)
         tk.Entry(r3, textvariable=self.var_fixed_seconds, bg=BG_CARD, fg=FG_TEXT, insertbackground=FG_TEXT, relief=tk.FLAT, width=4).pack(side=tk.LEFT, padx=(2, 0))
 
         # Swap rule
         r4 = tk.Frame(cfg, bg=BG_PANEL)
         r4.pack(fill=tk.X, pady=2)
-        tk.Label(r4, text="Swap:", bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9)).pack(side=tk.LEFT)
-        tk.Radiobutton(
-            r4, text="돌 반전(pieces)", variable=self.var_swap_rule, value="swap_pieces",
+        self.lbl_swap = tk.Label(r4, text=self._t("lbl_swap"), bg=BG_PANEL, fg=FG_TEXT, width=6, anchor="w", font=("Segoe UI", 9))
+        self.lbl_swap.pack(side=tk.LEFT)
+        self.rad_pieces = tk.Radiobutton(
+            r4, text=self._t("rad_pieces"), variable=self.var_swap_rule, value="swap_pieces",
             bg=BG_PANEL, fg=FG_TEXT, selectcolor=BG_ROOT, activebackground=BG_PANEL, font=("Segoe UI", 9),
-        ).pack(side=tk.LEFT)
-        tk.Radiobutton(
-            r4, text="진영 교대(sides)", variable=self.var_swap_rule, value="swap_sides",
+        )
+        self.rad_pieces.pack(side=tk.LEFT)
+        self.rad_sides = tk.Radiobutton(
+            r4, text=self._t("rad_sides"), variable=self.var_swap_rule, value="swap_sides",
             bg=BG_PANEL, fg=FG_TEXT, selectcolor=BG_ROOT, activebackground=BG_PANEL, font=("Segoe UI", 9),
-        ).pack(side=tk.LEFT, padx=(4, 0))
+        )
+        self.rad_sides.pack(side=tk.LEFT, padx=(4, 0))
 
         self.btn_new = tk.Button(
-            cfg, text="새 대국 시작 (설정 적용)", command=self.start_new_game,
+            cfg, text=self._t("btn_new"), command=self.start_new_game,
             bg="#059669", fg=FG_TEXT, activebackground="#10b981", activeforeground=FG_TEXT,
             relief=tk.FLAT, font=("Segoe UI", 10, "bold"), pady=6,
         )
@@ -388,7 +740,8 @@ class HexBattleGUI:
         # --- Move History Log ---
         hist_frame = tk.Frame(right, bg=BG_PANEL)
         hist_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=(0, 8))
-        tk.Label(hist_frame, text="수순 기록", bg=BG_PANEL, fg=FG_MUTED, font=("Segoe UI", 9, "bold"), anchor="w").pack(fill=tk.X)
+        self.lbl_history = tk.Label(hist_frame, text=self._t("lbl_history"), bg=BG_PANEL, fg=FG_MUTED, font=("Segoe UI", 9, "bold"), anchor="w")
+        self.lbl_history.pack(fill=tk.X)
 
         self.hist_list = tk.Listbox(
             hist_frame, bg=BG_CARD, fg=FG_TEXT, selectbackground="#354966",
@@ -412,7 +765,12 @@ class HexBattleGUI:
                 self.var_opponent.set("MoHex 3")
 
     def _on_preset_selected(self, _event=None) -> None:
-        preset = DIFFICULTY_PRESETS.get(self.var_preset.get())
+        selected = self.var_preset.get()
+        for key, _ in DIFFICULTY_PRESETS_SPEC:
+            if selected in {PRESET_LABELS["en"][key], PRESET_LABELS["ko"][key]}:
+                self._preset_key = key
+                break
+        preset = DIFFICULTY_PRESETS.get(selected)
         if not preset:
             return
         self.var_clock_mode.set(preset["clock_mode"])
@@ -542,10 +900,11 @@ class HexBattleGUI:
         try:
             self.engine = NativeProcess(cmd)
         except Exception as err:
-            messagebox.showerror("엔진 실행 오류", f"hex_search 실행 실패:\n{err}\n먼저 'python -m hexai build'를 실행하세요.")
+            messagebox.showerror(self._t("err_title"), self._t("err_body", err=err))
             return
 
         self.history = []
+        self.last_ai_event = None
         self.ai_spent = 0.0
         self.ai_requests = 0
         self.saved_for_game = False
@@ -555,17 +914,7 @@ class HexBattleGUI:
         self.hist_list.delete(0, tk.END)
         self.progress["value"] = 0
         self._draw_winrate_bar(None)
-        self.lbl_winrate.configure(text="AI 예상 승률: -")
-        clock_desc = f"고정 {fixed_secs:.1f}s/수" if use_fixed else f"V3 시계 {game_secs:.0f}s 남음"
-        self.lbl_tel_detail.configure(text=f"Solver: -  |  {workers}스레드\n{clock_desc}")
-        is_human = self.var_mode.get() == "human"
-        self.lbl_ai_move.configure(text="새 대국 시작!", fg=ACCENT_GOLD)
-        if not self.ai_is_first:
-            self.lbl_think_status.configure(
-                text="당신 차례입니다! 원하는 빈 칸을 클릭하세요." if is_human else "상대 수를 보드에서 클릭하세요."
-            )
-        else:
-            self.lbl_think_status.configure(text="AI가 첫 수를 계산합니다...")
+        self._refresh_telemetry_labels()
 
         self._refresh_ui_state()
         self.redraw_board()
@@ -578,16 +927,18 @@ class HexBattleGUI:
         self.state = st
         self.ai_spent = sum(ev["response_seconds"] for ev in self.history if ev["actor"] == self.ai_label)
         self.ai_requests = sum(1 for ev in self.history if ev["actor"] == self.ai_label)
+        ai_evs = [ev for ev in self.history if ev["actor"] == self.ai_label]
+        self.last_ai_event = ai_evs[-1] if ai_evs else None
         self.hist_list.delete(0, tk.END)
         for ev in self.history:
             self._append_history_row(ev)
 
     def _append_history_row(self, ev: dict) -> None:
-        tag = "AI" if ev["actor"] == self.ai_label else ("나" if self.var_mode.get() == "human" else "상대")
+        tag = "AI" if ev["actor"] == self.ai_label else (self._t("tag_me") if self.var_mode.get() == "human" else self._t("tag_opp"))
         extra = ""
         if "winrate_pct" in ev:
             extra = f" | {ev['winrate_pct']:.1f}% ({ev['response_seconds']:.1f}s)"
-        self.hist_list.insert(tk.END, f"#{ev['turn']:2d} [{ev['colour']}] {tag:2s}: {ev['algebraic'].upper():4s}{extra}")
+        self.hist_list.insert(tk.END, f"#{ev['turn']:2d} [{ev['colour']}] {tag:3s}: {ev['algebraic'].upper():4s}{extra}")
         self.hist_list.see(tk.END)
 
     def _refresh_ui_state(self) -> None:
@@ -595,20 +946,20 @@ class HexBattleGUI:
             return
         red_p = self.state.players[Colour.RED]
         blue_p = self.state.players[Colour.BLUE]
-        orient_r = "좌↔우" if self.var_transpose.get() else "상↔하"
-        orient_b = "상↔하" if self.var_transpose.get() else "좌↔우"
+        orient_r = self._t("orient_lr") if self.var_transpose.get() else self._t("orient_tb")
+        orient_b = self._t("orient_tb") if self.var_transpose.get() else self._t("orient_lr")
         self.lbl_players.configure(
             text=f"  ● RED ({orient_r}): {red_p}    |    ● BLUE ({orient_b}): {blue_p}"
         )
 
         if self.state.winner is not None:
-            self.lbl_turn_banner.configure(text=f"대국 종료 ({len(self.history)}수)", fg=ACCENT_GREEN)
+            self.lbl_turn_banner.configure(text=self._t("game_over", n=len(self.history)), fg=ACCENT_GREEN)
             if self.var_mode.get() == "human":
-                win_msg = "축하합니다! 승리했습니다!" if self.state.winner != self.ai_label else "AI (Hex-Search v1.2) 승리!"
+                win_msg = self._t("human_win") if self.state.winner != self.ai_label else self._t("ai_win")
             else:
-                win_msg = f"승자: {self.state.winner}"
+                win_msg = self._t("winner_fmt", w=self.state.winner)
             self.lbl_ai_move.configure(text=win_msg, fg=ACCENT_GREEN)
-            self.lbl_think_status.configure(text="황금 연결 경로가 표시되었습니다. 기보 자동 저장 완료.")
+            self.lbl_think_status.configure(text=self._t("win_chain_note"))
             self.btn_swap.configure(state=tk.DISABLED)
             self.btn_undo.configure(state=tk.NORMAL)
             if not self.saved_for_game:
@@ -620,7 +971,7 @@ class HexBattleGUI:
         col_name = "RED" if self.state.colour == Colour.RED else "BLUE"
         is_ai_turn = actor == self.ai_label
         self.lbl_turn_banner.configure(
-            text=f"Turn {self.state.turn}  •  차례: {actor} ({col_name})",
+            text=self._t("turn_fmt", t=self.state.turn, actor=actor, col=col_name),
             fg=ACCENT_RED_LIGHT if self.state.colour == Colour.RED else ACCENT_BLUE_LIGHT,
         )
         can_swap = (not self.thinking) and (not is_ai_turn) and (self.state.turn == 2) and (int(self.args.swap) == 1)
@@ -655,8 +1006,8 @@ class HexBattleGUI:
         timeout = max(30.0, float(alloc["timeout_seconds"]) + 10.0)
         self.think_start = time.perf_counter()
         self.progress["value"] = 0
-        self.lbl_ai_move.configure(text="AI 생각 중...", fg=ACCENT_GOLD)
-        self.lbl_think_status.configure(text=f"목표 시간: {self.think_alloc:.1f}s ({self.workers}스레드)")
+        self.lbl_ai_move.configure(text=self._t("ai_thinking"), fg=ACCENT_GOLD)
+        self.lbl_think_status.configure(text=self._t("target_time", sec=self.think_alloc, w=self.workers))
         self._refresh_ui_state()
         self._tick_thinking(token)
 
@@ -695,7 +1046,7 @@ class HexBattleGUI:
         el = time.perf_counter() - self.think_start
         pct = min(98.0, (el / max(0.2, self.think_alloc)) * 100.0)
         self.progress["value"] = pct
-        self.lbl_think_status.configure(text=f"탐색 중... {el:.1f}s / {self.think_alloc:.1f}s ({self.workers}스레드)")
+        self.lbl_think_status.configure(text=self._t("searching", el=el, alloc=self.think_alloc, w=self.workers))
         self.root.after(50, lambda: self._tick_thinking(token))
 
     def _on_ai_result(
@@ -712,8 +1063,8 @@ class HexBattleGUI:
         self.progress["value"] = 100
 
         if error or move is None:
-            self.lbl_ai_move.configure(text="엔진 오류", fg=ACCENT_RED_LIGHT)
-            self.lbl_think_status.configure(text=error or "알 수 없는 오류")
+            self.lbl_ai_move.configure(text=self._t("engine_err"), fg=ACCENT_RED_LIGHT)
+            self.lbl_think_status.configure(text=error or self._t("unknown_err"))
             self._refresh_ui_state()
             return
 
@@ -726,8 +1077,15 @@ class HexBattleGUI:
         iters = int(tel.get("iterations", 0))
         cv = int(tel.get("chosen_visits", 0))
         cw = int(tel.get("chosen_wins", 0))
-        wr = (100.0 * cw / cv) if cv > 0 else 50.0
         solver_st = str(tel.get("solver_status", "none"))
+        if cv > 0:
+            wr = 100.0 * cw / cv
+        elif "win" in solver_st.lower():
+            wr = 100.0
+        elif "loss" in solver_st.lower():
+            wr = 0.0
+        else:
+            wr = 50.0
         reused_v = int(tel.get("reused_visits", 0))
         alg = format_algebraic(move)
 
@@ -745,38 +1103,14 @@ class HexBattleGUI:
             "reason": str(tel.get("reason", "")),
         }
         self.history.append(ev)
+        self.last_ai_event = ev
         self._append_history_row(ev)
 
-        if move == (-1, -1):
-            if self.swap_rule == "swap_pieces" and self.state.swapped_stone is not None:
-                dest = format_algebraic(self.state.swapped_stone).upper()
-                self.lbl_ai_move.configure(text=f"AI 선택: SWAP → {dest} (Blue)", fg=ACCENT_GOLD)
-            else:
-                self.lbl_ai_move.configure(text="AI 선택: SWAP (스왑!)", fg=ACCENT_GOLD)
-        else:
-            prefix = "AI 착수:" if self.var_mode.get() == "human" else "AI 추천 수:"
-            self.lbl_ai_move.configure(text=f"{prefix} {alg.upper()}  ({move[0]}, {move[1]})", fg=ACCENT_GOLD)
-
-        wait_msg = "당신 차례입니다! 빈 칸을 클릭하세요." if self.var_mode.get() == "human" else "온라인 보드에 둔 뒤 상대 수를 클릭하세요."
-        self.lbl_think_status.configure(text=f"{elapsed:.2f}초 소요 · {wait_msg}")
-        self.lbl_winrate.configure(text=f"AI 예상 승률: {wr:.1f}%")
-        self._draw_winrate_bar(wr)
-
-        rem = max(0.0, self.game_seconds - self.ai_spent)
-        clock_str = f"누적 {self.ai_spent:.1f}s (고정 모드)" if self.use_fixed_seconds else f"시계: {rem:.1f}s / {self.game_seconds:.0f}s 남음"
-        solver_badge = solver_st.upper() if solver_st != "none" else "normal"
-        self.lbl_tel_detail.configure(
-            text=f"Solver: {solver_badge}  |  {iters:,} (+{reused_v:,} 재사용)\n{clock_str}"
-        )
-
-        self._refresh_ui_state()
-        self.redraw_board()
         if self.state.winner is None and self.var_ponder.get():
             self._start_ponder()
-            if self.pondering:
-                self.lbl_think_status.configure(
-                    text=f"{elapsed:.2f}초 소요 · {wait_msg} (Pondering 가동 중)"
-                )
+        self._refresh_telemetry_labels()
+        self._refresh_ui_state()
+        self.redraw_board()
 
     # ------------------------------------------------------------------
     # User Mouse / Button Events
@@ -829,7 +1163,7 @@ class HexBattleGUI:
         try:
             self.state.play(mv)
         except ValueError as err:
-            messagebox.showwarning("불가능한 수", str(err))
+            messagebox.showwarning(self._t("illegal_title"), str(err))
             return
         ev = {
             "turn": len(self.history) + 1,
@@ -858,8 +1192,8 @@ class HexBattleGUI:
         self.saved_for_game = False
         self._rebuild_state()
         self.hover_cell = None
-        self.lbl_ai_move.configure(text="되돌리기 완료", fg=FG_TEXT)
-        self.lbl_think_status.configure(text="다시 수를 클릭하거나 AI가 탐색합니다.")
+        self.lbl_ai_move.configure(text=self._t("undo_done"), fg=FG_TEXT)
+        self.lbl_think_status.configure(text=self._t("undo_note"))
         self._refresh_ui_state()
         self.redraw_board()
         self._maybe_trigger_ai()
@@ -867,7 +1201,7 @@ class HexBattleGUI:
     def _on_manual_save(self) -> None:
         paths = self._save_record(silent=False)
         if paths:
-            messagebox.showinfo("기보 저장 완료", f"저장 위치:\n{paths[0]}\n{paths[1]}")
+            messagebox.showinfo(self._t("save_title"), self._t("save_body", p0=paths[0], p1=paths[1]))
 
     def _save_record(self, silent: bool = True) -> tuple[Path, Path] | None:
         if self.state is None:
@@ -904,7 +1238,7 @@ class HexBattleGUI:
             encoding="utf-8",
         )
         if not silent:
-            self.lbl_think_status.configure(text=f"저장됨: {sgf_path.name}")
+            self.lbl_think_status.configure(text=self._t("saved_note", name=sgf_path.name))
         return (json_path, sgf_path)
 
     def _on_close(self) -> None:

@@ -88,18 +88,21 @@ MoHex 3 선공 재도전(66수 패)에서는 `f9` 오프닝으로 19수 승률 <
 
 Python 3.10+와 C++17 컴파일러(`g++`, `clang++`, 또는 `zig c++`)만 있으면 `pip install` 없이 `v1.2` AI와 바로 클릭하며 대결할 수 있습니다.
 
+![Hex Search v1.2 로컬 클릭형 GUI 실행 화면 (한국어)](assets/ko/hex-demo-gui.png)
+
 ```bash
 # 1. C++17 엔진 빌드 및 26개 자체 검증(--self-test) 자동 실행
 python -m hexai build
 
-# 2. 사람 vs AI 클릭형 GUI 보드 실행 (난이도 프리셋 + 사용자 커스텀 설정 지원)
-python -m hexai play
+# 2. 사람 vs AI 클릭형 GUI 보드 실행 (상단 EN / 한국어 실시간 전환 또는 --lang ko 지원)
+python -m hexai play --lang ko
 
 # 3. 표준 Hex GTP 연동 (HexGui / Benzene / twogtp 호환)
 ./.local/bin/hex_search --gtp --workers 12 --game-seconds 300
 ```
 
 **GUI 지원 설정:**
+- **한·영 실시간 전환 (`EN / 한국어`)**: 상단 바 버튼으로 대국 도중에도 영어·한국어 UI를 즉시 전환하거나 `--lang en|ko`로 시작
 - **원클릭 모드 전환**: `사람 vs AI`(직접 대결) ↔ `온라인 봇 어시스턴트`(Davis·MoHex 등 외부 봇 대국 브리지)
 - **난이도 프리셋 4종**: `입문` (`0.5초/수`, 2스레드) · `중급` (`2초/수`, 4스레드) · `강함` (`5초/수`, 8스레드, Pondering) · **`최강`** (`300초 V3 시계`, 12스레드, Pondering, MoHex 3 격파 풀스펙)
 - **사용자 커스터마이징**: 보드 크기(`7×7 / 9×9 / 11×11`), 선공/후공 선택, 수당 고정 시간 / 전체 V3 시계, 스레드 수, Swap 규칙(`swap-pieces` / `swap-sides`), Pondering ON/OFF, Undo, SGF/JSON 자동 저장, 종료 시 **황금 승리 연결 경로 자동 하이라이트**

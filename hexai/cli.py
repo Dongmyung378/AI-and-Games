@@ -258,6 +258,7 @@ def main(argv=None):
         p.add_argument("--swap", type=int, choices=[0, 1], default=1)
         p.add_argument("--swap-rule", choices=["swap_pieces", "swap_sides"], default="swap_pieces")
         p.add_argument("--seed", type=int, default=378)
+        p.add_argument("--lang", choices=["en", "ko"], default="en", help="Initial GUI language (en or ko).")
         p.add_argument("--save-dir", type=Path, default=Path("reports/online_battles"))
 
     player = subs.add_parser("play", help="Play directly against Hex-Search v1.2 in a customizable visual GUI.")

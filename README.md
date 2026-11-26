@@ -88,11 +88,13 @@ In the **MoHex 3 1st-player rematch (66-move loss)**, `f9` propelled `v1.1` to a
 
 Anyone with Python 3.10+ and a C++17 compiler (`g++`, `clang++`, or `zig c++`) can build the engine and play directly against `v1.2` with zero `pip install` dependencies:
 
+![Hex Search v1.2 Live Local GUI (English)](assets/hex-demo-gui.png)
+
 ```bash
 # 1. Build the C++17 binary and run all 26 built-in formal self-tests
 python -m hexai build
 
-# 2. Launch the clickable Human vs AI GUI (with presets & custom settings)
+# 2. Launch the clickable Human vs AI GUI (English default, instant EN / 한국어 toggle, or --lang ko)
 python -m hexai play
 
 # 3. Standard Hex GTP mode (compatible with HexGui, Benzene, and twogtp)
@@ -100,6 +102,7 @@ python -m hexai play
 ```
 
 **User-Configurable GUI Features:**
+- **Bilingual Live Toggle (`EN / 한국어`)**: Switch interface language on the fly from the top bar or launch directly via `--lang en|ko`
 - **One-Click Mode Switch**: `Human vs AI` ↔ `Online Bot Assistant` (bridge mode used to play Davis 7/10 and MoHex 3)
 - **4 Difficulty Presets**: `Beginner` (`0.5s/move`, 2 threads) · `Intermediate` (`2s/move`, 4 threads) · `Strong` (`5s/move`, 8 threads, Pondering) · **`Grandmaster`** (`300s adaptive V3 clock`, 12 threads, Pondering, full MoHex 3 match spec)
 - **Full Custom Controls**: Board size (`7×7 / 9×9 / 11×11`), play as 1st (Red) or 2nd (Blue), fixed seconds/move or total adaptive V3 clock, worker threads, pie rule (`swap-pieces` / `swap-sides`), Pondering ON/OFF, Undo, SGF/JSON export, and automatic **gold winning chain highlight**
